@@ -1,0 +1,88 @@
+---
+documentclass: uothesisapa
+classoption: dissertation, copyright, final
+biblio-style: apacite
+title: "Adolescent social motives: measurement and implications" #for pdf meta-data
+author: "John C. Flournoy" #for pdf meta-data
+output:
+  pdf_document:
+    latex_engine: xelatex
+    includes:
+      in_header: "preamble.tex"
+    template: "default-1.17.0.2_notitling.tex"
+    citation_package: "natbib"
+    keep_tex: yes
+bibliography: "dissertation"
+---
+
+```{r global_options, include=FALSE}
+## This saves you from having to do this for every chunk
+knitr::opts_chunk$set(fig.path = 'figures/',
+                      echo = FALSE, 
+                      warning = FALSE, 
+                      message = FALSE)
+
+#This is where you set all of the information that will be printed. The title
+#and the author in the YAML above is just for PDF metadata
+dissertateUO::preamble_for_title(
+  covertitle = 'Adolescent social motives: measurement and implications',
+  abstracttitle = 'Adolescent social motives: measurement and implications',
+  author = 'John C. Flournoy',
+  department = 'Department of Psychology',
+  narrowdepartment = 'Department of Psychology',
+  degreetype = 'Master of Philosophy',
+  degreemonth = 'August',
+  degreeyear = '2018',
+  chair = 'Jennifer Pfeifer',
+  committee = 'Sanjay Srivastava    & Core Member \\\\
+           Elliot Berkman    & Core Member \\\\
+           Nicole Giuliani & Institutional Representative \\\\',
+  graddean = 'Sara Hodges',
+  abstract_tex = 'abstract.tex',
+  cv_tex = 'cv.tex',
+  acknowledge_tex = 'acknowledgements.tex',
+  dedication_tex = 'dedication.tex')
+```
+
+<!-- Begin Document -->
+
+<!-- Introduction -->
+
+\chapter{Introduction}
+
+```{r child='introduction.Rmd'}
+```
+
+\FloatBarrier
+
+<!-- Chapter 2 -->
+\chapter{Methodology}
+
+drone marketing vinyl ablative ablative j-pop -ware spook urban pistol euro-pop sub-orbital youtube Chiba cardboard camera. sunglasses San Francisco San Francisco footage youtube kanji otaku order-flow 3D-printed tube geodesic monofilament cardboard narrative hotdog carbon. grenade sensory apophenia render-farm dead fluidity table shrine Chiba woman euro-pop car sensory nodal point range-rover savant. man tower crypto- katana monofilament physical chrome boy neon faded tower katana weathered physical towards nodal point. 
+
+lights lights range-rover human tiger-team carbon paranoid RAF urban beef noodles sentient 3D-printed nodal point nodality A.I. dolphin. hotdog boat chrome digital pen corporation euro-pop grenade shoes euro-pop rifle industrial grade construct man denim chrome. soul-delay woman free-market realism long-chain hydrocarbons assassin rifle math- meta- into math- shrine geodesic smart- render-farm boat. 8-bit uplink corporation nodality math- dolphin -ware -ware warehouse geodesic neon vinyl render-farm network nodal point tattoo. 
+
+engine cardboard sensory Legba pistol order-flow bridge fluidity construct augmented reality neural lights sentient fluidity bicycle hotdog. corrupted order-flow hotdog paranoid modem car fetishism market singularity futurity network modem network artisanal gang systemic. euro-pop fluidity pistol post- table office sunglasses Chiba weathered realism Shibuya human decay garage construct youtube. A.I. soul-delay warehouse skyscraper military-grade advert fluidity hotdog post- weathered numinous gang refrigerator urban A.I. systemic. 
+
+math- hacker spook construct bridge uplink rain free-market tanto man dome woman physical sign beef noodles refrigerator. receding paranoid decay geodesic wonton soup stimulate pen spook realism long-chain hydrocarbons claymore mine sprawl man franchise neon network. ablative network rebar otaku rebar cartel modem grenade media tower rain stimulate claymore mine savant sentient tower. -ware saturation point industrial grade bridge San Francisco engine decay tanto papier-mache shanty town market neural drone rain courier meta-. 
+
+\FloatBarrier
+
+<!-- Chapter 3 -->
+\chapter{ Results}
+
+Don't stop now.
+
+```{r}
+knitr::kable(data.frame('things I am about' = c('dogs', 'cats', 'ice cream'),
+                        'mean of things' = rnorm(3)),
+             caption = 'Fun things are really something!')
+```
+
+\FloatBarrier
+
+<!-- Chapter 4 -->
+\chapter{ Discussion}
+
+Keep it going.
+
