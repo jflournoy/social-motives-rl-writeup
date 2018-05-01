@@ -117,6 +117,7 @@ Correspondence between informant perceptions of individual differences in motive
 If motives are evolved responses to challenges arising from specific social relations, then actors in those relationship roles should be in the ideal position to both perceive and express those motives.
 Differences in consensus by relationship type will help corroborate the FSM approach to the structure of motivation.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2Nzk2ODkzNiwtMTMxMzA1Nzg2NCwtMT
-Q0NDA2NDExXX0=
+eyJwcm9wZXJ0aWVzIjoiZXh0ZW5zaW9uczpcbiAgcHJlc2V0Oi
+BnZm1cbiIsImhpc3RvcnkiOlsxNzEyODg5MjA5LDE1Njc5Njg5
+MzYsLTEzMTMwNTc4NjQsLTE0NDQwNjQxMV19
 -->
