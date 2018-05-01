@@ -1,7 +1,8 @@
 ---
 documentclass: uothesisapa
 classoption: dissertation, copyright, final
-biblio-style: apacite
+biblatex-load-options: "backend=biber,style=apa,useprefix=false,sorting=nyt"
+biblatex-print-options: "title=REFERENCES CITED,heading=bibintoc"
 title: "Adolescent social motives: measurement and implications" #for pdf meta-data
 author: "John C. Flournoy" #for pdf meta-data
 output:
@@ -10,9 +11,9 @@ output:
     includes:
       in_header: "preamble.tex"
     template: "default-1.17.0.2_notitling.tex"
-    citation_package: "natbib"
+    citation_package: "biblatex"
     keep_tex: yes
-bibliography: "dissertation"
+bibliography: "dissertation.bib"
 ---
 
 ```{r global_options, include=FALSE}
@@ -86,3 +87,4 @@ knitr::kable(data.frame('things I am about' = c('dogs', 'cats', 'ice cream'),
 
 Keep it going.
 
+ 

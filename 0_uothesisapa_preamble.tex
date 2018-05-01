@@ -28,7 +28,7 @@
 \usepackage{etex} % Loaded because when loading adjustbox below, I was getting an error, "! No room for a new \dimen ." http://tex.stackexchange.com/a/38609/56363 recommends loading etex to increase the number of packages that latex will allow itself to load.
 \usepackage[export]{adjustbox}
 
-\usepackage[english]{babel}
+\usepackage[american]{babel}
 % \usepackage{mathtools}
 \usepackage{dcolumn,booktabs,longtable} %,subfig
 \usepackage[singlelinecheck=false]{caption} 
@@ -89,3 +89,29 @@
 \setmainfont[Numbers=OldStyle, Contextuals=Alternate, Ligatures={Common}]{EB Garamond}
 \setsansfont[Scale=MatchLowercase, BoldFont={Lato Bold}]{Lato Regular}
 \setmonofont[Scale=MatchLowercase]{Source Code Pro}
+
+
+\AtEveryBibitem{\clearfield{month}}
+\AtEveryBibitem{\clearfield{day}}
+\AtEveryBibitem{\clearfield{note}}
+\AtEveryBibitem{\clearfield{urldate}}
+% \AtEveryBibitem{%
+%   \ifentrytype{book}{%
+%   }{%
+%     \clearfield{url}%
+%   }%
+% }
+% \AtEveryBibitem{%
+%   \ifentrytype{article}{%
+%   }{%
+%     \clearfield{url}%
+%   }%
+% }
+
+\DeclareLanguageMapping{american}{american-apa}
+\renewbibmacro*{begentry}{\midsentence}
+
+\makeatletter
+\AtBeginDocument{\toggletrue{blx@useprefix}}
+\makeatother
+\setlength\bibitemsep{0.5\baselineskip}

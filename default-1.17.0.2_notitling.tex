@@ -97,7 +97,7 @@ $if(natbib)$
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
 $endif$
 $if(biblatex)$
-\usepackage$if(biblio-style)$[style=$biblio-style$]$endif${biblatex}
+\usepackage[$biblatex-load-options$]{biblatex}
 $if(biblatexoptions)$\ExecuteBibliographyOptions{$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$}$endif$
 $for(bibliography)$
 \addbibresource{$bibliography$}
@@ -279,7 +279,8 @@ $endif$
 $endif$
 $endif$
 $if(biblatex)$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+\singlespacing
+\printbibliography[$biblatex-print-options$]
 
 $endif$
 $for(include-after)$

@@ -130,9 +130,9 @@
 \iflipsum
 \RequirePackage{lipsum}
 \fi
-\ifapacite
-\RequirePackage[natbibapa]{apacite}
-\fi
+% \ifapacite
+% \RequirePackage[natbibapa]{apacite}
+% \fi
 
 \ifdraft
 \RequirePackage{draftwatermark}
