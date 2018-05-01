@@ -51,3 +51,6 @@ Motivations have been under-studied in efforts to understand changes in behavior
 *Aim 3a: Do close others perceive individual differences in motives that are reflected in motivational learning potentiation?* The importance of accurate interpersonal perception of status and mate-seeking motives may be exploited as a way to assess the construct validity of the learning paradigm, and also adds to literature on the validity of the FSM approach. Correspondence between informant perceptions of individual differences in motive strength, and motive strength as elicited on the reinforcement learning task would support the external validity of this measure of motives. 
 
 *Aim 3b: Is there agreement between close others and the self in perceptions of fundamental social motives?* Reports from informants with varying relationships to the target participant will allow exploration of the predicted importance of relationships to the motivations investigated here. If motives are evolved responses to challenges arising from specific social relations, then actors in those relationship roles should be in the ideal position to both perceive and express those motives. Differences in consensus by relationship type will help corroborate the FSM approach to the structure of motivation.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE0NDQwNjQxMV19
+-->
