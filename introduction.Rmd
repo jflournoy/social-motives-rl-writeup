@@ -1,5 +1,7 @@
 ---
 output: pdf_document
+bibliography: "/home/jflournoy/code_new/social-motives-rl-writeup/dissertation.bib" #remove before compile main doc
+csl: "/home/jflournoy/Rlibs/probly/bib/apa-old-doi-prefix.csl"
 ---
 
 An extensive body of literature describes dramatic changes in the rates of health risking behaviors (HRBs) during adolescence [e.g., binge drinking, risky sexual behavior; @centersfordiseasecontrolandprevention2003;@chassin2009;@patrick2011;@stevenson2007;@willoughby2013].

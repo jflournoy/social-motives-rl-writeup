@@ -1,6 +1,6 @@
 ---
 documentclass: uothesisapa
-classoption: dissertation, copyright, final
+classoption: dissertation, copyright, draftcopy
 biblatex-load-options: "backend=biber,style=apa,useprefix=false,sorting=nyt"
 biblatex-print-options: "title=REFERENCES CITED,heading=bibintoc"
 title: "Adolescent social motives: measurement and implications" #for pdf meta-data
@@ -59,13 +59,8 @@ dissertateUO::preamble_for_title(
 <!-- Chapter 2 -->
 \chapter{Methodology}
 
-drone marketing vinyl ablative ablative j-pop -ware spook urban pistol euro-pop sub-orbital youtube Chiba cardboard camera. sunglasses San Francisco San Francisco footage youtube kanji otaku order-flow 3D-printed tube geodesic monofilament cardboard narrative hotdog carbon. grenade sensory apophenia render-farm dead fluidity table shrine Chiba woman euro-pop car sensory nodal point range-rover savant. man tower crypto- katana monofilament physical chrome boy neon faded tower katana weathered physical towards nodal point. 
-
-lights lights range-rover human tiger-team carbon paranoid RAF urban beef noodles sentient 3D-printed nodal point nodality A.I. dolphin. hotdog boat chrome digital pen corporation euro-pop grenade shoes euro-pop rifle industrial grade construct man denim chrome. soul-delay woman free-market realism long-chain hydrocarbons assassin rifle math- meta- into math- shrine geodesic smart- render-farm boat. 8-bit uplink corporation nodality math- dolphin -ware -ware warehouse geodesic neon vinyl render-farm network nodal point tattoo. 
-
-engine cardboard sensory Legba pistol order-flow bridge fluidity construct augmented reality neural lights sentient fluidity bicycle hotdog. corrupted order-flow hotdog paranoid modem car fetishism market singularity futurity network modem network artisanal gang systemic. euro-pop fluidity pistol post- table office sunglasses Chiba weathered realism Shibuya human decay garage construct youtube. A.I. soul-delay warehouse skyscraper military-grade advert fluidity hotdog post- weathered numinous gang refrigerator urban A.I. systemic. 
-
-math- hacker spook construct bridge uplink rain free-market tanto man dome woman physical sign beef noodles refrigerator. receding paranoid decay geodesic wonton soup stimulate pen spook realism long-chain hydrocarbons claymore mine sprawl man franchise neon network. ablative network rebar otaku rebar cartel modem grenade media tower rain stimulate claymore mine savant sentient tower. -ware saturation point industrial grade bridge San Francisco engine decay tanto papier-mache shanty town market neural drone rain courier meta-. 
+```{r child='ch02_descriptives.Rmd'}
+```
 
 \FloatBarrier
 
