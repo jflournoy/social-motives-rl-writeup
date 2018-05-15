@@ -65,14 +65,9 @@ dissertateUO::preamble_for_title(
 \FloatBarrier
 
 <!-- Chapter 3 -->
-\chapter{ Results}
+\chapter{Effect of motive frame on reinforcement learning}
 
-Don't stop now.
-
-```{r}
-knitr::kable(data.frame('things I am about' = c('dogs', 'cats', 'ice cream'),
-                        'mean of things' = rnorm(3)),
-             caption = 'Fun things are really something!')
+```{r child='ch03_aim1a.Rmd'}
 ```
 
 \FloatBarrier
@@ -80,6 +75,6 @@ knitr::kable(data.frame('things I am about' = c('dogs', 'cats', 'ice cream'),
 <!-- Chapter 4 -->
 \chapter{ Discussion}
 
-Keep it going.
+
 
  

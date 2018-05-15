@@ -1,6 +1,7 @@
 ---
 header-includes:
   - \usepackage[para,online,flushleft]{threeparttable}
+  - \usepackage{wrapfig}
 output: 
   pdf_document:
     keep_tex: yes
@@ -26,19 +27,8 @@ ethnicity_labels <- c(
 )
 ethnicity_abbreviation_note <- paste0(paste(paste0(ethnicity_labels, ': ', names(ethnicity_labels)), collapse = '; '), '.')
 
-sample_abbreviation_note <- 'FC: foster-care-involved adolescents; Comm: community adolescents; CS: college students; CS-O: college students, online.'
+sample_abbreviation_note <- 'FCA: foster-care-involved adolescents; CA: community adolescents; CSYA: college students; CSYA-O: college students, online.'
 ```
-
-# Participants
-
-Data from four samples are used in this analysis. 
-The first two samples comprise foster-care-involved and community adolescents who were recruited from the greater Eugene/Springfield area for an ongoing longitudinal study investigating decision-making related to health-risking behavior (NIH grant number:). 
-The third and forth samples consisted of college students who completed the study for course credit either in person, or online. 
-Some participants in each sample did not provide data on all focal measures (see Table \ref{tab:missingstats}), and so sample sizes for each analysis will differ to some extent.
-Examining the table, it is clear that the proportion of missing data is small.
-
-The full sample consists of `r sum(!is.na(splt_dev_and_demog_task_sum$SID))` participants (`r sum(splt_dev_and_demog_task_sum$gender_num==1, na.rm=T)` male) with ages between `r round(min(splt_dev_and_demog_task_sum$age, na.rm = T), 1)` and `r round(max(splt_dev_and_demog_task_sum$age, na.rm = T), 1)` years (see Table \ref{tab:samplestats} for full details). 
-The majority of participants in all samples identified as white, though in the both college samples this majority did not exceed 60% (Table \ref{tab:ethnicitytable}).
 
 ```{r maketables}
 library(tables)
@@ -54,7 +44,7 @@ splt_dev_and_demog_task_sum$sample <-
                       "Community adolescents", 
                       "College students", 
                       "College students - online"), 
-           labels = c('FC', 'Comm', 'CS', 'CS-O'))
+           labels = c('FCA', 'CA', 'CSYA', 'CSYA-O'))
 
 sample_table <- tables::tabular(
     (Sample=sample) ~ 
@@ -89,20 +79,15 @@ ethnicity_table <- tables::tabular(
     data = splt_dev_and_demog_task_sum)
 ```
 
-\begin{table}
-\centering
-\begin{threeparttable}
-\caption{Missing data from each sample for age, PDS, and gender} \label{tab:missingstats}
-\small
-```{r missingstats, results='asis'}
-ptab(missing_table)
-```
-\begin{tablenotes}
-\footnotesize
-\item `r sample_abbreviation_note` PDS: Pubertal development scale.
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
+# Overview of participants
+
+Data from four samples are used in this analysis. 
+The first two samples comprise foster-care-involved adolscents (FCA) and community adolescents (CA) who were recruited from the greater Eugene/Springfield area for an ongoing longitudinal study investigating decision-making related to health-risking behavior (funded by NIDA, P50 DA035763). 
+The third and forth samples consisted of college student young adults who completed the study for course credit either in person (CSYA sample), or online (CSYA-O sample). 
+The full sample consists of `r sum(!is.na(splt_dev_and_demog_task_sum$SID))` participants (`r sum(splt_dev_and_demog_task_sum$gender_num==1, na.rm=T)` male) with ages between `r round(min(splt_dev_and_demog_task_sum$age, na.rm = T), 1)` and `r round(max(splt_dev_and_demog_task_sum$age, na.rm = T), 1)` years (see Table \ref{tab:samplestats} for full details). 
+The majority of participants in all samples identified as white, though in the both college samples this majority did not exceed 60% (Table \ref{tab:ethnicitytable}).
+Some participants in each sample did not provide data on all focal measures (see Table \ref{tab:missingstats}), and so sample sizes for each analysis will differ to some extent.
+Examining the table, it is clear that the proportion of missing data is small.
 
 \begin{table}
 \centering
@@ -134,6 +119,40 @@ ptab(ethnicity_table)
 \end{threeparttable}
 \end{table}
 
+\begin{table}
+\centering
+\begin{threeparttable}
+\caption{Missing data from each sample for age, PDS, and gender} \label{tab:missingstats}
+\small
+```{r missingstats, results='asis'}
+ptab(missing_table)
+```
+\begin{tablenotes}
+\footnotesize
+\item `r sample_abbreviation_note` PDS: Pubertal development scale.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+## Adolescent sample
+
+The CA sample was recruited through Craigslist, flyers, classroom presentations, class field trips to the University of Oregon, and word of mouth.
+Foster-care involved youth were recruited in collaboration with Oregon Department of Human Services case-workers.
+For the parent study, the target sample size for each subsample was 80 participants based on power-analyses for the primary fMRI measure at wave 1.
+The primary measures of interest for the purposes of this dissertation was collected at wave 2, approximately 18 months after wave 1.
+Inclusion criteria include age at wave 1 of between 11.0-17.9 years and English fluency.
+Exclusion criteria included diagnosed psychiatric, conduct, or developmental disabilities, and MRI contraindications.
+Although describing differences between adolescents with and without a history of childhood adversity is not an aim of this dissertation, combining across the two samples is intended to improve power and provide increased variability on measures of motives as well as attitudes and outcomes.
+Nesting of participants within sample is encoded in hierarchical linear models as appropriate.
+
+## Young adult sample
+
+The CSYA and CSYA-O samples comprise late adolescents and emerging adults age 18-25 years recruited from the UO human subjects pool using the web-based SONA scheduling system. 
+Students sign up for time slots most convenient to them without knowing study details beyond inclusion and exclusion criteria. 
+There are no exclusion criteria for this sample. 
+The target sample size for this sample was 160 for $>90\%$ power to detect a small ($\beta_{\text{std on y}} = 0.1$) interaction between motive condition, and a continuous covariate such as the self-report fundamental social motives scale (described below), assuming an intraclass-correlation $> .25$. 
+As descibed under the relevant aims, in a linear model, the parameter that captures the degree to which differnces in learning between conditions correlate with differences in self-report motives, or age, will be a coefficient on an interaction term.
+
 ## Pubertal Development
 
 To assess pubertal development, all participants completed the Pubertal Development Scale [PDS; @petersen1988], with the mean of five items used to indicate progress through puberty (range [1,4]).
@@ -143,6 +162,7 @@ Notably (though also unsurprisingly), females in the the adolescent samples repo
 Most participants in the college smaples have PDS scores indicating puberty is completed, or nearly completed (Figure \ref{fig:pdsplot}B).
 
 ```{r pdsplot, fig.width=8, fig.height=5, fig.cap='\\label{fig:pdsplot}Pubertal development by sample and age'}
+pds_plot_12$widths <- c(4, 3)
 gridExtra::grid.arrange(pds_plot_12)
 ```
 
@@ -162,11 +182,12 @@ Each face is probabilistically associated with one label with P(Correct | Choice
 That is, there is a probabilistically optimal choice response, which precludes a memorization strategy and results in more automatic reinforcement learning [@knowlton1996].
 The participant is instructed that "the same word goes with the same picture most of the time, but not always," and to "try to guess correctly as often as you can to get the most points."
 
-
-```{r trialexample, dpi=300, fig.cap='\\label{fig:trialexample}Example of a trial on the SPLT'}
-knitr::include_graphics("figures/trial_example.png")
-```
-
+\begin{wrapfigure}{r}{0.5\textwidth}
+\centering
+\includegraphics{figures/trial_example} 
+\caption{Example of a trial on the SPLT}
+\label{trialexample}
+\end{wrapfigure}
 
 To ensure engagement with the stimulus faces, 3 unambiguously male and 3 unambiguously female faces were drawn from a set of faces evaluated by @todorov2008.
 Target faces were drawn from a subset of those highest in likeability and attractiveness ratings, and were selected to have roughly equal euclidean distance from one another on the other dimensions on which they had been rated (e.g., trustworthiness).

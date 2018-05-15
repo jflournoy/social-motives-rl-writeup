@@ -1,0 +1,39 @@
+---
+header-includes:
+  - \usepackage[para,online,flushleft]{threeparttable}
+  - \usepackage{wrapfig}
+output: 
+  pdf_document:
+    keep_tex: yes
+bibliography: "/home/jflournoy/code_new/social-motives-rl-writeup/dissertation.bib"
+csl: "/home/jflournoy/Rlibs/probly/bib/apa-old-doi-prefix.csl"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, warning = F, error = F, message = F)
+library(probly)
+```
+
+
+# Background
+
+A substantial body of work on the relation between learning and attention indicates that stimulus salience, motivational relevance, and learning rate.
+In laying out a programmatic approach to learning and attention, @mackintosh1975a [p. 294] concludes that the idea that learning rates are different depending on the stimulus is "formally equivalent to one of the main tenets of two-stage, attentional theories of learning, namely, the assumption that the probability of attending to a stimulus determines the probability of learning about that stimulus."
+@grossberg1975 summarizes literature indicating that if two cues are paired with an unconditioned stimulus, the more salient cue will be conditioned more quickly to the extent that it may create a blocking effect against the conditioning of the less salient cue.
+More recently, @denton2006 demonstrated in humans that the blocking effect is modulated by salience. 
+Blocking refers to the phenomenon that when a new stimulus is conditioned in conjunction with an older stimulus that has already been associated with an outcome, the new stimulus builds up a less strong association with the outcome.
+Though many models have been developed to account for this phenomenon, one explanation is that the new stimulus provides no new information for predicting the outcome (which is already perfectly predicted by the prior associated stimulus), and so it is not learned [see @shanks2010 for an overview].
+In this study, using cues of colored dots and modulating salience by the density of dots, the authors showed that it is harder to block a new cue if that new cue is more salient (higher dot density) than the already conditioned cue.
+
+Such attentional effects on learning may not be mere spandrels of our evolved learning mechanisms, but a key feature that helps learning beings learn quickly in contingent environments.
+
+
+# Modeling approach
+
+The focus of this dissertation is on describing and estimating differences in learning that is proposed to be related to differences in motives that develop during adolescence.
+The goal of such estimation is to provide reliable information about the magnitude and sign of relations between observed phenomena, as well as about the uncertainty of that information.
+A Bayesian approach provides a robust framework for specifying and estimating hierarchical and nonlinear models with many parameters while constraining inferences in a way that reduces the rate of making incorrect claims with confidence [@GelmanPowerCalculationsAssessing2014;@gelman_why_2012].
+These are key concerns for the current work for two reasons.
+First, convergence of reinforcement learning  model can be difficult to achieve, and Bayesian estimation helps by allowing one to constrain parameter values for these models in a principled and intuitive way using parametric prior distributions.
+Second, in contrast to a confirmatory experiment, this dissertation seeks to explore relations between a number of theoretically related constructs; as such, the hierarchical Bayesian approach helps constrain estimates in ways that increase their efficiency [@gelman_why_2012].
+

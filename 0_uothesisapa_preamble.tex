@@ -52,6 +52,7 @@
 \usepackage{tabularx,xspace,multirow}
 \usepackage[para,online,flushleft]{threeparttable}
 \usepackage{array}
+\usepackage{wrapfig}
 
 % Added by Jacob L. following https://tex.stackexchange.com/questions/148314/undefined-control-sequence-in-printbibliography-biblatex to allow UTF-8 (non-ASCII) characters in the bibliography .bib file.
 %\usepackage[utf8]{inputenc}
@@ -79,15 +80,15 @@
 % Number only chapter headings (level 0)
 \setcounter{secnumdepth}{0}
 
-\setmathsfont(Digits,Latin,Greek)[Numbers={Proportional}]{EB Garamond}
-\setmathrm{EB Garamond}
+\setmathsfont(Digits,Latin,Greek)[Numbers={Proportional}]{Liberation Serif}
+\setmathrm{Liberation Serif}
 
 
 \defaultfontfeatures{Mapping=tex-text}
-\newfontfamily{\smallcaps}[RawFeature={c2sc,scmp}]{EB Garamond}
+\newfontfamily{\smallcaps}[RawFeature={c2sc,scmp}]{Liberation Serif}
 \defaultfontfeatures{Ligatures=TeX}
-%% \setmainfont[Numbers=OldStyle, Contextuals=Alternate, Ligatures={Common, Rare, Historical}]{EB Garamond}
-\setmainfont[Numbers=OldStyle, Contextuals=Alternate, Ligatures={Common}]{EB Garamond}
+%% \setmainfont[Numbers=OldStyle, Contextuals=Alternate, Ligatures={Common, Rare, Historical}]{Liberation Serif}
+\setmainfont[Numbers=OldStyle, Contextuals=Alternate, Ligatures={Common}]{Liberation Serif}
 \setsansfont[Scale=MatchLowercase, BoldFont={Lato Bold}]{Lato Regular}
 \setmonofont[Scale=MatchLowercase]{Source Code Pro}
 
