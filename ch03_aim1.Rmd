@@ -9,7 +9,7 @@ bibliography: "/home/jflournoy/code_new/social-motives-rl-writeup/dissertation.b
 csl: "/home/jflournoy/Rlibs/probly/bib/apa-old-doi-prefix.csl"
 ---
 
-```{r setup, include=FALSE}
+```{r setupch3, include=FALSE}
 knitr::opts_chunk$set(echo = F, warning = F, error = F, message = F)
 library(probly)
 ```
@@ -36,4 +36,94 @@ A Bayesian approach provides a robust framework for specifying and estimating hi
 These are key concerns for the current work for two reasons.
 First, convergence of reinforcement learning  model can be difficult to achieve, and Bayesian estimation helps by allowing one to constrain parameter values for these models in a principled and intuitive way using parametric prior distributions.
 Second, in contrast to a confirmatory experiment, this dissertation seeks to explore relations between a number of theoretically related constructs; as such, the hierarchical Bayesian approach helps constrain estimates in ways that increase their efficiency [@gelman_why_2012].
+
+
+# A model for reinforcement learning
+
+In the context of this task, where the relation between the optimal response and the stimulus is constant, a simple model of the degree of learning could rely on a simple proportion of optimal responses $P_{ok}$ for each condition $k$.
+The test of the hypothesis of the effect of framing would then be the difference between conditions in $P_o$. 
+This simple model sacrifice precision for simplicity, and so I will be modeling the data using a reinforcement learning model with several parameters that can account for deviations from a strict Rescorla-Wagner (RW) process.
+This increases the number of possible comparisons I am able to make between conditions, which may generate useful information about how motive-domain framing affects the learning process (as modeled, of course), but which also increases the complexity of patterns between conditions and parameters that must be interpreted.
+It will be helpful to keep in mind that the framing can only be said to potentiate learning if, regardless of its affect on any model parameters, it does not result in higher proportions of optimal responding.
+
+In this section, I simulate data as expected under the Rescorla-Wagner model implemented by @ahn2017 in their go-no-go model 2. 
+Their original model handles binary decisions (button-press or no button-press) in response to four different cues. 
+However, the form of the learning algorithm is generalizable to other binary choices in response to cues. 
+In the case of the Social Probabilistic Learning Task (SPLT), participants are presented with a face (the cue), and must decide to press the left key or the right key. 
+They are rewarded probabilistically such that for each cue, one or the other of the response options has an 80% chance of providing reinforcement. 
+The go-no-go models used by @ahn2017 were derived from work by @guitart-masip2012. 
+Their most flexible reinforcement learning model generates the probability of an action for each trial via N parameters: the learning rate, $\epsilon$, the effective size of reinforcement, $\rho$, a static bias parameter, $b$, an irreducible noise parameter, $\xi$, and a Pavlovian learning parameter, $\pi$.
+In the SPLT, trial feedback does not vary by valence (responses result in reward, or no reward, but never punishment), so I use the model that does not include this Pavlovian component. 
+
+# Reinforcement learning model for the SPLT
+
+The model for an individual $j$'s probability of pressing the right arrow key on trial $t$ given that stimulus $s_{t}$ is presented, $P(a_{\rightarrow t} | s_{t})_{t}$, is determined by a logistic transformation of the action weight for pressing the right arrow key minus the action weight for pressing the left arrow key. 
+This probability is then adjusted by a noise parameter, $0 \leq\xi_{jk}\leq1$ for each participant $j$ in condition $k$.
+The noise parameter modulates the degree to which responses are non-systematic. 
+When $\xi$ is 1, $P_{it} = .5$, and because each individual has a unique noise parameter for each condition, I am able to account for participants who do not learn during the task, or in a particular condition.
+The full equation is:
+
+$$
+P(a_{\rightarrow t} | s_{t})_{t} = 
+\text{logit}^{-1}\big(W(a_{\rightarrow t}| s_{t}) - W(a_{\leftarrow t}| s_{t})\big)\cdot(1-\xi_{jk}) + \small\frac{\xi_{jk}}{2}.
+$$
+
+The action weight is determined by a Rescorla-Wagner (RW) updating equation and individual $j$'s bias parameter, $b_{jk}$, for that condition (which encodes a systematic preference for choosing the left or right response option).
+In each condition, the same two words are displayed in the same position, so $b$ encodes a learning-independent preference for one particular word or position.
+The equation for the action weight for each action on a particular trial is:
+
+$$
+W_{t}(a,s) = \left\{
+                \begin{array}{ll}
+                  Q_{t}(a, s) + b_{jk}, & \text{if } a=a_{\rightarrow} \\
+                  Q_{t}(a, s), & \text{otherwise}
+                \end{array}
+              \right.
+$$
+Finally, the RW updating equation that encodes instrumental learning is governed by the individual's learning rate for that condition, $\epsilon_{jk}$, and a scaling parameter $\rho_{jk}$ governing the effective size of the possible rewards $r_t \in \{0, 1, 5\}$:
+
+$$
+Q_{t}(a_t, s_t) = Q_{t-1}(a_t, s_t) + \epsilon_{jk}\big(\rho_{jk}r_t - Q_{t-1}(a_t, s_t)\big)
+$$
+
+## Hierarchical Parameters
+
+Each parameter ($\epsilon, \rho, b, \xi$) varies by condition $k \in 1:K$, and by participant $j \in 1:J$ nested in sample $m \in 1:M$. 
+The structure of the hierarchical part of the model is the same for each parameter, so the following description for $\epsilon$ will serve as a description for all of the parameters.
+For each individual $j$, $\beta_{\epsilon j}$ is a $K$-element row of coefficients for parameter $\epsilon$ for each condition:
+
+$$
+\beta_{\epsilon j} \sim \mathcal{N}(\delta_{\epsilon mm[j]}, \Sigma_{\epsilon})
+$$
+where $\delta_{\epsilon mm[j]}$ is a column of $K$ means for individual $j$'s sample $M$, as indexed in the vector $mm$, and $\Sigma_{\epsilon}$ is a $K\times K$ matrix of the covariance of individual coefficients between conditions.
+
+Finally, across all $M$ samples, the means for each condition k are distributed such that: 
+
+$$
+\delta_{\epsilon k} \sim \mathcal{N}(\mu_{\epsilon k}, \sigma_\epsilon)
+$$
+
+where $\mu_{\epsilon k}$ is the population mean for parameter $\epsilon$ in condition $k$, and $\sigma$ is a slightly regularizing scale parameter for these means across all conditions and samples. The priors for these final parameters are:
+
+$$
+\begin{split}
+\mu_\epsilon &\sim \mathcal{N}(0, 5)\\
+\sigma_\epsilon &\sim \text{exponential(1)}.
+\end{split}
+$$
+
+# Simulating data
+
+Before modeling the task data, I will confirm that this model can recover known parameters from simulated data.
+I simulate data based on the structure of the sample data, using the same number of participants per sample (see the section on [descriptive statistics](descriptive-statistics.html), as well as precisely the same task structure. 
+For this aim, it is important to be able to recover all $\mu_{\theta k}$ for $\theta \in \{\epsilon,\rho,b,\xi\}$ and $k \in \{1,2,3\}$, where 1 = Hungry/Thirsty, 2 = Popular/Unpopular, and 3 = Dating/Looking. Those parameters that account for idiosyncratic deviation from RW-expected behavior ($b,\xi$) will not vary by condition. Based on interactive simulation ([here](https://jflournoy.shinyapps.io/rw_model/)), reasonable parameter values for the control condition might be $\mu_\epsilon = -1.65$ and $\mu_\rho = -0.3$ [^1].
+
+[^1]: Note that these are the _raw_ parameter values which are transformed such that $\epsilon^\prime \in [0,1]$ and $\rho^\prime \in [0,\infty)$. Similar to logistic regression, estimating the parameters on a scale the is not resticted improves estimation.
+
+The [`probly`](http://github.com/jflournoy/probly) package contains functions that help generate sample- and individually-varying coefficients for parameters, as well as simulated data from task structure.
+
+One early indication that a model may not be well suited to a problem is that when generating from the prior distribution, datasets are produced that either do not adequately cover the range of reasonable values, or that cover ranges that are implausible [@gabry2017]. 
+The simulated data do generally cover the range of the actual data when we look just at the proportion of optimal presses over time (Figure, and importantly do not show implausible behavior (all mass around extreme values like 0, 1, or .5).
+
+(ref:simdat) Simulated task data. This shows the the proportion of optimal presses across all participants for each trial. The best-fit line is a generalized additive model smooth and is only intended to give a rough sense of trends over trials. Each panel is one from 400 simulated data sets. The red line indicates random responding.
 

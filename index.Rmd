@@ -67,7 +67,7 @@ dissertateUO::preamble_for_title(
 <!-- Chapter 3 -->
 \chapter{Effect of motive frame on reinforcement learning}
 
-```{r child='ch03_aim1a.Rmd'}
+```{r child='ch03_aim1.Rmd'}
 ```
 
 \FloatBarrier
