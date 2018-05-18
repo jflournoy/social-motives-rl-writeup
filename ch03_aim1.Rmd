@@ -12,6 +12,7 @@ csl: "/home/jflournoy/Rlibs/probly/bib/apa-old-doi-prefix.csl"
 ```{r setupch3, include=FALSE}
 knitr::opts_chunk$set(echo = F, warning = F, error = F, message = F)
 library(probly)
+load('rda/fit-model-to-participant-data.rda')
 ```
 
 
@@ -126,4 +127,13 @@ One early indication that a model may not be well suited to a problem is that wh
 The simulated data do generally cover the range of the actual data when we look just at the proportion of optimal presses over time (Figure, and importantly do not show implausible behavior (all mass around extreme values like 0, 1, or .5).
 
 (ref:simdat) Simulated task data. This shows the the proportion of optimal presses across all participants for each trial. The best-fit line is a generalized additive model smooth and is only intended to give a rough sense of trends over trials. Each panel is one from 400 simulated data sets. The red line indicates random responding.
+
+
+
+
+# Discussion, Aim 1
+
+Lorem ipsum alakazam
+
+-----
 
