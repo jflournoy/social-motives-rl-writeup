@@ -2,6 +2,9 @@
 header-includes:
   - \usepackage[para,online,flushleft]{threeparttable}
   - \usepackage{wrapfig}
+  - \usepackage[singlelinecheck=false]{caption}
+  - \captionsetup[subfigure]{singlelinecheck=on, labelfont=normalfont}
+  - \captionsetup[figure]{labelfont=it}
 output: 
   pdf_document:
     keep_tex: yes
@@ -10,7 +13,7 @@ csl: "/home/jflournoy/Rlibs/probly/bib/apa-old-doi-prefix.csl"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = F, warning = F, error = F, message = F)
+knitr::opts_chunk$set(fig.path = 'figures/', echo = F, warning = F, error = F, message = F)
 library(probly)
 load('rda/descriptive-statistics.rda')
 ptab <- Hmisc::latex
@@ -40,6 +43,14 @@ minmax.na.rm <- function(x){sprintf('[%0.0f,%0.0f]',round(min(x, na.rm = T),0), 
 
 splt_dev_and_demog_task_sum$sample <- 
     factor(splt_dev_and_demog_task_sum$sample, 
+           levels = c("Foster-care involved adolescents", 
+                      "Community adolescents", 
+                      "College students", 
+                      "College students - online"), 
+           labels = c('FCA', 'CA', 'CSYA', 'CSYA-O'))
+
+splt_summary_optimal_feedback$sample <- 
+    factor(splt_summary_optimal_feedback$sample, 
            levels = c("Foster-care involved adolescents", 
                       "Community adolescents", 
                       "College students", 
@@ -161,10 +172,17 @@ It is not surprising that almost all participants in the college samples report 
 Notably (though also unsurprisingly), females in the the adolescent samples report being further through puberty than males (Figure \ref{fig:pdsplot}A), even though the mean age of males and females in these samples is roughly equivalent (Table \ref{tab:samplestats}).
 Most participants in the college smaples have PDS scores indicating puberty is completed, or nearly completed (Figure \ref{fig:pdsplot}B).
 
-```{r pdsplot, fig.width=8, fig.height=5, fig.cap='\\label{fig:pdsplot}Pubertal development by sample and age'}
-pds_plot_12$widths <- c(4, 3)
+```{r pdsplot, fig.width=6, fig.height=3.5, include = F}
+pds_plot_12$widths <- c(5.5, 3)
 gridExtra::grid.arrange(pds_plot_12)
 ```
+
+\begin{figure}
+\centering
+\captionsetup{width=6in}
+\includegraphics{figures/pdsplot-1.pdf}
+\caption[Pubertal development by sample and age]{\label{fig:pdsplot}Pubertal development by sample and age. Distribution of pubertal development by sex and sample (A), and the relation between pubertal development and age (B). Best fit line is a generalized additive model for descriptive purposes only.}
+\end{figure}
 
 # Measures
 
@@ -184,8 +202,9 @@ The participant is instructed that "the same word goes with the same picture mos
 
 \begin{wrapfigure}{r}{0.5\textwidth}
 \centering
-\includegraphics{figures/trial_example} 
-\caption{Example of a trial on the SPLT}
+\captionsetup{width=3.25in}
+\includegraphics[width=3.25in]{figures/trial_example} 
+\caption[Example of a trial on the SPLT]{Example of a trial on the SPLT. Image shows post-response feedback phase on an incorrect trial where the particpant could have earned 5 points for a correct answer, but earned 0 points.}
 \label{trialexample}
 \end{wrapfigure}
 
@@ -234,7 +253,15 @@ ptab(trials_table)
 \end{threeparttable}
 \end{table}
 
-```{r reactiontime, fig.width=4, fig.height=3, cache=F, fig.cap='\\label{fig:reactiontime}Distribution of reaction times for all participants. The vertical line set a 1s, which is close to the mean reaction time across all samples.'}
+
+
+```{r reactiontime, fig.width=3.25, fig.height=3, include=F}
 print(reaction_time_plot)
 ```
 
+\begin{figure}
+\centering
+\captionsetup{width=3.25in}
+\includegraphics{figures/reactiontime-1.pdf}
+\caption[Distribution of reaction times for all participants.]{\label{fig:reactiontime}Distribution of reaction times for all participants. The vertical line set a 1s, which is close to the mean reaction time across all samples.}
+\end{figure}

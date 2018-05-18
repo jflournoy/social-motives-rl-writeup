@@ -2,6 +2,9 @@
 header-includes:
   - \usepackage[para,online,flushleft]{threeparttable}
   - \usepackage{wrapfig}
+  - \usepackage[singlelinecheck=false]{caption}
+  - \captionsetup[subfigure]{singlelinecheck=on, labelfont=normalfont}
+  - \captionsetup[figure]{labelfont=it}
 output: 
   pdf_document:
     keep_tex: yes
@@ -10,9 +13,9 @@ csl: "/home/jflournoy/Rlibs/probly/bib/apa-old-doi-prefix.csl"
 ---
 
 ```{r setupch3, include=FALSE}
-knitr::opts_chunk$set(echo = F, warning = F, error = F, message = F)
+knitr::opts_chunk$set(fig.path = 'figures/', echo = F, warning = F, error = F, message = F)
 library(probly)
-load('rda/fit-model-to-participant-data.rda')
+load('rda/test-simulated-data.rda')
 ```
 
 
@@ -28,8 +31,9 @@ In this study, using cues of colored dots and modulating salience by the density
 
 Such attentional effects on learning may not be mere spandrels of our evolved learning mechanisms, but a key feature that helps learning beings learn quickly in contingent environments.
 
+# Method
 
-# Modeling approach
+## Modeling approach
 
 The focus of this dissertation is on describing and estimating differences in learning that is proposed to be related to differences in motives that develop during adolescence.
 The goal of such estimation is to provide reliable information about the magnitude and sign of relations between observed phenomena, as well as about the uncertainty of that information.
@@ -39,7 +43,7 @@ First, convergence of reinforcement learning  model can be difficult to achieve,
 Second, in contrast to a confirmatory experiment, this dissertation seeks to explore relations between a number of theoretically related constructs; as such, the hierarchical Bayesian approach helps constrain estimates in ways that increase their efficiency [@gelman_why_2012].
 
 
-# A model for reinforcement learning
+## A model for reinforcement learning
 
 In the context of this task, where the relation between the optimal response and the stimulus is constant, a simple model of the degree of learning could rely on a simple proportion of optimal responses $P_{ok}$ for each condition $k$.
 The test of the hypothesis of the effect of framing would then be the difference between conditions in $P_o$. 
@@ -56,7 +60,7 @@ The go-no-go models used by @ahn2017 were derived from work by @guitart-masip201
 Their most flexible reinforcement learning model generates the probability of an action for each trial via N parameters: the learning rate, $\epsilon$, the effective size of reinforcement, $\rho$, a static bias parameter, $b$, an irreducible noise parameter, $\xi$, and a Pavlovian learning parameter, $\pi$.
 In the SPLT, trial feedback does not vary by valence (responses result in reward, or no reward, but never punishment), so I use the model that does not include this Pavlovian component. 
 
-# Reinforcement learning model for the SPLT
+## Reinforcement learning model for the SPLT
 
 The model for an individual $j$'s probability of pressing the right arrow key on trial $t$ given that stimulus $s_{t}$ is presented, $P(a_{\rightarrow t} | s_{t})_{t}$, is determined by a logistic transformation of the action weight for pressing the right arrow key minus the action weight for pressing the left arrow key. 
 This probability is then adjusted by a noise parameter, $0 \leq\xi_{jk}\leq1$ for each participant $j$ in condition $k$.
@@ -87,7 +91,7 @@ $$
 Q_{t}(a_t, s_t) = Q_{t-1}(a_t, s_t) + \epsilon_{jk}\big(\rho_{jk}r_t - Q_{t-1}(a_t, s_t)\big)
 $$
 
-## Hierarchical Parameters
+### Hierarchical Parameters
 
 Each parameter ($\epsilon, \rho, b, \xi$) varies by condition $k \in 1:K$, and by participant $j \in 1:J$ nested in sample $m \in 1:M$. 
 The structure of the hierarchical part of the model is the same for each parameter, so the following description for $\epsilon$ will serve as a description for all of the parameters.
@@ -113,21 +117,71 @@ $$
 \end{split}
 $$
 
-# Simulating data
+## Simulating data
 
 Before modeling the task data, I will confirm that this model can recover known parameters from simulated data.
-I simulate data based on the structure of the sample data, using the same number of participants per sample (see the section on [descriptive statistics](descriptive-statistics.html), as well as precisely the same task structure. 
+Using RStan [version `r packageVersion('rstan')`; @standevelopmentteam2018], I simulate 100 data sets based on the structure of the sample data, using the same number of participants per sample (see the section on [descriptive statistics](descriptive-statistics.html), as well as precisely the same task structure. 
 For this aim, it is important to be able to recover all $\mu_{\theta k}$ for $\theta \in \{\epsilon,\rho,b,\xi\}$ and $k \in \{1,2,3\}$, where 1 = Hungry/Thirsty, 2 = Popular/Unpopular, and 3 = Dating/Looking. Those parameters that account for idiosyncratic deviation from RW-expected behavior ($b,\xi$) will not vary by condition. Based on interactive simulation ([here](https://jflournoy.shinyapps.io/rw_model/)), reasonable parameter values for the control condition might be $\mu_\epsilon = -1.65$ and $\mu_\rho = -0.3$ [^1].
 
 [^1]: Note that these are the _raw_ parameter values which are transformed such that $\epsilon^\prime \in [0,1]$ and $\rho^\prime \in [0,\infty)$. Similar to logistic regression, estimating the parameters on a scale the is not resticted improves estimation.
 
-The [`probly`](http://github.com/jflournoy/probly) package contains functions that help generate sample- and individually-varying coefficients for parameters, as well as simulated data from task structure.
-
 One early indication that a model may not be well suited to a problem is that when generating from the prior distribution, datasets are produced that either do not adequately cover the range of reasonable values, or that cover ranges that are implausible [@gabry2017]. 
-The simulated data do generally cover the range of the actual data when we look just at the proportion of optimal presses over time (Figure, and importantly do not show implausible behavior (all mass around extreme values like 0, 1, or .5).
+The simulated data do generally cover the range of the actual data when we look just at the proportion of optimal presses over time (Figure \ref{fig:simdatcoverage}, and importantly do not show implausible behavior (all mass around extreme values like 0, 1, or .5).
 
-(ref:simdat) Simulated task data. This shows the the proportion of optimal presses across all participants for each trial. The best-fit line is a generalized additive model smooth and is only intended to give a rough sense of trends over trials. Each panel is one from 400 simulated data sets. The red line indicates random responding.
+```{r simdatcoverage, fig.width=5.875, fig.height=4, include=F}
+print(nosmooth_multi_plot)
+```
 
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/simdatcoverage-1.pdf}
+\caption[Model-simulated task data]{Model-simulated task data. Each point is the mean of optimal presses on that trial, for the indicated condition, from 1 of 100 simulated data sets using just the model prior distributions. The red line is at .5, corresponding to random responding. It is apparent that the model priors allow coverage of the entire range of realistic responses.}
+\label{fig:simdatcoverage}
+\end{figure}
+
+More detailed descriptions of the simulated date broken out per-simulation are available on the project's [github webpage](https://jflournoy.github.io/probly/).
+
+The priors also generate reasonable ranges for the model parameters across these 100 simulations. 
+Notably, the mass of the prior distributions is distributed across the full range of reasonable values at each level.
+This results ultimately in a prior  distribution over the final probability of choosing the word on the right-hand side of the screen. These distributions cover the full range, with most mass around the null value of the final probability = .5 for choosing the left or right option.
+If the data does not overwhelm the prior distribution, we can be assured that the prior is not biasing the estimate away from random responding.
+
+FIGURES WITH DRAWS FROM PRIORS HERE
+
+## Recovery of population parameters
+
+After generating these simulated data sets and known parameter values, the model was then fit to these simulated data to evaluate its ability to revover the parameters. 
+The mode was fit using 4 chains with 1000 warmup iterations and 500 sampling iterations per chain. 
+An example from one simulation of estimated posterior densities for the final probability of a participant choosing the right-hand label shows that nearly all estimates capture the underlying generating parameter (Figure \ref{fig:pRfinalplot}).
+
+```{r pRfinalplot, fig.width=5.875, fig.height=4, include=F}
+ggplot2::theme_set(ggplot2::theme_minimal())
+do.call(gridExtra::grid.arrange, pR_final_plots)
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/pRfinalplot-1.pdf}
+\caption[Correspondence of simulation generated and estimated behavior]{Correspondence of simulation generated and estimated behavior. The X-axis indexes the simulation-generated final-trial right-hand button-press probability ($P_\text{r-final}$), and the Y-axis indexes the estimated posterior median $P_\text{r-final}$. Whiskers indicate the posterior 2.5% and 97.5% quantiles.}
+\label{fig:pRfinalplot}
+\end{figure}
+
+To examine the performance of all of the simulations, after the posteriors for each simulation estimate were sampled, the empirical cummulative density function was composed for the distribution of each parameter. 
+The cumulative density for the generating value (from the simulation) was then found. 
+This procedure is the same as finding the _p_-value for a test statistic using the probability density function for the relevant distribution.
+If the posterior is a reasonable estimate of the generating parameter, then the generating parameter should be a random draw from that posterior. 
+As such, the distribution of the _p_-value of the generating parameters (in relation to the posteriors) should be uniform. 
+
+PLOTS SHOWING UNIFORM DISTRIBUTION HERE
+
+## Target model and estimation of sample parameters
+
+The model was fit in RStan [version `r packageVersion('rstan')`; @standevelopmentteam2018] using `r version$version.string` [@rcoreteam2018].
+
+
+# Results
 
 
 

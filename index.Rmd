@@ -57,7 +57,7 @@ dissertateUO::preamble_for_title(
 \FloatBarrier
 
 <!-- Chapter 2 -->
-\chapter{Methodology}
+\chapter{Methodology and participants overview}
 
 ```{r child='ch02_descriptives.Rmd'}
 ```
@@ -65,7 +65,7 @@ dissertateUO::preamble_for_title(
 \FloatBarrier
 
 <!-- Chapter 3 -->
-\chapter{Effect of motive frame on reinforcement learning}
+\chapter{Aim 1: Effect of motive frame on reinforcement learning}
 
 ```{r child='ch03_aim1.Rmd'}
 ```
@@ -73,8 +73,11 @@ dissertateUO::preamble_for_title(
 \FloatBarrier
 
 <!-- Chapter 4 -->
-\chapter{ Discussion}
-
-
-
+\chapter{Aim 2: Learning differences, self-report motives, and outcomes}
  
+```{r child='ch04_aim2.Rmd'}
+```
+
+<!-- Chapter 4 -->
+\chapter{Discussion}
+
