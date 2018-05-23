@@ -1,0 +1,201 @@
+---
+header-includes:
+  - \usepackage[para,online,flushleft]{threeparttable}
+  - \usepackage{wrapfig}
+output: 
+  pdf_document:
+    keep_tex: yes
+bibliography: "/home/jflournoy/code_new/social-motives-rl-writeup/dissertation.bib"
+csl: "/home/jflournoy/Rlibs/probly/bib/apa-old-doi-prefix.csl"
+---
+
+# Background
+
+- Review Neel, fsmi lit
+  - Evidence for validity
+  - Relation to outcomes
+    - note expected long-term-relationship differences
+- Review Foulkes, SRQ lit
+  - Evidence for validity
+  - Relation to outcomes
+    - note there are not expected long-term-relationship differences
+- Review sensation seeking
+  - Validity
+  - Relation to outcomes
+- Describe outcomes of interest
+  - FSMI Mate-seeking (FSMI-MS) and K-SRQ sexual relationship (K-SRQ-SR)
+    - Normative sexual behavior
+      - Number of partners
+      - Number of sexual encounters
+  - FSMI-MS, K-SRQ-SR, FSMI status, K-SRQ admiration, Sensation seeking
+      - Safe sex practice
+      - Substance use and sex
+      - Alcohol use
+  
+# Method
+
+## Scale validation
+
+- Confirmatory factor analysis procedure
+- Correlations between latent factors on FSMI, K-SRQ, UPPS-P
+- Relation of sexual behavior self report to FSMI-MS, K-SRQ-SR
+  - note long term-relationship differences
+- Age and puberty associations with FSMI, K-SRQ, UPPS-P
+
+## Self report relation to SPLT
+
+- Using raw $P_{O}$ calculated from behavior
+- Using model-estimated learning parameters
+
+## Self report relation to outcomes
+
+- Regressing ordinal SES and YRBS scales on latent factors
+- Controling for age and gender
+- Test sensation seeking against motives-specific scales
+
+## SPLT relation to outcomes
+
+- Regressing ordinal SES and YRBS scales on learning performace
+- Regressing ordinal SES and YRBS scales on model parameters
+
+_Note on planned moderation analyses:_ I had planned to use the CARE-R as a moderating variable between risk behaviors and motives. I'm deprioritizing these analyses for now.
+
+# Results
+
+## Scale validation
+
+### FSMI CFA
+
+- College sample only
+- Mate-seeking and Status scales
+  - Fit
+  - Intercorrelations
+  - No age/puberty (too narrow a range)
+
+### K-SRQ CFA
+
+- College and adolescent samples
+- Note that negative social potency and prosocial iteractions items were very highly skewed
+- Admiration, passivity, sexual relationshups, and sociability
+  - Fit
+  - Intercorrelations
+    - Very high inter-subscale correlations
+    - But the pattern is similar with the original [@foulkes2014]
+  - Age/puberty
+    - As expected (increasing with deceleration)
+  
+### UPPS-P CFA
+
+- College and adolescent samples
+- Fit
+- Intercorrelations
+- Age/puberty
+
+### All scale correlations
+
+- Within college sample, separated by +/- long-term-relationship status
+- College + adolescents (K-SRQ, UPPS-P)
+  - not separated by LTR (no data for adolescents)
+- all-item EFA?
+- Dominance and prestige scale relations to FSMI status, and K-SRQ admiration & passivity
+
+### Relation to normative sexual behavior
+
+This serves to ensure that the the Fundamental Social Motives Inventory, Mate-Seeking (FSMI-MS), and Kids' Social Reward Questionnaire (K-SRQ-SR) scales are measuring what they ought to be. 
+We would expect positive relations between FSMI-MS and number of sexual partners in people who are not in a long term relationship (LTR-). 
+For those in a long term relationship (LTR+), the reported number of sexual partners is strongly modally 1, and the average score on mate-seeking is very low.
+This is the expected behavior of the scale, which is supposed to measure a persons present desire to meet new romantic or sexual partners [@neel2015].
+The K-SRQ-SR measures a person's enjoyment of socio-sexual behavior, with items asking about kissing, flirting, and having crushes.
+This is in fact a modified version of the original SRQ-SR which instead featured questions about the enjoyment more specifically of sexual activity [@foulkes2014]. 
+
+_Note gender and age controls used where appropriate_
+
+#### FSMI
+- Number of partners
+  - FSMI mate-seeking +related to num partners 
+    - Within LTR- group only, $N = 157, \beta = .24$
+    - _Also_ across all college participants, $N = 214, \beta = .24$
+  - Women who are not in long term relationships report fewer partners than men ($\beta = -.51$)
+  - No age control (too narrow a range)
+- Number of encounters
+  - Group analysis in partnered and unpartnered college students
+  - Close to 0 FSMI mate-seeking relation with number of encounters 
+    - $N = 203; \beta_{\text{LTR-}} = -.09; \beta_{\text{LTR+}} = -.03$
+  - Gender related just for LTR- Women LTR- have fewer encounters than men
+    - $\beta_{\text{LTR-}} = -.47; \beta_{\text{LTR+}} = .00$; gender-effect difference not tested
+  - No age control (too narrow a range)
+
+#### K-SRQ
+
+- Number of partners
+  - K-SRQ sexual relationships +related to num partners
+    - Within LTR- college sample only, $N = 140, \beta = .35$
+      - Controlling for gender, $\beta_{\text{F-M}} = -.19$
+    - _Also_ across all participants that have data, $N = 260, \beta = .34$
+      - Controlling for age and gender, $\beta_{\text{age}} = .42, \beta_{\text{F-M}} = -.03$
+- Number of encounters
+  - Group analysis in partnered and unpartnered college students (N = 203)
+    - K-SRQ sexual relations scale association in LTR- group
+      - $\beta_{\text{LTR-}} = .35; \beta_{\text{LTR+}} = .13$
+    - Gender effect not significant but expected direction
+      - Women LTR- have fewer encounters than men, $\beta_{\text{LTR-}} = -.14; \beta_{\text{LTR+}} = .08$; gender-effect difference not tested
+    - No age control (too narrow a range)
+  - Across all college and adolescent participants with data (N = 253)
+    - K-SRQ sexual relations scale $\beta=.35$
+    - Controlling for age and gender ($\beta_{\text{age}}=.49, \beta_{\text{F-M}} = .06$)
+
+#### FSMI-MS & K-SRQ-SR
+
+- Unpartnered college students (N = 132)
+- Number of partners: $\beta_{\text{FSMI-MS}}=.18,\beta_{\text{K-SRQ-SR}}=.30,\beta_{\text{F-M}}=-.18$
+- Number of encounters: $\beta_{\text{FSMI-MS}}=-.24,\beta_{\text{K-SRQ-SR}}=.39,\beta_{\text{F-M}}=-.15$
+
+## Self report relation to SPLT
+
+- Correlations between 
+  - SPLT 
+    - $P_{O}$ = proportion of optimal presses in last half of condition's trials
+      - Contrasted DL - HT, PU - HT
+    - parameters $\epsilon, \rho, \xi$
+      - Contrasted transformed values (DL - HT, PU - HT)
+  - All scales 
+    - FSMI MS & Status
+    - K-SRQ SR, admiration, passivity, sociability
+    - UPPS-P
+
+## Self report relation to outcomes
+
+- FSMI-MS, K-SRQ-SR, FSMI status, K-SRQ admiration, Sensation seeking
+  - For each compare to model with and without sensation seeking/impulsivity
+    - Safe sex practice
+      - "In the last 6 months, what percentage of the time when you've had sexual relations (oral, vaginal or anal) did you USE safe sex practices to prevent sexually transmitted diseases - condoms, blood tests, dental dams, etc.)"
+    - Substance use and sex
+      - "Did you drink alcohol or use drugs before you had sexual intercourse the last time you had sex?"
+    - Alcohol use
+      - "In the past 30 days, on how many days did you have at least one drink of alcohol?"
+      - "In the past 30 days, on how many days did you have 5 or more drinks of alcohol in a row, that is, within a couple hours?"
+
+## SPLT relation to outcomes
+
+This section may be largely perfunctory if in fact the task is not sensitive to individual differences in motives.
+
+- Contrasted model parameters and mean optimal behavior as regressors for 
+  - Safe sex practice
+    - "In the last 6 months, what percentage of the time when you've had sexual relations (oral, vaginal or anal) did you USE safe sex practices to prevent sexually transmitted diseases - condoms, blood tests, dental dams, etc.)"
+  - Substance use and sex
+    - "Did you drink alcohol or use drugs before you had sexual intercourse the last time you had sex?"
+  - Alcohol use
+    - "In the past 30 days, on how many days did you have at least one drink of alcohol?"
+    - "In the past 30 days, on how many days did you have 5 or more drinks of alcohol in a row, that is, within a couple hours?"
+
+
+# Discussion, aim 2
+
+- Scale validation
+- SPLT task validation
+  - Self report relation to SPLT
+  - SPLT relation to outcomes
+- Self report relation to outcomes
+  - Especially as relevant to previous literature
+  
+------
