@@ -73,19 +73,9 @@ P(a_{\rightarrow t} | s_{t})_{t} =
 \text{logit}^{-1}\big(W(a_{\rightarrow t}| s_{t}) - W(a_{\leftarrow t}| s_{t})\big)\cdot(1-\xi_{jk}) + \small\frac{\xi_{jk}}{2}.
 $$
 
-The action weight is determined by a Rescorla-Wagner (RW) updating equation and individual $j$'s bias parameter, $b_{jk}$, for that condition (which encodes a systematic preference for choosing the left or right response option).
-In each condition, the same two words are displayed in the same position, so $b$ encodes a learning-independent preference for one particular word or position.
-The equation for the action weight for each action on a particular trial is:
-
-$$
-W_{t}(a,s) = \left\{
-                \begin{array}{ll}
-                  Q_{t}(a, s) + b_{jk}, & \text{if } a=a_{\rightarrow} \\
-                  Q_{t}(a, s), & \text{otherwise}
-                \end{array}
-              \right.
-$$
-Finally, the RW updating equation that encodes instrumental learning is governed by the individual's learning rate for that condition, $\epsilon_{jk}$, and a scaling parameter $\rho_{jk}$ governing the effective size of the possible rewards $r_t \in \{0, 1, 5\}$:
+The action weight is determined by a Rescorla-Wagner (RW) updating function $Q$, $W_{t}(a,s) = Q_{t}(a, s)$.
+Although this may seem like a redundant step, I specify it this way to be consistent with @guitart-masip2012, and to illustrate the possibility that another parameter could impact the action weight separately from $Q$.
+The function $Q$ encodes instrumental learning and is governed by the individual's learning rate for that condition, $\epsilon_{jk}$, and a scaling parameter $\rho_{jk}$ that scales the effective size of the possible rewards $r_t \in \{0, 1, 5\}$:
 
 $$
 Q_{t}(a_t, s_t) = Q_{t-1}(a_t, s_t) + \epsilon_{jk}\big(\rho_{jk}r_t - Q_{t-1}(a_t, s_t)\big)
@@ -116,6 +106,10 @@ $$
 \sigma_\epsilon &\sim \text{exponential(1)}.
 \end{split}
 $$
+
+Note that in practice all parameter estimates were practically identical whether or not nesting within sample was modeled and so I describe only the model without nesting.
+I maintain the description above to illustrate for the reader that it is at least practically possible to account for another level of hierarchy.
+The model specification for both sets of models is available in the acompanying package.
 
 ## Simulating data
 
@@ -155,16 +149,20 @@ After generating these simulated data sets and known parameter values, the model
 The mode was fit using 4 chains with 1000 warmup iterations and 500 sampling iterations per chain. 
 An example from one simulation of estimated posterior densities for the final probability of a participant choosing the right-hand label shows that nearly all estimates capture the underlying generating parameter (Figure \ref{fig:pRfinalplot}).
 
+
+
 ```{r pRfinalplot, fig.width=5.875, fig.height=4, include=F}
 ggplot2::theme_set(ggplot2::theme_minimal())
 do.call(gridExtra::grid.arrange, pR_final_plots)
 ```
 
+&nbsp;
+
 \begin{figure}
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/pRfinalplot-1.pdf}
-\caption[Correspondence of simulation generated and estimated behavior]{Correspondence of simulation generated and estimated behavior. The X-axis indexes the simulation-generated final-trial right-hand button-press probability ($P_\text{r-final}$), and the Y-axis indexes the estimated posterior median $P_\text{r-final}$. Whiskers indicate the posterior 2.5% and 97.5% quantiles.}
+\caption[Correspondence of simulation generated and estimated behavior]{Correspondence of simulation generated and estimated behavior. The X-axis indexes the simulation-generated final-trial right-hand button-press probability ($P_\text{r-final}$), and the Y-axis indexes the estimated posterior median $P_\text{r-final}$. Whiskers indicate the posterior 2.5\% and 97.5\% quantiles.}
 \label{fig:pRfinalplot}
 \end{figure}
 
@@ -178,16 +176,266 @@ PLOTS SHOWING UNIFORM DISTRIBUTION HERE
 
 ## Target model and estimation of sample parameters
 
-The model was fit in RStan [version `r packageVersion('rstan')`; @standevelopmentteam2018] using `r version$version.string` [@rcoreteam2018].
+The model was fit in RStan [version `r packageVersion('rstan')`; @standevelopmentteam2018] using R [version `r paste(version$major,version$minor, sep = '.')`; @rcoreteam2018].
 
 
 # Results
 
+```{r}
+rm(list = ls())
+load('rda/fit-model-to-participant-data.rda')
+```
 
+```{r}
+grid_arrange_shared_legend <- function(..., ncol = 1, widths) {
+  plots <- list(...)
+  g <- ggplot2::ggplotGrob(plots[[1]] + 
+                             ggplot2::theme(legend.position="bottom")+
+                             ggplot2::guides(linetype = ggplot2::guide_legend(override.aes=list(fill=NA)),
+                                             shape = ggplot2::guide_legend(override.aes=list(alpha=.5))))$grobs
+  legend <- g[[which(sapply(g, function(x) x$name) == "guide-box")]]
+  lheight <- sum(legend$height)
+  gridExtra::grid.arrange(
+    do.call(gridExtra::arrangeGrob, c(lapply(plots, function(x)
+      x + ggplot2::theme(legend.position="none")), list(ncol = ncol, widths = widths))),
+    legend,
+    nrow = 2,
+    heights = grid::unit.c(ggplot2::unit(1, "npc") - lheight, lheight))
+}
+```
+
+## Descriptive data
+
+- Describe behavior across the run in each condition based on non-parameteric plots based on trial-by-trial means
+
+```{r trialaverages, fig.width=5.875, fig.height=4, include=F}
+ggplot2::theme_set(ggplot2::theme_minimal())
+avg_per_sample_plot2 <- avg_per_sample_plot + 
+  ggplot2::facet_wrap(~sample, nrow = 2, 
+                      labeller = ggplot2::label_wrap_gen(width = 20))
+
+grid_arrange_shared_legend(avg_per_sample_plot2, avg_across_samples, ncol = 2, widths = c(1.3,1))
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/trialaverages-1.pdf}
+\caption[Average optimal behaviour over trial]{Average optimal behaviour over trial. Each point is the average across participants for that trial for the indicated condition. Best fit lines and confidence bands are estimated using generalized additive models and are for illustrative purposes only.}
+\label{fig:trialaverages}
+\end{figure}
+
+- Define mean final probability of making optimal press, $P_{O}$, as the mean probability of optimal press from the last half of the run.
+- This is correlated at _r_ = .96 with a simple logistic regression model and _r_ = ?? with reward learning model.
+
+## Model estimated parameters
+
+### Validation of parameters
+
+- Comparison to observed optimal presses $P_{O}$
+  - Figure \ref{fig:parametersvbehavior}
+  - The relations illustrated in this figure demonstrate that the models relation to the observed behavior is in line with expected relations based on simulation where, for any given value of $\rho$ in this range, there is a sweet-spot for $\epsilon$. 
+  - This is due to learning that is too slow (low $\epsilon$, across all $\rho$), overweighting early, but "wrong" evidence (high $\rho$, lower $\epsilon$), or overweighting contradictory evidence at any point in the trial (high $\epsilon$, across all $\rho$).
+  - The high noise parameter accounts for the behavior of participants who learn less during the task than would be expected by their learning rate parameters alone.
+  
+```{r parametersvbehavior, fig.width=5.875, fig.height=4, include=F}
+allparameter_plot <- ggplot2::ggplot(lowfi_learning_df,
+                ggplot2::aes(x = ep_mean,
+                             y = qnorm(p_opt),
+                             group = xi_mean_bin,
+                             color = xi_mean)) + 
+    ggplot2::geom_hline(yintercept = qnorm(.8), alpha = .5) + 
+    ggplot2::geom_hline(yintercept = qnorm(.5), alpha = .5, color = 'blue') + 
+    ggplot2::geom_point(alpha = .35) + 
+    ggplot2::geom_smooth(method = 'gam', formula = y ~ s(x, fx = T, k = 3), 
+                         alpha = .2, color = 'black', size = .5,
+                         ggplot2::aes(linetype = xi_mean_bin)) + 
+    ggplot2::scale_color_gradient(low = 'red', high = 'blue') + 
+    ggplot2::facet_wrap(~rho_mean_bin) + 
+    # ggplot2::theme(strip.text = element_blank()) + 
+    ggplot2::coord_cartesian(ylim = c(qnorm(.40), qnorm(.998))) + 
+    ggplot2::scale_y_continuous(breaks = qnorm(c(.5, .8, .998)), labels = c(.5, .8, .995)) +
+    ggplot2::scale_x_continuous(breaks = qnorm(c(.01, .1, .4)), labels = c(.01, .1, .4)) + 
+    ggplot2::labs(x = expression(paste('Median posterior ',beta[epsilon])),
+                  y = 'Probability of choosing optimal lable',
+                  caption = expression(paste('Facet labels are ranges for median posterior ', beta[rho])),
+                  color = expression(paste('Median ', beta[xi])),
+                  linetype = expression(paste('Median ', beta[xi], ' range')))
+allparameter_plot
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/parametersvbehavior-1.pdf}
+\caption[Run-end optimal press behavior and RW learning parameters]{Run-end optimal press behavior and RW learning parameters. Each point is a data from one participant. As the parameter $\epsilon$ increases (X-axis), probability of making an optimal choice increases to a maximum and then decreases. Facets bin increasing values of $\rho$ which also indicate increasing optimal choice. However, as expected, higher values of the noise parameter, $\xi$ (dotted line) suppress the associations between optimal choice behavior and the other two parameters.}
+\label{fig:parametersvbehavior}
+\end{figure}
+  
+- Comparison to confidence ratings
+  - Confidence ratings allow another point of comparison for model parameters.
+  - After each 48 trials, participants were asked to rate how confident they were, overall, that they knew which word was the best choice for each face.
+  - Figure \ref{fig:confidencevparameters} shows the relations between confidence ratings at the end of all trials and the model estimated parameters.
+  - The clear relations here may merely imply that the participants are aware of their behavior, and the model parameters show adequately systematic relations to that behavior such that they are also correlated with confidence ratings.
+  - It is not clear whether the especially strong relation between the reward sensitivity parameter, $\rho$, is meaningful.
+    - This may simply reflect that for a given learning rate, higher $\rho$ and lower $\xi$ reflect a quicker accumulation of action weight, or in other words, knowledge about the optimal response.
+    - This point will be revisted later when comparing self-report scales to parameter estimates.
+
+```{r confidencevparameters, fig.width=5.875, fig.height=4.1, include=F}
+parameter_lookup <- c(
+  ep = 'epsilon',
+  rho = 'rho',
+  xi = 'xi'
+)
+
+confidence_parameter_plot +
+  ggplot2::facet_grid(condition ~ parameter, scales = 'free_x', 
+                      labeller = ggplot2::labeller(
+                        parameter = ggplot2::as_labeller(parameter_lookup,
+                                                         default = ggplot2::label_parsed)))
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/confidencevparameters-1.pdf}
+\caption[Confidence in learning and RW learning parameters]{Confidence in learning and RW learning parameters. Each point is the confidence rating for a single participant at the end of all trials (and because each participant has only one rating, a participant's value on the Y-axis is the same across all panels). A clear association between $\rho$ and confidence, and $\xi$ and confidence can be seen.}
+\label{fig:confidencevparameters}
+\end{figure}
+
+## Population-level parameters
+
+```{r}
+lowfi_ht_dl_t <- PairedData::yuen.t.test(
+  lowfi_df$bin_5_to_end[lowfi_df$condition == 'Dating/Looking'], 
+  lowfi_df$bin_5_to_end[lowfi_df$condition == 'Hungry/Thirsty'], 
+  paired = T)
+apa_lowfi_ht_dl_t <- paste0('*t*(', lowfi_ht_dl_t$parameter, ') = ', round(lowfi_ht_dl_t$statistic,2), 
+               ', *p* = ', round(lowfi_ht_dl_t$p.value, 3), 
+               ', $\\bar{D}$ = ', round(lowfi_ht_dl_t$estimate,3), 
+               ' [', paste(round(lowfi_ht_dl_t$conf.int,3), collapse = ','), ']')
+
+lowfi_ht_pu_t <- PairedData::yuen.t.test(
+  lowfi_df$bin_5_to_end[lowfi_df$condition == 'Popular/Unpopular'],
+  lowfi_df$bin_5_to_end[lowfi_df$condition == 'Hungry/Thirsty'], 
+  paired = T)
+apa_lowfi_ht_pu_t <- paste0('*t*(', lowfi_ht_pu_t$parameter, ') = ', round(lowfi_ht_pu_t$statistic,2), 
+               ', *p* = ', round(lowfi_ht_pu_t$p.value, 5), 
+               ', $\\bar{D}$ = ', round(lowfi_ht_pu_t$estimate,3), 
+               ' [', paste(round(lowfi_ht_pu_t$conf.int,3), collapse = ','), ']')
+```
+
+Overall, learning was potentiated in the Dating/Looking, and Popular/Unpopular conditions.
+Paired sample Yuen *t* tests, which are robust to non-normality [@yuen1974], reject the null of no difference between the two conditions of interest and the control condition (Dating/Looking: `r apa_lowfi_ht_dl_t`; Popular/Unpopular: `r apa_lowfi_ht_pu_t`).
+This difference is also reflected in the parameter estimates (Figures \ref{fig:epsdiff}, \ref{fig:rhodiff}, \ref{fig:xidiff}).
+
+
+```{r epsdiff, fig.width=3.5, fig.height=3, include=F}
+epsilon_difference_plot
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=3.25in}
+\includegraphics{figures/epsdiff-1.pdf}
+\caption[Condition contrasts for $\epsilon$]{Condition contrasts for $\epsilon$. Subscript number denotes condition. Condition 1 is Hungry/Thirsty, Condition 2 is Dating/Looking, Condition 3 is Popular/Unpopular. Shaded region is 95\% credible region, and tails extend to 99.5\% credible region.}
+\label{fig:epsdiff}
+\end{figure}
+
+```{r rhodiff, fig.width=3.5, fig.height=3, include=F}
+rho_difference_plot + 
+  ggplot2::coord_cartesian(xlim = c(-1.5, .4))
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=3.25in}
+\includegraphics{figures/rhodiff-1.pdf}
+\caption[Condition contrasts for $\rho$]{Condition contrasts for $\rho$. Subscript number denotes condition. Condition 1 is Hungry/Thirsty, Condition 2 is Dating/Looking, Condition 3 is Popular/Unpopular. Shaded region is 95\% credible region, and tails extend to 99.5\% credible region.}
+\label{fig:rhodiff}
+\end{figure}
+
+```{r xidiff, fig.width=3.5, fig.height=3, include=F}
+xi_difference_plot
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=3.25in}
+\includegraphics{figures/xidiff-1.pdf}
+\caption[Condition contrasts for $\xi$]{Condition contrasts for $\xi$. Subscript number denotes condition. Condition 1 is Hungry/Thirsty, Condition 2 is Dating/Looking, Condition 3 is Popular/Unpopular. Shaded region is 95\% credible region, and tails extend to 99.5\% credible region.}
+\label{fig:xidiff}
+\end{figure}
+
+PREDICTED RESPONSE BEHAVIOR BASED ON MEAN PARAMETERS GOES HERE
+
+## Age, puberty, and learning
+
+### Mean optimal presses
+
+- Age and overall performance
+- Puberty and overall performance
+
+```{r poptageplot, fig.width=5.875, fig.height=4, include=F}
+p_opt_age_plot
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/poptageplot-1.pdf}
+\caption[poptageplot]{poptageplot}
+\label{fig:poptageplot}
+\end{figure}
+
+```{r poptpdsplot, fig.width=5.875, fig.height=4, include=F}
+p_opt_pds_plot
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/poptpdsplot-1.pdf}
+\caption[poptpdsplot]{poptpdsplot}
+\label{fig:poptpdsplot}
+\end{figure}
+
+```{r poptdiffageplot, fig.width=5.875, fig.height=4, include=F}
+p_opt_diff_age_plot
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/poptdiffageplot-1.pdf}
+\caption[poptdiffageplot]{poptdiffageplot}
+\label{fig:poptdiffageplot}
+\end{figure}
+
+```{r poptdiffpdsplot, fig.width=5.875, fig.height=4, include=F}
+p_opt_diff_pds_plot
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/poptdiffpdsplot-1.pdf}
+\caption[poptdiffpdsplot]{poptdiffpdsplot}
+\label{fig:poptdiffpdsplot}
+\end{figure}
+
+- Age and parameters
+- Puberty and parameters
 
 # Discussion, Aim 1
 
-Lorem ipsum alakazam
+- The model captures learning behavior well
+- There is an expected and reasonable relation between model parameters and performance
+- There is an expected and reasonable relation between model parameters and confidence
+- Age and PDS trends indicate that in very early adolescence, participants do less well on the task
+  - The cognitive demands of this task are somewhat high, and so an overall increase into middle adolescence is sensible
+- Age and development trends in parameter estimates ...
+- Salience matters, but this effect is stable across participants of different 
 
 -----
 

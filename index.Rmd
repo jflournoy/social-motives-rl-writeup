@@ -81,3 +81,26 @@ dissertateUO::preamble_for_title(
 <!-- Chapter 4 -->
 \chapter{Discussion}
 
+# Limitations
+
+# Strengths
+
+Even given the above limitations, this research may still provide important insights to how reinforcement learning works, and is studied in developmental populations.
+
+- Even though we cannot generalize to a domain of social information, it is clear what is being learned.
+  - Each face is associated with a single trait, and learning about that trait does not require that a participant have an understanding of a latent construct that causes that trait to enable such learning
+  - This is an important future direction and actually could be potentially be a method used to probe the inferential structure of social information.
+- Although all information in this task is social, the comparison between learning rates is clear.
+  - being hungry or thirsty is socially relevenat information for the dyad (the participant and the target).
+  - H/T does not convey information beyond this single hop.
+  - D/L and P/U _does_ convey information two hops beyond the participant.
+    - D/L conveys information about a relation between two people beyond the single-hop distance of participant and target
+    - P/U conveys information about the target's indegree centrality
+- These are important properties
+  - previous work in adolescent learning has shown mixed results
+    - adolescents learn faster
+    - adolescents learn slower
+  - In some of this work, it is not clear what an optimal learner should do, and whether the stimuli are balanced to be the same for an optimal learner (and performance is not compared to an optimal learner)
+  - In other work, stimulii are more abstract
+  
+
