@@ -4,6 +4,16 @@ bibliography: "/home/jflournoy/code_new/social-motives-rl-writeup/dissertation.b
 csl: "/home/jflournoy/Rlibs/probly/bib/apa-old-doi-prefix.csl"
 ---
 
+Adolescents are notorious for developing normally through the transition from childhood into the adult state.
+The changes during this period of development include increasing propensity toward adult-like behaviors, such as in sexual activity, and establishing a place in an extra-familial social network.
+Establishing mastery of the social world, and access to material and social resources, is a key concern of this developmental stage.
+Indeed, the developmental end-point of this transition is to a bio-social state in which the chance of successful sexual reproduction and child rearing is optimized.
+Relative to other primates human childhood is extremely protracted, essentially representing a 'pause' of development [@delgiudice2009], perhaps as a way to reduce the burden of metabolic requirements on parents with multiple offspring and to reduce feeding competition with adults, but that is also associated with more rapid post-pubertal development[@gurven2006].
+From a birds-eye-view, this places the psychology and behavior of the adolescent at a transition point between a relatively quiescent period, and period of acceleration into an adult motivational frame. 
+This evolutionary developmental transition is accompanied by increasing access to (and ability to exploit) the normative cultural expectations, practices, and products of adulthood such as resource acquisition (and acompanying privilages and anxieties), familial care, courtship, social group bonding and hierarchy formation, physical mobility (e.g., public transit, automobiles), and intoxicants.
+Here, I focus on two motivations that are, first, central to ultimate reproductive success and, second, likely to be accentuated by or the result of adolescent development: mate-seeking and status.
+Although this focus is of theoretical intrest, it is motivated by a practical concern for the adverse health outcomes that some adolescent-emergent behaviors are associated with.
+
 An extensive body of literature describes dramatic changes in the rates of health risking behaviors (HRBs) during adolescence [e.g., binge drinking, risky sexual behavior; @centersfordiseasecontrolandprevention2003;@chassin2009;@patrick2011;@stevenson2007;@willoughby2013].
 These HRBs lead to what has been called the paradox of adolescence: although this is a period of robust physical health and increased mental ability, both morbidity and mortality increase [@dahl2004].
 It can seem perplexing that adolescents engage in these HRBs despite evaluating the probability of uncertain events with accuracy similar to adults [@fischhoff2008], and demonstrating general accuracy (on occasion, somewhat excessive optimism) about the probability of future outcomes [@debruin2007;@fischhoff2000].
@@ -49,7 +59,7 @@ Literature on risk-taking behavior directly implicates both mate-seeking and sta
 For example, in a study which assessed perceptions of the sexual-self among adolescents, there was an association between increasing sexually-motivated self-perceptions and various forms of sexual risk-taking [@buzwell1996].
 With regard to status, there is some evidence consistent with the idea that adolescents who have high popularity as rated by peers may try to maintain their status through health-risking behaviors [@mayeux2008].
 Beyond health-risking behaviors, these motives may also be crucial ingredients in understanding a whole class of risk-taking that is less negatively valued, including but not limited to extending one's social and physical environment beyond one's childhood home [@sercombe2014].
-Although the above literature acknowledges motivation, and measures related constructs, mate-seeking and status _motives_ are rarely or never a direct target of measurement.
+Although the above literature acknowledges motivation, and measures related constructs, mate-seeking and status _motives_ are rarely a direct target of measurement.
 There is a need for research investigating how adolescent learning and exploration is shaped in the presence of stimuli which are motivationally relevant to their developmental stage.
 
 # Status motive
@@ -112,12 +122,6 @@ If differences in learning rates between stimuli with social and minimally-socia
 *Aim 2: Does the motivational potentiation of learning relate to a constellation of self-report measures that theoretically ought to demonstrate convergence? Specifically, (i) what is the relation between motivational potentiation and self-report fundamental social motives; (ii) what is the relation between self-report fundamental social motives and motive-congruent outcomes; and (iii) what is the relation between motivational potentiation and motive-congruent outcomes.*  Measures of such constructs include self-reported fundamental social motives, self-report health risk-behaviors, and intermediate attitudes about the social consequences of health-risking behaviors.
 I hypothesize, broadly speaking, that there will be a positive correlation between self-report motives and differences in learning in motive conditions, and that attitudes will moderate the relation between motives (both self-report and as measured in learning behavior) and risk-behavior outcomes.
 
-*Aim 3a: Do close others perceive individual differences in motives that are reflected in motivational learning potentiation?* The importance of accurate interpersonal perception of status and mate-seeking motives may be exploited as a way to assess the construct validity of the learning paradigm, and also adds to literature on the validity of the FSM approach.
-Correspondence between informant perceptions of individual differences in motive strength, and motive strength as elicited on the reinforcement learning task would support the external validity of this measure of motives. 
-
-*Aim 3b: Is there agreement between close others and the self in perceptions of fundamental social motives?* Reports from informants with varying relationships to the target participant will allow exploration of the predicted importance of relationships to the motivations investigated here.
-If motives are evolved responses to challenges arising from specific social relations, then actors in those relationship roles should be in the ideal position to both perceive and express those motives.
-Differences in consensus by relationship type will help corroborate the FSM approach to the structure of motivation.
 <!--stackedit_data:
 eyJwcm9wZXJ0aWVzIjoiZXh0ZW5zaW9uczpcbiAgcHJlc2V0Oi
 BnZm1cbiAgbWFya2Rvd246XG4gICAgYnJlYWtzOiBmYWxzZVxu
