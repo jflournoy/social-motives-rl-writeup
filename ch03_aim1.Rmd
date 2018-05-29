@@ -437,5 +437,17 @@ p_opt_diff_pds_plot
 - Age and development trends in parameter estimates ...
 - Salience matters, but this effect is stable across participants of different 
 
+## Prior literature
+
+- extensive use of this task
+  - focus on reward
+  - exploration of social aspects
+- mixed literature
+  - performance not consistently better in adults versus adolescents
+  - task compentence does increase into middle adolescence
+    - likely ef related
+  - learning rates not consistently higher or lower in adults versus adolescents
+  
+
 -----
 
