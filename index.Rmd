@@ -81,26 +81,62 @@ dissertateUO::preamble_for_title(
 <!-- Chapter 4 -->
 \chapter{Discussion}
 
+- This study reveals that people do not behave on the SPLT in ways that are consistent with it being sensitive to individual differences in social motives.
+    - This presents an interpretive conundrum.
+    - It is clear that there is a salience effect of the social-motive domain stimuli that enhances learning relative to the minimally social condition.
+    - There is no relation between this salience effect and development, or self-report motives in these data.
+    - One possibility is that motive differences do not result in differences in the salience of stimuli that are relevant to those motives.
+      - This conclusion would be a damning falsification of theories about attention-reward contingincies set up by the interaction between a person and her environment [@mackintosh1975;@grossberg1975;@kruschke2011]. Such an attack on the hard core of these theories is unwaranted.
+
 # Limitations
 
-# Strengths
+- Reasons that this task may not be a good measure of motives
+  - Learning may be obviously irrelevant to actual social goals participants have. That is, learning about the popularity of a computer-generated face may not be enhanced by a persons status motives because it is clear that this information is not instrumentally valuable for satisfying that motive. However, we did not ask participants whether they felt like they learned something that could help them in their daily lives (that is, we did not assess whether they thought there was some true, learned association between facial characterstics and either dating or social status).
+  - The proportion of variance in the median parameter estimates (for learning parameters, or performance estimates) versus variance due to uncertaintly in those estimates was generally low. As is the case with many laboratory tasks, and especially those that use binary choice outcomes, this indicates low measurement quality. As such, any true relation between self-report scales or behaviors would be poorly estimated.
+  - Correspondence between task-behavior and self-report measures of the same construct are generally low [@harden2017] (ALSO POLDRACK SLIDES)
+- Minimal stimulus set only examines a small slice of the kinds of things that may be relevant for mate-seeking and status motives.
+  - reliability of salience differences may be enhanced by accounting for variation induced by stimuli.
+
+- Self-report questionnaires
+
+# Strengths 
 
 Even given the above limitations, this research may still provide important insights to how reinforcement learning works, and is studied in developmental populations.
 
 - Even though we cannot generalize to a domain of social information, it is clear what is being learned.
   - Each face is associated with a single trait, and learning about that trait does not require that a participant have an understanding of a latent construct that causes that trait to enable such learning
   - This is an important future direction and actually could be potentially be a method used to probe the inferential structure of social information.
-- Although all information in this task is social, the comparison between learning rates is clear.
-  - being hungry or thirsty is socially relevenat information for the dyad (the participant and the target).
+- Although all information in this task is social, there are clear differences in the type of social information available to be learned in each condition.
+  - being hungry or thirsty is socially relevenat information for the dyad (the participant and the target face).
   - H/T does not convey information beyond this single hop.
   - D/L and P/U _does_ convey information two hops beyond the participant.
     - D/L conveys information about a relation between two people beyond the single-hop distance of participant and target
     - P/U conveys information about the target's indegree centrality
-- These are important properties
-  - previous work in adolescent learning has shown mixed results
-    - adolescents learn faster
-    - adolescents learn slower
-  - In some of this work, it is not clear what an optimal learner should do, and whether the stimuli are balanced to be the same for an optimal learner (and performance is not compared to an optimal learner)
-  - In other work, stimuli are more abstract
-  
+  - H/T may be relevant information for affiliation (or pro-social) motives. However, popularity and dating-status is also relevant social information that is useful and important for affiliation motives.
+  - This clarity stands in contrast to previous work that has used unstructured item-preference information [e.g., @rosenblau2017].
+
+# Conclusions
+
+- If I were to make the mistake of drawing a strong clonclusion from the very-close-to-zero relations between salience differences, and development and self-report motives, I would say that by age 12 years or so, people understand that it is important to learn as well as possible signals in the social world about dating and popularity, regardless of one's own motives in relevant domains.
+  - In the domain of social status, this is in line with work that suggests status inaccuracy can incurring a social cost regardless of position [@srivastava2011].
+- Results from the self-report instruments demonstrate a greater degree of construct validity.
+  - Self-report traits scales show correlations with self-report behaviors that broadly support their validity. For example, people who are in relationships don't think much about meeting new dating partners.
+  - One intrigueing null result is that neither mate-seeking motive scale was associated with use of protection.
+  - (MUCH MORE ABOUT STATUS AND DRINKING, AND RELATION TO SENSATION SEEKING)
+
+
+# Future directions
+
+- There is a large space for variation on standard RL tasks.
+  - Many ways to manipulate stability, informational content (learning about worthwhile meaningful things, relations), and reward (intrinsically rewarding, or instrumentally rewarding).
+- There is a huge problem to solve with regard to individual variation.
+  - Binary choice tasks are probably too insensitive to underlying varriability in cognition.
+  - Detection of differences in cognitive parameters require so many trials because they rely on differences in patterns of responding.
+  - Future studies that employ laboratory tasks to examine social-goal behavior could allow increase response options, provide task structure that reveals preferences more quickly, or that combines instrumental learning with utilization of information in the relevant domain.
+    - For example, one might index preference for learning about certain kinds of information above other types.
+      - The diverse set of stimuli used by @rosenblau2017 is a step in this direction.
+    - One might ensure that rewards for correct responses are able to be used in persuit of domain-relevant goals.
+  - Reinforcement learning is a very well understood model cognitive process, and it makes simplifying assumptions that are well characterized and can be relaxed in interesting ways to enhance predictive validity. However, when used as a tool to probe variation in learning due to either development, or content domain, the simplifying assumptions may intersect in poorly characterized ways with features of the substantive domain of interest. Though this study does examine the influence of a few simplifying assumptions on the inferences made about learning in the social-motives domain, there are entire classes of learning models [e.g., instance based learning; @gonzalez2003a; and model-based learning; @decker2016] that are not tested, or are not possible to test, in these data. 
+  - Ultimately, it is domain-relevant behavior that can constrain inferences. In this study, we ensure that all results are interpretted in light of the optimal choice behavior in each condition. Making inferences about learning parameters with no reference to this behavior would put all of the burden on the correctness of the learning model.
+
 
