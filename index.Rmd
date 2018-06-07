@@ -101,6 +101,6 @@ Even given the above limitations, this research may still provide important insi
     - adolescents learn faster
     - adolescents learn slower
   - In some of this work, it is not clear what an optimal learner should do, and whether the stimuli are balanced to be the same for an optimal learner (and performance is not compared to an optimal learner)
-  - In other work, stimulii are more abstract
+  - In other work, stimuli are more abstract
   
 

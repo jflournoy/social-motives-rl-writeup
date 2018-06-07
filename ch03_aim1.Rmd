@@ -439,15 +439,47 @@ p_opt_diff_pds_plot
 
 ## Prior literature
 
-- extensive use of this task
-  - focus on reward
-  - exploration of social aspects
-- mixed literature
-  - performance not consistently better in adults versus adolescents
-  - task compentence does increase into middle adolescence
-    - likely ef related
-  - learning rates not consistently higher or lower in adults versus adolescents
-  
+- How does this inform our understanding of, first, reinforcement learning across this developmental period and, second, social-context effects on reinforcement learning?
+- All work reviewed is cross-sectional, with age-group sizes of fewer than 50 particapants (and often fewer than 30).
+  - Two notable excpetions: 
+    - @mccormick2017 has N = 77 adolescents from age 8-17.7 years and focuses on age correlations rather than group differences.
+    - @peters2017 has a longitudinal sample that contains 736 observations over 3 waves spanning ages 8-25 years.
+
+### Performance differences across development
+
+- Adults, or young adults, almost always perform better than adolescents or children
+  - Adults do better: [@duijvenvoorde2008; @decker2015; @vandenbos2009a; @cohen2010; @christakou2013; @palminteri2016; @rosenblau2017; @peters2017; @mccormick2017].
+  - In one study, adolescents performed better [@davidow2016].
+    - There is nothing particularly different about this study.
+      - Probabilistic reinforcement learning.
+      - except that the reward feedback was paired with an image, and participants were later tested on whether they remembered previously seeing the image.
+      - Notably, adults showed larger learning rate parameters than adolescents (performing worse as a result).
+      - The results of this study are likely anomolous given the considerable evidence for greater adult performance on standard reinforcement learning paradigms.
+  - This consistent age finding holds across operationalization of learning:
+    - Probabilisitic reinforcement: [@vandenbos2009a; @cohen2010; @palminteri2016; @decker2015]
+    - Deterministic reinforcement: [@duijvenvoorde2008; @peters2017]
+    - Or more often described as risk-taking: Iowa gambling task [@christakou2013], balloon analogue risk task [@mccormick2017]
+- Several studies did not include a measure of performance, but focus just on learning rate.
+  - Learning rates are not linearly associated with performance. There's a sweet spot.
+  - In studies where both learning rate and performance were measured, two studies show an association with age in the same direction [with adults performing better than younger participants; @rosenblau2017; @mccormick2017].
+  - The only study in which this relation was reversed was [@davidow2016], though another study showed different relations between learning rates for positive versus negative feedback [@christakou2013].
+- Instruction manipulations seem to have an outsized effect for adults.
+  - Adult advantage was lessened by false instruction [@decker2015], and instruction bias was apparent in post-learning test phase.
+  - Another unpublished manuscript shows that a true instruction allows adults to exploit a good IGT deck without exploration (though adolescents behave in a way that indicates that if there were a false instruction, they would have an advantage).
+- Some authors have suggested that adolescent reward sensitivity makes this developmental period advantageous for reward learning [@davidow2016;@mccormick2017].
+  - If there is indeed a peak in reward sensitivity, it does not result in a particular advantage in standard reward learning tasks
+  - There does seem to be preliminary support for the idea that increased option exploration may be related to performance gains in the right context.
+    - unfortunately this aspect is not testable in these data.
+- Overall, the data presented here strengthen the conclusions of the largest, and only longitudinal study, that performance during reinforcement learning increases with age [@@peters2017].
+
+
+# Maybe more for the final discussion
+- There is a large space for variation on standard RL tasks.
+  - Many ways to manipulate stability, informational content (learning about worthwhile meaningful things, relations), and reward (intrinsically rewarding, or instrumentally rewarding).
+- There is a huge problem to solve with regard to individual variation.
+  - binary choice tasks are probably way too insensitive.
+  - detection of differences in cognitive parameters require so many trials because they rely on differences in patterns of responding.
+
 
 -----
 
