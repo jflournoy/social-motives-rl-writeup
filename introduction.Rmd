@@ -28,9 +28,6 @@ csl: "/home/jflournoy/Rlibs/probly/bib/apa-old-doi-prefix.csl"
     - Haven't developed clear heuristics so explore all possible options (like a rational actor) to develop more adult like heuristics, which exposes them to risk
     - That is, taking risks, or exploring situations with known or unknown probabilistic outcomes, is an essential part of this developmental stage, perhaps allowing adolescents to build expertise and wisdom about the world they must engage with as adults [@crone2012;@blakemore2014;@romer2017].
 
-
-
-
 In order to more fully understand this increased propensity for exploration during adolescence, it is crucial to also understand the motives that compel and shape such exploration.
 That is, differences in sub-domains of motivation will increases or decreases the expected value of various learning opportunities, and thus alter the ways in which adolescents express this exploratory behavior.
 Examining learning processes directly may be able to provide a window into effects of motivations that influence low level computations such as perception of stimulus salience.
