@@ -13,7 +13,9 @@ author: "John C. Flournoy"
 output: 
   pdf_document:
     keep_tex: yes
-    template: "default-1.17.0.2_nogeom.tex"
+    template: "default-1.17.0.2_nogeom.tex"output: 
+  pdf_document:
+    keep_tex: yes
 bibliography: "/home/jflournoy/code_new/social-motives-rl-writeup/dissertation.bib"
 csl: "/home/jflournoy/Rlibs/probly/bib/apa-old-doi-prefix.csl"
 ---
@@ -114,8 +116,14 @@ In adolescence in particular, this should result in increases in the salience of
 ## Salience and learning
 
 The relation between stimulus salience, motivation, and learning is a cornerstone of the experiment described below, and so a brief overview of these follows. 
-A substantial body of work on learning and attention has shown that more salient cues enhances learning effects, and that learned predictive value modifies cue salience.
-In laying out a programmatic approach to learning and attention, @mackintosh1975 concludes that the idea that learning rates are different depending on the stimulus is "formally equivalent to one of the main tenets of two-stage, attentional theories of learning, namely, the assumption that the probability of attending to a stimulus determines the probability of learning about that stimulus" (p. 294).
+A substantial body of work on learning and attention has shown that more salient cues enhances learning effects, and that learned predictive value modifies cue salienctest-simulated-data.rda')
+```
+
+
+# Background
+
+A substantial body of work on the relation between learning and attention indicates that stimulus salience, motivational relevance, and learning rate.
+In laying out a programmatic approach to learning and attention, @mackintosh1975 [p. 294] concludes that the idea that learning rates are different depending on the stimulus is "formally equivalent to one of the main tenets of two-stage, attentional theories of learning, namely, the assumption that the probability of attending to a stimulus determines the probability of learning about that stimulus" (p. 294)."
 @grossberg1975 summarizes literature indicating that if two cues are paired with an unconditioned stimulus, the more salient cue will be conditioned more quickly to the extent that it may create a blocking effect against the conditioning of the less salient cue.
 More recently, @denton2006 demonstrated in humans that the blocking effect is modulated by salience. 
 Blocking refers to the phenomenon that when a new stimulus is conditioned in conjunction with an older stimulus that has already been associated with an outcome, the new stimulus builds up a less strong association with the outcome.
@@ -223,12 +231,20 @@ print(reaction_time_plot)
 
 ## Modeling approach
 
-The focus of this analysis is on describing and estimating differences in learning that is proposed to be related to differences in motives that develop during adolescence.
+The focus of this analysisIn this study, using cues of colored dots and modulating salience by the density of dots, the authors showed that it is harder to block a new cue if that new cue is more salient (higher dot density) than the already conditioned cue.
+
+Such attentional effects on learning may not be mere spandrels of our evolved learning mechanisms, but a key feature that helps learning beings learn quickly in contingent environments.
+
+# Method
+
+## Modeling approach
+
+The focus of this dissertation is on describing and estimating differences in learning that is proposed to be related to differences in motives that develop during adolescence.
 The goal of such estimation is to provide reliable information about the magnitude and sign of relations between observed phenomena, as well as about the uncertainty of that information.
 A Bayesian approach provides a robust framework for specifying and estimating hierarchical and nonlinear models with many parameters while constraining inferences in a way that reduces the rate of making incorrect claims with confidence [@GelmanPowerCalculationsAssessing2014;@gelman_why_2012].
 These are key concerns for the current work for two reasons.
 First, convergence of reinforcement learning  model can be difficult to achieve, and Bayesian estimation helps by allowing one to constrain parameter values for these models in a principled and intuitive way using parametric prior distributions.
-Second, in contrast to a confirmatory experiment, this analysis seeks to explore relations between a number of theoretically related constructs; as such, the hierarchical Bayesian approach helps constrain estimates in ways that increase their efficiency [@gelman_why_2012].
+Second, in contrast to a confirmatory experiment, this analysisdissertation seeks to explore relations between a number of theoretically related constructs; as such, the hierarchical Bayesian approach helps constrain estimates in ways that increase their efficiency [@gelman_why_2012].
 
 
 ## A model for reinforcement learning
@@ -255,13 +271,16 @@ This probability is then adjusted by a noise parameter, $0 \leq\xi_{jk}\leq1$ fo
 The noise parameter modulates the degree to which responses are non-systematic. 
 When $\xi$ is 1, $P_{it} = .5$, and because each individual has a unique noise parameter for each condition, I am able to account for participants who do not learn during the task, or in a particular condition.
 The full equation is:
+
 $$
 P(a_{\rightarrow t} | s_{t})_{t} = 
 \text{logit}^{-1}\big(W(a_{\rightarrow t}| s_{t}) - W(a_{\leftarrow t}| s_{t})\big)\cdot(1-\xi_{jk}) + \small\frac{\xi_{jk}}{2}.
 $$
+
 The action weight is determined by a Rescorla-Wagner (RW) updating function $Q$, $W_{t}(a,s) = Q_{t}(a, s)$.
 Although this may seem like a redundant step, I specify it this way to be consistent with @guitart-masip2012, and to illustrate the possibility that another parameter could impact the action weight separately from $Q$.
 The function $Q$ encodes instrumental learning and is governed by the individual's learning rate for that condition, $\epsilon_{jk}$, and a scaling parameter $\rho_{jk}$ that scales the effective size of the possible rewards $r_t \in \{0, 1, 5\}$:
+
 $$
 Q_{t}(a_t, s_t) = Q_{t-1}(a_t, s_t) + \epsilon_{jk}\big(\rho_{jk}r_t - Q_{t-1}(a_t, s_t)\big)
 $$
@@ -271,22 +290,27 @@ $$
 Each parameter ($\epsilon, \rho, b, \xi$) varies by condition $k \in 1:K$, and by participant $j \in 1:J$ nested in sample $m \in 1:M$. 
 The structure of the hierarchical part of the model is the same for each parameter, so the following description for $\epsilon$ will serve as a description for all of the parameters.
 For each individual $j$, $\beta_{\epsilon j}$ is a $K$-element row of coefficients for parameter $\epsilon$ for each condition:
+
 $$
 \beta_{\epsilon j} \sim \mathcal{N}(\delta_{\epsilon mm[j]}, \Sigma_{\epsilon})
 $$
 where $\delta_{\epsilon mm[j]}$ is a column of $K$ means for individual $j$'s sample $M$, as indexed in the vector $mm$, and $\Sigma_{\epsilon}$ is a $K\times K$ matrix of the covariance of individual coefficients between conditions.
 
 Finally, across all $M$ samples, the means for each condition k are distributed such that: 
+
 $$
 \delta_{\epsilon k} \sim \mathcal{N}(\mu_{\epsilon k}, \sigma_\epsilon)
 $$
+
 where $\mu_{\epsilon k}$ is the population mean for parameter $\epsilon$ in condition $k$, and $\sigma$ is a slightly regularizing scale parameter for these means across all conditions and samples. The priors for these final parameters are:
+
 $$
 \begin{split}
 \mu_\epsilon &\sim \mathcal{N}(0, 5)\\
 \sigma_\epsilon &\sim \text{exponential(1)}.
 \end{split}
 $$
+
 Note that in practice all parameter estimates were practically identical whether or not nesting within sample was modeled and so I describe only the model without nesting.
 I maintain the description above to illustrate for the reader that it is at least practically possible to account for another level of hierarchy.
 The model specification for both sets of models is available in the accompanying package.
@@ -295,7 +319,9 @@ The model specification for both sets of models is available in the accompanying
 
 Before modeling the task data, I will confirm that this model can recover known parameters from simulated data.
 Using RStan [version `r packageVersion('rstan')`; @standevelopmentteam2018], I simulate 100 data sets based on the structure of the sample data, using the same number of participants per sample (see the section on [descriptive statistics](descriptive-statistics.html), as well as precisely the same task structure. 
-For this aim, it is important to be able to recover all $\mu_{\theta k}$ for $\theta \in \{\epsilon,\rho,b,\xi\}$ and $k \in \{1,2,3\}$, where 1 = Hungry/Thirsty, 2 = Popular/Unpopular, and 3 = Dating/Looking. Those parameters that account for idiosyncratic deviation from RW-expected behavior ($b,\xi$) will not vary by condition. Based on interactive simulation ([here](https://jflournoy.shinyapps.io/rw_model/)), reasonable parameter values for the control condition might be $\mu_\epsilon = -1.65$ and $\mu_\rho = -0.3$ (these are the _raw_ parameter values which are transformed such that $\epsilon^\prime \in [0,1]$ and $\rho^\prime \in [0,\infty)$. Similar to logistic regression, estimating the parameters on a scale the is not restricted improves estimation).
+For this aim, it is important to be able to recover all $\mu_{\theta k}$ for $\theta \in \{\epsilon,\rho,b,\xi\}$ and $k \in \{1,2,3\}$, where 1 = Hungry/Thirsty, 2 = Popular/Unpopular, and 3 = Dating/Looking. Those parameters that account for idiosyncratic deviation from RW-expected behavior ($b,\xi$) will not vary by condition. Based on interactive simulation ([here](https://jflournoy.shinyapps.io/rw_model/)), reasonable parameter values for the control condition might be $\mu_\epsilon = -1.65$ and $\mu_\rho = -0.3$ ([^1].
+
+[^1]: Note that these are the _raw_ parameter values which are transformed such that $\epsilon^\prime \in [0,1]$ and $\rho^\prime \in [0,\infty)$. Similar to logistic regression, estimating the parameters on a scale the is not restricted improves estimation).
 
 One early indication that a model may not be well suited to a problem is that when generating from the prior distribution, data-sets are produced that either do not adequately cover the range of reasonable values, or that cover ranges that are implausible [@gabry2017]. 
 The simulated data do generally cover the range of the actual data when we look just at the proportion of optimal presses over time (Figure \ref{fig:simdatcoverage}, and importantly do not show implausible behavior (all mass around extreme values like 0, 1, or .5).
@@ -323,9 +349,11 @@ FIGURES WITH DRAWS FROM PRIORS HERE
 
 ## Recovery of population parameters
 
-After generating these simulated data sets and known parameter values, the model was then fit to these simulated data to evaluate its ability to recover the parameters. 
+After generating these simulated data sets and known parameter values, the model was then fit to these simulated data to evaluate its ability to recvover the parameters. 
 The mode was fit using 4 chains with 1000 warm-up iterations and 500 sampling iterations per chain. 
 An example from one simulation of estimated posterior densities for the final probability of a participant choosing the right-hand label shows that nearly all estimates capture the underlying generating parameter (Figure \ref{fig:pRfinalplot}).
+
+
 
 ```{r pRfinalplot, fig.width=5.875, fig.height=4, include=F}
 ggplot2::theme_set(ggplot2::theme_minimal())
@@ -342,7 +370,7 @@ do.call(gridExtra::grid.arrange, pR_final_plots)
 \label{fig:pRfinalplot}
 \end{figure}
 
-To examine the performance of all of the simulations, after the posteriors for each simulation estimate were sampled, the empirical cumulative density function was composed for the distribution of each parameter. 
+To examine the performance of all of the simulations, after the posteriors for each simulation estimate were sampled, the empirical cummulative density function was composed for the distribution of each parameter. 
 The cumulative density for the generating value (from the simulation) was then found. 
 This procedure is the same as finding the _p_-value for a test statistic using the probability density function for the relevant distribution.
 If the posterior is a reasonable estimate of the generating parameter, then the generating parameter should be a random draw from that posterior. 
@@ -352,7 +380,7 @@ PLOTS SHOWING UNIFORM DISTRIBUTION HERE
 
 ## Target model and estimation of sample parameters
 
-All models were fit in RStan [version `r packageVersion('rstan')`; @standevelopmentteam2018] using R [version `r paste(version$major,version$minor, sep = '.')`; @rcoreteam2018].
+AllThe models wereas fit in RStan [version `r packageVersion('rstan')`; @standevelopmentteam2018] using R [version `r paste(version$major,version$minor, sep = '.')`; @rcoreteam2018].
 Samples were drawn over 1534 iterations from six chains per model, with the first 1200 iterations for each chain discarded as a warm-up period (total iterations per model = 2004).
 To compare models and choose the one with the best expected out-of-sample prediction we use the R package, loo [@vehtari2018], to compute an estimate of the leave-one-individual-out cross validation information criterion [@vehtari2017a].
 
@@ -387,7 +415,7 @@ grid_arrange_shared_legend <- function(..., ncol = 1, widths) {
 
 ## Descriptive data
 
-- Describe behavior across the run in each condition based on non-parametric plots based on trial-by-trial means
+- Describe behavior across the run in each condition based on non-parameteric plots based on trial-by-trial means
 
 ```{r trialaverages, fig.width=5.875, fig.height=4, include=F}
 ggplot2::theme_set(ggplot2::theme_minimal())
@@ -402,7 +430,7 @@ grid_arrange_shared_legend(avg_per_sample_plot2, avg_across_samples, ncol = 2, w
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/trialaverages-1.pdf}
-\caption[Average optimal behavior over trial]{Average optimal behavior over trial. Each point is the average across participants for that trial for the indicated condition. Best fit lines and confidence bands are estimated using generalized additive models and are for illustrative purposes only.}
+\caption[Average optimal behaviour over trial]{Average optimal behaviour over trial. Each point is the average across participants for that trial for the indicated condition. Best fit lines and confidence bands are estimated using generalized additive models and are for illustrative purposes only.}
 \label{fig:trialaverages}
 \end{figure}
 
@@ -413,9 +441,9 @@ grid_arrange_shared_legend(avg_per_sample_plot2, avg_across_samples, ncol = 2, w
 
 ### Model comparisons
 
-- Label of information criteria, plot of $\epsilon$ and $\xi$ parameter correlations across models.
+- LTabel of information criteria, plot of $\epsilon$ and $\xi$ parameter correlations across models.
 - LOO-CV estimates show that there is very little or no improvement gained by adding a level to the hierarchy accounting for differences due to sample.
-- Best fitting model uses all four parameters, the learning rate, $\epsilon$, the inverse temperature, $\rho$, irriducible noise, $\xi$, and bias for the right side, $b$.
+- Best fitting model uses all four parameters, the learning rate, $\epsilon$, the inverse temperature, $\rho$, irriducible noise, $\xi$, and bias for the right side, $b$Basically no effect of allowing parameters to vary by sample -- individual-level parameters capture variation well by themselves.
 
 ### Validation of parameters
 
@@ -622,12 +650,19 @@ p_opt_diff_pds_plot
 
 Overall, the best-fitting model for learning captures the behavior well.
 We see that the model simulations generate data that covers the full range of possible behavior, and that simulated data from the fitted parameters reproduce the average learning trajectory in each condition fairly well.
-The relation between the parameters and both learning performance, and confidence in learning conform to expectations. Specifically, generally higher learning rates, greater inverse temperature, and lower noise all relate positively to performance and confidence (though as expected, because of the non-linearity inherent in learning rates, very high learning rate along with very high inverse temperature parameters looks like it is associated with lower performance).
-Generally, these results can give us confidence that the model may adequately capture a plausible cognitive process that gives rise to the response data.
+Th
+# Discussion, Aim 1
 
-Performance on the learning task, indexed by proportions of optimal presses, follows expected age and pubertal-development trends, with very early adolescent participants performing less well on the task.
-The cognitive demands of this task are somewhat high (learning associations between 6 abstract faces and 12 terms), and so an overall increase into middle adolescence is not unexpected.
-Age and development trends in parameter estimates follow this pattern.
+- The model captures learning behavior well
+- There is an expected and reasonable relation between themodel parameters and both learning performance, and confidence in learning conform to expectations. Specifically, generally higher learning rates, greater inverse temperature, and lower noise all relate positively to performance and confidence (though as expected, because of the non-linearity inherent in learning rates, very high learning rate along with very high inverse temperature parameters looks like it is associated with lower performance).
+Generally, these resultperformance
+- There is an expected and reasonable relation between model parameters can give usd confidence that the model may adequately capture a plausible cognitive process that gives rise to the response data.
+
+Performance on the learning task, indexed by proportions of optimal presses, follows expected age and pubertal-development trends, with
+- Age and PDS trends indicate that in very early adolescentce, participants performingdo less well on the task.
+  - The cognitive demands of this task are somewhat high (learning associations between 6 abstract faces and 12 terms), and so an overall increase into middle adolescence is not unexpected.
+sensible
+- Age and development trends in parameter estimates follow this pattern.
 Differences in performance, as well as model parameters, indicate that the two social-motive conditions enhance learning.
 This is consistent with the idea that humans are espcially motivated to learn social information.
 However, estimates of these differences between conditions were fairly consistent across the entire age range.
@@ -659,34 +694,58 @@ Cross-sectional age differences may be a counfounding source of variance for dev
 
 ## Differences in reinforcement learning, generally, across adolescence
 
-How do the results from this study inform our understanding of, first, reinforcement learning across adolescence and, second, social-context effects on reinforcement learning?
-Almost all work on reinforcement learning in adolescence is cross-sectional, with age-group sizes of fewer than 50 particapants (and often fewer than 30).
-There are Two notable exceptions. @mccormick2017 report on N = 77 adolescents, ages 8-17.7 years, with analyses focusing on age correlations rather than group differences.
-@peters2017 report on a longitudinal sample with 736 observations over 3 waves, with participants from age 8-25 years.
+How do the results from this study inform our understanding of, first, reinforcement learning across adolescence...
+- Salience matters, but this effect is stable across participants of different 
+
+## Prior literature
+
+- How does this inform our understanding of, first, reinforcement learning across this developmental period and, second, social-context effects on reinforcement learning?
+Almost all work on reinforcement learning in adolescence- All work reviewed is cross-sectional, with age-group sizes of fewer than 50 particapants (and often fewer than 30).
+There are  - Two notable excepetions.: 
+    - @mccormick2017 report onhas N = 77 adolescents, from ages 8-17.7 years, with analyses and focusinges on age correlations rather than group differences.
+    - @peters2017 report onhas a longitudinal sample withat contains 736 observations over 3 waves, with participants from spanning ages 8-25 years.
 These more robust studies are both consistent with improvements in performance on reinforcement learning tasks across adolescnece.
 
 ### Performance differences across development
 
-The most consistent finding from this literature, and which is consistent with the present study, is that adults, or young adults, perform better than adolescents or children [@duijvenvoorde2008; @decker2015; @vandenbos2009a; @cohen2010; @christakou2013; @palminteri2016; @rosenblau2017; @peters2017; @mccormick2017].
-In one study, adolescents performed better [@davidow2016] that adults, and this was interpretted as indicated that hightened reward sensitivity may lead to better learning during adolesncence.
+The most consistent finding from this literature, and which is consistent with the present study, is that a
+### Performance differences across development
+
+- Adults, or young adults, almost always perform better than adolescents or children
+  - Adults do better: [@duijvenvoorde2008; @decker2015; @vandenbos2009a; @cohen2010; @christakou2013; @palminteri2016; @rosenblau2017; @peters2017; @mccormick2017].
+  - In one study, adolescents performed better [@davidow2016] that adults, and this was interpretted as indicated that hightened reward sensitivity may lead to better learning during adolesncence.
 Like many of the studies which show greatest performance during adulthood, they used a probabilistic reinforcement learning task.
-Notably, adults showed higher learning rate parameters than adolescents (but performed worse as a result).
-The results of this study are likely anomalous given the considerable evidence for greater adult performance on standard reinforcement learning paradigms.
+.
+    - There is nothing particularly different about this study.
+      - Probabilistic reinforcement learning.
+      - except that the reward feedback was paired with an image, and participants were later tested on whether they remembered previously seeing the image.
+      - Notably, adults showed highlarger learning rate parameters than adolescents (but performeding worse as a result).
+      - The results of this study are likely anomaolous given the considerable evidence for greater adult performance on standard reinforcement learning paradigms.
 
-This consistent age finding holds across operationalization of learning.
-Both probabilistic reinforcement [@vandenbos2009a; @cohen2010; @palminteri2016; @decker2015], and deterministic reinforcement [@duijvenvoorde2008; @peters2017] show the increase in performance with age.
-Tasks which are more often described as risk-taking, but which involve a reinforcement learning, like the iowa gambling task [@christakou2013], and balloon analogue risk task [@mccormick2017] also show this age trend.
+  - This consistent age finding holds across operationalization of learning.
+Both p:
+    - Probabilisitic reinforcement: [@vandenbos2009a; @cohen2010; @palminteri2016; @decker2015], and d
+    - Deterministic reinforcement: [@duijvenvoorde2008; @peters2017] show the increase in performance with age.
+Tasks which are more often described as risk-taking, but which involve a reinforcement learning, like the i
+    - Or more often described as risk-taking: Iowa gambling task [@christakou2013], and balloon analogue risk task [@mccormick2017] also show this age trend.
 
-Several studies did not include a measure of performance, but focus just on learning rate.
-Notably, Learning rates are not linearly associated with performance when the feedback is probabilistic, but show optimal performance when a balance is struck between sensitivity to feedback and slow accumulation of evidence.
-In studies where both learning rate and performance were measured, two studies show an association with age in the same direction [with adults performing better than younger participants; @rosenblau2017; @mccormick2017].
-The only study in which this relation was reversed was [@davidow2016], though another study showed different relations between learning rates for positive versus negative feedback [@christakou2013].
+
+- Several studies did not include a measure of performance, but focus just on learning rate.
+Notably,  - Learning rates are not linearly associated with performance when the feedback is probabilistic, but show optimal performance when a balance is struck between sensitivity to feedback and slow accumulation of evidence.
+. There's a sweet spot.
+  - In studies where both learning rate and performance were measured, two studies show an association with age in the same direction [with adults performing better than younger participants; @rosenblau2017; @mccormick2017].
+  - The only study in which this relation was reversed was [@davidow2016], though another study showed different relations between learning rates for positive versus negative feedback [@christakou2013].
 
 Some authors have suggested that adolescent reward sensitivity makes this developmental period advantageous for reward learning [@davidow2016;@mccormick2017].
 However, if there is indeed a peak in reward sensitivity during adolescence, it does not result in a particular advantage in standard reward learning tasks.
 The present study shows a gradual increase in performance across the age range, and which is not consistent with an adolescent specific advantage driven by reward sensitivity.
-In fact, adolescent reward sensitivity should be apparent in either overall performance, or in the parameter $\rho$ which modulates the magnitude of rewards.
-Overall, the data presented in this study represent the largest cross-sectional sample to date, and strengthen evidence for an age-related increase in performance on reinforcement learning tasks.
+In fact, adolescent reward sensitivity should be apparent in either overall performance, or- Instruction manipulations seem to have an outsized effect for adults.
+  - Adult advantage was lessened by false instruction [@decker2015], and instruction bias was apparent in post-learning test phase.
+  - Another U/P shows that a true instruction allows adults to exploit a good IGT deck without exploration (though adolescents behave in a way that indicates that if there were a false instruction, they would have an advantage).
+- Some authors have suggested that adolescent reward sensitivity makes this developmental period advantageous for reward learning [@davidow2016;@mccormick2017].
+  - If there is indeed a peak in reward sensitivity, it does not result in thea parameter $\rho$ which modulates the magnitude of rewards.
+ticular advantage in standard reward learning tasks
+- Overall, the data presented in this studyhere represent the largest cross-sectional sample to date, and strengthen evidence for an age-related increase inthe conclusions of the largest, and only longitudinal study, that performance onduring reinforcement learning tasksincreases with age [@peters2017].
 
 ### Effects of social manipulations
 
@@ -700,10 +759,10 @@ Overall, the data presented in this study represent the largest cross-sectional 
       - They then see a screen that indicates whether the participant "receives" a note from the "peer" in the picture, or whether another peer received the note.
       - The three faces vary by how often it is followed by the positive social reinforcement of "receiving" the note.
       - Reaction time to the wink cue was used as the outcome for the reinforcement learning model, and accuracy was also examined.
-      - In a sample of adults (N = 37), adolescents (N = 45), and children (N = 38), they found that wink responses were more accurate for the high-reinforcement faces (but did not find a significant interaction with age, or report the estimated interaction parameter), and that learning rates vary by age (with younger participants having higher learning rates).
+      - In a sample of adults (N = 37), adolescents (N = 45), and children (N = 38), they found that wink responses were more accurate for the high-reinforcement faces (but did not find a siginificant interaction with age, or report the estimated interaction parameter), and that learning rates vary by age (with younger participants having higher learning rates).
       - This study indicates that social rewards by themselves may be sufficient to induce accuracy differences for positively conditioned cues.
       - The learning rate association with age is harder to interpret given that there is no comparison, and many of the estimated learning rate parameters were 0. 
-      - The task is not directly comparable to this one, but it is notable that age does not exert a strong enough differential effect on any of the tested relations to be noticed in this sample.
+      - The task is not directly comparable to this one, but it is notable that age does not excert a strong enough differential effect on any of the tested relations to be noticed in this sample.
     - @rosenblau2017, like the present study, incorporate meaningful social information directly into their stimuli.
       - These authors develop a paradigm using preference ratings of objects in three broad domains (activities, fashion, and food).
       - They use preference ratings from either three adolescents or three adults as learning targets for the adolescent (N = 24) or adult (N = 21) samples respectively.
@@ -712,34 +771,37 @@ Overall, the data presented in this study represent the largest cross-sectional 
       - The authors use the amount of prediction error, i.e., the difference between the participant's guess and the targets true preference, as a primary outcome of performance. They find that across both samples, prediction error decreases, with less prediction error for the adult group relative to the adolescent group.
       - They also formally model the learning process and find that the best fitting model incorporates reinforcement learning as well as information about the participant's own preferences.
       - Though the author's present a large number of non-significant _p_-values to support the equivalence of the adolescent and adult preference profiles, the sample size is quite under-powered to detect differences, and it is not clear what size of differences matter.
-      - It is clear that more consistent ratings (whatever the assumed structure) would lead to better performance. It is also clear that the similarity of a target's and a participant's rating would influence the prediction error and estimate learning parameters. Since it is ambiguous (given the design of this study) whether and how much these factors influence the results, any interpretation should be extremely cautious.
+      - It is clear that more consistent ratings (whatever the assumed structure) would lead to better performance. It is also clear that the similarity of a target's and a participant's rating would influence the prediction error and estimate learning parameters. Since it is ambiguous (given the designg of this study) whether and how much these factors influence the results, any interpretation should be extremely cautious.
       - However, the finding of better adult performance is in line with above research and suggests that social versus non-social content may not make a difference with regard to the age differences in performance.
       - As mentioned above, this study also finds a smaller learning rate in adolescents.
   - Two studies have examined the effect of social context on learning. These are less directly relevant, but worth considering.
-    - @lockwood2016 manipulate whether the participant is playing for herself, a friend, or no-one (that is, the points one do not accrue to anyone).
+    - @lockwood2016 maniupulate whether the participant is playing for herself, a friend, or no-one (that is, the points one do not accrue to anyone).
       - They find that performance and learning rate is higher in the self condition, than in the other two conditions.
     - @decker2015 and U/P use standard probabilistic reinforcement tasks, but add a cue set for which participants are given information about what the best choice is.
-      - Adults are more sensitive to this information than adolescents. When the instruction is erroneous, this incurs a penalty for adult performance relative to adolescents.
+      - Adults are more sensitive to this information than adolescents. When the instruction is erroneous, this incurs a penaltly for adult performance relative to adolescents.
   - Generally, social information and reinforcement results in similar patterns of learning as does non-social reinforcement.
   - Possibilities for adolescent-specific advantages come from social context literature, but not literature on social content.
     - There does seem to be preliminary support for the idea that increased option exploration may be related to performance gains in the right context [@decker2015] and U/P.
     - unfortunately this aspect is not testable in these data.
 
-## Implications for motivation effects on learning across adolescnec
+## Implications for motivation effects on learning across adolescnec Results from the present study
 
 - Adds weight to the evidence for better overall performance for older participants, at least in this age range.
-- We find a positive correlation between performance and learning rate, though there is some indication in this sample that there is a non-linearity such that at some point, higher learning rates impede performance. This is expected behavior of the learning model, and future work should ensure that this possibility is accounted for, or else risk over-interpreting linear correlations between learning rates and other measures.
+- We find a positive correlation between performance and learning rate, though there is some indication in this sample that there is a non-linearity such that at some point, higher learning rates impede performance. This is expected behavior of the learning model, and future work should ensure that this possibility is accounted for, or else risk over-interpretting linear correlations between learning rates and other measures.
 - We also see a positive correlation between the inverse temperature parameter that governs the magnitude of rewards (versus no-reward, in this case) and performance.
   - However, non-linear relations between learning rate, temperature and performance must be carefully considered. In the mate-seeking and status conditions where performance is best, the learning rate is indeed higher than in the minimally social condition. However, the inverse temperature parameter is lower in these two conditions.
-- Unsurprisingly, the noise parameter, which estimates across the entire run the degree of random responding, is also monotonically related to performance as expected.
+- Unsurprsisingly, the noise parameter, which estimates across the entire run the degree of random responding, is also monotonically related to performance as expected.
   - The increased performance in the two social conditions is also reflected in this parameter being, on average, lower.
 - There is no effect of age on the effect of the social conditions on learning.
   - In other words, the enhancement of learning due to the increased salience of the social conditions does not vary consistently with age or pubertal status.
   - This is consistent with the tentative findings reviewed above. Given the larger sample size in this case, we can be more confident in this finding.
   - Possible explanations
     - In this age range, salience differences are at ceiling. They may arise earlier in childhood.
-    - Salience differences may not be due to differences in social content, per se. For example, salience differences may be due to a prior belief about the extent to which one can tell from the faces themselves whether they are described one way or the other. If participants believe that there is a signal in the facial characteristics for the two social conditions, but not the minimally social condition, they may pay more attention and learn faster.
+    - Salience differences may not be due to differences in social content, per -se. For example, salience differences may be due to a prior beliefe about the extent to which one can tell from the faces themselves whether they are described one way or the other. If participants believe that there is a signal in the facial characteristics for the two social conditions, but not the minmimally social condition, they may pay more attention and learn faster.
 
 
 -----
 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTIxNDM3NDY2NDldfQ==
+-->
