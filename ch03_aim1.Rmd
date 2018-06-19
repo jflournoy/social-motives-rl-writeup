@@ -102,43 +102,49 @@ ethnicity_table <- tables::tabular(
 # Introduction
 
 Adolescence is a time of social reorientation during which individuals begin expressing romantic and sexual interests [for an overview, see: @collins2003; @collins2009], and spend more time with peers [at least, relative to time spent with family; @larson1991;@richards1998;@larson].
-The social reorientation hypothesis in developmental cognitive neuroscience proposes that these changes are the result of developing motivations that shift focus toward social-experience goals in the peer-romantic network [@nelson2005;@nelson2016].
-The focus on the development of different social motivations mirrors work in evolutionary psychology that has recently begin developing a taxonomy of social motives, but that focuses more on how these play out during adulthood and manifest in various relationship types [for a thorough overview, see @neel2015].
-@nelson2016 describes extensive developmental neuroscience work showing changes in perceptual, motivational, and executive related brain regions and suggest that these changes reflect the transition through sensitive periods in development which are tuned to be receptive to and acquisitive of appropriate social experiences.
+The social reorientation hypothesis in developmental cognitive neuroscience proposes that these changes are the result of developing motivations that shift goals toward increasing social experiences in peer and romantic social networks [@nelson2005;@nelson2016].
+It further proposes that neurodevelopmental changes in perceptual, motivational, and executive control brain regions are the mechanisms that cause transitions through sensitive periods in development in which these systems are tuned to period-relevant social experiences (both in the sense of being receptive to, and motivated toward them).
+This identification of period-relevant social goals mirrors work in evolutionary psychology that has lead to a taxonomy of social motives which are broadly anchored by evolutionarily important social relationships [e.g., caregivers, peers, potential mates, mates, and offspring; for a thorough overview, see @neel2015].
+This work identifies social status and mate-seeking as distinct social motives that are not merely aspects of (a perhaps earlier-developing) affiliation motive, and provides a complimentary framework for thinking about the distinct fitness challenges adolescents begin to face as they transition beyond the juvenile period.
+The development of these social motives, and their role in learning and decision making, are important to understand given their likely role in many types of decision making and, as suggested by @nelson2016, for their role in psychopathology.
 
-One implication of this social reorientation proposed to arise from the developmental of social motives is that there should be in changes in the value and salience of motive-relevant stimuli.
-While it may be the case that pubertally triggered neurobiological changes begin to directly alter the salience of cues that are evolutionarily stable predictors of developmentally appropriate rewards, it is also probably the case that biologically and socially constrained developmental changes in reward contingencies also alters the value of certain cues.
-In other words, changes in stimulus-salience may arise from feedback between the congenital changes in the salience of particular stimuli, and learning that links those stimuli to particular outcomes, thereby affecting their salience in turn.
-In adolescence in particular, this should result in increases in the salience of stimuli relevant to the milieus of the peer group and potential romantic partners (e.g., social status, and dating availability, respectively). 
+One implication of the reorientation thought to arise from changes in social motives is that there should be concomitant changes in the value and salience of motive-relevant stimuli.
+While it may be the case that pubertally triggered neurobiological changes begin to directly alter the salience of cues that are evolutionarily stable predictors of period-relevant rewards, it is also probably the case that environmentally constrained changes in reward contingencies also alter the value of certain cues.
+In other words, changes in stimulus-salience may arise from feedback between the congenital changes in the salience of particular stimuli, and learning that links those stimuli to particular outcomes, may affect their salience in turn.
+In adolescence, specifically, this should result in increases in the salience of stimuli relevant to the milieux of the peer group and of potential romantic partners (for example, stimuli related to social status, and dating availability, respectively). 
 
 ## Salience and learning
 
-The relation between stimulus salience, motivation, and learning is a cornerstone of the experiment described below, and so a brief overview of these follows. 
+The reciprocal relation between stimulus salience, motivation, and learning is an important foundation for the idea that developmental changes in motivational systems should be responsible, in part, for the social reorientation thought to occur during adolescence. 
 A substantial body of work on learning and attention has shown that more salient cues enhances learning effects, and that learned predictive value modifies cue salience.
-In laying out a programmatic approach to learning and attention, @mackintosh1975 concludes that the idea that learning rates are different depending on the stimulus is "formally equivalent to one of the main tenets of two-stage, attentional theories of learning, namely, the assumption that the probability of attending to a stimulus determines the probability of learning about that stimulus" (p. 294).
-@grossberg1975 summarizes literature indicating that if two cues are paired with an unconditioned stimulus, the more salient cue will be conditioned more quickly to the extent that it may create a blocking effect against the conditioning of the less salient cue.
-More recently, @denton2006 demonstrated in humans that the blocking effect is modulated by salience. 
-Blocking refers to the phenomenon that when a new stimulus is conditioned in conjunction with an older stimulus that has already been associated with an outcome, the new stimulus builds up a less strong association with the outcome.
+In laying out a programmatic approach to learning and attention, @mackintosh1975 states that the idea that learning rates are different depending on the stimulus as "formally equivalent to one of the main tenets of two-stage, attentional theories of learning, namely, the assumption that the probability of attending to a stimulus determines the probability of learning about that stimulus" (p. 294).
+@grossberg1975 summarizes a body of literature indicating that if two cues are paired with an unconditioned stimulus, the more salient cue will be conditioned more quickly, even to the extent that it may block the conditioning of the less salient cue.
+More recently, @denton2006 demonstrated that the blocking effect in humans can be modulated by salience. 
 In this study, using cues of colored dots and modulating salience by the density of dots, the authors showed that it is harder to block a new cue if that new cue is more salient (higher dot density) than the already conditioned cue.
+In other blocking paradigms, learning an association between a highly predictive cue and outcome blocks an organisms ability to form an association between a new cue if it is paired with the first.
 Though many models have been developed to account for this phenomenon, one explanation is that the new stimulus provides no new information for predicting the outcome (which is already perfectly predicted by the prior associated stimulus), and so it is not learned [see @shanks2010 for an overview].
+In this way, salience also seems to be modified by learning, with the "blocked" stimulus essentially being less salient than the initially learned stimulus.
 
-From an evolutionary perspective, the modulation of learning by salience, and salience by learning, is harmonious with both the idea that the environment is not perfectly stable, as well as with the idea that the social goals of an organism change across development.
-There are at least two possibilities for why co-modulation of learning and attention may have arisen.
-First, it may be a way to solve the problem of how to constrain perceptual capacity (though may involve trade-offs as a result of ignoring the total amount of information in the environment), and second, and more simply, it may in fact be the optimal strategy for navigating environments that are not perfectly stable.
-@hullinger2015 provide support for the second possibility via simulations of evolved learning systems where the environmental information did not overwhelm conceptual capacity. 
-They found that attention evolves as an optimal strategy even in environments that did not overwhelm agents' perceptual capacity, as long there is was some amount of change in the value of different stimuli across the agents' lifespans.
-This gradual change of the diagnostic value of particular cues is very roughly analogous to what a developing organism might experience.
-Reinforcement learning paradigms have been tested extensively throughout the lifespan, but we know of no studies investigating how differences in stimulus-relevance relate to changes in social motivations.
+From an evolutionary perspective, the modulation of learning by salience, and salience by learning, is harmonious with both the idea that the environment is not perfectly stable, as well as with the idea that the goals, social or otherwise, of an organism change across development.
+There are at least two possibilities for why co-modulation of learning and attention may have arisen as a part of our cognitive apparatus.
+First, it may be a way to solve the problem of how to constrain perceptual capacity (though may involve trade-offs as a result of ignoring the total amount of information in the environment), and second, and more simply, it may just be the optimal strategy for navigating environments that are not perfectly stable.
+@hullinger2015 provide support for the second possibility via simulations of evolved learning systems. 
+They found that attention evolves as an optimal strategy even in environments that did not overwhelm agents' perceptual capacity, but only when there was some amount of change in the value of different stimuli across the agents' lifespans.
+This gradual change of the diagnostic value of particular cues is very roughly analogous to what a developing organism might experience as their motives toward different kinds of social experience change. 
+For this reason, reinforcement learning paradigms present an ideal (and idealized) paradigm for investigating changing motivations during development.
+Even though they have been tested extensively throughout the lifespan, we know of no studies investigating how social-motive-relevant information alter stimulus salience and learning in these paradigms.
 
 ## Using reinforcement learning to investigate social motives
 
 In reinforcement learning paradigms, incorporating social information that is relevant to adolescent-emerging social goals should enhance learning for cues that are associated with that information.
-Specifically, in this study adolescents and young adults engage in a reinforcement learning task with several different stimuli (images of faces) and learn associations between those faces and minimally social descriptors (Hungry, Thirsty), as well as descriptors relevant to romantic behavior (Dating, Looking [for someone to date]), and to social hierarchy (i.e., status; Popular, Unpopular).
-We expect that to varying degrees, and prior to the study, our participants will differ in how important it is to learn each of the descriptors in proportion to the relevance of those descriptors to their social goals (e.g., mate-seeking, or status).
-We presume that knowing whether someone is dating, or looking for someone to date would, generally, be relevant information for someone who wants to engage in romantic or sexual behavior. We also presume that status information is relevant to people who find themselves navigating increasingly complex social hierarchies. Finally, we presume that learning about another person's hunger or thirst is not especially relevant to adolescent-emerging socially motivated goals.
+Specifically, in this study adolescents and young adults try to learn the association between targets (images of faces) and both minimally social descriptors (Hungry, Thirsty), as well as descriptors relevant to romantic behavior (Dating, Looking [for someone to date]), and to social hierarchy (i.e., status; Popular, Unpopular).
+We expect that our participants will differ in their motivation to learn the face-descriptor associations in proportion to the relevance of those descriptors to their social goals (e.g., mate-seeking, or status).
+We presume that knowing whether someone is dating, or looking for someone to date would, generally, be relevant information for someone who wants to engage in romantic or sexual behavior. 
+We also presume that status information is relevant to people who find themselves navigating increasingly complex social hierarchies. 
+Finally, we presume that learning about another person's hunger or thirst is not especially relevant to adolescent-emerging socially motivated goals.
 Past work has shown consistently that performance on reinforcement learning tasks improves with age [we return to this in the discussion, but see, e.g., @peters2017].
 For this reason, any developmental-motivation effect of stimulus salience on learning should manifest over-and-above the increase in performance that would be expected from early adolescence to young adulthood.
-Given the above, we hypothesized that older participants (especially between early and late adolescence) would show faster learning of the mate-seeking and status descriptors relative to the minimally social descriptors, and that pubertal status would also show this relation.
+Given the above, we hypothesized that relative to younger participants, older participants would show faster learning of the mate-seeking and status descriptors relative to the minimally social descriptors, and that pubertal status would also show this relation.
 
 # Method
 
@@ -149,20 +155,20 @@ Common probabilistic reinforcement learning paradigms focus on estimating parame
 In the SPLT, motive context is manipulated by pairing human faces with state or trait words related to mate-seeking and status motives.
 The purpose of this manipulation is to examine how this motive framing alters learning, especially across adolescent development, as well as how individual differences in learning are related to the measures of attitudes and behavior outlined below.
 
+\begin{wrapfigure}{r}{0.5\textwidth}
+\centering
+\captionsetup{width=3.25in}
+\includegraphics[width=3.25in]{figures/trial_example} 
+\caption[Example of a trial on the SPLT]{Example of a trial on the SPLT. Image shows post-response feedback phase on an incorrect trial where the participant could have earned 5 points for a correct answer, but earned 0 points.}
+\label{trialexample}
+\end{wrapfigure}
+
 On each trial, the participant sees one of six faces, along with two labels, and is asked to classify the face using one of the two labels.
 The labels are: *Hungry* versus *Thirsty* (control condition that is nonsocial, or only minimally social), *Dating* versus *Looking* for someone to date (mate-seeking), and *Popular* versus *Unpopular* (status).
 After choosing the label, the participant is given feedback that they were correct and earned either 1/1 point or 5/5 points, or that they were incorrect and earned 0/1 point or 0/5 points (Figure \ref{fig:trialexample}).
 Each face is probabilistically associated with one label with P(Correct | Choice = Label) = .80.
 That is, there is a probabilistically optimal choice response, which precludes a memorization strategy and results in more automatic reinforcement learning [@knowlton1996].
 The participant is instructed that "the same word goes with the same picture most of the time, but not always," and to "try to guess correctly as often as you can to get the most points."
-
-\begin{wrapfigure}{r}{0.5\textwidth}
-\centering
-\captionsetup{width=3.25in}
-\includegraphics[width=3.25in]{figures/trial_example} 
-\caption[Example of a trial on the SPLT]{Example of a trial on the SPLT. Image shows post-response feedback phase on an incorrect trial where the particpant could have earned 5 points for a correct answer, but earned 0 points.}
-\label{trialexample}
-\end{wrapfigure}
 
 To ensure engagement with the stimulus faces, 3 unambiguously male and 3 unambiguously female faces were drawn from a set of faces evaluated by @todorov2008.
 Target faces were drawn from a subset of those highest in likeability and attractiveness ratings, and were selected to have roughly equal euclidean distance from one another on the other dimensions on which they had been rated (e.g., trustworthiness).
@@ -415,7 +421,7 @@ grid_arrange_shared_legend(avg_per_sample_plot2, avg_across_samples, ncol = 2, w
 
 - Label of information criteria, plot of $\epsilon$ and $\xi$ parameter correlations across models.
 - LOO-CV estimates show that there is very little or no improvement gained by adding a level to the hierarchy accounting for differences due to sample.
-- Best fitting model uses all four parameters, the learning rate, $\epsilon$, the inverse temperature, $\rho$, irriducible noise, $\xi$, and bias for the right side, $b$.
+- Best fitting model uses all four parameters, the learning rate, $\epsilon$, the inverse temperature, $\rho$, irreducible noise, $\xi$, and bias for the right side, $b$.
 
 ### Validation of parameters
 
@@ -426,28 +432,6 @@ grid_arrange_shared_legend(avg_per_sample_plot2, avg_across_samples, ncol = 2, w
   - The high noise parameter accounts for the behavior of participants who learn less during the task than would be expected by their learning rate parameters alone.
   
 ```{r parametersvbehavior, fig.width=5.875, fig.height=4, include=F}
-allparameter_plot <- ggplot2::ggplot(lowfi_learning_df,
-                ggplot2::aes(x = ep_mean,
-                             y = qnorm(p_opt),
-                             group = xi_mean_bin,
-                             color = xi_mean)) + 
-    ggplot2::geom_hline(yintercept = qnorm(.8), alpha = .5) + 
-    ggplot2::geom_hline(yintercept = qnorm(.5), alpha = .5, color = 'blue') + 
-    ggplot2::geom_point(alpha = .35) + 
-    ggplot2::geom_smooth(method = 'gam', formula = y ~ s(x, fx = T, k = 3), 
-                         alpha = .2, color = 'black', size = .5,
-                         ggplot2::aes(linetype = xi_mean_bin)) + 
-    ggplot2::scale_color_gradient(low = 'red', high = 'blue') + 
-    ggplot2::facet_wrap(~rho_mean_bin) + 
-    # ggplot2::theme(strip.text = element_blank()) + 
-    ggplot2::coord_cartesian(ylim = c(qnorm(.40), qnorm(.998))) + 
-    ggplot2::scale_y_continuous(breaks = qnorm(c(.5, .8, .998)), labels = c(.5, .8, .995)) +
-    ggplot2::scale_x_continuous(breaks = qnorm(c(.01, .1, .4)), labels = c(.01, .1, .4)) + 
-    ggplot2::labs(x = expression(paste('Median posterior ',beta[epsilon])),
-                  y = 'Probability of choosing optimal lable',
-                  caption = expression(paste('Facet labels are ranges for median posterior ', beta[rho])),
-                  color = expression(paste('Median ', beta[xi])),
-                  linetype = expression(paste('Median ', beta[xi], ' range')))
 allparameter_plot
 ```
 
@@ -629,7 +613,7 @@ Performance on the learning task, indexed by proportions of optimal presses, fol
 The cognitive demands of this task are somewhat high (learning associations between 6 abstract faces and 12 terms), and so an overall increase into middle adolescence is not unexpected.
 Age and development trends in parameter estimates follow this pattern.
 Differences in performance, as well as model parameters, indicate that the two social-motive conditions enhance learning.
-This is consistent with the idea that humans are espcially motivated to learn social information.
+This is consistent with the idea that humans are especially motivated to learn social information.
 However, estimates of these differences between conditions were fairly consistent across the entire age range.
 
 ## Limitations
@@ -637,45 +621,54 @@ However, estimates of these differences between conditions were fairly consisten
 Before connecting the results of this analysis to the broader literature on reinforcement learning and social motivation, it is important to set out the limitations that must constrain interpretations of these findings.
 First, learning may be obviously irrelevant to actual social goals participants have. 
 That is, learning about the popularity of a computer-generated face may not be enhanced by a persons status motives because it is clear that this information is not instrumentally valuable for satisfying that motive. 
-However, we did not ask participants whether they felt like they learned something that could help them in their daily lives (that is, we did not assess whether they thought there was some true, learned association between facial characterstics and either dating or social status).
+However, we did not ask participants whether they felt like they learned something that could help them in their daily lives (that is, we did not assess whether they thought there was some true, learned association between facial characteristics and either dating or social status).
 
 Second, it is well known that binary choice outcomes are less reliable indicators of latent constructs than continuously measured behavior.
-The proportion of variance in the parameter estimates (for learning parameters), or performance estimates, versus the variance due to uncertaintly in those estimates was generally low. 
+The proportion of variance in the parameter estimates (for learning parameters), or performance estimates, versus the variance due to uncertainty in those estimates was generally low. 
 This would diminish the sensitivity of this measure to detect differences resulting from motive development at different ages.
 
 Third, a minimal stimulus set only examines a small slice of the population of descriptors that may be relevant for mate-seeking and status motives.
 Depending on the idiosyncratic characteristics of the chosen stimuli, this could produce both mean differences between conditions, as well as age correlations, or it could mask true differences and correlations.
 The generalizability of any results is limited by the extent to which there is variation in any relations due to the choice of particular descriptors.
-Note that ranomizing the associated faces eliminates this as a possible confound, though the use of the same six faces may limit generalizability to some extent as well.
+Note that randomizing the associated faces eliminates this as a possible confound, though the use of the same six faces may limit generalizability to some extent as well.
 
 Fourth, the face-valid relevance of the descriptors to the motivational domain is not the only dimension along which the conditions differed. 
 Also unlike the minimally social condition, the social descriptors convey information not just about the target, but about that target's relationship to other individuals.
-Seen through the graph theory formalizations ubiquitous in social network analysis, the descriptors "Dating" and "Looking" conveys information about at least two individuals as well as the tie between them.
+Seen through the graph theory formalization ubiquitous in social network analysis, the descriptors "Dating" and "Looking" conveys information about at least two individuals as well as the tie between them.
 The descriptors "Popular" and "Unpopular" conveys information about a person's position in a broader hierarchy, and thus about the ties among a much larger community.
 This is speculative, but is one influence that is not related to social motivations that could result in salience differences and explain the behavior of participants on this task.
+Another example is that salience differences may be due to a prior belief about the extent to which one can tell from the faces themselves whether they are described one way or the other. 
+If participants believe that there is a signal in the facial characteristics for the two social conditions, but not the minimally social condition, they may pay more attention and learn faster.
 
-Finally, though this is a large sample that coveres a broad age range, the data are cross-sectional and so it would be inappropriate to extrapolate differences across age to developmental effects within individuals.
-Cross-sectional age differences may be a counfounding source of variance for developmental effects, but may also be a source of imprecision in this design that diminishes the ability of these analyses to detect age differences in motivated learning between conditions.
+Fifth, although these analyses compare a suite of models that build on the basic updating rule proposed by @rescorla1972, there are other learning models that may be relevant. 
+For example, although the task was designed with prediction-error expected value updating as the guiding principle, it might be possible to examine these data using instance based learning [@gonzalez2003a;@lejarraga2012], or a model that unifies the Rescorla-Wagner, temporal difference, and Bayesian Kalman filter approaches [@gershman2015]. 
+The distinction between model-free and model-based learning strategies is also important, with evidence for developmental trends in the transition between strategies [@decker2016], but this task is not designed to examine these distinctions.
+
+Finally, though this is a large sample that covered a broad age range, the data are cross-sectional and so it would be inappropriate to extrapolate differences across age to developmental effects within individuals [@fisher2018].
+One stark example of this problem in the present research is that to infer a developmental effect in these data, one must assume that participants are exchangeable; for example, that the sample of young participants are more or less the same as the older participants, but just younger.
+This is clearly not the case in this sample if one considers the fact that 100% of older participants are attending a four-year university, whereas it is almost certainly not the case that 100% of the community and foster-care-involved adolescents will follow this educational path.
+There is no way to gauge how much this impacts the results of these analysis (although it is reassuring, for example, that there does not seem to be a discontinuity between the samples in performance or parameter estimates).
+Cross-sectional age differences may be a confounding source of variance for developmental effects, but may also be a source of imprecision in this design that diminishes the ability of these analyses to detect age differences in motivated learning between conditions.
 
 ## Differences in reinforcement learning, generally, across adolescence
 
 How do the results from this study inform our understanding of, first, reinforcement learning across adolescence and, second, social-context effects on reinforcement learning?
-Almost all work on reinforcement learning in adolescence is cross-sectional, with age-group sizes of fewer than 50 particapants (and often fewer than 30).
+Almost all work on reinforcement learning in adolescence is cross-sectional, with age-group sizes of fewer than 50 participants (and often fewer than 30).
 There are Two notable exceptions. @mccormick2017 report on N = 77 adolescents, ages 8-17.7 years, with analyses focusing on age correlations rather than group differences.
 @peters2017 report on a longitudinal sample with 736 observations over 3 waves, with participants from age 8-25 years.
-These more robust studies are both consistent with improvements in performance on reinforcement learning tasks across adolescnece.
+These more robust studies are both consistent with improvements in performance on reinforcement learning tasks across adolescence.
 
 ### Performance differences across development
 
 The most consistent finding from this literature, and which is consistent with the present study, is that adults, or young adults, perform better than adolescents or children [@duijvenvoorde2008; @decker2015; @vandenbos2009a; @cohen2010; @christakou2013; @palminteri2016; @rosenblau2017; @peters2017; @mccormick2017].
-In one study, adolescents performed better [@davidow2016] that adults, and this was interpretted as indicated that hightened reward sensitivity may lead to better learning during adolesncence.
+In one study, adolescents performed better [@davidow2016] that adults, and this was interpreted as indicated that heightened reward sensitivity may lead to better learning during adolescence.
 Like many of the studies which show greatest performance during adulthood, they used a probabilistic reinforcement learning task.
 Notably, adults showed higher learning rate parameters than adolescents (but performed worse as a result).
 The results of this study are likely anomalous given the considerable evidence for greater adult performance on standard reinforcement learning paradigms.
 
 This consistent age finding holds across operationalization of learning.
 Both probabilistic reinforcement [@vandenbos2009a; @cohen2010; @palminteri2016; @decker2015], and deterministic reinforcement [@duijvenvoorde2008; @peters2017] show the increase in performance with age.
-Tasks which are more often described as risk-taking, but which involve a reinforcement learning, like the iowa gambling task [@christakou2013], and balloon analogue risk task [@mccormick2017] also show this age trend.
+Tasks which are more often described as risk-taking, but which involve a reinforcement learning, like the Iowa gambling task [@christakou2013], and balloon analogue risk task [@mccormick2017] also show this age trend.
 
 Several studies did not include a measure of performance, but focus just on learning rate.
 Notably, Learning rates are not linearly associated with performance when the feedback is probabilistic, but show optimal performance when a balance is struck between sensitivity to feedback and slow accumulation of evidence.
@@ -690,55 +683,75 @@ Overall, the data presented in this study represent the largest cross-sectional 
 
 ### Effects of social manipulations
 
-- Very few studies examine social effects on reinforcement learning
-  - Two approaches
-    - Content of the stimuli of the task is social [@jones2014;@rosenblau2017]
-    - Task is situated in a social context [@lockwood2016;@decker2015] and U/P
-  - Those studies that have included social content in the stimuli are difficult to interpret
-    - @jones2014 developed a paradigm in which, on each trial, the participant sees a picture of one of three faces.
-      - The face in the picture then winks with the left or right eye, and the participant responds via button press which eye winked.
-      - They then see a screen that indicates whether the participant "receives" a note from the "peer" in the picture, or whether another peer received the note.
-      - The three faces vary by how often it is followed by the positive social reinforcement of "receiving" the note.
-      - Reaction time to the wink cue was used as the outcome for the reinforcement learning model, and accuracy was also examined.
-      - In a sample of adults (N = 37), adolescents (N = 45), and children (N = 38), they found that wink responses were more accurate for the high-reinforcement faces (but did not find a significant interaction with age, or report the estimated interaction parameter), and that learning rates vary by age (with younger participants having higher learning rates).
-      - This study indicates that social rewards by themselves may be sufficient to induce accuracy differences for positively conditioned cues.
-      - The learning rate association with age is harder to interpret given that there is no comparison, and many of the estimated learning rate parameters were 0. 
-      - The task is not directly comparable to this one, but it is notable that age does not exert a strong enough differential effect on any of the tested relations to be noticed in this sample.
-    - @rosenblau2017, like the present study, incorporate meaningful social information directly into their stimuli.
-      - These authors develop a paradigm using preference ratings of objects in three broad domains (activities, fashion, and food).
-      - They use preference ratings from either three adolescents or three adults as learning targets for the adolescent (N = 24) or adult (N = 21) samples respectively.
-      - Specifically, on each trial, the participant guesses how much the target likes the item, and then receives feedback about the targets true score.
-      - The findings from this study may be hard to interpret. It seems as if each item is seen only once by the participants, meaning that any learning that occurs requires generalization from one item to other items. In other words, learning on the task requires that there is some inherent structure to the preferences generated that can be learned.
-      - The authors use the amount of prediction error, i.e., the difference between the participant's guess and the targets true preference, as a primary outcome of performance. They find that across both samples, prediction error decreases, with less prediction error for the adult group relative to the adolescent group.
-      - They also formally model the learning process and find that the best fitting model incorporates reinforcement learning as well as information about the participant's own preferences.
-      - Though the author's present a large number of non-significant _p_-values to support the equivalence of the adolescent and adult preference profiles, the sample size is quite under-powered to detect differences, and it is not clear what size of differences matter.
-      - It is clear that more consistent ratings (whatever the assumed structure) would lead to better performance. It is also clear that the similarity of a target's and a participant's rating would influence the prediction error and estimate learning parameters. Since it is ambiguous (given the design of this study) whether and how much these factors influence the results, any interpretation should be extremely cautious.
-      - However, the finding of better adult performance is in line with above research and suggests that social versus non-social content may not make a difference with regard to the age differences in performance.
-      - As mentioned above, this study also finds a smaller learning rate in adolescents.
-  - Two studies have examined the effect of social context on learning. These are less directly relevant, but worth considering.
-    - @lockwood2016 manipulate whether the participant is playing for herself, a friend, or no-one (that is, the points one do not accrue to anyone).
-      - They find that performance and learning rate is higher in the self condition, than in the other two conditions.
-    - @decker2015 and U/P use standard probabilistic reinforcement tasks, but add a cue set for which participants are given information about what the best choice is.
-      - Adults are more sensitive to this information than adolescents. When the instruction is erroneous, this incurs a penalty for adult performance relative to adolescents.
-  - Generally, social information and reinforcement results in similar patterns of learning as does non-social reinforcement.
-  - Possibilities for adolescent-specific advantages come from social context literature, but not literature on social content.
-    - There does seem to be preliminary support for the idea that increased option exploration may be related to performance gains in the right context [@decker2015] and U/P.
-    - unfortunately this aspect is not testable in these data.
+Very few studies examine social effects on reinforcement learning; those that do rely on two approaches.
+In the first approach, studies use stimuli that contain social content [@jones2014;@rosenblau2017].
+The second approach is to situated a standard abstract reinforcement learning task in a social context [@lockwood2016;@decker2015] (and U/P).
+The two studies that use social stimuli in the reinforcement learning task do so in a way that makes straightforward interpretation difficult.
+In one, the authors use a Pavlovian conditioning paradigm wherein the unconditioned stimulus is social in nature [@jones2014].
+Specifically, on each trial, the participant sees a picture of one of three faces, which winks with the left or right eye.
+The participant then indicates via button press which eye winked.
+Following the response, they see a screen that indicates whether she or he receives a virtual note from the virtual peer in the picture, or whether another peer received the note.
+The three faces vary by how often their wink is followed by the positive social reinforcement of receiving the note.
+Reaction time to the wink cue was used as the outcome for the reinforcement learning model, and accuracy was also examined.
+In a sample of adults (N = 37), adolescents (N = 45), and children (N = 38), they found that wink responses were more accurate for the high-reinforcement faces (but did not find a significant interaction with age, or report the estimated interaction parameter), and that learning rates vary by age (with younger participants having higher learning rates).
+This study indicates that social rewards by themselves may be sufficient to induce accuracy differences for conditioned cues.
+There are several aspects of the analysis that make the association between age and learning rates difficult to interpret.
+The primary issue is that the learning model is described only in broad strokes, and so the link between the expected value parameter and reaction time is not stated.
+Inspecting the reported scatter plot of learning rate versus age (Figure 2) reveals that many of the estimated learning rate parameters were 0, indicating that for a substantial portion of the participants, no conditioning occurred (assuming the model is well specified).
+Substantively, it is not possible, without a comparison with non-social-reinforcement, to interpret age differences in learning rates, or accuracy differences by reinforcement probability, as specific to the social reinforcers.
+However, it is notable that, like the SPLT, the impact of differential social reinforcement is not significantly different across ages.
+At the very least, this null finding (though, with no point estimate or power analysis to give one confidence in retaining the null) corroborates the findings from the SPLT that the salience, or value, added by social content does not vary systematically with respect to participant age.
 
-## Implications for motivation effects on learning across adolescnec
+Another study, like the present study, incorporates meaningful social information, specifically preference ratings of objects in three broad domains (activities, fashion, and food), directly into the stimuli used in an instrumental learning paradigm [@rosenblau2017].
+They use preference ratings from either three adolescents or three adults as learning targets for the adolescent (N = 24) or adult (N = 21) participants, respectively.
+On each trial, the participant guessed how much the target likes the (activity, fashion, or food related) item, and then received feedback about the target's true score.
+The authors define prediction error as the the difference between the participant's guess and the target's true preference, using this as the primary outcome of performance. 
+They find that across both samples, prediction error decreases, with less prediction error for the adult group relative to the adolescent group.
+They also formally model the learning process and find that the best fitting model incorporates reinforcement learning as well as information about the participant's own preferences.
+The primary findings relevant to this discussion are that adults perform better than adolescents (that is, they accumulate less prediction error over the course of all trials), and this is mirrored by a higher average learning rate for adults relative to adolescents.
+Although this paradigm is set up superficially like more abstract instrumental learning tasks, there are some features that may preclude clear interpretations of the results.
+Each item is seen only once by the participants, meaning that any learning that occurs requires generalization from one item to other items. 
+In other words, learning on the task requires that there is an inherent structure to the targets' preferences that can be learned.
+Though the author's present a several non-significant _p_-values to support the equivalence of the adolescent and adult preference profiles, the sample size is quite under-powered to detect differences, and it is not clear what size differences might matter with respect to learning and prediction error differences across age-groups.
+It _is_ clear that more consistent ratings by the target (whatever the assumed structure of relation among item preferences) would lead to better performance. 
+It is also clear that the similarity of a target's and a participant's rating would influence the prediction error and estimate learning parameters.
+The effect of similarity is included in the learning model, and does improve the model fit, indicating that participants may have been using their own preferences when guessing target preferences.
+Conclusions about age-group differences in instrumental learning of social information are obscured by the idiosyncrasies in the task design mentioned above.
+However, the finding of better adult performance is in line with the wider literature both when the content of learning is social, or non-social.
 
-- Adds weight to the evidence for better overall performance for older participants, at least in this age range.
-- We find a positive correlation between performance and learning rate, though there is some indication in this sample that there is a non-linearity such that at some point, higher learning rates impede performance. This is expected behavior of the learning model, and future work should ensure that this possibility is accounted for, or else risk over-interpreting linear correlations between learning rates and other measures.
-- We also see a positive correlation between the inverse temperature parameter that governs the magnitude of rewards (versus no-reward, in this case) and performance.
-  - However, non-linear relations between learning rate, temperature and performance must be carefully considered. In the mate-seeking and status conditions where performance is best, the learning rate is indeed higher than in the minimally social condition. However, the inverse temperature parameter is lower in these two conditions.
-- Unsurprisingly, the noise parameter, which estimates across the entire run the degree of random responding, is also monotonically related to performance as expected.
-  - The increased performance in the two social conditions is also reflected in this parameter being, on average, lower.
-- There is no effect of age on the effect of the social conditions on learning.
-  - In other words, the enhancement of learning due to the increased salience of the social conditions does not vary consistently with age or pubertal status.
-  - This is consistent with the tentative findings reviewed above. Given the larger sample size in this case, we can be more confident in this finding.
-  - Possible explanations
-    - In this age range, salience differences are at ceiling. They may arise earlier in childhood.
-    - Salience differences may not be due to differences in social content, per se. For example, salience differences may be due to a prior belief about the extent to which one can tell from the faces themselves whether they are described one way or the other. If participants believe that there is a signal in the facial characteristics for the two social conditions, but not the minimally social condition, they may pay more attention and learn faster.
+Two studies take the second approach of examining the effect of social context or cues on learning. 
+These are less directly relevant to the present research, but worth considering.
+@lockwood2016 use an probabilistic reinforcement learning paradigm and manipulate whether the participants (N = 31 males, age 19-32 years) gain rewards for themselves, a friend, or no-one (that is, the points are displayed but do not accrue to anyone).
+They find that performance and learning rate is higher in the self condition than in the other two conditions.
+@decker2015 and U/P use standard probabilistic reinforcement tasks, but add a cue set for which participants are given information about what the best choice is.
+They find that adults (N = 26) are more sensitive to this information than adolescents (N = 31). 
+When the instruction is erroneous, this incurs a penalty for adult performance relative to adolescents.
+
+Across social reinforcement learning studies, it the tentative conclusion is that social information or reinforcement results in similar developmental patterns in performance as does non-social reinforcement.
+It does seem possible, though the evidence is limited, that there could be an adolescent-specific advantage with regard to performance in the face of social-misdirection.
+However, there seems to be scant evidence for any particular adolescent sensitivity to social versus non-social stimulus content, or for advantages (or disadvantages) driven specifically by exceptional developmental sensitivity to rewards.
+
+## Conclusions
+
+The results from the present study add weight to the evidence for better overall performance on reinforcement learning tasks for older participants in the age range from early to late adolescence and young adulthood.
+We also find, consistent with prior literature, a positive correlation between performance and learning rate, though there is some indication in this sample that there is a non-linearity such that at some point, higher learning rates impede performance. 
+This is expected behavior of the learning model with respect to probabilistic feedback, and future work should ensure that this possibility is accounted for, or else risk misinterpreting linear correlations between learning rates and other measures.
+We also see a positive correlation between the inverse temperature parameter that governs the magnitude of rewards (versus no-reward, in this case) and performance.
+However, non-linear relations between learning rate, temperature and performance must be carefully considered. 
+In the mate-seeking and status conditions where performance is best, the learning rate is indeed higher than in the minimally social condition. 
+However, the inverse temperature parameter is lower in these two conditions.
+Unsurprisingly, the noise parameter, which estimates the degree of random responding across the entire run, is also monotonically related to performance.
+The increased performance in the two social conditions is also reflected in this parameter being, on average, lower.
+
+There is no effect of age on the effect of the social conditions on learning.
+In other words, the enhancement of learning due to the increased salience of the social conditions does not vary consistently with age or pubertal status.
+While this is consistent with a small number of prior studies, the present study demonstrates this phenomenon using a very straightforward design, and a much larger sample size.
+In light of the evidence upon which the social reorientation hypothesis is based, there are several possible explanations.
+In the early part of this age range (12 years), information about dating and social status may already be clearly important, and so salience differences may already be at ceiling with respect to task difficulty.
+As mentioned in the limitations section, it may also be the case that, while the social conditions are somewhat more interesting, salience is not affected by motivation in the relevant motive domains and so is not sensitive to developmental changes.
+Of course, it is possible that this null effect truly does reflect an underlying, age-stable motivational orientation toward information about dating and social status that is not affected by the developmental-stage-specific neurobiological changes in motivational systems, as proposed by the social reorientation hypothesis.
+
+
 
 
 -----
