@@ -13,7 +13,9 @@ author: "John C. Flournoy"
 output: 
   pdf_document:
     keep_tex: yes
-    template: "default-1.17.0.2_nogeom.tex"
+    template: "default-1.17.0.2_nogeom.tex"output: 
+  pdf_document:
+    keep_tex: yes
 bibliography: "/home/jflournoy/code_new/social-motives-rl-writeup/dissertation.bib"
 csl: "/home/jflournoy/Rlibs/probly/bib/apa-old-doi-prefix.csl"
 ---
@@ -261,13 +263,16 @@ This probability is then adjusted by a noise parameter, $0 \leq\xi_{jk}\leq1$ fo
 The noise parameter modulates the degree to which responses are non-systematic. 
 When $\xi$ is 1, $P_{it} = .5$, and because each individual has a unique noise parameter for each condition, I am able to account for participants who do not learn during the task, or in a particular condition.
 The full equation is:
+
 $$
 P(a_{\rightarrow t} | s_{t})_{t} = 
 \text{logit}^{-1}\big(W(a_{\rightarrow t}| s_{t}) - W(a_{\leftarrow t}| s_{t})\big)\cdot(1-\xi_{jk}) + \small\frac{\xi_{jk}}{2}.
 $$
+
 The action weight is determined by a Rescorla-Wagner (RW) updating function $Q$, $W_{t}(a,s) = Q_{t}(a, s)$.
 Although this may seem like a redundant step, I specify it this way to be consistent with @guitart-masip2012, and to illustrate the possibility that another parameter could impact the action weight separately from $Q$.
 The function $Q$ encodes instrumental learning and is governed by the individual's learning rate for that condition, $\epsilon_{jk}$, and a scaling parameter $\rho_{jk}$ that scales the effective size of the possible rewards $r_t \in \{0, 1, 5\}$:
+
 $$
 Q_{t}(a_t, s_t) = Q_{t-1}(a_t, s_t) + \epsilon_{jk}\big(\rho_{jk}r_t - Q_{t-1}(a_t, s_t)\big)
 $$
@@ -277,22 +282,27 @@ $$
 Each parameter ($\epsilon, \rho, b, \xi$) varies by condition $k \in 1:K$, and by participant $j \in 1:J$ nested in sample $m \in 1:M$. 
 The structure of the hierarchical part of the model is the same for each parameter, so the following description for $\epsilon$ will serve as a description for all of the parameters.
 For each individual $j$, $\beta_{\epsilon j}$ is a $K$-element row of coefficients for parameter $\epsilon$ for each condition:
+
 $$
 \beta_{\epsilon j} \sim \mathcal{N}(\delta_{\epsilon mm[j]}, \Sigma_{\epsilon})
 $$
 where $\delta_{\epsilon mm[j]}$ is a column of $K$ means for individual $j$'s sample $M$, as indexed in the vector $mm$, and $\Sigma_{\epsilon}$ is a $K\times K$ matrix of the covariance of individual coefficients between conditions.
 
 Finally, across all $M$ samples, the means for each condition k are distributed such that: 
+
 $$
 \delta_{\epsilon k} \sim \mathcal{N}(\mu_{\epsilon k}, \sigma_\epsilon)
 $$
+
 where $\mu_{\epsilon k}$ is the population mean for parameter $\epsilon$ in condition $k$, and $\sigma$ is a slightly regularizing scale parameter for these means across all conditions and samples. The priors for these final parameters are:
+
 $$
 \begin{split}
 \mu_\epsilon &\sim \mathcal{N}(0, 5)\\
 \sigma_\epsilon &\sim \text{exponential(1)}.
 \end{split}
 $$
+
 Note that in practice all parameter estimates were practically identical whether or not nesting within sample was modeled and so I describe only the model without nesting.
 I maintain the description above to illustrate for the reader that it is at least practically possible to account for another level of hierarchy.
 The model specification for both sets of models is available in the accompanying package.
@@ -329,9 +339,11 @@ FIGURES WITH DRAWS FROM PRIORS HERE
 
 ## Recovery of population parameters
 
-After generating these simulated data sets and known parameter values, the model was then fit to these simulated data to evaluate its ability to recover the parameters. 
+After generating these simulated data sets and known parameter values, the model was then fit to these simulated data to evaluate its ability to recvover the parameters. 
 The mode was fit using 4 chains with 1000 warm-up iterations and 500 sampling iterations per chain. 
 An example from one simulation of estimated posterior densities for the final probability of a participant choosing the right-hand label shows that nearly all estimates capture the underlying generating parameter (Figure \ref{fig:pRfinalplot}).
+
+
 
 ```{r pRfinalplot, fig.width=5.875, fig.height=4, include=F}
 ggplot2::theme_set(ggplot2::theme_minimal())
@@ -348,7 +360,7 @@ do.call(gridExtra::grid.arrange, pR_final_plots)
 \label{fig:pRfinalplot}
 \end{figure}
 
-To examine the performance of all of the simulations, after the posteriors for each simulation estimate were sampled, the empirical cumulative density function was composed for the distribution of each parameter. 
+To examine the performance of all of the simulations, after the posteriors for each simulation estimate were sampled, the empirical cummulative density function was composed for the distribution of each parameter. 
 The cumulative density for the generating value (from the simulation) was then found. 
 This procedure is the same as finding the _p_-value for a test statistic using the probability density function for the relevant distribution.
 If the posterior is a reasonable estimate of the generating parameter, then the generating parameter should be a random draw from that posterior. 
@@ -393,7 +405,7 @@ grid_arrange_shared_legend <- function(..., ncol = 1, widths) {
 
 ## Descriptive data
 
-- Describe behavior across the run in each condition based on non-parametric plots based on trial-by-trial means
+- Describe behavior across the run in each condition based on non-parameteric plots based on trial-by-trial means
 
 ```{r trialaverages, fig.width=5.875, fig.height=4, include=F}
 ggplot2::theme_set(ggplot2::theme_minimal())
@@ -408,7 +420,7 @@ grid_arrange_shared_legend(avg_per_sample_plot2, avg_across_samples, ncol = 2, w
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/trialaverages-1.pdf}
-\caption[Average optimal behavior over trial]{Average optimal behavior over trial. Each point is the average across participants for that trial for the indicated condition. Best fit lines and confidence bands are estimated using generalized additive models and are for illustrative purposes only.}
+\caption[Average optimal behaviour over trial]{Average optimal behaviour over trial. Each point is the average across participants for that trial for the indicated condition. Best fit lines and confidence bands are estimated using generalized additive models and are for illustrative purposes only.}
 \label{fig:trialaverages}
 \end{figure}
 
@@ -753,6 +765,8 @@ Of course, it is possible that this null effect truly does reflect an underlying
 
 
 
-
 -----
 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTIxNDM3NDY2NDldfQ==
+-->
