@@ -553,7 +553,31 @@ xi_difference_plot
 \label{fig:xidiff}
 \end{figure}
 
-PREDICTED RESPONSE BEHAVIOR BASED ON MEAN PARAMETERS GOES HERE
+```{r bdiff, fig.width=3.5, fig.height=3, include=F}
+b_difference_plot
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=3.25in}
+\includegraphics{figures/bdiff-1.pdf}
+\caption[Condition contrasts for $b$]{Condition contrasts for $b$. Subscript number denotes condition. Condition 1 is Hungry/Thirsty, Condition 2 is Dating/Looking, Condition 3 is Popular/Unpopular. Shaded region is 95\% credible region, and tails extend to 99.5\% credible region. Positive values indicate bias toward right-button responding, negative values toward left-button responding.}
+\label{fig:xidiff}
+\end{figure}
+
+
+```{r modelpredictedbehavior, fig.width=5.875, fig.height=4, include=F}
+model_mean_predicted_behavior_plot
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/modelpredictedbehavior-1.pdf}
+\caption[Model predicted behavior]{Model predicted behavior. Each gray line follows a simulated agent's probability of choosing the optimal descriptor over one of 313 identical stimulus presentations. The stimulus presentation for is randomly generated for each of the two cues and repeated for each condition, but the agent's learning parameters, $\epsilon$, $\rho$, and $\xi$, are set at the estimated population means for each condition (the bias parameter, b, is excluded for clarity). Two simulated runs were chosen randomly to highlight unique trajectories through the task.}
+\label{fig:modpred}
+\end{figure}
+
 
 ## Age, puberty, and learning
 
