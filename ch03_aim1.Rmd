@@ -13,9 +13,7 @@ author: "John C. Flournoy"
 output: 
   pdf_document:
     keep_tex: yes
-    template: "default-1.17.0.2_nogeom.tex"output: 
-  pdf_document:
-    keep_tex: yes
+    template: "default-1.17.0.2_nogeom.tex"
 bibliography: "/home/jflournoy/code_new/social-motives-rl-writeup/dissertation.bib"
 csl: "/home/jflournoy/Rlibs/probly/bib/apa-old-doi-prefix.csl"
 ---
@@ -157,13 +155,12 @@ Common probabilistic reinforcement learning paradigms focus on estimating parame
 In the SPLT, motive context is manipulated by pairing human faces with state or trait words related to mate-seeking and status motives.
 The purpose of this manipulation is to examine how this motive framing alters learning, especially across adolescent development, as well as how individual differences in learning are related to the measures of attitudes and behavior outlined below.
 
-\begin{wrapfigure}{r}{0.5\textwidth}
+\begin{figure}
 \centering
-\captionsetup{width=3.25in}
 \includegraphics[width=3.25in]{figures/trial_example} 
 \caption[Example of a trial on the SPLT]{Example of a trial on the SPLT. Image shows post-response feedback phase on an incorrect trial where the participant could have earned 5 points for a correct answer, but earned 0 points.}
 \label{trialexample}
-\end{wrapfigure}
+\end{figure}
 
 On each trial, the participant sees one of six faces, along with two labels, and is asked to classify the face using one of the two labels.
 The labels are: *Hungry* versus *Thirsty* (control condition that is nonsocial, or only minimally social), *Dating* versus *Looking* for someone to date (mate-seeking), and *Popular* versus *Unpopular* (status).
@@ -224,7 +221,7 @@ print(reaction_time_plot)
 
 \begin{figure}
 \centering
-\captionsetup{width=3.25in}
+\captionsetup{width=5.875in}
 \includegraphics{figures/reactiontime-1.pdf}
 \caption[Distribution of reaction times for all participants.]{\label{fig:reactiontime}Distribution of reaction times for all participants. The vertical line set a 1s, which is close to the mean reaction time across all samples.}
 \end{figure}
@@ -263,16 +260,20 @@ This probability is then adjusted by a noise parameter, $0 \leq\xi_{jk}\leq1$ fo
 The noise parameter modulates the degree to which responses are non-systematic. 
 When $\xi$ is 1, $P_{it} = .5$, and because each individual has a unique noise parameter for each condition, I am able to account for participants who do not learn during the task, or in a particular condition.
 The full equation is:
-
 $$
 P(a_{\rightarrow t} | s_{t})_{t} = 
 \text{logit}^{-1}\big(W(a_{\rightarrow t}| s_{t}) - W(a_{\leftarrow t}| s_{t})\big)\cdot(1-\xi_{jk}) + \small\frac{\xi_{jk}}{2}.
 $$
-
-The action weight is determined by a Rescorla-Wagner (RW) updating function $Q$, $W_{t}(a,s) = Q_{t}(a, s)$.
+The action weight is determined by a Rescorla-Wagner (RW) updating function 
+$$
+W_{t}(a,s) = 
+\begin{cases}
+Q_{t}(a, s) + b_{jk} & \text{if}\ a=\text{press }\rightarrow\\
+Q_{t}(a, s) & \text{otherwise}
+\end{cases}
+$$
 Although this may seem like a redundant step, I specify it this way to be consistent with @guitart-masip2012, and to illustrate the possibility that another parameter could impact the action weight separately from $Q$.
 The function $Q$ encodes instrumental learning and is governed by the individual's learning rate for that condition, $\epsilon_{jk}$, and a scaling parameter $\rho_{jk}$ that scales the effective size of the possible rewards $r_t \in \{0, 1, 5\}$:
-
 $$
 Q_{t}(a_t, s_t) = Q_{t-1}(a_t, s_t) + \epsilon_{jk}\big(\rho_{jk}r_t - Q_{t-1}(a_t, s_t)\big)
 $$
@@ -282,27 +283,22 @@ $$
 Each parameter ($\epsilon, \rho, b, \xi$) varies by condition $k \in 1:K$, and by participant $j \in 1:J$ nested in sample $m \in 1:M$. 
 The structure of the hierarchical part of the model is the same for each parameter, so the following description for $\epsilon$ will serve as a description for all of the parameters.
 For each individual $j$, $\beta_{\epsilon j}$ is a $K$-element row of coefficients for parameter $\epsilon$ for each condition:
-
 $$
 \beta_{\epsilon j} \sim \mathcal{N}(\delta_{\epsilon mm[j]}, \Sigma_{\epsilon})
 $$
 where $\delta_{\epsilon mm[j]}$ is a column of $K$ means for individual $j$'s sample $M$, as indexed in the vector $mm$, and $\Sigma_{\epsilon}$ is a $K\times K$ matrix of the covariance of individual coefficients between conditions.
 
 Finally, across all $M$ samples, the means for each condition k are distributed such that: 
-
 $$
 \delta_{\epsilon k} \sim \mathcal{N}(\mu_{\epsilon k}, \sigma_\epsilon)
 $$
-
 where $\mu_{\epsilon k}$ is the population mean for parameter $\epsilon$ in condition $k$, and $\sigma$ is a slightly regularizing scale parameter for these means across all conditions and samples. The priors for these final parameters are:
-
 $$
 \begin{split}
 \mu_\epsilon &\sim \mathcal{N}(0, 5)\\
 \sigma_\epsilon &\sim \text{exponential(1)}.
 \end{split}
 $$
-
 Note that in practice all parameter estimates were practically identical whether or not nesting within sample was modeled and so I describe only the model without nesting.
 I maintain the description above to illustrate for the reader that it is at least practically possible to account for another level of hierarchy.
 The model specification for both sets of models is available in the accompanying package.
@@ -310,11 +306,12 @@ The model specification for both sets of models is available in the accompanying
 ## Simulating data
 
 Before modeling the task data, I will confirm that this model can recover known parameters from simulated data.
-Using RStan [version `r packageVersion('rstan')`; @standevelopmentteam2018], I simulate 100 data sets based on the structure of the sample data, using the same number of participants per sample (see the section on [descriptive statistics](descriptive-statistics.html), as well as precisely the same task structure. 
-For this aim, it is important to be able to recover all $\mu_{\theta k}$ for $\theta \in \{\epsilon,\rho,b,\xi\}$ and $k \in \{1,2,3\}$, where 1 = Hungry/Thirsty, 2 = Popular/Unpopular, and 3 = Dating/Looking. Those parameters that account for idiosyncratic deviation from RW-expected behavior ($b,\xi$) will not vary by condition. Based on interactive simulation ([here](https://jflournoy.shinyapps.io/rw_model/)), reasonable parameter values for the control condition might be $\mu_\epsilon = -1.65$ and $\mu_\rho = -0.3$ (these are the _raw_ parameter values which are transformed such that $\epsilon^\prime \in [0,1]$ and $\rho^\prime \in [0,\infty)$. Similar to logistic regression, estimating the parameters on a scale the is not restricted improves estimation).
+Using RStan [version `r packageVersion('rstan')`; @standevelopmentteam2018], I simulate 100 data sets based on the structure of the sample data, using the same number of participants per sample, as well as precisely the same task structure. 
+For this analysis, it is important to be able to recover all $\mu_{\theta k}$ for $\theta \in \{\epsilon,\rho,b,\xi\}$ and $k \in \{1,2,3\}$, where 1 = Hungry/Thirsty, 2 = Popular/Unpopular, and 3 = Dating/Looking. 
+Based on interactive simulation ([here](https://jflournoy.shinyapps.io/rw_model/)), reasonable parameter values for the control condition might be $\mu_{\epsilon^\prime} = -1.65$ and $\mu_{\rho^\prime} = -0.3$ (note that these are the _raw_ parameter values which are transformed such that $\epsilon \in [0,1]$ and $\rho \in [0,\infty)$ -- similar to logistic regression, estimating the parameters on a scale the is not restricted in range improves estimation).
 
-One early indication that a model may not be well suited to a problem is that when generating from the prior distribution, data-sets are produced that either do not adequately cover the range of reasonable values, or that cover ranges that are implausible [@gabry2017]. 
-The simulated data do generally cover the range of the actual data when we look just at the proportion of optimal presses over time (Figure \ref{fig:simdatcoverage}, and importantly do not show implausible behavior (all mass around extreme values like 0, 1, or .5).
+One early indication that a model may not be well suited to describing the data is that when generating from the prior distribution, simulated data-sets either do not adequately cover the range of reasonable values, or cover ranges that are implausible [@gabry2017].
+The simulated data do generally cover the range of the actual data when we look just at the proportion of optimal presses over time (Figure \ref{fig:simdatcoverage}, and importantly do not show implausible behavior (e.g., most estimates around extreme values like 0, 1, or .5).
 
 ```{r simdatcoverage, fig.width=5.875, fig.height=4, include=F}
 print(nosmooth_multi_plot)
@@ -328,22 +325,31 @@ print(nosmooth_multi_plot)
 \label{fig:simdatcoverage}
 \end{figure}
 
-More detailed descriptions of the simulated date broken out per-simulation are available on the project's [github webpage](https://jflournoy.github.io/probly/).
-
 The priors also generate reasonable ranges for the model parameters across these 100 simulations. 
-Notably, the mass of the prior distributions is distributed across the full range of reasonable values at each level.
-This results ultimately in a prior  distribution over the final probability of choosing the word on the right-hand side of the screen. These distributions cover the full range, with most mass around the null value of the final probability = .5 for choosing the left or right option.
+Notably, the mass of the prior distributions is distributed across the full range of reasonable values at each level and will tend to shrink posterior distributions toward zero if the data do not overwhelm the prior distributions.
+Ultimately, draws from the prior distributions transformed into predicted behavior based on the learning model described above generate a prior distribution over an agent's hypothetical final probability (at task-end) of choosing the word on the right-hand side of the screen.
+In a model that is well callibrated to this task, but that does not bias estimates, we should observe that these prior probabilities cover the full range, [0,1], for each of the six cues.
+These distributions cover the full range, with most mass around the null value of the final probability = .5 for choosing the left or right option (Figure \ref{fig:sampleprfinaldens}).
 If the data does not overwhelm the prior distribution, we can be assured that the prior is not biasing the estimate away from random responding.
 
-FIGURES WITH DRAWS FROM PRIORS HERE
+```{r sampleprfinaldens, fig.width=3.5, fig.height=3, include=F}
+sample_pR_final_dens
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/sampleprfinaldens-1.pdf}
+\caption[Prior density of task-end press-right probability]{Prior density of task-end press-right probability. Across 100 simulated data sets, prior probabilities on learning-model parameters favor low rates of learning to discriminate optimal choices. There is, however, mass across the entire range of realistic values.}
+\label{fig:sampleprfinaldens}
+\end{figure}
 
 ## Recovery of population parameters
 
 After generating these simulated data sets and known parameter values, the model was then fit to these simulated data to evaluate its ability to recvover the parameters. 
-The mode was fit using 4 chains with 1000 warm-up iterations and 500 sampling iterations per chain. 
-An example from one simulation of estimated posterior densities for the final probability of a participant choosing the right-hand label shows that nearly all estimates capture the underlying generating parameter (Figure \ref{fig:pRfinalplot}).
-
-
+The mode was fit using 6 chains with 1200 warm-up iterations and 334 sampling iterations per chain (for a total of 2004 samples). 
+An example from one simulation of estimated posterior densities for the final probability of a participant choosing the right-hand label shows that nearly all posterior 95% credible intervals capture the underlying generating parameter (Figure \ref{fig:pRfinalplot}).
+This is also the behavior seen for individual parameters unless the simulated data come from a prior draw where the variation between individuals is extremely low, or a particular parameter (like the noise parameter, $\xi$) overwhelms the other parameters in leading to the simulated behavior.
 
 ```{r pRfinalplot, fig.width=5.875, fig.height=4, include=F}
 ggplot2::theme_set(ggplot2::theme_minimal())
@@ -360,13 +366,27 @@ do.call(gridExtra::grid.arrange, pR_final_plots)
 \label{fig:pRfinalplot}
 \end{figure}
 
+While the above example provides some reassurance that the model performs adequately on simulated data, it is important to evaluate that it can perform well across a number of data sets.
 To examine the performance of all of the simulations, after the posteriors for each simulation estimate were sampled, the empirical cummulative density function was composed for the distribution of each parameter. 
-The cumulative density for the generating value (from the simulation) was then found. 
-This procedure is the same as finding the _p_-value for a test statistic using the probability density function for the relevant distribution.
-If the posterior is a reasonable estimate of the generating parameter, then the generating parameter should be a random draw from that posterior. 
-As such, the distribution of the _p_-value of the generating parameters (in relation to the posteriors) should be uniform. 
+The cumulative density _at the generating value_ (from the simulation) was then found. 
+This procedure is the same as finding the _p_-value for a test statistic using the probability density function for the relevant distribution (e.g., the student _t_ or normal).
+If the posterior is a reasonable estimate of the generating parameter, then the generating parameter should be a random draw from that posterior, and if the posterior consistently tends toward excluding the generating value, we would expect the generating value to fall more often on one side or the other of the posterior. 
+As such, the distribution of the _p_-value of the generating parameters (in relation to the posteriors) should be uniform (for the same reason, e.g., that _p_-values are expected to be uniform if the nil null hypothesis is true).
+This is indeed what we find both from a visual inspection of the deviation of the cumulative density of the posterior probabilities of generating values (Figure \ref{fig:densityplots}) and from Kolmogorov-Smirnov tests, which do not reject the null hypothesis that there are no differences between the observed _p_-values and the unform distribution on [0,1]. 
+Note, however, that power to reject this null hypothesis (at $\alpha = .05$) may be somewhat limited for the estimated population parameters from just a small number (N = 100) of simulations.
 
-PLOTS SHOWING UNIFORM DISTRIBUTION HERE
+```{r densityplots, fig.width=5.875, fig.height=4, include=F}
+ggplot2::theme_set(ggplot2::theme_minimal())
+gridExtra::grid.arrange(mu_unif_dens_plot, beta_unif_dens_plot, ncol = 2, widths = c(3,2))
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/densityplots-1.pdf}
+\caption[Posterior probabilities of generating values versus uniform]{Posterior probabilities of generating values versus uniform. The empirical density of the posteriors probabilities of the data generating values (that is, the probability of the generating value assuming the posterior density is what it is drawn from) do not seem to deviate greatly or systematically from the cummulative uniform density function. Kolmogorov-Smirnov tests did not reject the hypothesis of no difference between these posterior probabilities and the uniform distribution on [0,1].}
+\label{fig:densityplots}
+\end{figure}
 
 ## Target model and estimation of sample parameters
 
@@ -405,7 +425,8 @@ grid_arrange_shared_legend <- function(..., ncol = 1, widths) {
 
 ## Descriptive data
 
-- Describe behavior across the run in each condition based on non-parameteric plots based on trial-by-trial means
+Examination of non-parametric trends in trial-by-trial average number of optimal presses indicates that learning occurs in each sample, and condition (Figure \ref{fig:trialaverages}A). 
+There is also an indication that learning occurs more quickly and optimal presses are generally more frequent in the two social-motive conditions relative to the minimally social condition (Figure \ref{fig:trialaverages}A).
 
 ```{r trialaverages, fig.width=5.875, fig.height=4, include=F}
 ggplot2::theme_set(ggplot2::theme_minimal())
@@ -420,20 +441,48 @@ grid_arrange_shared_legend(avg_per_sample_plot2, avg_across_samples, ncol = 2, w
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/trialaverages-1.pdf}
-\caption[Average optimal behaviour over trial]{Average optimal behaviour over trial. Each point is the average across participants for that trial for the indicated condition. Best fit lines and confidence bands are estimated using generalized additive models and are for illustrative purposes only.}
+\caption[Average optimal behavior over trial]{Average optimal behavior over trial. Each point is the average across participants for that trial for the indicated condition. Best fit lines and confidence bands are estimated using generalized additive models and are for illustrative purposes only.}
 \label{fig:trialaverages}
 \end{figure}
-
-- Define mean final probability of making optimal press, $P_{O}$, as the mean probability of optimal press from the last half of the run.
-- This is correlated at _r_ = .96 with a simple logistic regression model and _r_ = ?? with reward learning model.
 
 ## Model estimated parameters
 
 ### Model comparisons
 
+Six models were fit to the data and compared using an estimate of leave-one-participant-out cross-validation prediction accuracy. 
+In the first set of three models, parameters were estimated for individuals, nested within sample (resulting in parameter estimates for the population, each sample, and each individual). 
+The second set of three models dropped the sample grouping.
+The maximal model for each group included parameters (for each condition) for the learning rate ($\epsilon$), reward modifier (also refered to as inverse temperature; $\rho$), irriducible noise ($\xi$), and right-press bias ($b$).
+A second model in each group dropped the parameter, $b$, while the third model dropped both $b$ and $\rho$.
+While the maximal model provides the highest expected predictive accuracy, there is 
+
 - Label of information criteria, plot of $\epsilon$ and $\xi$ parameter correlations across models.
 - LOO-CV estimates show that there is very little or no improvement gained by adding a level to the hierarchy accounting for differences due to sample.
 - Best fitting model uses all four parameters, the learning rate, $\epsilon$, the inverse temperature, $\rho$, irreducible noise, $\xi$, and bias for the right side, $b$.
+
+\begin{table}
+\centering
+\begin{threeparttable}
+\caption{Model comparison} \label{tab:loocomp}
+\small
+```{r loocomp, results='asis'}
+loo_rownames <- c('splt-looser-rl_repar_exp-1528144.RDS' = '3-level, maximal',
+                           'splt-looser-rl_2_level-1528266.RDS' = '2-level, maximal',
+                           'splt-looser-rl_repar_exp_no_b-1528233.RDS' = '3-level, w/o b',
+                           'splt-looser-rl_2_level_no_b-1527784.RDS' = '2-level, w/o b',
+                           'splt-looser-rl_repar_exp_no_b_no_rho-1527735.RDS' = '3-level, w/o b, $\\rho$',
+                           'splt-looser-rl_2_level_no_b_no_rho-1527729.RDS' = '2-level, w/o b, $\\rho$')[dimnames(loo_comp)[[1]]]
+loo_comp_rn <- cbind(Model = loo_rownames, apply(loo_comp, 2, function(col) sprintf('%0.2f', col)))
+knitr::kable(loo_comp_rn[,c('Model', 'elpd_diff', 'looic')], 
+             col.names = c('Model', '$\\Delta$ ELPD', 'LOOIC'),
+             row.names = F, format = 'latex', escape = F, align = c('l', 'r', 'r'))
+```
+\begin{tablenotes}
+\footnotesize
+\item $\Delta$ ELPD is the change in expected log predictive density from the best fitting model. LOOIC is the leave-one-out information criterion, and like other information criteria, smaller values are better.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
 
 ### Validation of parameters
 
@@ -513,7 +562,7 @@ apa_lowfi_ht_pu_t <- paste0('*t*(', lowfi_ht_pu_t$parameter, ') = ', round(lowfi
 
 Overall, learning was potentiated in the Dating/Looking, and Popular/Unpopular conditions.
 Paired sample Yuen *t* tests, which are robust to non-normality [@yuen1974], reject the null of no difference between the two conditions of interest and the control condition (Dating/Looking: `r apa_lowfi_ht_dl_t`; Popular/Unpopular: `r apa_lowfi_ht_pu_t`).
-This difference is also reflected in the parameter estimates (Figures \ref{fig:epsdiff}, \ref{fig:rhodiff}, \ref{fig:xidiff}).
+This difference is also reflected in the parameter estimates (Figures \ref{fig:epsdiff}, \ref{fig:rhodiff}, \ref{fig:xidiff}, \ref{fig:bdiff}).
 
 
 ```{r epsdiff, fig.width=3.5, fig.height=3, include=F}
@@ -522,20 +571,19 @@ epsilon_difference_plot
 
 \begin{figure}
 \centering
-\captionsetup{width=3.25in}
+\captionsetup{width=5.875in}
 \includegraphics{figures/epsdiff-1.pdf}
 \caption[Condition contrasts for $\epsilon$]{Condition contrasts for $\epsilon$. Subscript number denotes condition. Condition 1 is Hungry/Thirsty, Condition 2 is Dating/Looking, Condition 3 is Popular/Unpopular. Shaded region is 95\% credible region, and tails extend to 99.5\% credible region.}
 \label{fig:epsdiff}
 \end{figure}
 
 ```{r rhodiff, fig.width=3.5, fig.height=3, include=F}
-rho_difference_plot + 
-  ggplot2::coord_cartesian(xlim = c(-1.5, .4))
+rho_difference_plot
 ```
 
 \begin{figure}
 \centering
-\captionsetup{width=3.25in}
+\captionsetup{width=5.875in}
 \includegraphics{figures/rhodiff-1.pdf}
 \caption[Condition contrasts for $\rho$]{Condition contrasts for $\rho$. Subscript number denotes condition. Condition 1 is Hungry/Thirsty, Condition 2 is Dating/Looking, Condition 3 is Popular/Unpopular. Shaded region is 95\% credible region, and tails extend to 99.5\% credible region.}
 \label{fig:rhodiff}
@@ -547,7 +595,7 @@ xi_difference_plot
 
 \begin{figure}
 \centering
-\captionsetup{width=3.25in}
+\captionsetup{width=5.875in}
 \includegraphics{figures/xidiff-1.pdf}
 \caption[Condition contrasts for $\xi$]{Condition contrasts for $\xi$. Subscript number denotes condition. Condition 1 is Hungry/Thirsty, Condition 2 is Dating/Looking, Condition 3 is Popular/Unpopular. Shaded region is 95\% credible region, and tails extend to 99.5\% credible region.}
 \label{fig:xidiff}
@@ -559,10 +607,10 @@ b_difference_plot
 
 \begin{figure}
 \centering
-\captionsetup{width=3.25in}
+\captionsetup{width=5.875in}
 \includegraphics{figures/bdiff-1.pdf}
 \caption[Condition contrasts for $b$]{Condition contrasts for $b$. Subscript number denotes condition. Condition 1 is Hungry/Thirsty, Condition 2 is Dating/Looking, Condition 3 is Popular/Unpopular. Shaded region is 95\% credible region, and tails extend to 99.5\% credible region. Positive values indicate bias toward right-button responding, negative values toward left-button responding.}
-\label{fig:xidiff}
+\label{fig:bdiff}
 \end{figure}
 
 
