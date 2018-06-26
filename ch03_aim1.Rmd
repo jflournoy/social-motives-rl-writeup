@@ -255,27 +255,29 @@ In the SPLT, trial feedback does not vary by valence (responses result in reward
 
 ## Reinforcement learning model for the SPLT
 
-The model for an individual $j$'s probability of pressing the right arrow key on trial $t$ given that stimulus $s_{t}$ is presented, $P(a_{\rightarrow t} | s_{t})_{t}$, is determined by a logistic transformation of the action weight for pressing the right arrow key minus the action weight for pressing the left arrow key. 
-This probability is then adjusted by a noise parameter, $0 \leq\xi_{jk}\leq1$ for each participant $j$ in condition $k$.
-The noise parameter modulates the degree to which responses are non-systematic. 
-When $\xi$ is 1, $P_{it} = .5$, and because each individual has a unique noise parameter for each condition, I am able to account for participants who do not learn during the task, or in a particular condition.
+The pattern of an individual $j$'s decision to press right ($a_{\rightarrow} = 1$) verus left ($a_{\rightarrow} = 0$) is distributed Bernoulli with $a_{\rightarrow j} \sim \text{Bernoulli}(\theta_j)$. 
+Each individual's vector of $\theta_{j}$ is just the probability of pressing the right arrow key, $P(a_{\rightarrow t} | s_{t})_{t}$, for each trial $t$, conditional on whatever stimulus $s_{t}$ is present on that trial. 
+This probability is calculated using a logistic transformation of the action weight for pressing the right arrow key minus the action weight for pressing the left arrow key. 
+This probability is then adjusted by a noise parameter, $0 \leq\xi_{jk}\leq1$ for each participant $j$ during condition $k$.
+The noise parameter modulates the degree to which responses are random. 
+When $\xi = 1$, $P_{t} = .5$, and because each individual has a unique noise parameter for each condition, this allows the model to  account for participants who do not learn during any particular condition.
 The full equation is:
 $$
 P(a_{\rightarrow t} | s_{t})_{t} = 
 \text{logit}^{-1}\big(W(a_{\rightarrow t}| s_{t}) - W(a_{\leftarrow t}| s_{t})\big)\cdot(1-\xi_{jk}) + \small\frac{\xi_{jk}}{2}.
 $$
-The action weight is determined by a Rescorla-Wagner (RW) updating function 
+The action weight is determined by a Rescorla-Wagner (RW) updating function, 
 $$
 W_{t}(a,s) = 
 \begin{cases}
 Q_{t}(a, s) + b_{jk} & \text{if}\ a=\text{press }\rightarrow\\
 Q_{t}(a, s) & \text{otherwise}
-\end{cases}
+\end{cases},
 $$
-Although this may seem like a redundant step, I specify it this way to be consistent with @guitart-masip2012, and to illustrate the possibility that another parameter could impact the action weight separately from $Q$.
-The function $Q$ encodes instrumental learning and is governed by the individual's learning rate for that condition, $\epsilon_{jk}$, and a scaling parameter $\rho_{jk}$ that scales the effective size of the possible rewards $r_t \in \{0, 1, 5\}$:
+where $b_{jk}$ encodes the degree of bias, for participant $j$ during condition $k$, toward pressing the right arrow key ($\rightarrow$).
+The function $Q$ encodes instrumental learning and is governed by the individual's learning rate for that condition, $\epsilon_{jk}$, and the inverse temperature parameter $\rho_{jk}$ that scales the effective size of the possible rewards $r_t \in \{0, 1, 5\}$:
 $$
-Q_{t}(a_t, s_t) = Q_{t-1}(a_t, s_t) + \epsilon_{jk}\big(\rho_{jk}r_t - Q_{t-1}(a_t, s_t)\big)
+Q_{t}(a_t, s_t) = Q_{t-1}(a_t, s_t) + \epsilon_{jk}\big(\rho_{jk}r_t - Q_{t-1}(a_t, s_t)\big).
 $$
 
 ### Hierarchical Parameters
@@ -299,9 +301,11 @@ $$
 \sigma_\epsilon &\sim \text{exponential(1)}.
 \end{split}
 $$
-Note that in practice all parameter estimates were practically identical whether or not nesting within sample was modeled and so I describe only the model without nesting.
-I maintain the description above to illustrate for the reader that it is at least practically possible to account for another level of hierarchy.
-The model specification for both sets of models is available in the accompanying package.
+
+All $\beta$ are transformed to be on the appropriate scale before being used to compute $\theta_t$.
+For $\epsilon$ and $\xi$, values are transformed to be on $[0,1]$ using the fast approximation to the unit normal cumulative distribution function, $\phi_{\text{approx}}(x)$.
+The parameter $\rho$ is transformed to be on $[0,\infty)$ using the exponential function, $e^x$.
+The bias parameter $b$ does not need any transformation.
 
 ## Simulating data
 
@@ -396,7 +400,11 @@ To compare models and choose the one with the best expected out-of-sample predic
 
 From the winning model, I then extract model parameters, as well as the final probability of choosing the optimal descriptor for a particular cue.
 In addition, I use the average number of optimal choices in the last half of the run as a more easily calculable measure of optimal performance.
-Associations between all model parameters, measures of performance, age, and pubertal development are computed using linear regression and Spearman's rank order correlations.
+Associations between all model parameters, measures of performance, age, and pubertal development are computed using Spearman's rank order correlations and standardized coefficients from linear mixed effects models.
+Linear mixed effects (LME) models were computed using the R package lme4 [version `r packageVersion('lme4')`; @bates2015].
+These LME models were computed in order to aid descriptions of plotted data and best-fit generalized additive model (GAM) lines, and were used in place of correlations to account for non-independence of data when, for example, a parameter for all three conditions was being regressed on age.
+All such models have the form $y_{ij} = \gamma_{00} + \gamma_{10}\text{x}_j + u_{0j} + e_{ij}$, where $y$ is a target outcome like the learning rate $\epsilon$, and $x$ is a predictor like age or score on the pubertal development scale.
+The standardized $\gamma_{10}$ coefficient (labeled as $\beta$ in the tables below) is then used to help describe the magnitude of relations seen in the plots.
 
 # Results
 
@@ -454,11 +462,10 @@ In the first set of three models, parameters were estimated for individuals, nes
 The second set of three models dropped the sample grouping.
 The maximal model for each group included parameters (for each condition) for the learning rate ($\epsilon$), reward modifier (also refered to as inverse temperature; $\rho$), irriducible noise ($\xi$), and right-press bias ($b$).
 A second model in each group dropped the parameter, $b$, while the third model dropped both $b$ and $\rho$.
-While the maximal model provides the highest expected predictive accuracy, there is 
-
-- Label of information criteria, plot of $\epsilon$ and $\xi$ parameter correlations across models.
-- LOO-CV estimates show that there is very little or no improvement gained by adding a level to the hierarchy accounting for differences due to sample.
-- Best fitting model uses all four parameters, the learning rate, $\epsilon$, the inverse temperature, $\rho$, irreducible noise, $\xi$, and bias for the right side, $b$.
+While the maximal model provides the highest expected predictive accuracy, there is little difference between models that account for grouping of participants within sample versus those that don't -- simply allowing each individual's parameters to differ is sufficient for capturing any overall difference between samples. 
+We can also verrify that parameter estimates change very little between the two, and three-level specifications, showing near perfect correlation (Figure \ref{fig:twothreecorplot}).
+Correlations of individual level estimates of the same parameters between all two-level models were also very high ($r_{\epsilon1,2,3} > .89, r_{\xi1,2,3} > .87, r_{\rho1,2} = .79$.
+In the maximal, two-level model, correlations between parameters were generally quite small, although there is a somewhat more systematic relation when looking at the noise parameter, $\xi$ (Figure \ref{fig:corparplot}).
 
 \begin{table}
 \centering
@@ -466,31 +473,61 @@ While the maximal model provides the highest expected predictive accuracy, there
 \caption{Model comparison} \label{tab:loocomp}
 \small
 ```{r loocomp, results='asis'}
-loo_rownames <- c('splt-looser-rl_repar_exp-1528144.RDS' = '3-level, maximal',
-                           'splt-looser-rl_2_level-1528266.RDS' = '2-level, maximal',
-                           'splt-looser-rl_repar_exp_no_b-1528233.RDS' = '3-level, w/o b',
-                           'splt-looser-rl_2_level_no_b-1527784.RDS' = '2-level, w/o b',
-                           'splt-looser-rl_repar_exp_no_b_no_rho-1527735.RDS' = '3-level, w/o b, $\\rho$',
-                           'splt-looser-rl_2_level_no_b_no_rho-1527729.RDS' = '2-level, w/o b, $\\rho$')[dimnames(loo_comp)[[1]]]
+loo_rownames <- c(
+  'splt-looser-rl_repar_exp-1528144.RDS' = '3-level, maximal',
+  'splt-looser-rl_2_level-1528266.RDS' = '2-level, maximal',
+  'splt-looser-rl_repar_exp_no_b-1528233.RDS' = '3-level, without parameter b',
+  'splt-looser-rl_2_level_no_b-1527784.RDS' = '2-level, without parameter b',
+  'splt-looser-rl_repar_exp_no_b_no_rho-1527735.RDS' = '3-level, without parameters b, $\\rho$',
+  'splt-looser-rl_2_level_no_b_no_rho-1527729.RDS' = '2-level, without parameters b, $\\rho$')[dimnames(loo_comp)[[1]]]
 loo_comp_rn <- cbind(Model = loo_rownames, apply(loo_comp, 2, function(col) sprintf('%0.2f', col)))
 knitr::kable(loo_comp_rn[,c('Model', 'elpd_diff', 'looic')], 
              col.names = c('Model', '$\\Delta$ ELPD', 'LOOIC'),
-             row.names = F, format = 'latex', escape = F, align = c('l', 'r', 'r'))
+             row.names = F, format = 'latex', escape = F, align = c('l', 'r', 'r'),
+             booktabs = TRUE)
 ```
 \begin{tablenotes}
 \footnotesize
-\item $\Delta$ ELPD is the change in expected log predictive density from the best fitting model. LOOIC is the leave-one-out information criterion, and like other information criteria, smaller values are better.
+\item $\Delta$ ELPD is the change in expected log predictive density from the best fitting model. LOOIC is the leave-one-out information criterion -- like other information criteria, smaller values are better.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-### Validation of parameters
+```{r twothreecorplot, fig.width=5.875, fig.height=4, include=F}
+gridExtra::grid.arrange(grobs = two_three_level_comparison_plots,
+                        ncol = 3)
+```
 
-- Comparison to observed optimal presses $P_{O}$
-  - Figure \ref{fig:parametersvbehavior}
-  - The relations illustrated in this figure demonstrate that the models relation to the observed behavior is in line with expected relations based on simulation where, for any given value of $\rho$ in this range, there is a sweet-spot for $\epsilon$. 
-  - This is due to learning that is too slow (low $\epsilon$, across all $\rho$), over-weighting early, but "wrong" evidence (high $\rho$, lower $\epsilon$), or over-weighting contradictory evidence at any point in the trial (high $\epsilon$, across all $\rho$).
-  - The high noise parameter accounts for the behavior of participants who learn less during the task than would be expected by their learning rate parameters alone.
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/twothreecorplot-1.pdf}
+\caption[Correlation between three- and two-level model parameters]{Correlation between three- and two-level model parameters. Each individual-level parameter for the three-level maximal model is plotted against that for the two-level maximal model (for allconditions). The values of $P(\text{right})_{t = \text{T}}$ are the probabilities of pressing right for the final trial, T, for each participant for each condition.}
+\label{fig:twothreecorplot}
+\end{figure}
+
+```{r corparplot, fig.width=5.875, fig.height=4, include=F}
+print(par_mean_cor_plot_max2l)
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/corparplot-1.pdf}
+\caption[Correlation between parameters in 2-level maximal model]{Correlation between parameters in 2-level maximal model. Points are poster means of individual parameter estimates. All parameters are shown on their untransformed (i.e., unconstrained) scales. Black lines are LOESS curves. The diagonal shows the density, while the upper triangle shows Spearman correlation coefficients.}
+\label{fig:corparplot}
+\end{figure}
+
+
+### Validation of parameters with respect to behavior
+
+In order to build further confidence in the plausibility of the estimated individual-level parameters, it may be helpful to examine how they relate to the proportion of optimal choices during the last half of the task run, when learning appears to be reaching its completion and performance, on average, is pleateauing.
+First, we should see that performance should be worse for people with high estimated $\xi$ (noise) parameters relative to participants with similar values of other parameters.
+Second, we should also see that all else equal, both higher estimates for $\rho$ (reward modifier), and $\epsilon$ (learning rate), should be associated with better performance up to an optimal point, from which performance decreases.
+This curvilinear relation is due to the fact that because the task is probabilistic, the participant sometimes receives feedback which favors that the long-run non-optimal choice.
+When $\rho$, $\epsilon$, or both are very high, the learner may behave as if early but misleading feedback takes precedence over later feedback, or they may behave as if each new piece of feedback is the most important information for guiding their next decision.
+This is precisely what we seen in these data.
+For each panel in Figure \ref{fig:parametersvbehavior}, $\rho$ increases along with the overall proportion of optimal responses; as $\xi$ increases (mapped from red to blue, and also tracked by a split indicated by solid and dotted lines), optimal responding is diminished no matter what the estimate of the other parameters; and though we do not see the sweet spot for $\rho$, we do see that as $\rho$ increases, the sweet spot for $\epsilon$ becomes more pronounced, with optimal responding increasing until, approximately, $\epsilon > .1$.
   
 ```{r parametersvbehavior, fig.width=5.875, fig.height=4, include=F}
 allparameter_plot
@@ -500,18 +537,14 @@ allparameter_plot
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/parametersvbehavior-1.pdf}
-\caption[Run-end optimal press behavior and RW learning parameters]{Run-end optimal press behavior and RW learning parameters. Each point is a data from one participant. As the parameter $\epsilon$ increases (X-axis), probability of making an optimal choice increases to a maximum and then decreases. Facets bin increasing values of $\rho$ which also indicate increasing optimal choice. However, as expected, higher values of the noise parameter, $\xi$ (dotted line) suppress the associations between optimal choice behavior and the other two parameters.}
+\caption[Run-end optimal press behavior and RW learning parameters]{Run-end optimal press behavior and RW learning parameters. Each point is data from one condition for a single participant. As the parameter $\epsilon$ increases (X-axis), probability of making an optimal choice increases to a maximum and then decreases. Facets bin increasing values of $\rho$ which also indicate increasing optimal choice. However, as expected, higher values of the noise parameter, $\xi$ (dotted line) suppress the associations between optimal choice behavior and the other two parameters.}
 \label{fig:parametersvbehavior}
 \end{figure}
   
-- Comparison to confidence ratings
-  - Confidence ratings allow another point of comparison for model parameters.
-  - After each 48 trials, participants were asked to rate how confident they were, overall, that they knew which word was the best choice for each face.
-  - Figure \ref{fig:confidencevparameters} shows the relations between confidence ratings at the end of all trials and the model estimated parameters.
-  - The clear relations here may merely imply that the participants are aware of their behavior, and the model parameters show adequately systematic relations to that behavior such that they are also correlated with confidence ratings.
-  - It is not clear whether the especially strong relation between the reward sensitivity parameter, $\rho$, is meaningful.
-    - This may simply reflect that for a given learning rate, higher $\rho$ and lower $\xi$ reflect a quicker accumulation of action weight, or in other words, knowledge about the optimal response.
-    - This point will be revisited later when comparing self-report scales to parameter estimates.
+Very similar patterns are apparent between the parameters and the confidence participants had in their choices.
+At the end of each of 8 blocks (48 choices each), participants were asked, generally, how well they thought they knew which word went with which face.
+Scatter-plots and generalized additive model best-fit lines (Figure \ref{fig:confidencevparameters}) show striking relations between  global confidence ratings and both higher $\rho$ ($r = .37, 99.5\%\text{ CI} = [.22,.50]$), and lower $\xi$ ($r = -.34, 99.5\%\text{ CI} = [-.48,.19]$) that mirror the relations to optimal choices seen above ($\epsilon$ also shows a smaller negative relation to confidence; $r = -.12, 99.5\%\text{ CI} = [-.27,.05]$).
+This implies at least that the participants are aware of the general reward-optimality of their behavior, so that the model parameters, which show systematic relations to that behavior, also correlate with confidence ratings.
 
 ```{r confidencevparameters, fig.width=5.875, fig.height=4.1, include=F}
 parameter_lookup <- c(
@@ -538,8 +571,6 @@ confidence_parameter_plot +
 
 ## Population-level parameters
 
-**NOTE: need to look at differences between partnered, unpartnered individuals**
-
 ```{r}
 lowfi_ht_dl_t <- PairedData::yuen.t.test(
   lowfi_df$bin_5_to_end[lowfi_df$condition == 'Dating/Looking'], 
@@ -561,11 +592,18 @@ apa_lowfi_ht_pu_t <- paste0('*t*(', lowfi_ht_pu_t$parameter, ') = ', round(lowfi
 ```
 
 Overall, learning was potentiated in the Dating/Looking, and Popular/Unpopular conditions.
-Paired sample Yuen *t* tests, which are robust to non-normality [@yuen1974], reject the null of no difference between the two conditions of interest and the control condition (Dating/Looking: `r apa_lowfi_ht_dl_t`; Popular/Unpopular: `r apa_lowfi_ht_pu_t`).
-This difference is also reflected in the parameter estimates (Figures \ref{fig:epsdiff}, \ref{fig:rhodiff}, \ref{fig:xidiff}, \ref{fig:bdiff}).
+Comparing the proportion of optimal choices in the last half of the run, paired sample Yuen *t* tests, which are robust to non-normality [@yuen1974], reject the null of no difference between the two conditions of interest and the control condition (Dating/Looking: `r apa_lowfi_ht_dl_t`; Popular/Unpopular: `r apa_lowfi_ht_pu_t`).
+The differences in observed behavior are also reflected in some parameter estimates.
+The 99.5% credible interval for the difference in learning rate, $\epsilon$, between the two social conditions and the minimally social conditions are both well above 0, while the difference between the two social conditions has much of its mass close to 0 (Figure \ref{fig:epsdiff}).
+This indicates that on average, individuals' learning rates in the social conditions are larger relative to the minimally social condition, but are not very different between them (although we might infer that the Popular/Unpopular learning rate is more likely to be of the greatest magnitude).
+Differences in the population mean of the reward modifier, $\rho$, with large proportions of the posterior probability mass both above and below 0 for all contrasts (Figure \ref{fig:rhodiff}).
+Although there is a bit more variability in the contrasts between the social conditions and the reference condition, the social manipulation does not have a very strong or systematic effect on this model parameter.
+The estimated difference in irrudicible noise parameters, $\xi$, is also not convincingly positive or negative for any of the contrasts, although the great majority of the probability mass for the social versus reference contrasts does lie below 0 (Figure \ref{fig:xidiff}).
+This suggests that there may be less random responding in the social conditions relative to the reference condition.
+Finally, differences in right-bias, $b$, are also not convincingly either positive or negative, although there is a suggestion of greater tendency toward choosing the left social option (Dating, median $b = -0.11, \text{CI}_{.995} = [-0.20,-0.02]$; or Popular, median $b = -0.10, \text{CI}_{.995} = [-0.19,-0.01]$) than the left reference option (Thirsty, median $b = -0.05, \text{CI}_{.995} = [-0.12,0.034]$; Figure \ref{fig:bdiff}).
+The credibly negative means for each of the social conditions, as well as the suggestion of difference between the social and reference conditions may indicate that participants favored choosing the socially desirable descriptors for some reason.
 
-
-```{r epsdiff, fig.width=3.5, fig.height=3, include=F}
+```{r epsdiff, fig.width=3.5, fig.height=2, include=F}
 epsilon_difference_plot
 ```
 
@@ -577,7 +615,7 @@ epsilon_difference_plot
 \label{fig:epsdiff}
 \end{figure}
 
-```{r rhodiff, fig.width=3.5, fig.height=3, include=F}
+```{r rhodiff, fig.width=3.5, fig.height=2, include=F}
 rho_difference_plot
 ```
 
@@ -589,7 +627,7 @@ rho_difference_plot
 \label{fig:rhodiff}
 \end{figure}
 
-```{r xidiff, fig.width=3.5, fig.height=3, include=F}
+```{r xidiff, fig.width=3.5, fig.height=2, include=F}
 xi_difference_plot
 ```
 
@@ -601,7 +639,7 @@ xi_difference_plot
 \label{fig:xidiff}
 \end{figure}
 
-```{r bdiff, fig.width=3.5, fig.height=3, include=F}
+```{r bdiff, fig.width=3.5, fig.height=2, include=F}
 b_difference_plot
 ```
 
@@ -613,6 +651,11 @@ b_difference_plot
 \label{fig:bdiff}
 \end{figure}
 
+Given the dynamic nature of the task and non-intuitive contributions of model parameters to probabilities of choosing one option over another, the consequences of these differences between conditions may captured more clearly by an example of the kinds of behavior these parameters could give rise to.
+A helpful approach might be to generate behavior over many identical runs using a hypothetical actor that takes on these population-level mean parameters (specifically, their posterior means).
+Doing so, we can look at the many possible paths through the paradigm that might be traversed by this actor who represents an "average" participant (though there may be no such real participant in existence, so this is merely illustrative).
+Looking at the plot of 313 simulated runs in Figure \ref{fig:modpred} reveals a very slight effect of the bias toward choosing the left option (visible most easily at trial 0), as well as a more profound effect of parameter differences on both the magnitude of the actor's probability of choosing optimally, as well as the variance in that probability. 
+The simulated behavior suggests that in the social condition this actor may progress much more rapidly toward certainty, with much stronger certaintly eventually, but also with the potential to be wildly wrong about the long-run optimal choice during some of the run.
 
 ```{r modelpredictedbehavior, fig.width=5.875, fig.height=4, include=F}
 model_mean_predicted_behavior_plot
@@ -628,6 +671,10 @@ model_mean_predicted_behavior_plot
 
 
 ## Age, puberty, and learning
+
+```{r}
+load('rda/age-learning-association.rda')
+```
 
 ### Mean optimal presses
 
@@ -683,29 +730,153 @@ p_opt_diff_pds_plot
 \end{figure}
 
 - Age and parameters
+
+```{r ageparplots, fig.width=5.875, fig.height=4, include=F}
+age_par_plot
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/ageparplots-1.pdf}
+\caption[poptdiffpdsplot]{poptdiffpdsplot}
+\label{fig:ageparplots}
+\end{figure}
+
+```{r ageparconplots, fig.width=5.875, fig.height=4, include=F}
+age_par_con_plot
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/ageparconplots-1.pdf}
+\caption[poptdiffpdsplot]{poptdiffpdsplot}
+\label{fig:ageparconplots}
+\end{figure}
+
+\begin{table}
+\centering
+\begin{threeparttable}
+\caption{Age and paramter estimates} \label{tab:agebetas}
+\small
+```{r agebetas, results='asis'}
+colnames <- c('Parameter', 'Age-group', '$\\beta$', '$\\text{SE}_{\\beta}$', '$t$')
+knitr::kable(age_param_betas_table, digits = 2, escape = F, 
+             col.names = colnames, format = 'latex', 
+             booktabs = T)
+```
+\begin{tablenotes}
+\footnotesize
+\item Models were estimated using posterior mean parameters on unconstrained scales.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\begin{table}
+\centering
+\begin{threeparttable}
+\caption{Age and paramter estimate contrasts} \label{tab:agebetascon}
+\small
+```{r agebetascon, results='asis'}
+knitr::kable(age_param_con_betas_table, digits = 2, escape = F, 
+             col.names = colnames, format = 'latex', 
+             booktabs = T)
+```
+\begin{tablenotes}
+\footnotesize
+\item Parameter contrasts were computed by subtracting the mean posterior parameter (on the constrained scales) in the Hungry/Thirsty condition from parameter estimates in the two social conditions.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
 - Puberty and parameters
+
+```{r pubertyparplots, fig.width=5.875, fig.height=4, include=F}
+puberty_par_plot
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/pubertyparplots-1.pdf}
+\caption[poptdiffpdsplot]{poptdiffpdsplot}
+\label{fig:pubertyparplots}
+\end{figure}
+
+```{r pubertyparconplots, fig.width=5.875, fig.height=4, include=F}
+puberty_par_con_plot
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/pubertyparconplots-1.pdf}
+\caption[poptdiffpdsplot]{poptdiffpdsplot}
+\label{fig:pubertyparconplots}
+\end{figure}
+
+
+\begin{table}
+\centering
+\begin{threeparttable}
+\caption{Pubertal development and paramter estimates} \label{tab:pdsbetas}
+\small
+```{r pdsbetas, results='asis'}
+knitr::kable(pds_param_betas_table, digits = 2, escape = F, 
+             col.names = colnames, format = 'latex', 
+             booktabs = T)
+```
+\begin{tablenotes}
+\footnotesize
+\item Models were estimated using posterior mean parameters on unconstrained scales.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\begin{table}
+\centering
+\begin{threeparttable}
+\caption{Pubertal development and paramter estimate contrasts} \label{tab:pdsbetascon}
+\small
+```{r pdsbetascon, results='asis'}
+knitr::kable(pds_param_con_betas_table, digits = 2, escape = F, 
+             col.names = colnames, format = 'latex', 
+             booktabs = T)
+```
+\begin{tablenotes}
+\footnotesize
+\item Parameter contrasts were computed by subtracting the mean posterior parameter (on the constrained scales) in the Hungry/Thirsty condition from parameter estimates in the two social conditions.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
 - Generally, there is no relation between differences in the parameters and age, though there are some age trends in the parameters.
 
 # Discussion
 
-Overall, the best-fitting model for learning captures the behavior well.
-We see that the model simulations generate data that covers the full range of possible behavior, and that simulated data from the fitted parameters reproduce the average learning trajectory in each condition fairly well.
-The relation between the parameters and both learning performance, and confidence in learning conform to expectations. Specifically, generally higher learning rates, greater inverse temperature, and lower noise all relate positively to performance and confidence (though as expected, because of the non-linearity inherent in learning rates, very high learning rate along with very high inverse temperature parameters looks like it is associated with lower performance).
-Generally, these results can give us confidence that the model may adequately capture a plausible cognitive process that gives rise to the response data.
+Overall, the best-fitting model for learning captures the behavior of participants on the task well.
+We see that the model simulations generate data that covers the full range of possible behavior, and that simulated data from the fitted parameters reproduce the average learning trajectory in each condition.
+The relation between the parameters and both performance, and confidence in learning conform to our expectations based on model construction. 
+Specifically, generally higher learning rates, greater inverse temperature, and lower noise all relate positively to performance and confidence.
+Generally, these results can give us confidence that the model adequately capture a plausible cognitive process that gives rise to the response data.
 
 Performance on the learning task, indexed by proportions of optimal presses, follows expected age and pubertal-development trends, with very early adolescent participants performing less well on the task.
-The cognitive demands of this task are somewhat high (learning associations between 6 abstract faces and 12 terms), and so an overall increase into middle adolescence is not unexpected.
-Age and development trends in parameter estimates follow this pattern.
+The cognitive demands of this task are likely high as is reflected in the protracted period of learning, and so an increase on overall performance with increasing age cohort is not unexpected.
+Age and development trends in parameter estimates follow this pattern as well.
+
 Differences in performance, as well as model parameters, indicate that the two social-motive conditions enhance learning.
-This is consistent with the idea that humans are especially motivated to learn social information.
-However, estimates of these differences between conditions were fairly consistent across the entire age range.
+This is consistent with the idea that humans are motivated, especially, to learn social information.
+However, estimates of these differences between conditions were fairly consistent across the entire age range, which is not what would be expected if differences between conditions in learning reflect motivations that are thought to be developing during this age range.
 
 ## Limitations
 
 Before connecting the results of this analysis to the broader literature on reinforcement learning and social motivation, it is important to set out the limitations that must constrain interpretations of these findings.
 First, learning may be obviously irrelevant to actual social goals participants have. 
-That is, learning about the popularity of a computer-generated face may not be enhanced by a persons status motives because it is clear that this information is not instrumentally valuable for satisfying that motive. 
+That is, learning about the popularity of a computer-generated face may not be enhanced by a person's status motives because it is clear that this information is not instrumentally valuable for satisfying that motive. 
 However, we did not ask participants whether they felt like they learned something that could help them in their daily lives (that is, we did not assess whether they thought there was some true, learned association between facial characteristics and either dating or social status).
+So it is possible that either the irrelevance should not matter, or that many participants were motivated to learn about the faces because they thought it might be relevant information for planning future behavior.
 
 Second, it is well known that binary choice outcomes are less reliable indicators of latent constructs than continuously measured behavior.
 The proportion of variance in the parameter estimates (for learning parameters), or performance estimates, versus the variance due to uncertainty in those estimates was generally low. 
@@ -714,25 +885,26 @@ This would diminish the sensitivity of this measure to detect differences result
 Third, a minimal stimulus set only examines a small slice of the population of descriptors that may be relevant for mate-seeking and status motives.
 Depending on the idiosyncratic characteristics of the chosen stimuli, this could produce both mean differences between conditions, as well as age correlations, or it could mask true differences and correlations.
 The generalizability of any results is limited by the extent to which there is variation in any relations due to the choice of particular descriptors.
-Note that randomizing the associated faces eliminates this as a possible confound, though the use of the same six faces may limit generalizability to some extent as well.
+Note that randomizing the associated faces eliminates this constrained stimulus set as a possible confound, though the use of the same six faces may limit generalizability to some extent as well.
 
 Fourth, the face-valid relevance of the descriptors to the motivational domain is not the only dimension along which the conditions differed. 
-Also unlike the minimally social condition, the social descriptors convey information not just about the target, but about that target's relationship to other individuals.
-Seen through the graph theory formalization ubiquitous in social network analysis, the descriptors "Dating" and "Looking" conveys information about at least two individuals as well as the tie between them.
-The descriptors "Popular" and "Unpopular" conveys information about a person's position in a broader hierarchy, and thus about the ties among a much larger community.
-This is speculative, but is one influence that is not related to social motivations that could result in salience differences and explain the behavior of participants on this task.
-Another example is that salience differences may be due to a prior belief about the extent to which one can tell from the faces themselves whether they are described one way or the other. 
-If participants believe that there is a signal in the facial characteristics for the two social conditions, but not the minimally social condition, they may pay more attention and learn faster.
+Unlike the minimally social condition, the social descriptors convey information not just about the target, but about that target's relationship to other individuals.
+From the perspective of social network analysis, the descriptors "Dating" and "Looking" convey information about at least two individuals, as well as the tie(s) between them (both "Dating" and "Looking" require at least one unnamed conspecific).
+The descriptors "Popular" and "Unpopular" convey information about a person's position in a broader hierarchy, and thus about the structure of ties among a much larger community.
+That participants may have been sensitive to variation along this dimension is speculative, but this is at least one influence that is not related to social motivations that could result in salience differences between descriptor pairs and so explain the behavior of participants on this task.
+Another possible dimension along which the stimuli vary may be the extent to which people believe that one can tell from facial characteristics whether someone is likely to match a descriptor.. 
+If participants believe that there is a signal in the facial characteristics for the two social conditions, but not the minimally social condition, they may pay more attention during those trials and learn faster.
 
 Fifth, although these analyses compare a suite of models that build on the basic updating rule proposed by @rescorla1972, there are other learning models that may be relevant. 
-For example, although the task was designed with prediction-error expected value updating as the guiding principle, it might be possible to examine these data using instance based learning [@gonzalez2003a;@lejarraga2012], or a model that unifies the Rescorla-Wagner, temporal difference, and Bayesian Kalman filter approaches [@gershman2015]. 
+For example, although the task was designed with prediction-error updating as the guiding principle, it might be possible to examine these data using instance based learning [@gonzalez2003a;@lejarraga2012], or a model that unifies the Rescorla-Wagner, temporal difference, and Bayesian Kalman filter approaches [@gershman2015]. 
 The distinction between model-free and model-based learning strategies is also important, with evidence for developmental trends in the transition between strategies [@decker2016], but this task is not designed to examine these distinctions.
 
-Finally, though this is a large sample that covered a broad age range, the data are cross-sectional and so it would be inappropriate to extrapolate differences across age to developmental effects within individuals [@fisher2018].
-One stark example of this problem in the present research is that to infer a developmental effect in these data, one must assume that participants are exchangeable; for example, that the sample of young participants are more or less the same as the older participants, but just younger.
-This is clearly not the case in this sample if one considers the fact that 100% of older participants are attending a four-year university, whereas it is almost certainly not the case that 100% of the community and foster-care-involved adolescents will follow this educational path.
-There is no way to gauge how much this impacts the results of these analysis (although it is reassuring, for example, that there does not seem to be a discontinuity between the samples in performance or parameter estimates).
-Cross-sectional age differences may be a confounding source of variance for developmental effects, but may also be a source of imprecision in this design that diminishes the ability of these analyses to detect age differences in motivated learning between conditions.
+Finally, although this is a large sample that covered a broad age range, the data are cross-sectional and so it would be inappropriate to extrapolate differences across age to developmental effects within individuals [@fisher2018].
+One stark example of this problem in the present research is that to infer a developmental effect in these data, one must assume that participants are exchangeable across age; that is, one must assume that the sample of young participants is more or less the same as the older participants, but just younger.
+This is clearly not the case in this sample when one considers the fact that all of the older participants are attending a four-year university, whereas it is almost certainly not the case that all of the community and foster-care-involved adolescents will follow this educational path.
+There is no way to gauge how much this impacts the results of these analyses.
+However, it is reassuring, for example, that there does not seem to be a discontinuity between the samples' in performance or parameter estimates.
+Cross-sectional age differences may be a confounding source of variance for developmental effects that again may produce apparent associations or obscure true associations.
 
 ## Differences in reinforcement learning, generally, across adolescence
 
@@ -740,28 +912,28 @@ How do the results from this study inform our understanding of, first, reinforce
 Almost all work on reinforcement learning in adolescence is cross-sectional, with age-group sizes of fewer than 50 participants (and often fewer than 30).
 There are Two notable exceptions. @mccormick2017 report on N = 77 adolescents, ages 8-17.7 years, with analyses focusing on age correlations rather than group differences.
 @peters2017 report on a longitudinal sample with 736 observations over 3 waves, with participants from age 8-25 years.
-These more robust studies are both consistent with improvements in performance on reinforcement learning tasks across adolescence.
+These two robust studies are both consistent with improvements in performance on reinforcement learning tasks across adolescence.
 
 ### Performance differences across development
 
 The most consistent finding from this literature, and which is consistent with the present study, is that adults, or young adults, perform better than adolescents or children [@duijvenvoorde2008; @decker2015; @vandenbos2009a; @cohen2010; @christakou2013; @palminteri2016; @rosenblau2017; @peters2017; @mccormick2017].
-In one study, adolescents performed better [@davidow2016] that adults, and this was interpreted as indicated that heightened reward sensitivity may lead to better learning during adolescence.
-Like many of the studies which show greatest performance during adulthood, they used a probabilistic reinforcement learning task.
+In one study, adolescents performed better than adults, which was interpreted as indicated that heightened reward sensitivity may lead to better learning during adolescence [@davidow2016].
+Like many of the studies which show greatest performance during adulthood, -@davidow2016 used a probabilistic reinforcement learning task.
 Notably, adults showed higher learning rate parameters than adolescents (but performed worse as a result).
-The results of this study are likely anomalous given the considerable evidence for greater adult performance on standard reinforcement learning paradigms.
+The results of their study are likely anomalous given the considerable evidence for greater adult performance on standard reinforcement learning paradigms.
 
 This consistent age finding holds across operationalization of learning.
 Both probabilistic reinforcement [@vandenbos2009a; @cohen2010; @palminteri2016; @decker2015], and deterministic reinforcement [@duijvenvoorde2008; @peters2017] show the increase in performance with age.
-Tasks which are more often described as risk-taking, but which involve a reinforcement learning, like the Iowa gambling task [@christakou2013], and balloon analogue risk task [@mccormick2017] also show this age trend.
+Also, tasks which are more often described as risk-taking, but which involve a reinforcement learning component like the Iowa gambling task [@christakou2013], and balloon analogue risk task [@mccormick2017], also show this age trend.
 
-Several studies did not include a measure of performance, but focus just on learning rate.
-Notably, Learning rates are not linearly associated with performance when the feedback is probabilistic, but show optimal performance when a balance is struck between sensitivity to feedback and slow accumulation of evidence.
+Several studies did not include a measure of performance, but focus only on learning rate.
+Notably, Learning rates are not linearly associated with performance when the feedback is probabilistic, but show optimal performance when a balance is struck between sensitivity to feedback and the slow accumulation of evidence about optimal behavior in a relatively stable environment.
 In studies where both learning rate and performance were measured, two studies show an association with age in the same direction [with adults performing better than younger participants; @rosenblau2017; @mccormick2017].
-The only study in which this relation was reversed was [@davidow2016], though another study showed different relations between learning rates for positive versus negative feedback [@christakou2013].
+The only study in which this relation is reversed was [@davidow2016], though another study showed differently signed relations between learning rates for positive versus negative feedback [@christakou2013].
 
-Some authors have suggested that adolescent reward sensitivity makes this developmental period advantageous for reward learning [@davidow2016;@mccormick2017].
-However, if there is indeed a peak in reward sensitivity during adolescence, it does not result in a particular advantage in standard reward learning tasks.
-The present study shows a gradual increase in performance across the age range, and which is not consistent with an adolescent specific advantage driven by reward sensitivity.
+Some authors have suggested that adolescent reward sensitivity makes the developmental period of adolescence advantageous for reward learning [@davidow2016;@mccormick2017].
+However, if there is indeed a peak in reward sensitivity during adolescence, it does not result in a particular advantage in most of the standard reward learning tasks reviewed above.
+The evidence from the present study also supports a gradual increase in performance across the age range (roughly 12-18 years), and which is not consistent with an adolescent specific advantage driven by reward sensitivity.
 In fact, adolescent reward sensitivity should be apparent in either overall performance, or in the parameter $\rho$ which modulates the magnitude of rewards.
 Overall, the data presented in this study represent the largest cross-sectional sample to date, and strengthen evidence for an age-related increase in performance on reinforcement learning tasks.
 
