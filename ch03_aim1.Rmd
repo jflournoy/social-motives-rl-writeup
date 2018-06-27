@@ -524,7 +524,7 @@ print(par_mean_cor_plot_max2l)
 In order to build further confidence in the plausibility of the estimated individual-level parameters, it may be helpful to examine how they relate to the proportion of optimal choices during the last half of the task run, when learning appears to be reaching its completion and performance, on average, is pleateauing.
 First, we should see that performance should be worse for people with high estimated $\xi$ (noise) parameters relative to participants with similar values of other parameters.
 Second, we should also see that all else equal, both higher estimates for $\rho$ (reward modifier), and $\epsilon$ (learning rate), should be associated with better performance up to an optimal point, from which performance decreases.
-This curvilinear relation is due to the fact that because the task is probabilistic, the participant sometimes receives feedback which favors that the long-run non-optimal choice.
+This curvilinear relation is due to the fact that because the task is probabilistic, the participant sometimes receives feedback in favor of the non-optimal choice.
 When $\rho$, $\epsilon$, or both are very high, the learner may behave as if early but misleading feedback takes precedence over later feedback, or they may behave as if each new piece of feedback is the most important information for guiding their next decision.
 This is precisely what we seen in these data.
 For each panel in Figure \ref{fig:parametersvbehavior}, $\rho$ increases along with the overall proportion of optimal responses; as $\xi$ increases (mapped from red to blue, and also tracked by a split indicated by solid and dotted lines), optimal responding is diminished no matter what the estimate of the other parameters; and though we do not see the sweet spot for $\rho$, we do see that as $\rho$ increases, the sweet spot for $\epsilon$ becomes more pronounced, with optimal responding increasing until, approximately, $\epsilon > .1$.
@@ -543,8 +543,8 @@ allparameter_plot
   
 Very similar patterns are apparent between the parameters and the confidence participants had in their choices.
 At the end of each of 8 blocks (48 choices each), participants were asked, generally, how well they thought they knew which word went with which face.
-Scatter-plots and generalized additive model best-fit lines (Figure \ref{fig:confidencevparameters}) show striking relations between  global confidence ratings and both higher $\rho$ ($r = .37, 99.5\%\text{ CI} = [.22,.50]$), and lower $\xi$ ($r = -.34, 99.5\%\text{ CI} = [-.48,.19]$) that mirror the relations to optimal choices seen above ($\epsilon$ also shows a smaller negative relation to confidence; $r = -.12, 99.5\%\text{ CI} = [-.27,.05]$).
-This implies at least that the participants are aware of the general reward-optimality of their behavior, so that the model parameters, which show systematic relations to that behavior, also correlate with confidence ratings.
+Scatter-plots and generalized additive model best-fit lines (Figure \ref{fig:confidencevparameters}) show striking relations between  global confidence ratings and both higher $\rho$ ($r = .37, 99.5\%\text{ CI} = [.22,.50]$), and lower $\xi$ ($r = -.34, 99.5\%\text{ CI} = [-.48,-.19]$) that mirror the relations to optimal choices seen above ($\epsilon$ also shows a smaller negative relation to confidence; $r = -.12, 99.5\%\text{ CI} = [-.27,.05]$).
+This implies, at least, that the participants are aware of the general reward-optimality of their behavior, so that the model parameters, which show systematic relations to that behavior, also correlate with confidence ratings.
 
 ```{r confidencevparameters, fig.width=5.875, fig.height=4.1, include=F}
 parameter_lookup <- c(
@@ -579,7 +579,7 @@ lowfi_ht_dl_t <- PairedData::yuen.t.test(
 apa_lowfi_ht_dl_t <- paste0('*t*(', lowfi_ht_dl_t$parameter, ') = ', round(lowfi_ht_dl_t$statistic,2), 
                ', *p* = ', round(lowfi_ht_dl_t$p.value, 3), 
                ', $\\bar{D}$ = ', round(lowfi_ht_dl_t$estimate,3), 
-               ' [', paste(round(lowfi_ht_dl_t$conf.int,3), collapse = ','), ']')
+               ', $\\text{CI}_{.95} = [', paste(round(lowfi_ht_dl_t$conf.int,3), collapse = ','), ']$')
 
 lowfi_ht_pu_t <- PairedData::yuen.t.test(
   lowfi_df$bin_5_to_end[lowfi_df$condition == 'Popular/Unpopular'],
@@ -588,20 +588,20 @@ lowfi_ht_pu_t <- PairedData::yuen.t.test(
 apa_lowfi_ht_pu_t <- paste0('*t*(', lowfi_ht_pu_t$parameter, ') = ', round(lowfi_ht_pu_t$statistic,2), 
                ', *p* = ', round(lowfi_ht_pu_t$p.value, 5), 
                ', $\\bar{D}$ = ', round(lowfi_ht_pu_t$estimate,3), 
-               ' [', paste(round(lowfi_ht_pu_t$conf.int,3), collapse = ','), ']')
+               ', $\\text{CI}_{.95} = [', paste(round(lowfi_ht_pu_t$conf.int,3), collapse = ','), ']$')
 ```
 
 Overall, learning was potentiated in the Dating/Looking, and Popular/Unpopular conditions.
-Comparing the proportion of optimal choices in the last half of the run, paired sample Yuen *t* tests, which are robust to non-normality [@yuen1974], reject the null of no difference between the two conditions of interest and the control condition (Dating/Looking: `r apa_lowfi_ht_dl_t`; Popular/Unpopular: `r apa_lowfi_ht_pu_t`).
+Comparing the proportion of optimal choices in the last half of the run, paired sample Yuen *t*-tests, which are robust to non-normality [@yuen1974], reject the null of no difference between the two conditions of interest and the control condition (Dating/Looking: `r apa_lowfi_ht_dl_t`; Popular/Unpopular: `r apa_lowfi_ht_pu_t`).
 The differences in observed behavior are also reflected in some parameter estimates.
-The 99.5% credible interval for the difference in learning rate, $\epsilon$, between the two social conditions and the minimally social conditions are both well above 0, while the difference between the two social conditions has much of its mass close to 0 (Figure \ref{fig:epsdiff}).
+The 99.5% credible intervals for the difference in learning rate, $\epsilon$, between the two social conditions and the minimally social conditions are both well above 0, while the difference between the two social conditions has much of its mass close to 0 (Figure \ref{fig:epsdiff}).
 This indicates that on average, individuals' learning rates in the social conditions are larger relative to the minimally social condition, but are not very different between them (although we might infer that the Popular/Unpopular learning rate is more likely to be of the greatest magnitude).
-Differences in the population mean of the reward modifier, $\rho$, with large proportions of the posterior probability mass both above and below 0 for all contrasts (Figure \ref{fig:rhodiff}).
+Differences in the population mean of the reward modifier, $\rho$, have large portions of the posterior probability mass both above and below 0 for all contrasts (Figure \ref{fig:rhodiff}).
 Although there is a bit more variability in the contrasts between the social conditions and the reference condition, the social manipulation does not have a very strong or systematic effect on this model parameter.
-The estimated difference in irrudicible noise parameters, $\xi$, is also not convincingly positive or negative for any of the contrasts, although the great majority of the probability mass for the social versus reference contrasts does lie below 0 (Figure \ref{fig:xidiff}).
+The estimated difference in the irrudicible noise parameters, $\xi$, is also not convincingly positive or negative for any of the contrasts, although the majority of the probability mass for the social versus reference contrasts does lie below 0 (Figure \ref{fig:xidiff}).
 This suggests that there may be less random responding in the social conditions relative to the reference condition.
 Finally, differences in right-bias, $b$, are also not convincingly either positive or negative, although there is a suggestion of greater tendency toward choosing the left social option (Dating, median $b = -0.11, \text{CI}_{.995} = [-0.20,-0.02]$; or Popular, median $b = -0.10, \text{CI}_{.995} = [-0.19,-0.01]$) than the left reference option (Thirsty, median $b = -0.05, \text{CI}_{.995} = [-0.12,0.034]$; Figure \ref{fig:bdiff}).
-The credibly negative means for each of the social conditions, as well as the suggestion of difference between the social and reference conditions may indicate that participants favored choosing the socially desirable descriptors for some reason.
+The credibly negative medians for each of the social conditions, as well as the suggestion of difference between the social and reference conditions, may indicate that participants favored choosing the socially desirable descriptors (Dating and Popular) for some reason.
 
 ```{r epsdiff, fig.width=3.5, fig.height=2, include=F}
 epsilon_difference_plot
@@ -655,7 +655,7 @@ Given the dynamic nature of the task and non-intuitive contributions of model pa
 A helpful approach might be to generate behavior over many identical runs using a hypothetical actor that takes on these population-level mean parameters (specifically, their posterior means).
 Doing so, we can look at the many possible paths through the paradigm that might be traversed by this actor who represents an "average" participant (though there may be no such real participant in existence, so this is merely illustrative).
 Looking at the plot of 313 simulated runs in Figure \ref{fig:modpred} reveals a very slight effect of the bias toward choosing the left option (visible most easily at trial 0), as well as a more profound effect of parameter differences on both the magnitude of the actor's probability of choosing optimally, as well as the variance in that probability. 
-The simulated behavior suggests that in the social condition this actor may progress much more rapidly toward certainty, with much stronger certaintly eventually, but also with the potential to be wildly wrong about the long-run optimal choice during some of the run.
+The simulated behavior suggests that in the social condition this actor may progress much more rapidly toward certainty, with much stronger certaintly, eventually, but also that there is the potential to be wildly wrong about the long-run optimal choice during some of the run.
 
 ```{r modelpredictedbehavior, fig.width=5.875, fig.height=4, include=F}
 model_mean_predicted_behavior_plot
@@ -676,10 +676,20 @@ model_mean_predicted_behavior_plot
 load('rda/age-learning-association.rda')
 ```
 
+Relations between measurements of development and both observed behavior as well as model parameters are explored below.
+The presentation of results focuses first on scatter-plots of the data and GAM trend lines, which are then interpretted with the aid of standardized coefficients form LME models.
+
 ### Mean optimal presses
 
-- Age and overall performance
-- Puberty and overall performance
+First, we examine the relation between the proportion of optimal choices during the last half of the run for each condition relative to age and mean scores on the pubertal development scale (PDS). 
+Older participants appear to make more optimal choices up until about age 18 years, at which point this positive relation seems to flatten out (Figure \ref{fig:poptageplot}).
+Scores on the PDS show a very similar pattern (Figure \ref{fig:poptpdsplot}).
+To quantify the mangitude of these trends, we calculated standardized regression coefficients from the fixed effects of a LME model separately for the adolescent and college samples.
+With respect to age, sample is almost totally confounded, and so the magnitude of relation in the adolescent sample stands in for the relation during early to late adolescence, while the magnitude of relation in the college sample stands in for the relation during late adolescence and early adulthood.
+With respect to the PDS, though there is considerably less variability in the college sample as compared to the adolescent sample, there is some variance, and so standardized coefficients are presented for the PDS for each subset as well.
+The magnitude of these trends is positive, though fairly small, with both age and PDS showing the largest standardized regression coefficients associations in the adolescent sample (Table \ref{tab:lowfidev}).
+In the college sample, the relation between optimal choice proportion and age is estimated to be essentially 0, while PDS shows a positive trend (with a smaller magnitude than in the adolescent sample).
+
 
 ```{r poptageplot, fig.width=5.875, fig.height=4, include=F}
 p_opt_age_plot
@@ -705,6 +715,11 @@ p_opt_pds_plot
 \label{fig:poptpdsplot}
 \end{figure}
 
+Examining the relation between optimal choice improvement in social conditions and age reveals fairly flat associations (Figure \ref{fig:poptdiffpdsplot}).
+Consistent with the data plot, there is a very small but positive coefficient between age and the optimal choices contrast in the Adolescent group, and an even smaller coefficient in the college group (Table \ref{tab:lowfidev}; note that the trend in the plot appears to be slightly negative -- the trends here are so close to zero that slightly negative is not so different from slightly positive).
+The plots of optimal choice improvement in social conditions versus the PDS also show relatively flat trends, with much more uncertainty with regard to the relation at low ends of the PDS, where the data are extremely sparse (Figure \ref{fig:poptdiffpdsplot}).
+This is echoed in the magnitude of the standardized coefficients which are both very small (Table \ref{tab:lowfidev}).
+
 ```{r poptdiffageplot, fig.width=5.875, fig.height=4, include=F}
 p_opt_diff_age_plot
 ```
@@ -729,7 +744,38 @@ p_opt_diff_pds_plot
 \label{fig:poptdiffpdsplot}
 \end{figure}
 
-- Age and parameters
+\begin{table}
+\centering
+\begin{threeparttable}
+\caption{Associations of optimal performance with developmental differences} \label{tab:lowfidev}
+\small
+```{r lowfidev, results='asis'}
+knitr::kable(
+    dplyr::select(lowfi_regression_table, -Parameter),
+    escape = F,
+    format = 'latex', 
+    booktabs = T,
+    col.names = c('Variables', 'Age-group', '$\\beta$', '$\\text{SE}_{\\beta}$', '$t$'),
+    digits = 2)
+```
+\begin{tablenotes}
+\footnotesize
+\item Optimal choice outcome was calculated for each condition. The optimal choice contrasts outcome includes just the contrasts between the proportions for the social conditions versus the prortions during the Hungry/Thirsty condition.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+### Age and parameters
+
+While the relation of developmental differences to overall performance can provide a broad view of possible differences that may be related to maturation, it is possible that the latent causes (as operationalized by model parameters in these analyses) of behavior change in different ways.
+Using a similar approach as above, each parameter is plotted as a function of age or PDS, overlayed with GAM best fit lines for the average of all conditions, and separately for each condition. 
+Inferences from these descriptive plots are then aided by the use of standardized regression coefficients of the average linear relation between the developmental variable and parameter posterior mean (or mean contrast) from a LME model that accounts for the non-independence of observations.
+Again, this coefficient is estimated separately for each sample.
+
+For both the reward magnitude, $\rho$, and irriducible noise, $\xi$, parameters show age relations that are consistent with what we see above regarding the relations of both parameters and age to performance. 
+Specifically, $\rho$ is bigger and $\xi$ is smaller for older participants, at least up until about age 18 years (Figure \ref{fig:ageparplots}).
+
 
 ```{r ageparplots, fig.width=5.875, fig.height=4, include=F}
 age_par_plot
