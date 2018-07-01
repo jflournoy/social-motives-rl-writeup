@@ -41,7 +41,7 @@ ethnicity_abbreviation_note <- paste0(paste(paste0(ethnicity_labels, ': ', names
 sample_abbreviation_note <- 'FCA: foster-care-involved adolescents; CA: community adolescents; CSYA: college students; CSYA-O: college students, online.'
 ```
 
-```{r maketables}
+```{r}
 library(tables)
 mean.na.rm <- function(x){mean(as.numeric(x), na.rm=T)}
 sd.na.rm <- function(x){sd(x, na.rm=T)}
