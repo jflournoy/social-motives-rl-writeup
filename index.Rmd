@@ -3,7 +3,7 @@ documentclass: uothesisapa
 classoption: dissertation, copyright, draftcopy
 biblatex-load-options: "backend=biber,style=apa,useprefix=false,sorting=nyt"
 biblatex-print-options: "title=REFERENCES CITED,heading=bibintoc"
-title: "Adolescent social motives: measurement and implications" #for pdf meta-data
+title: "Adolescent Social Motive effects on Reinforcement Learning" #for pdf meta-data
 author: "John C. Flournoy" #for pdf meta-data
 output:
   pdf_document:
