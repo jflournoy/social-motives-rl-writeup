@@ -55,6 +55,19 @@ sample_abbreviation_note <- 'FCA: foster-care-involved adolescents; CA: communit
 ## Scale validation
 
 - Confirmatory factor analysis procedure
+
+Quality of measurement is a crucial precursor to drawing inferences from statistical tests, and so guidelines for testing measurement invariance are followed for each scale below [@gregorich2006].
+Invariance between groups based on self-reported gender and (when possible) sample is tested for each self-report scale that is based on a reflective latent variable model (which does not include self-report sexual or substance use behaviors).
+For testing metric invariance, which is required to make inferences based on latent covariance structures, we use the McDonalad Non-centrality Fit Index (MFI) because this has been shown to be robust to differences in sample size and magnitude of item loadings [@kang2016].
+In simulations performed by @kang2016, $\Delta\text{MFI} > .01$ was seen in less than 1\% of invariance tests when the null of measurement invariance between groups is true, though the authors caution against rules-of-thumb like this more generally.
+In other simulations [@johnflournoy2018], $\Delta\text{MFI} > .012$ was roughly the cutt-off for the 1\% level.
+The tests below follow these guidelines roughly: when fit differences in the MFI between invariant, or paritially-invariant, scales is more than .012, constraints on particular items (suggested by modification indices) are relaxed until the fit difference is no longer substantially concerning.
+However, because these items not longer contribute to the model in the same way, and because content coverage of the scales is another important concern for validity [@borsboom2006], the final partially invariant scale is not embraced credulously.
+When substantial modification is necessary, sensitivity analyses is performed to compare estimates between the fully constrained scales and the partially constrained (i.e., partially invariant) measurement models.
+If results are not too different, then we can be assured that in this case, neither measurement nor content differences are strongly influential on the range of inferences we might make.
+If results do appear markedly different, then it will almost certainly be difficult to adjudicate which is the more interpretable.
+
+
 - Correlations between latent factors on FSMI, K-SRQ, UPPS-P
 - Relation of sexual behavior self report to FSMI-MS, K-SRQ-SR
   - note long term-relationship differences
@@ -78,51 +91,66 @@ sample_abbreviation_note <- 'FCA: foster-care-involved adolescents; CA: communit
 
 _Note on planned moderation analyses:_ I had planned to use the CARE-R as a moderating variable between risk behaviors and motives. I'm deprioritizing these analyses for now.
 
-
-
 # Results
 
-## Scale validation
+## Evaluating scales
 
-### FSMI CFA
+### Fundamental Social Motives Inventory
 
-- College sample only
-- Mate-seeking and Status scales
-  - Fit, Intercorrelations
-    - A CFA for mate-seeking and status factors fit well (N = `r lavaan::inspect(fsmi_cfa_matestat, what = 'ntotal')`, RMSEA = `r round(fsmi_matestat_cfa_fit[[1]][['rmsea']],3)`, $\hat\gamma$ = `r round(fsmi_matestat_cfa_fit[[2]][['gammaHat']],3)`), with the two factors showing a small, positive, non-significant correlation ($r = `r round(fsmi_mate_stat_cor[['std.all']],2)`, Z = `r round(fsmi_mate_stat_cor[['z']],2)`$).
-    - Note that item 54, "I do not worry very much about losing status" has a particularly low loading on the status factor (standardized loading = `r round(fsmi_mate_stat_par[fsmi_mate_stat_par$op == '=~' & fsmi_mate_stat_par$rhs == 'fsmi_qs_54','std.all'],2)`).
-  - No age/puberty (too narrow a range)
+The Fundamental Social Motives Inventory (FSMI) was administered to the college sample only (both because the questions are not appropriate for younger adolescents, and because time did not allow for this additional inventory).
+For the specific purposes of this study, the analyses below focus on the Mate-seeking and Status factors, though an examination of the full inventory is doubtless of interest, more generally.
+Invariance of loadings of items on factors (metric invariance) between participants reporting male versus female gender on the pubertal development scale (PDS) was tested and found acceptable, with a slight increase in fit after constraining factor loadings ($\Delta\text{MFI}= `r round(fsmi_matestat_cfa_fit[['delta1']][['mfi']],3)`$).
+The final confirmatory factor analysis (CFA) for mate-seeking and status factors fit well ($\text{N}_{\text{total}}$ = `r lavaan::inspect(fsmi_cfa_matestat_gender_metric, what = 'ntotal')`, RMSEA = `r round(fsmi_matestat_cfa_fit[['fsmi_cfa_matestat_gender_metric']][['rmsea']],3)`, $\text{MFI}$ = `r sprintf('%0.2f', fsmi_matestat_cfa_fit[['fsmi_cfa_matestat_gender_metric']][['mfi']])`, $\hat\gamma$ = `r round(fsmi_matestat_cfa_fit[['fsmi_cfa_matestat_gender_metric']][['gammaHat']],2)`).
+Adding equality constraints on the latent covariance structure resulted in better parsimony-adjusted model fit as measured by the differences in the Akaike information criterion (AIC; $\Delta\text{AIC}= `r round(fsmi_matestat_cfa_fit[['delta2']][['AIC']],0)`$), with the two factors showing a very small, positive, non-significant correlation ($r = `r round(fsmi_mate_stat_cor[['std.all']][[1]],2)`, Z = `r round(fsmi_mate_stat_cor[['z']][[1]],2)`$).
+Note that item 54, "I do not worry very much about losing status," has a particularly low loading on the status factor ($\beta$ = `r round(fsmi_mate_stat_par[fsmi_mate_stat_par$op == '=~' & fsmi_mate_stat_par$rhs == 'fsmi_qs_54','std.all'][[1]],2)`).
+Associations with age and pubertal development were not examined given the narrow range of each of these measurements in this sample.
 
-### K-SRQ CFA
+### Dominance and Prestige
 
-- College and adolescent samples
-- Note that negative social potency and prosocial iteractions items were very highly skewed, so these subscales were dropped before any further analysis was performed.
+The Dominance and Prestige scale (D&P) was also administered to the college sample only (because time did not allow for it).
+Invariance of loadings between males and females was tested and found to decrease fit ($\Delta\text{MFI} = `r round(dnp_cfa_fit[['delta1']][['mfi']],3)`$).
+Modification indices indicated that freeing the constraint of equality between groups for the item, "Some people are afraid of me", would improve fit, and doing so resulted in an acceptable decrease in fit between the (partially) metric invariant and unconstrained models ($\Delta\text{MFI} = `r round(dnp_cfa_fit[['delta2']][['mfi']],3)`$).
+Further improvements were not sought as relaxing constraints on this single item both broadly protects the scale's content coverage [@borsboom2006], while providing fairly acceptable fit differences. 
+This partial-metric invariance model is the model used in all analyses below, and sensitivity of results to the relaxation of this constraint is not tested.
+The final, partially metric invariant CFA for Dominance and Prestige factors fit somewhat poorly ($\text{N}_{\text{total}}$ = `r lavaan::inspect(dnp_cfa_gender_partmetric, what = 'ntotal')`, RMSEA = `r round(dnp_cfa_fit[['dnp_cfa_gender_partmetric']][['rmsea']],3)`, $\text{MFI}$ = `r round(dnp_cfa_fit[['dnp_cfa_gender_partmetric']][['mfi']],2)`, $\hat\gamma$ = `r round(dnp_cfa_fit[['dnp_cfa_gender_partmetric']][['gammaHat']],3)`).
+Further constraining the latent covariance and variance to be equal between both females and males resulted in slightly better model fit ($\Delta\text{AIC} = `r round(dnp_cfa_fit[['delta3']][['AIC']],0)`$), with the two factors showing a small, positive, correlation ($r = `r round(dnp_mate_stat_cor[['std.all']][[1]],2)`, Z = `r round(dnp_mate_stat_cor[['z']][[1]],2)`$).
+Associations with age and pubertal development were not examined given the narrow range of each of these measurements in this sample.
 
-- This leaves four subscales: admiration, passivity, sexual relationshups, and sociability
+### Kids' Social Reward Questionnaire
+
+The Kids' Social Reward Questionnaire (K-SRQ), and remaining self-report instruments, were administered to each college and adolescent samples.
+The Negative Social Potency and Prosocial Iteractions factor indicators were almost all very highly skewed, so these subscales were dropped before any further analysis was performed.
+The four factors included below are: Admiration, Passivity, Sexual Relationships, and Sociability.
 
 A CFA for the four K-SRQ factors was tested for metric invariance across samples by comparing a model with loadings constrained to equality to one with loadings free to vary across the four groups.
-This resulted in considerably worse model fit as determined by a change in the MFI > .01.
+This resulted in considerably worse model fit ($\Delta\text{MFI} = `r round(ksrq_cfa_fit[['delta1a']][['mfi']],3)`$).
 Loading constraints were removed from four items ("I like it if others looks up to me", "I like being a member of a group/club", "I like kissing", "I like flirting") that load onto Admiration, Sociability, and  Sexual Relationships, respectively.
-This resulted in adequately small fit differences between the unconstrained and invariant models (`r ksrq_cfa_metric_invar_stats`).
+This resulted in adequately small fit differences between the unconstrained and partial-metric invariance models (`r ksrq_cfa_metric_invar_stats`).
 The final model showed somewhat poor fit ($\text{N}_{\text{total}}$ = `r lavaan::inspect(ksrq_cfa, what = 'ntotal')`, RMSEA = `r round(ksrq_cfa_fit$ksrq_cfa_metric[['rmsea']],2)`, MFI = `r round(ksrq_cfa_fit$ksrq_cfa_metric[['mfi']],2)`, $\hat\gamma$ = `r round(ksrq_cfa_fit$ksrq_cfa_metric[['gammaHat']],3)`). 
 
-Models with and without constraintes between latent variances and covariances were compared using the Akaike information criterion (AIC).
-Constraining equivalent latent covariance structures across groups resulted in lower AIC ($\Delta\text{AIC} = `r round(ksrq_cfa_fit$delta2[['AIC']])`$).
-Loadings without constraints across groups do not contribute to this comparison, so the magnitude of correlations was compared across the metric invariant and unconstrained models (while mainting the constraint of covariance across groups).
-The differences in correlations were in the range _r_ = [`r round(min(ksrq_cor_diff),2)`, `r round(max(ksrq_cor_diff),2)`], indicating very low sensitivity the observed measurement invariance.
-To maintain content coverage [@borsboom2006], the unconstrained model is used, though sensitivity to constraints on the four non-invariant loadings is assessed again.
-Correlations among the Admiration, Sociability, and  Sexual Relationships subscales were all high (_r_ = [.67,.84]). 
-Correlations of Passivity with these three subscales was generally low, but positive (_r_ = [.07, .21]; see Table ??? for all latent variable correlations).
+Metric invariance was also evaluated between reported gender groups.
+The partial-metric invariance model from above was compared to the model without loadings constrained.
+The fit decrease between these two models was not too big ($\Delta\text{MFI} = `r round(ksrq_cfa_fit[['delta_gender']][['mfi']],3)`$).
+
+Next, models with and without between-sample equality constraints on latent variances and covariances were compared, resulting in better fit ($\Delta\text{AIC} = `r round(ksrq_cfa_fit$delta2[['AIC']])`$) for the constrained model.
+Loadings without constraints across groups (in the partial-metric invariance model) do not contribute to this comparison, so the magnitude of correlations was compared across the partial-metric invariant and fully constrained models (both with the constraint of covariance across groups).
+The differences in correlations were in the range _r_ = [`r round(min(ksrq_cor_diff),2)`, `r round(max(ksrq_cor_diff),2)`], indicating very low sensitivity the constraints on item loadings.
+To maintain content coverage, the fully constrained model, with equality of loadings across all samples, is used, though sensitivity to constraints on the four non-invariant loadings is assessed again in subsequent analyses.
+
+Correlations among the Admiration, Sociability, and  Sexual Relationships subscales were all high ($`r sprintf('r = [%.2f, %.2f]', min(lavaan::inspect(ksrq_cfa_metric_cov, 'cor.lv')$yads_online[-2, -2]), max(lavaan::inspect(ksrq_cfa_metric_cov, 'cor.lv')$yads_online[-2, -2] - diag(3)))`$). 
+Correlations of Passivity with these three subscales were generally small, but positive ($`r sprintf('r = [%.2f, %.2f]', min((lavaan::inspect(ksrq_cfa_metric_cov, 'cor.lv')$yads_online)[2,]), max((lavaan::inspect(ksrq_cfa_metric_cov, 'cor.lv')$yads_online - diag(4))[2,]))`$; see Table ??? for all latent variable correlations).
 This pattern of correlation is similar to what was seen in the scale construction sample [@foulkes2014].
+
+#### Age
 
 Variation in latent factors was described by a quadratic age regression, with age effects allowed to vary by gender.
 The partial metric invariance model was used to test whether constraining regression coefficients across samples resulted in a better fitting model as assessed by the AIC.
-Constraining the regression coefficients across sample results in reduced AIC ($\Delta\text{AIC} = `r round(diff(ksrq_cfa_metric_agesem_fit[,'AIC']),0)`$), indicated better model fit.
-Both standardized coefficients were extremely similar between the model with partial metric invariance and the model with all loadings constrained to equality across samples ($\Delta\beta = `r sprintf('[%0.2f, %0.2f]', min(ksrq_agesem_betadiffs), max(ksrq_agesem_betadiffs))`$), so the fully constrained model is interpretted.
-Model expected trend lines show somewhat higher scores in late adolescent participants (Figure \ref{fig:ksrqagepredplot}), with the largest quadratic effects (averaged across gender) for Admiration, Socioability, and Sexual Relationships (Table \ref{tab:ksrqage}).
+Constraining the regression coefficients across sample resulted in reduced AIC ($\Delta\text{AIC} = `r round(diff(ksrq_cfa_metric_agesem_fit[,'AIC']),0)`$), indicated better model fit.
+Standardized coefficients were extremely similar between the model with partial metric invariance and the model with all loadings constrained to equality across samples ($\Delta\beta = `r sprintf('[%0.2f, %0.2f]', min(ksrq_agesem_betadiffs), max(ksrq_agesem_betadiffs))`$), so the fully constrained model is interpretted.
+Model-expected trend lines show somewhat higher scores in late adolescent participants (Figure \ref{fig:ksrqagepredplot}), with the largest quadratic effects (averaged across gender) for Admiration, Sociability, and Sexual Relationships (Table \ref{tab:ksrqage}).
 Gender differences in the linear model coeficients were fairly small.
 
-```{r ksrqagepredplot, fig.width=5.875, fig.height=4, include=F}
+```{r ksrqagepredplot, fig.width=5.875, fig.height=3, include=F}
 ksrq_age_pred_plot
 ```
 
@@ -130,7 +158,7 @@ ksrq_age_pred_plot
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/ksrqagepredplot-1.pdf}
-\caption[K-SRQ model-predicted age associations]{K-SRQ model-predicted age associations Best fit lines are expected latent variable values drawn from the model with all loadings, latent variances and covariances, and regression coefficients constrained to be the same across samples. Best fit lines are plotted separately for each sample, but because regression coefficients are identical, and the expected trajectories are otherwise very similar, they are not separately labeled. Points are individual, model predicted, latent variable values.}
+\caption[K-SRQ model-predicted PDS associations]{K-SRQ model-predicted PDS associations. Best fit lines are expected latent variable values drawn from the model with all loadings, latent variances and covariances, and regression coefficients constrained to be the same across samples. Best fit lines are plotted separately for each sample, but because regression coefficients are identical, and the expected trajectories are otherwise very similar, they are not separately labeled. Points are individual, model predicted, latent variable values.}
 \label{fig:ksrqagepredplot}
 \end{figure}
 
@@ -138,27 +166,30 @@ ksrq_age_pred_plot
 \centering
 \begin{threeparttable}
 \caption{K-SRQ factors regressed on age and gender} \label{tab:ksrqage}
-\small
-```{r lowfidev, results='asis'}
-knitr::kable(ksrq_std_par_table,
+\footnotesize
+```{r ksrqage, results='asis'}
+knitr::kable(dplyr::mutate(ksrq_std_par_table, 
+                           lhs = sub('Sexual Relationships', 'Sexual rel.', lhs)),
              col.names = c('K-SRQ factor', 'Sample', 
                            '$\\text{Age}$', '$\\text{Age}\\times\\text{Gender}$', 
                            '$\\text{Age}^2$', '$\\text{Age}^2\\times\\text{Gender}$'),
-             booktabs = TRUE, format = 'latex', escape = F)
+             booktabs = TRUE, format = 'latex', escape = F,
+             linesep = '')
 ```
 \begin{tablenotes}
 \footnotesize
 \item `r sample_abbreviation_note`
-\item Values are standardized regression coefficients from the model with all loadings, latent variances and covariances, and regression coefficients constrained to be the same across samples, with 95% confidence intervals in brackets.
+\item Values are standardized regression coefficients from the model with all loadings, latent variances and covariances, and regression coefficients constrained to be the same across samples, with 95\% confidence intervals in brackets.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-We also described variation in latent factors by a quadratic pubertal development scale (PDS) regression, with effects allowed to vary by gender.
-The partial metric invariance model was used to test whether constraining regression coefficients across samples resulted in a better fitting model as assessed by the AIC.
-Constraining the regression coefficients across sample results in reduced AIC ($\Delta\text{AIC} = `r round(diff(ksrq_cfa_metric_pdssem_fit[,'AIC']),0)`$), indicated better model fit.
-Both standardized coefficients were extremely similar between the model with partial metric invariance and the model with all loadings constrained to equality across samples ($\Delta\beta = `r sprintf('[%0.2f, %0.2f]', min(ksrq_pdssem_betadiffs), max(ksrq_pdssem_betadiffs))`$), so the fully constrained model is interpretted.
-Model expected trend lines show somewhat lower scores associated with lower PDS, primarily for female participants (Figure \ref{fig:ksrqpdspredplot}), with the largest linear effects (averaged across gender) for Socioability, and Sexual Relationships (Table \ref{tab:ksrqpds}).
+#### Puberty
+
+We also described variation in latent factors by a quadratic PDS regression, with effects allowed to vary by gender.
+The partial metric invariance model with constrained regression coefficients across samples resulted in a better fit ($\Delta\text{AIC} = `r round(diff(ksrq_cfa_metric_pdssem_fit[,'AIC']),0)`$).
+Again, standardized coefficients were extremely similar between the model with partial metric invariance and the model with all loadings constrained to equality across samples ($\Delta\beta = `r sprintf('[%0.2f, %0.2f]', min(ksrq_pdssem_betadiffs), max(ksrq_pdssem_betadiffs))`$), so the fully constrained model is interpretted.
+Model-expected trend lines show somewhat lower scores associated with lower PDS, primarily for female participants (Figure \ref{fig:ksrqpdspredplot}), with the largest linear effects (averaged across gender) for Socioability, and Sexual Relationships (Table \ref{tab:ksrqpds}).
 Though a model including the quadratic effect of PDS was estimated, this was done to allow deceleration in the linear trend to approximate the observed asymptotic relation.
 
 ```{r ksrqpdspredplot, fig.width=5.875, fig.height=4, include=F}
@@ -177,33 +208,194 @@ ksrq_pds_pred_plot
 \centering
 \begin{threeparttable}
 \caption{K-SRQ factors regressed on age and gender} \label{tab:ksrqpds}
-\small
+\footnotesize
 ```{r ksrqpds, results='asis'}
-knitr::kable(ksrq_std_pds_par_table,
+knitr::kable(dplyr::mutate(ksrq_std_pds_par_table, 
+                           lhs = sub('Sexual Relationships', 'Sexual rel.', lhs)),
              col.names = c('K-SRQ factor', 'Sample', 
                            '$\\text{PDS}$', '$\\text{PDS}\\times\\text{Gender}$', 
                            '$\\text{PDS}^2$', '$\\text{PDS}^2\\times\\text{Gender}$'),
              booktabs = TRUE,
-             escape = F, format = 'latex')
+             escape = F, format = 'latex',
+             linesep = '')
 ```
 \begin{tablenotes}
 \footnotesize
 \item `r sample_abbreviation_note`
-\item Values are standardized regression coefficients from the model with all loadings, latent variances and covariances, and regression coefficients constrained to be the same across samples, with 95% confidence intervals in brackets.
+\item Values are standardized regression coefficients from the model with all loadings, latent variances and covariances, and regression coefficients constrained to be the same across samples, with 95\% confidence intervals in brackets.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
   
-### UPPS-P CFA
+### Urgency, Premedidation, Perseverence, Sensation Seeking and Positive Urgency
 
-- College and adolescent samples
-- Fit
-- Intercorrelations
-- Age/puberty
+The Urgency, Premedidation, Perseverence, Sensation Seeking and Positive Urgency (UPPS-P) scale was also administered to all four samples.
+This instrument uses a large number of indicators for each latent factor.
+When doing an analysis with a separate group for each sample, this results in a number of variables that greater than the number of observations.
+For this reason, measurement is assessed between combined adolescent and combined college-student samples.
+
+A CFA for the five UPPS-P factors was tested for metric invariance across age groups by comparing a model with loadings constrained to equality to one with loadings free to vary across the four groups.
+This resulted in adequately small fit differences between the unconstrained and invariant models (`r uppsp_cfa_metric_invar_stats`).
+Metric invariance was also evaluated between reported gender groups, with practically no fit decrease ($`r sprintf('\\Delta\\text{MFI} = %0.4f', round(uppsp_cfa_fit[['delta_gender']][['mfi']],4))`$).
+
+The fit statistics show mixed results, with acceptable RMSEA but also low MFI and $\hat\gamma$ ($\text{N}_{\text{total}}$ = `r lavaan::inspect(uppsp_cfa_metric, what = 'ntotal')`, RMSEA = `r round(uppsp_cfa_fit$uppsp_cfa_metric[['rmsea']],2)`, MFI = `r round(uppsp_cfa_fit$uppsp_cfa_metric[['mfi']],2)`, $\hat\gamma$ = `r round(uppsp_cfa_fit$uppsp_cfa_metric[['gammaHat']],3)`).
+Other work has reported similarly ambiguous fit statistics for the UPPS-P in confirmatory factor analysis [@cyders2013].
+This may be the reason for relatively similar degrees of fit between the unconstrained and metric invariance models.
+We proceed with these analyses with the caveat that we cannot be confident latent variable covariance is not contaminated by differential item use.
+
+Models with and without constraints on the equality of latent variances and covariances between age-groups were compared, resulting in lower AIC ($\Delta\text{AIC} = `r round(uppsp_cfa_fit$delta2[['AIC']])`$).
+Absolute magnitude of correlations among all scales were between small and large (_r_ = `r sprintf('[%0.2f, %0.2f]', min(abs(uppsp_factor_cor)[abs(uppsp_factor_cor)>0]), max(abs(uppsp_factor_cor)))`), with very a very large correlation between Negative and Positive Urgency (_r_ = `r round(pos_neg_urg,2)`; see Table ??? for all latent variable correlations). 
+Scales keyed in the positively valenced direction (Premeditation and Perseverance) were negatively correlated with negatively valenced scales (Negative and Positive Urgency, and Sensation Seeking).
+
+#### Age
+
+As with the K-SRQ, the association between UPPS-P factors and age was examined by regressing the latent variables on the interaction between a quadratic age model and gender.
+Again, constraining the regression coefficients across sample results in reduced AIC ($\Delta\text{AIC} = `r round(diff(uppsp_cfa_metric_agesem_fit[,'AIC']),0)`$), indicating better model fit.
+The model expectations reveal that the association between age and factor score may be conditional on reported gender.
+Plots for Negative and Positive Urgency, Perseverance, and Sensation seeking show diverging quadratic trends for females and males (though note that expected correlation with age is fairly flat for both genders for Premeditation; Figure \ref{fig:uppspagepredplot}).
+The standardized effects indicate that, averaged across gender, linear and quadratic associations were very small, but that for Perseverance, and Sensation seeking, the gender difference in the quadratic term is especially robust (Table \ref{tab:uppspage}).
+
+```{r uppspagepredplot, fig.width=5.875, fig.height=3, include=F}
+uppsp_age_pred_plot
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/uppspagepredplot-1.pdf}
+\caption[UPPS-P model-predicted age associations]{UPPS-P model-predicted age associations. Best fit lines are expected latent variable values drawn from the model with all loadings, latent variances and covariances, and regression coefficients constrained to be the same across samples. Best fit lines are plotted separately for each sample, but because regression coefficients are identical, and the expected trajectories are otherwise very similar, they are not separately labeled. Points are individual, model predicted, latent variable values.}
+\label{fig:uppspagepredplot}
+\end{figure}
+
+\begin{table}
+\centering
+\begin{threeparttable}
+\caption{UPPS-P factors regressed on age and gender} \label{tab:uppspage}
+\footnotesize
+```{r uppspage, results='asis'}
+knitr::kable(uppsp_std_par_table,
+             col.names = c('UPPS-P factor', 'Sample', 
+                           '$\\text{Age}$', '$\\text{Age}\\times\\text{Gender}$', 
+                           '$\\text{Age}^2$', '$\\text{Age}^2\\times\\text{Gender}$'),
+             booktabs = TRUE, format = 'latex', escape = F,
+             linesep = '')
+```
+\begin{tablenotes}
+\footnotesize
+\item Values are standardized regression coefficients from the model with all loadings, latent variances and covariances, and regression coefficients constrained to be the same across samples, with 95\% confidence intervals in brackets.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+#### Puberty
+
+The association between the UPPS-P latent factors and PDS was described using the same procedures as above.
+Constraining the regression coefficients across sample results in better fit ($\Delta\text{AIC} = `r round(diff(uppsp_cfa_metric_pdssem_fit[,'AIC']),0)`$).
+Model expected trend lines show very flat relations between PDS and latent factor scores with the exception of an accelerating qadratic fit and negative linear slope (tangent at PDS = 3) for Positive Urgency (Figure \ref{fig:uppsppdspredplot}).
+Standardized regression coefficients echo the plots, all having small magnitude, with the exception of the larger negative slope for Positive Urgency (Table \ref{tab:uppsppds}).
+
+```{r uppsppdspredplot, fig.width=5.875, fig.height=4, include=F}
+uppsp_pds_pred_plot
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/uppsppdspredplot-1.pdf}
+\caption[UPPS-P model-predicted PDS associations]{UPPS-P model-predicted PDS associations. Best fit lines are expected latent variable values drawn from the model with all loadings, latent variances and covariances, and regression coefficients constrained to be the same across samples. Best fit lines are plotted separately for each sample, but because regression coefficients are identical, and the expected trajectories are otherwise very similar, they are not separately labeled. Points are individual, model predicted, latent variable values.}
+\label{fig:uppsppdspredplot}
+\end{figure}
+
+\begin{table}
+\centering
+\begin{threeparttable}
+\caption{K-SRQ factors regressed on age and gender} \label{tab:uppsppds}
+\footnotesize
+```{r uppsppds, results='asis'}
+knitr::kable(uppsp_std_pds_par_table,
+             col.names = c('UPPS-P factor', 'Sample', 
+                           '$\\text{PDS}$', '$\\text{PDS}\\times\\text{Gender}$', 
+                           '$\\text{PDS}^2$', '$\\text{PDS}^2\\times\\text{Gender}$'),
+             booktabs = TRUE, format = 'latex', escape = F,
+             linesep = '')
+```
+\begin{tablenotes}
+\footnotesize
+\item Values are standardized regression coefficients from the model with all loadings, latent variances and covariances, and regression coefficients constrained to be the same across samples, with 95\% confidence intervals in brackets.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
 
 ### All scale correlations
 
-- Within college sample, separated by +/- long-term-relationship status
+All measurement models were combined in order to estimate correlations among the latent factors.
+Though each of the measurement models show acceptable fit, this combine model shows very poor fit (`r sprintf('$\\text{RMSEA} = %0.2f, \\text{MFI} = %0.0f$', all_scales_college_cor_fit[['rmsea']], all_scales_college_cor_fit[['mfi']])`), indicating that this set of latent variables does not reproduce well the observed covariance among the indicators.
+The possible reasons for this are discussed later, below, but not further explored analytically.
+As was done above, the model constrained all loadings (except those freed above) and the latent covariance structure to be equal across gender groups, which fit better than allowing covariance to vary between genders ($\Delta\text{AIC} = `r round(diff(AIC(all_scales_college_partnered, all_scales_college_partnered_cor)[,2]))`$).
+Further constraining the model to have equal loadings for all items resulted in only trivial differences in the latent variable correlation magnitudes (maximum absolute $\Delta r = `r round(college_cor_sensitivity_gender_abs_max, 2)`$).
+
+The primary variables of interest are FMSI Mate-seeking, FSMI Status, K-SRQ Admiration, K-SRQ Sexual Relationships, and UPPS-P Sensation seeking.
+These scales were, _a priori_, intended to measure mate-seeking and status motivation.
+Only the college samples were administered all self report scales, so these are  considered first (Table \ref{tab:collegecor}).
+The FSMI Mate-seeking variable shows correlations in the small the moderate range with most of the other variables, and including both K-SQR Sexual Relationships and UPPS-P Sensation Seeking.
+The FSMI Status variable showed more robust correlations with closely related variables. 
+Correlations with Dominance and Prestige status-strategies were large and very large, respectively, while the correlation with admiration was also very large.
+Interestingly, the association between FSMI Status and K-SRQ Sexual Relationships was large.
+The correlation between FSMI Status and K-SRQ Sociability is also large.
+The strength of association between K-SRQ Admiration and Sexual Relationships is extremely large, as is the correlation between these variables and the K-SRQ Sociability scale.
+Sensation Seeking shows medium correlations with the FMSI Status variable, both Dominance and Presige variables, as well as K-SRQ Sexual Relationships and Sociability scales, although the size of these correlations is of roughly the same magnitude as the correlations between Sensation Seeking and other UPPS-P variables.
+
+
+\begin{table}
+\centering
+\begin{threeparttable}
+\caption{Latent variable intercorrelations, college sample} \label{tab:collegecor}
+\footnotesize
+\centering
+```{r collegecor, results='asis'}
+latent_var_labels <- c(
+  ' 1. fsmi mate' = ' 1. Mate-Seeking\\textsuperscript{F}',
+  ' 2. fsmi stat' = ' 2. Status\\textsuperscript{F}',
+  ' 3. dominance score' = ' 3. Dominance\\textsuperscript{D}',
+  ' 4. prestige score' = ' 4. Prestige\\textsuperscript{D}',
+  ' 5. neg urgency' = ' 5. Negative Urgency\\textsuperscript{U}',
+  ' 6. premeditation' = ' 6. Premeditation\\textsuperscript{U}',
+  ' 7. perseverance' = ' 7. Perseverance\\textsuperscript{U}',
+  ' 8. sensation seeking' = ' 8. Sensation Seeking\\textsuperscript{U}',
+  ' 9. pos urgency' = ' 9. Positive Urgency\\textsuperscript{U}',
+  '10. k srq admiration' = '10. Admiration\\textsuperscript{K}',
+  '11. k srq passivity' = '11. Passivity\\textsuperscript{K}',
+  '12. k srq sexual relationships' = '12. Sexual Relationships\\textsuperscript{K}',
+  '13. k srq sociability' = '13. Sociability\\textsuperscript{K}')
+latent_var_cor_table <- dplyr::mutate_at(latent_var_cor_table,
+                                         dplyr::vars(2:14),
+                                         dplyr::funs(ifelse(is.na(.), '', .)))
+knitr::kable(
+  dplyr::mutate(latent_var_cor_table[c(1:8)],
+                rhs = latent_var_labels[rhs]),
+  booktabs = TRUE, format = 'latex', escape = F,
+  col.names = c('Latent variable', 1:7),
+  linesep = '',
+  align = c('l', rep('r', 7)))
+```
+\centering
+```{r collegecor2, results='asis'}
+knitr::kable(
+  dplyr::mutate(latent_var_cor_table[c(1,9:14)],
+                rhs = latent_var_labels[rhs]),
+  booktabs = TRUE, format = 'latex', escape = F,
+  col.names = c('Latent variable', 8:13),
+  linesep = '',
+  align = c('l', rep('r', 6)))
+```
+\begin{tablenotes}
+\footnotesize
+\item F = Fundamental Social Motives Inventory; D = Dominance \& Prestige scale; U = Urgency, Premeditation, Perseverance, Sensation-seeking, \& Positive Urgency scale; K = Kids' Social Reward Questionnaire.
+\item Correlations between latent variables appear in the lower triangle; 95\% confidence intervals appear in the upper triangle.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
 - College + adolescents (K-SRQ, UPPS-P)
   - not separated by LTR (no data for adolescents)
 - all-item EFA?
@@ -302,6 +494,12 @@ This section may be largely perfunctory if in fact the task is not sensitive to 
 # Discussion, aim 2
 
 - Scale validation
+  - Inter-scale correlations
+    - FSMI Mate-seeking is the only scale that asks questions about actively seeking out new romantic or sexual partners. Interestingly, in this sample of University of Oregon undergraduates, this does not seem to be related very strongly to the socio-sexual reward propensity as measured by the K-SRQ Sexual Relationships scale, and is only very weakly associated with more general reward sensitivty as measured by Sensation Seeking.
+- Cross sectional
+  - That the data are cross-sectional, and are sampled from different populations, should strongly qualify any strong inferences regarding age associations. 
+  - For example, there is very robust, longitudinal evidence for a similar trend in males and females of increasing, decelerating development in sensation seeking over the age span considered here [@shulman2015].
+  - The diverging quadratic fits for males and females may be largely a result of cohort differences caused by selection on university attendance
 - SPLT task validation
   - Self report relation to SPLT
   - SPLT relation to outcomes
