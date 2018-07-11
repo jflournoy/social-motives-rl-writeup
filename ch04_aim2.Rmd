@@ -52,12 +52,17 @@ sample_abbreviation_note <- 'FCA: foster-care-involved adolescents; CA: communit
   
 # Method
 
+The primary goals of these analyses are to establish that the scales as measures of the constructs of interest, examine whether they provide any convergent evidence that individual differences in the Social Probabilistic Learning Task (SPLT) are related to motives, explore their association with adolescent health-related behavior, and, finally, to explore the assocations between this behavior and learning during the SPLT.
+Most interpretive decisions will be made on the basis of effect size, without thresholding based on test statistics.
+The primary excpetion to this is during the pyschometric testing phase, as described below.
+All analyses, unless specified otherwise, were performed using the lavaan package [version `r packageVersion('lavaan')`; @rosseel2012] in R.
+
 ## Scale validation
 
-- Confirmatory factor analysis procedure
-
 Quality of measurement is a crucial precursor to drawing inferences from statistical tests, and so guidelines for testing measurement invariance are followed for each scale below [@gregorich2006].
-Invariance between groups based on self-reported gender and (when possible) sample is tested for each self-report scale that is based on a reflective latent variable model (which does not include self-report sexual or substance use behaviors).
+Invariance between groups based on self-reported gender, sample (when possible), and long-term relationship status (in the college samples) is tested for each self-report scale that is based on a reflective latent variable model (which does not include self-report sexual or substance use behaviors).
+Although comparisons between reported gender groups, or samples, are not the focus of this investigation, both groupings appear in models in order to examine the sensitivity of results to group characteristics.
+
 For testing metric invariance, which is required to make inferences based on latent covariance structures, we use the McDonalad Non-centrality Fit Index (MFI) because this has been shown to be robust to differences in sample size and magnitude of item loadings [@kang2016].
 In simulations performed by @kang2016, $\Delta\text{MFI} > .01$ was seen in less than 1\% of invariance tests when the null of measurement invariance between groups is true, though the authors caution against rules-of-thumb like this more generally.
 In other simulations [@johnflournoy2018], $\Delta\text{MFI} > .012$ was roughly the cutt-off for the 1\% level.
@@ -65,13 +70,23 @@ The tests below follow these guidelines roughly: when fit differences in the MFI
 However, because these items not longer contribute to the model in the same way, and because content coverage of the scales is another important concern for validity [@borsboom2006], the final partially invariant scale is not embraced credulously.
 When substantial modification is necessary, sensitivity analyses is performed to compare estimates between the fully constrained scales and the partially constrained (i.e., partially invariant) measurement models.
 If results are not too different, then we can be assured that in this case, neither measurement nor content differences are strongly influential on the range of inferences we might make.
-If results do appear markedly different, then it will almost certainly be difficult to adjudicate which is the more interpretable.
+If results do appear markedly different, then it is difficult to adjudicate which is the more interpretable.
 
+The final model chosen for more extensive interpretation is selected on the basis of parsimonious model fit.
+Smaller values of the Akaike Information Criterion (AIC), an estimate of out-of-sample predictive accuracy that incorporates model parsimony [@akaike1998;@gelman2014], will be used to determine whether emphasis should be given to models that constrain substantive estimates across groups (e.g., samples).
+When appropriate, even if the AIC indicates the constrain may provide better predicitive accuracy, we can examine differences in estimates between different groups to ensure that this is a reasonable conclusion.
 
-- Correlations between latent factors on FSMI, K-SRQ, UPPS-P
-- Relation of sexual behavior self report to FSMI-MS, K-SRQ-SR
-  - note long term-relationship differences
-- Age and puberty associations with FSMI, K-SRQ, UPPS-P
+In order to characterize the cross-sectional age associations for each scale, the measurement models will be used to regress each latent variable on a quadratic function of age, with the gender factor interating with age.
+These structural models are intended to provide information on how well these associations converge with expectations based on the social reorientation theory (in the case of status and mate-seeking related constructs), as well as expectations based on past research on impulsivity and sensation seeking during adolescence as described above.
+Specifically, the hope, with regard to validating the construct validity of these scales, is to see higher levels of interest in status-related, and mate-seeking-related constructs in older and more pubertally advanced participants (at least up until physical maturity), and higher levels of both sensation seeking and impulse control (or rather, lower levels of urgency) in older participants.
+An important caveat to the examination of this descriptive evidence regarding construct validity or more substantive claims is that in cross-sectional data, both convergence and divergence with expecatations may be due to factors other than age.
+
+To further examine the case for the valdity of these scales as measurements of the constructs they purport to measure, we can examine the relations between them.
+In order to do so, all latent variable measurement models will be combined to examine inter-scale correlations, with attention to convergence between ostensibly related constructs. 
+The college sample was administered all questionnaires, allowing the full inter-scale correlation matrix to be estimated in this sample only.
+Correlations among latent variables will also be examined across all samples for the K-SRQ and UPPS-P.
+Speciall attention will be given to the FSMI Mate-seeking and Status scales, the K-SRQ Sexual Relationships and Admiration scales, and the UPPS-P Sensation Seeking scale. 
+
 
 ## Self report relation to SPLT
 
@@ -80,16 +95,48 @@ If results do appear markedly different, then it will almost certainly be diffic
 
 ## Self report relation to outcomes
 
-- Regressing ordinal SES and YRBS scales on latent factors
-- Controling for age and gender
-- Test sensation seeking against motives-specific scales
+First, the motive-related scales may be further evaluated for construct validity on the basis of their relation to self-reported behaviors which would be expected to result from those motives.
+For example, in general, those who are in long-term relationships should report lower levels of interest in seeking out new romantic or sexual parterns (i.e., lower scores on the FSMI Mate-Seeking scale).
+Among all participants (but perhaps especially those in long-term relationships), higher levels on the K-SRQ Sexual Relationships scale should be related to higher numbers of sexual encounters (specifically, "how many times, in the last six months, have you had sex/sexual relations," with sexual relations defines as "oral, vaginal or anal, and can be with male or female partners").
+Among those who are not in long-term relationships, higher FSMI Mate-Seeking and K-SRQ Sexual Relationships (which is supposed to measure the enjoyment of sexual behavior) should be related to having had more, recent, sexual partners (specifically, "with how many different people in the last 6 months").
+Finally, though it is more speculative, because of the item content related to parties and social events, higher scores on the K-SRQ Sociability may be expected to relate to greater number of days having had at least one drink ("In the past 30 days, on how many days did you have at least one drink of alcohol"), at least in the college sample.
+
+The more substantively interesting questions involve the relation between risky sexual behavior and alcohol use.
+The outcomes of interest are:
+  - "In the last 6 months, what percentage of the time when you've had sexual relations (oral, vaginal or anal) did you USE safe sex practices to prevent sexually transmitted diseases - condoms, blood tests, dental dams, etc.)"
+  - "Did you drink alcohol or use drugs before you had sexual intercourse the last time you had sex?"
+  - "In the past 30 days, on how many days did you have 5 or more drinks of alcohol in a row, that is, within a couple hours?"
+
+The data generating processes for the behavioral outcomes are not gausian, nor do they necessarily result in data where a unit difference has the same meaning.
+To account for this, certain analysis and data transformation decisions were made.
+For frequency of sex, number of partners, number of past 30 days with alcohol, and number of past 30 days with five or more alcoholic drinks, responses were analyzed as ordinal outcomes.
+This required binning responses for some variables.
+Participants were free to input any number for the frequency of sex question, so to ensure that ordered categories contained at least 30 participants, responses were binned into groups with 0, 1-9, 10-19, 20-39, and 40 or more sexual encounters in the past six months.
+Responses to the number of partners in the last six months was also binned into groups with 0, 1, 2, and 3 or more, with at least 40 participants in each bin.
+The response options for both alcohol use questions were constrained, with response options, in days, set to 0, 1-2, 3-5, 6-9, 10-19, 20-29, and "All 30".
+For both responses, very few or no participants selected 20 or more days, and only 6 participants selected 10-19 days for the question asking about having had five or more drinks in one session.
+Bins on the high end were combined resulting in five bins for the question asking about days having any number of drinks (0, 1-2, 3-5, 6-9, 10 or more), and in four bins for the question about days having five or more drinks (0, 1-2, 3-5, 6 or more).
+The question regarding safe sex practice was analyzed continuously because the response options asked about continuous frequency, and the question about substance use prior to sex was analyzed as a binary categorical outcome.
+Analysis of categorical outcomes used ordinal regression using a diagonally weighted least squares estimator with robust standard errors and a mean and variance adjusted test statistic (corresponding to the WLSMV estimator in the lavaan package).
+
+Gender and (if the adolescent participants could be included) age were added as covariates to all models.
+Associations between target motive variables and outcomes were estimated both with and without UPPS-P Sensation Seeking and both Urgency variables as covariates to explore sensitivity of the outcomes to variance shared between these measurements.
+Also, in the case of K-SRQ variables, sensitivity to the inclusion of highly correlated subscales was also tested.
+For example, if the Sexual Relationships variable was included as the focal independent variable, the Admiration and Sociability variables were added as covariates.
+
+Interpretation of associations (both with self-report scales, and when considering the SPLT variables) with self report behavior is based on the sign of the focal motive variable coefficient, and on the $\chi^2$ difference test ($\alpha < .005$) between a model including the focal motive variable and covariates, and the same model with the motive variable coefficient fixed to 0.
+To examine sensitivity to inclusion of the UPPS-P scales, comparison was between the model with all variables (motive, UPPS-P Sensation Seeking, and Positive and Negative Urgency), and the same model with the motive coefficient fixed to 0.
+That is, the test examined fit decrease due to excluding the relation between the outcome and motive variable.
+Sensitivity to the addition of K-SRQ subscales tested models with the zero-coefficient constraint set on the added variable, with examination of size and sign change of the focal motive variable coefficient.
+
+Finally, the subset of these analyses examining associations with number of sexual partners are estimated using only the participants who report not being in a long-term relationship.
+For completeness, the same analysis is repeated without regard for long-term relationship status and note is made of any substantial differences.
 
 ## SPLT relation to outcomes
 
-- Regressing ordinal SES and YRBS scales on learning performace
-- Regressing ordinal SES and YRBS scales on model parameters
-
-_Note on planned moderation analyses:_ I had planned to use the CARE-R as a moderating variable between risk behaviors and motives. I'm deprioritizing these analyses for now.
+The same behavioral outcomes are also regressed on the relevant contrasts of all SPLT variables.
+Specifically, self report sexual behavior is regressed on the Dating/Looking - Hungry/Thirsty contrast for each parameter, $\epsilon, \rho, \xi, b$, and the same contrast for the proportion of optimal decisions made during both the first and last half of the run.
+Self-report drinking is regressed on the Popular/Unpopular - Hungry/Thirsty contrasts of these variables.
 
 # Results
 
@@ -192,7 +239,7 @@ Again, standardized coefficients were extremely similar between the model with p
 Model-expected trend lines show somewhat lower scores associated with lower PDS, primarily for female participants (Figure \ref{fig:ksrqpdspredplot}), with the largest linear effects (averaged across gender) for Socioability, and Sexual Relationships (Table \ref{tab:ksrqpds}).
 Though a model including the quadratic effect of PDS was estimated, this was done to allow deceleration in the linear trend to approximate the observed asymptotic relation.
 
-```{r ksrqpdspredplot, fig.width=5.875, fig.height=4, include=F}
+```{r ksrqpdspredplot, fig.width=5.875, fig.height=3, include=F}
 ksrq_pds_pred_plot
 ```
 
@@ -294,7 +341,7 @@ Constraining the regression coefficients across sample results in better fit ($\
 Model expected trend lines show very flat relations between PDS and latent factor scores with the exception of an accelerating qadratic fit and negative linear slope (tangent at PDS = 3) for Positive Urgency (Figure \ref{fig:uppsppdspredplot}).
 Standardized regression coefficients echo the plots, all having small magnitude, with the exception of the larger negative slope for Positive Urgency (Table \ref{tab:uppsppds}).
 
-```{r uppsppdspredplot, fig.width=5.875, fig.height=4, include=F}
+```{r uppsppdspredplot, fig.width=5.875, fig.height=3, include=F}
 uppsp_pds_pred_plot
 ```
 
@@ -329,18 +376,23 @@ knitr::kable(uppsp_std_pds_par_table,
 ### All scale correlations
 
 All measurement models were combined in order to estimate correlations among the latent factors.
-Though each of the measurement models show acceptable fit, this combine model shows very poor fit (`r sprintf('$\\text{RMSEA} = %0.2f, \\text{MFI} = %0.0f$', all_scales_college_cor_fit[['rmsea']], all_scales_college_cor_fit[['mfi']])`), indicating that this set of latent variables does not reproduce well the observed covariance among the indicators.
+Though each of the measurement models show acceptable fit, this combine model shows very poor fit (college samples: `r sprintf('$N = %d, \\text{RMSEA} = %0.2f, \\text{MFI} = %0.0f$', lavaan::inspect(all_scales_college, 'ntotal'), lavaan::fitmeasures(all_scales_college, 'rmsea')[[1]], lavaan::fitmeasures(all_scales_college, 'mfi')[[1]])`; combined samples: `r sprintf('$N = %d, \\text{RMSEA} = %0.2f, \\text{MFI} = %0.0f$', lavaan::inspect(all_scales_adol, 'ntotal'), lavaan::fitmeasures(all_scales_adol, 'rmsea')[[1]], lavaan::fitmeasures(all_scales_adol, 'mfi')[[1]])`), indicating that this set of latent variables does not reproduce well the observed covariance among the indicators.
 The possible reasons for this are discussed later, below, but not further explored analytically.
-As was done above, the model constrained all loadings (except those freed above) and the latent covariance structure to be equal across gender groups, which fit better than allowing covariance to vary between genders ($\Delta\text{AIC} = `r round(diff(AIC(all_scales_college_partnered, all_scales_college_partnered_cor)[,2]))`$).
+Combine models are descibed within the full college sample for all questionnaires, with a combined model with the K-SRQ and the UPPS-P across all four samples.
+
+#### College samples
+
+As was done above, the model constrained all loadings (except those freed above) and the latent covariance structure to be equal across gender groups, which fit better than allowing covariance to vary between genders ($\Delta\text{AIC} = `r round(diff(AIC(all_scales_college, all_scales_college_cor)[,2]))`$).
 Further constraining the model to have equal loadings for all items resulted in only trivial differences in the latent variable correlation magnitudes (maximum absolute $\Delta r = `r round(college_cor_sensitivity_gender_abs_max, 2)`$).
+This same pattern held when examining differences across partnered and unpartnered status ($\Delta\text{AIC} = `r round(diff(AIC(all_scales_college_partnered, all_scales_college_partnered_cor)[,2]))`$; maximum absolute $\Delta r = `r round(college_cor_sensitivity_partnered_abs_max, 2)`$).
 
 The primary variables of interest are FMSI Mate-seeking, FSMI Status, K-SRQ Admiration, K-SRQ Sexual Relationships, and UPPS-P Sensation seeking.
 These scales were, _a priori_, intended to measure mate-seeking and status motivation.
-Only the college samples were administered all self report scales, so these are  considered first (Table \ref{tab:collegecor}).
-The FSMI Mate-seeking variable shows correlations in the small the moderate range with most of the other variables, and including both K-SQR Sexual Relationships and UPPS-P Sensation Seeking.
-The FSMI Status variable showed more robust correlations with closely related variables. 
+All latent variable correlations for the comprehensive measurement battery administered to the college samples can be found in Table \ref{tab:collegecor}.
+The FSMI Mate-seeking variable shows correlations in the small-to-moderate range with most of the other variables, including both K-SQR Sexual Relationships and UPPS-P Sensation Seeking.
+The FSMI Status variable showed more robust correlations with closely related variables.
 Correlations with Dominance and Prestige status-strategies were large and very large, respectively, while the correlation with admiration was also very large.
-Interestingly, the association between FSMI Status and K-SRQ Sexual Relationships was large.
+Interestingly, the association between FSMI Status and K-SRQ Sexual Relationships was somewhat large.
 The correlation between FSMI Status and K-SRQ Sociability is also large.
 The strength of association between K-SRQ Admiration and Sexual Relationships is extremely large, as is the correlation between these variables and the K-SRQ Sociability scale.
 Sensation Seeking shows medium correlations with the FMSI Status variable, both Dominance and Presige variables, as well as K-SRQ Sexual Relationships and Sociability scales, although the size of these correlations is of roughly the same magnitude as the correlations between Sensation Seeking and other UPPS-P variables.
@@ -349,7 +401,7 @@ Sensation Seeking shows medium correlations with the FMSI Status variable, both 
 \begin{table}
 \centering
 \begin{threeparttable}
-\caption{Latent variable intercorrelations, college sample} \label{tab:collegecor}
+\caption{Latent variable correlations, college sample} \label{tab:collegecor}
 \footnotesize
 \centering
 ```{r collegecor, results='asis'}
@@ -391,15 +443,108 @@ knitr::kable(
 \begin{tablenotes}
 \footnotesize
 \item F = Fundamental Social Motives Inventory; D = Dominance \& Prestige scale; U = Urgency, Premeditation, Perseverance, Sensation-seeking, \& Positive Urgency scale; K = Kids' Social Reward Questionnaire.
-\item Correlations between latent variables appear in the lower triangle; 95\% confidence intervals appear in the upper triangle.
+\item Correlations between latent variables appear in the lower triangle; 95\% confidence intervals appear in the upper triangle. Source model constrains correlations and loadings for all items to be equal across gender groups.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-- College + adolescents (K-SRQ, UPPS-P)
-  - not separated by LTR (no data for adolescents)
-- all-item EFA?
-- Dominance and prestige scale relations to FSMI status, and K-SRQ admiration & passivity
+#### College and adolescent samples
+
+As was done above, the model constrained all loadings (except those freed above) and the latent covariance structure to be equal across subsamples, which fit better than allowing covariance to vary between them ($\Delta\text{AIC} = `r round(diff(AIC(all_scales_adol, all_scales_adol_cor)[,2]))`$).
+Further constraining the model to have equal loadings for all items resulted in only trivial differences in the latent variable correlation magnitudes (maximum absolute $\Delta r = `r round(adol_cor_sensitivity_abs_max, 2)`$).
+
+Of the variables measured in all four samples, those of primary interest are K-SRQ Admiration, K-SRQ Sexual Relationships, and UPPS-P Sensation seeking.
+The first two scales were, _a priori_, intended to measure mate-seeking and status motivation, while the UPPS-P Sensation Seeking scale is intended as a reference point for other research on adolescence.
+All correlations across the full sample can be found in Table \ref{tab:allcor}.
+Across all samples, as with just the college sample, the correlations among the K-SRQ Admiration, Sexual Relationships, and Sociability scales are extremely large.
+Sensation Seeking shows slightly stronger correlations with K-SRQ Admiration, Sexual Relationships and Sociability scales than in the college sample alone. 
+However, as with the college sample, above, the size of these correlations are similar to, or smaller than, the UPPS-P scale inter-questionnaire correlations.
+
+Even though model fit was improved by constraining correlations to be the same across samples, examining the pattern of estimated within-sample correlations may help increase our confidence that this is reasonable.
+It is fairly clear in Figure \ref{fig:allscalesadolplot} that, with some variability, the same high level of correlation among three of the four K-SRQ variables is present in all samples, though that between Admiration and Sexual Relationships may be somewhat attenuated for the in-lab college students (CSYA) and the community adolescents (CA).
+The relation between UPPS-P Sensation Seeking and K-SRQ Admiration, Sexual Relationships, and Sociability seems quite consistent.
+The most striking differences are tangential to the scope of this manuscript, but may be worth pointing out: the correlation between KSR-Q Passivity and both Sexual Relationships and Admiration is large and negative within the foster-care-involved adolescent sample (FCA), whereas for the other samples it is usually closer to zero (with community adolescents [CA] showing a large positive correlation between Passivity and Sexual Relationships).
+
+\begin{table}
+\centering
+\begin{threeparttable}
+\caption{Latent variable correlations, all samples} \label{tab:allcor}
+\footnotesize
+\centering
+```{r allcor, results='asis'}
+latent_var_labels_all <- c(
+  ' 1. neg urgency' = ' 1. Negative Urgency\\textsuperscript{U}',
+  ' 2. premeditation' = ' 2. Premeditation\\textsuperscript{U}',
+  ' 3. perseverance' = ' 3. Perseverance\\textsuperscript{U}',
+  ' 4. sensation seeking' = ' 4. Sensation Seeking\\textsuperscript{U}',
+  ' 5. pos urgency' = ' 5. Positive Urgency\\textsuperscript{U}',
+  ' 6. k srq admiration' = ' 6. Admiration\\textsuperscript{K}',
+  ' 7. k srq passivity' = ' 7. Passivity\\textsuperscript{K}',
+  ' 8. k srq sexual relationships' = ' 8. Sexual Relationships\\textsuperscript{K}',
+  ' 9. k srq sociability' = ' 9. Sociability\\textsuperscript{K}')
+latent_var_cor_table_adol <- dplyr::mutate_at(latent_var_cor_table_adol,
+                                              dplyr::vars(2:10),
+                                              dplyr::funs(ifelse(is.na(.), '', .)))
+knitr::kable(
+  dplyr::mutate(latent_var_cor_table_adol[c(1:6)],
+                rhs = latent_var_labels_all[rhs]),
+  booktabs = TRUE, format = 'latex', escape = F,
+  col.names = c('Latent variable', 1:5),
+  linesep = '',
+  align = c('l', rep('r', 5)))
+```
+\centering
+```{r allcor2, results='asis'}
+knitr::kable(
+  dplyr::mutate(latent_var_cor_table_adol[c(1,7:10)],
+                rhs = latent_var_labels_all[rhs]),
+  booktabs = TRUE, format = 'latex', escape = F,
+  col.names = c('Latent variable', 6:9),
+  linesep = '',
+  align = c('l', rep('r', 4)))
+```
+\begin{tablenotes}
+\footnotesize
+\item U = Urgency, Premeditation, Perseverance, Sensation-seeking, \& Positive Urgency scale; K = Kids' Social Reward Questionnaire.
+\item Correlations between latent variables appear in the lower triangle; 95\% confidence intervals appear in the upper triangle. Source model constrains correlations and loadings for all items to be equal across gender groups.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+```{r allscalesadolplot, fig.width=5.875, fig.height=7, include=F}
+all_scales_adol_plot + 
+  ggplot2::theme(strip.text.y = ggplot2::element_text(size = 7))
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/allscalesadolplot-1.pdf}
+\caption[Latent variable correlations by subsample]{Latent variable correlations by subsample. The correlation for all subsamples is taken from the model with all loadings and latent (co)variances constrained to be equal across subsamples. Subsample correlations are taken from the model with partial metric invariance. U = Urgency, Premeditation, Perseverance, Sensation-seeking, \& Positive Urgency scale; K = Kids' Social Reward Questionnaire; - = Negative; + = Positive. `r sample_abbreviation_note`}
+\label{fig:allscalesadolplot}
+\end{figure}
+
+## Self report relation to SPLT
+
+Four parameters from the reinforcement learning model of the SPLT behavior, and two summary statistics of optimal responding during the first and second half of the run, were correlated with all latent variables.
+The variables for the SPLT have a value for every condition (Hungry/Thirsty, Popular/Unpopular, Dating/Looking), as well as for the contrasts between the two social conditions and the minimally social condition.
+Including all SPLT variables in the combined measurement model caused problems with convergence that were not solved by changing the optimizer or adjusting optimization control options.
+For this reason, latent variable correlations were estimated for each SPLT-variable parameter subset separately.
+
+
+
+## Self report relation to outcomes
+
+- FSMI-MS, K-SRQ-SR, FSMI status, K-SRQ admiration, Sensation seeking
+  - For each compare to model with and without sensation seeking/impulsivity
+    - Safe sex practice
+      - "In the last 6 months, what percentage of the time when you've had sexual relations (oral, vaginal or anal) did you USE safe sex practices to prevent sexually transmitted diseases - condoms, blood tests, dental dams, etc.)"
+    - Substance use and sex
+      - "Did you drink alcohol or use drugs before you had sexual intercourse the last time you had sex?"
+    - Alcohol use
+      - "In the past 30 days, on how many days did you have at least one drink of alcohol?"
+      - "In the past 30 days, on how many days did you have 5 or more drinks of alcohol in a row, that is, within a couple hours?"
 
 ### Relation to normative sexual behavior
 
@@ -452,30 +597,6 @@ _Note gender and age controls used where appropriate_
 - Number of partners: $\beta_{\text{FSMI-MS}}=.18,\beta_{\text{K-SRQ-SR}}=.30,\beta_{\text{F-M}}=-.18$
 - Number of encounters: $\beta_{\text{FSMI-MS}}=-.24,\beta_{\text{K-SRQ-SR}}=.39,\beta_{\text{F-M}}=-.15$
 
-## Self report relation to SPLT
-
-- Correlations between 
-  - SPLT 
-    - $P_{O}$ = proportion of optimal presses in last half of condition's trials
-      - Contrasted DL - HT, PU - HT
-    - parameters $\epsilon, \rho, \xi$
-      - Contrasted transformed values (DL - HT, PU - HT)
-  - All scales 
-    - FSMI MS & Status
-    - K-SRQ SR, admiration, passivity, sociability
-    - UPPS-P
-
-## Self report relation to outcomes
-
-- FSMI-MS, K-SRQ-SR, FSMI status, K-SRQ admiration, Sensation seeking
-  - For each compare to model with and without sensation seeking/impulsivity
-    - Safe sex practice
-      - "In the last 6 months, what percentage of the time when you've had sexual relations (oral, vaginal or anal) did you USE safe sex practices to prevent sexually transmitted diseases - condoms, blood tests, dental dams, etc.)"
-    - Substance use and sex
-      - "Did you drink alcohol or use drugs before you had sexual intercourse the last time you had sex?"
-    - Alcohol use
-      - "In the past 30 days, on how many days did you have at least one drink of alcohol?"
-      - "In the past 30 days, on how many days did you have 5 or more drinks of alcohol in a row, that is, within a couple hours?"
 
 ## SPLT relation to outcomes
 
