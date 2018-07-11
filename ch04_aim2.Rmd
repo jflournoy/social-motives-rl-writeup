@@ -90,8 +90,10 @@ Speciall attention will be given to the FSMI Mate-seeking and Status scales, the
 
 ## Self report relation to SPLT
 
-- Using raw $P_{O}$ calculated from behavior
-- Using model-estimated learning parameters
+Four parameters from the reinforcement learning model of SPLT behavior, $\epsilon, \rho, \xi, b$, and two summary statistics of optimal responding during the first and second half of the run, were correlated with all latent variables.
+The variables for the SPLT have a value for every condition (Hungry/Thirsty, Popular/Unpopular, Dating/Looking), as well as for the contrasts between the two social conditions and the minimally social condition.
+Interpretation of the results will focus on the size and sign of the correlation with regard to the precision as suggested by the 95\% confidence intervals.
+
 
 ## Self report relation to outcomes
 
@@ -104,10 +106,9 @@ Finally, though it is more speculative, because of the item content related to p
 The more substantively interesting questions involve the relation between risky sexual behavior and alcohol use.
 The outcomes of interest are:
   - "In the last 6 months, what percentage of the time when you've had sexual relations (oral, vaginal or anal) did you USE safe sex practices to prevent sexually transmitted diseases - condoms, blood tests, dental dams, etc.)"
-  - "Did you drink alcohol or use drugs before you had sexual intercourse the last time you had sex?"
   - "In the past 30 days, on how many days did you have 5 or more drinks of alcohol in a row, that is, within a couple hours?"
 
-The data generating processes for the behavioral outcomes are not gausian, nor do they necessarily result in data where a unit difference has the same meaning.
+The data generating processes for the behavioral outcomes are not gausian, nor do they necessarily result in data where a unit difference between responses has the same meaning.
 To account for this, certain analysis and data transformation decisions were made.
 For frequency of sex, number of partners, number of past 30 days with alcohol, and number of past 30 days with five or more alcoholic drinks, responses were analyzed as ordinal outcomes.
 This required binning responses for some variables.
@@ -137,6 +138,7 @@ For completeness, the same analysis is repeated without regard for long-term rel
 The same behavioral outcomes are also regressed on the relevant contrasts of all SPLT variables.
 Specifically, self report sexual behavior is regressed on the Dating/Looking - Hungry/Thirsty contrast for each parameter, $\epsilon, \rho, \xi, b$, and the same contrast for the proportion of optimal decisions made during both the first and last half of the run.
 Self-report drinking is regressed on the Popular/Unpopular - Hungry/Thirsty contrasts of these variables.
+Inclusion of age and gender covariates, as well as interpretation of associations will procede as described in the previous subsection.
 
 # Results
 
@@ -532,16 +534,12 @@ The variables for the SPLT have a value for every condition (Hungry/Thirsty, Pop
 Including all SPLT variables in the combined measurement model caused problems with convergence that were not solved by changing the optimizer or adjusting optimization control options.
 For this reason, latent variable correlations were estimated for each SPLT-variable parameter subset separately.
 
-
-
 ## Self report relation to outcomes
 
 - FSMI-MS, K-SRQ-SR, FSMI status, K-SRQ admiration, Sensation seeking
   - For each compare to model with and without sensation seeking/impulsivity
     - Safe sex practice
       - "In the last 6 months, what percentage of the time when you've had sexual relations (oral, vaginal or anal) did you USE safe sex practices to prevent sexually transmitted diseases - condoms, blood tests, dental dams, etc.)"
-    - Substance use and sex
-      - "Did you drink alcohol or use drugs before you had sexual intercourse the last time you had sex?"
     - Alcohol use
       - "In the past 30 days, on how many days did you have at least one drink of alcohol?"
       - "In the past 30 days, on how many days did you have 5 or more drinks of alcohol in a row, that is, within a couple hours?"
