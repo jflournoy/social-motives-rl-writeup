@@ -574,7 +574,7 @@ print(scale_splt_cor_df_college_plot)
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/scalespltcorcollege-1.pdf}
-\caption[SPLT parameter contrast correlations with latent variables, college]{SPLT parameter contrast correlations with latent variables, college sample. Subscripts for each parameter indicate the contrast condition versus baseline (Hungry/Thirsty). "First 1/2" and "Last 1/2" refer to contrasts in proportions of optimal responses in the first and last half of the run, respectively. U = Urgency, Premeditation, Perseverance, Sensation-seeking, \& Positive Urgency scale; K = Kids' Social Reward Questionnaire; - = Negative; + = Positive.}
+\caption[SPLT parameter contrast correlations with latent variables, college]{SPLT parameter contrast correlations with latent variables, college sample. Subscripts for each parameter indicate the contrast condition versus baseline (Hungry/Thirsty). ``First 1/2'' and ``Last 1/2'' refer to contrasts in proportions of optimal responses in the first and last half of the run, respectively. U = Urgency, Premeditation, Perseverance, Sensation-seeking, \& Positive Urgency scale; K = Kids' Social Reward Questionnaire; - = Negative; + = Positive.}
 \label{fig:scalespltcorcollege}
 \end{figure}
 
@@ -591,7 +591,7 @@ print(scale_splt_cor_df_baseline_college_plot)
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/scalespltcorbaselinecollege-1.pdf}
-\caption[SPLT parameter baseline correlations with latent variables, college]{SPLT parameter baseline correlations with latent variables, college sample. "First 1/2" and "Last 1/2" refer to contrasts in proportions of optimal responses in the first and last half of the run, respectively. U = Urgency, Premeditation, Perseverance, Sensation-seeking, \& Positive Urgency scale; K = Kids' Social Reward Questionnaire; - = Negative; + = Positive.}
+\caption[SPLT parameter baseline correlations with latent variables, college]{SPLT parameter baseline correlations with latent variables, college sample. ``First 1/2'' and ``Last 1/2'' refer to contrasts in proportions of optimal responses in the first and last half of the run, respectively. U = Urgency, Premeditation, Perseverance, Sensation-seeking, \& Positive Urgency scale; K = Kids' Social Reward Questionnaire; - = Negative; + = Positive.}
 \label{fig:scalespltcorbaselinecollege}
 \end{figure}
 
@@ -635,7 +635,7 @@ print(scale_splt_cor_df_combined_plot)
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/scalespltcorcombined-1.pdf}
-\caption[SPLT parameter contrast correlations with latent variables, all samples]{SPLT parameter contrast correlations with latent variables, all samples. Subscripts for each parameter indicate the contrast condition versus baseline (Hungry/Thirsty). "First 1/2" and "Last 1/2" refer to contrasts in proportions of optimal responses in the first and last half of the run, respectively. U = Urgency, Premeditation, Perseverance, Sensation-seeking, \& Positive Urgency scale; K = Kids' Social Reward Questionnaire; - = Negative; + = Positive.}
+\caption[SPLT parameter contrast correlations with latent variables, all samples]{SPLT parameter contrast correlations with latent variables, all samples. Subscripts for each parameter indicate the contrast condition versus baseline (Hungry/Thirsty). ``First 1/2'' and ``Last 1/2'' refer to contrasts in proportions of optimal responses in the first and last half of the run, respectively. U = Urgency, Premeditation, Perseverance, Sensation-seeking, \& Positive Urgency scale; K = Kids' Social Reward Questionnaire; - = Negative; + = Positive.}
 \label{fig:scalespltcorcombined}
 \end{figure}
 
@@ -652,7 +652,7 @@ print(scale_splt_cor_df_baseline_combined_plot)
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/scalespltcorbaselinecombined-1.pdf}
-\caption[SPLT parameter baseline correlations with latent variables, college]{SPLT parameter baseline correlations with latent variables, college sample. "First 1/2" and "Last 1/2" refer to contrasts in proportions of optimal responses in the first and last half of the run, respectively. U = Urgency, Premeditation, Perseverance, Sensation-seeking, \& Positive Urgency scale; K = Kids' Social Reward Questionnaire; - = Negative; + = Positive.}
+\caption[SPLT parameter baseline correlations with latent variables, college]{SPLT parameter baseline correlations with latent variables, college sample. ``First 1/2'' and ``Last 1/2'' refer to contrasts in proportions of optimal responses in the first and last half of the run, respectively. U = Urgency, Premeditation, Perseverance, Sensation-seeking, \& Positive Urgency scale; K = Kids' Social Reward Questionnaire; - = Negative; + = Positive.}
 \label{fig:scalespltcorbaselinecombined}
 \end{figure}
 
@@ -661,15 +661,75 @@ As a final note, it should be clear from the plots above that if were one to hav
 ## Self report relation to outcomes
 
 In order to check the concurrent validity of self-report measures of motives (and impulsivity/sensation seeking), associations with self-report behavior (and relationship status) were assessed.
+Descriptive plots of reponses to the following questions can be examined in the acompanying figures:
 
+- "How many times, in the last six months, have you had sex/sexual relations," with sexual relations defines as "oral, vaginal or anal, and can be with male or female partners" (Figure \ref{fig:sexfreqplot})
+- "With how many different people in the last 6 months" (Figure \ref{fig:sexfreqplot})
+- "In the last 6 months, what percentage of the time when you've had sexual relations (oral, vaginal or anal) did you USE safe sex practices to prevent sexually transmitted diseases - condoms, blood tests, dental dams, etc.)." (Figure \ref{fig:useprotfreqplot})
+- "In the past 30 days, on how many days did you have at least one drink of alcohol" (Figure \ref{fig:alcfreqplot})
+- "In the past 30 days, on how many days did you have 5 or more drinks of alcohol in a row, that is, within a couple hours?" (Figure \ref{fig:alcfreqplot})
 
-- FSMI-MS, K-SRQ-SR, FSMI status, K-SRQ admiration, Sensation seeking
-  - For each compare to model with and without sensation seeking/impulsivity
-    - Safe sex practice
-      - "In the last 6 months, what percentage of the time when you've had sexual relations (oral, vaginal or anal) did you USE safe sex practices to prevent sexually transmitted diseases - condoms, blood tests, dental dams, etc.)"
-    - Alcohol use
-      - "In the past 30 days, on how many days did you have at least one drink of alcohol?"
-      - "In the past 30 days, on how many days did you have 5 or more drinks of alcohol in a row, that is, within a couple hours?"
+```{r sexfreqplot, fig.width=5.875, fig.height=3, include=F}
+gridExtra::grid.arrange(sex_freq_plot, num_partnr_plot, sex_freq_plot_tds, 
+                        num_partnr_plot_tds, nrow = 2, widths = c(4,3))
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/sexfreqplot-1.pdf}
+\caption[Fequency of sex and number of partners, last six months]{Fequency of sex and number of partners, last six months.  Count is number of participants endorsing a particular response. LTR = Long term relationship, indicating that the participant reported they were in a such a relationship.}
+\label{fig:sexfreqplot}
+\end{figure}
+
+```{r useprotfreqplot, fig.width=5.875, fig.height=2.5, include=F}
+gridExtra::grid.arrange(useprot_freq_plot, useprot_plot_tds, nrow = 1, widths = c(2,1.1))
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/useprotfreqplot-1.pdf}
+\caption[Fequency of safe sex practice, last six months]{Fequency of safe sex practice, last six months. Count is number of participants endorsing a particular response. LTR = Long term relationship, indicating that the participant reported they were in a such a relationship. Overlapping percentage ranges appear in the original questionnaire.}
+\label{fig:useprotfreqplot}
+\end{figure}
+
+```{r alcfreqplot, fig.width=5.875, fig.height=3, include=F}
+gridExtra::grid.arrange(alc_freq_plot, alc5_partnr_plot, alc_freq_plot_tds, 
+                        alc5_partnr_plot_tds, nrow = 2, widths = c(4,3))
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/alcfreqplot-1.pdf}
+\caption[Frequency of drinking, last 30 days]{Frequency of drinking, last 30 days. Count is number of participants endorsing a particular response.}
+\label{fig:alcfreqplot}
+\end{figure}
+
+Overall, as would be expected, adolescent participants reported engaging in less sexual and drinking behavior than the college student participants. 
+For those who were sexually active, the great majority also tended to report using safe sex practices.
+College participants in long term relationships (adolescent participants were not asked) tended to have only one partner, and also tended to report higher numbers of sexual encounters.
+Unpartnered college students were in the majority, tended to report a wider range of number of partners, and tended to more often endorse no, or lower numbers of sexual encounters.
+Safe sex practices show similar distributions for partnered and unpartnered college students, with heavier use of the poles of the scale.
+Most college students reported drinking at least one drink at least once in the last month, with a considerable number also reporting at least one heavy drinking day in the last month (five or more drinks in a session).
+Given the low variability on these questions in the adolescent sample, associations with all measures proceeds by first examining the relation in the college samples, and then adding in the adolescent samples to assess sensitivity.
+
+Finally, the difference in the distibution of the FSMI Mate-seeking items for those college students in long-term relationships is markedly different from those who are not (Figure \ref{fig:ltrfsmi}).
+The item content for the FSMI Mate-seeking scale asks primarily about intentions to find new romantic and sexual partners. 
+As such (and given social norms favoring monogamy in committed relationships), it is encouraging evidence for the validity of this measurement to see that those who are in long-term relationships report very low means on this scale, while those who are unpartnered have computed scores that span the full range.
+
+```{r ltrfsmi, fig.width=5.875, fig.height=3, include=F}
+print(ltr_fsmi)
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/ltrfsmi-1.pdf}
+\caption[FSMI Mate-seeking scale and long-term relationship status]{FSMI Mate-seeking scale and long-term relationship status. LTR = Long term relationship, indicating that the participant reported they were in a such a relationship. Values on X axis are binned means of six items.}
+\label{fig:ltrfsmi}
+\end{figure}
 
 ### Relation to normative sexual behavior
 
