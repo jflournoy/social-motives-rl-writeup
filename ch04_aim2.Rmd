@@ -47,7 +47,6 @@ sample_abbreviation_note <- 'FCA: foster-care-involved adolescents; CA: communit
       - Number of sexual encounters
   - FSMI-MS, K-SRQ-SR, FSMI status, K-SRQ admiration, Sensation seeking
       - Safe sex practice
-      - Substance use and sex
       - Alcohol use
   
 # Method
@@ -55,7 +54,8 @@ sample_abbreviation_note <- 'FCA: foster-care-involved adolescents; CA: communit
 The primary goals of these analyses are to establish that the scales as measures of the constructs of interest, examine whether they provide any convergent evidence that individual differences in the Social Probabilistic Learning Task (SPLT) are related to motives, explore their association with adolescent health-related behavior, and, finally, to explore the assocations between this behavior and learning during the SPLT.
 Most interpretive decisions will be made on the basis of effect size, without thresholding based on test statistics.
 The primary excpetion to this is during the pyschometric testing phase, as described below.
-All analyses, unless specified otherwise, were performed using the lavaan package [version `r packageVersion('lavaan')`; @rosseel2012] in R.
+All analyses, unless specified otherwise, were performed using the lavaan package [version `r packageVersion('lavaan')`; @rosseel2012] in R [version `r paste0(version$major, '.',version$minor)`; @rcoreteam2018].
+Data wrangling and plotting was performed with help of the tidyverse packages [version `r packageVersion('tidyverse')`; @wickham2017], and the psych pacakge [version `r packageVersion('psych')`; @revelle2017]
 
 ## Scale validation
 
@@ -90,8 +90,15 @@ Speciall attention will be given to the FSMI Mate-seeking and Status scales, the
 
 ## Self report relation to SPLT
 
-Four parameters from the reinforcement learning model of SPLT behavior, $\epsilon, \rho, \xi, b$, and two summary statistics of optimal responding during the first and second half of the run, were correlated with all latent variables.
-The variables for the SPLT have a value for every condition (Hungry/Thirsty, Popular/Unpopular, Dating/Looking), as well as for the contrasts between the two social conditions and the minimally social condition.
+Four parameters from the reinforcement learning model of SPLT behavior, $\epsilon, \rho, \xi, b$, and two proportions of optimal responses during the first and second half of the run, were correlated with all latent variables in the measurement models established in the step above.
+The variables for the SPLT comprise a value for every parameter, for every condition (Hungry/Thirsty, Popular/Unpopular, Dating/Looking), as well as for the contrasts between the two social conditions and the minimally social condition for a total of P = 30.
+The contrast variables for model parameters are calculated on the model scale, such that $\epsilon, \xi, \in [0,1]$ and $\rho \in [0,\infty)$, and analyzed without further transformation (differences in proportions are treated similarly).
+The parameters from the baseline condition are transformed as they were during model estimatation, such that $\epsilon^\prime=\phi^{-1}(\epsilon)$, $\xi^\prime=\phi^{-1}(\xi)$, $\rho^\prime = ln(\rho)$, where $\phi^{-1}$ is the quantile function for the unit normal density.
+The condition-specific (but not contrast) values for proportion of optimal responses were also transformed using the quantile function.
+
+Only the contrasts between the social motive and baseline conditions, and the baseline condition itself are of interest.
+In particular, the correlations between the SPLT contrast variables and self-report measures are expected to indicate the degree to which motive effects on learning are related to individual differences in self-report motives.
+The relation between SPLT variables in the baseline condition are relevant for interpretting the possible explanations for individual differences in reinforcement learning more generally.
 Interpretation of the results will focus on the size and sign of the correlation with regard to the precision as suggested by the 95\% confidence intervals.
 
 
@@ -105,8 +112,9 @@ Finally, though it is more speculative, because of the item content related to p
 
 The more substantively interesting questions involve the relation between risky sexual behavior and alcohol use.
 The outcomes of interest are:
-  - "In the last 6 months, what percentage of the time when you've had sexual relations (oral, vaginal or anal) did you USE safe sex practices to prevent sexually transmitted diseases - condoms, blood tests, dental dams, etc.)"
-  - "In the past 30 days, on how many days did you have 5 or more drinks of alcohol in a row, that is, within a couple hours?"
+
+- "In the last 6 months, what percentage of the time when you've had sexual relations (oral, vaginal or anal) did you USE safe sex practices to prevent sexually transmitted diseases - condoms, blood tests, dental dams, etc.)"
+- "In the past 30 days, on how many days did you have 5 or more drinks of alcohol in a row, that is, within a couple hours?"
 
 The data generating processes for the behavioral outcomes are not gausian, nor do they necessarily result in data where a unit difference between responses has the same meaning.
 To account for this, certain analysis and data transformation decisions were made.
@@ -534,7 +542,126 @@ The variables for the SPLT have a value for every condition (Hungry/Thirsty, Pop
 Including all SPLT variables in the combined measurement model caused problems with convergence that were not solved by changing the optimizer or adjusting optimization control options.
 For this reason, latent variable correlations were estimated for each SPLT-variable parameter subset separately.
 
+### College sample
+
+```{r}
+scale_splt_cor_df_collegeminmax <- dplyr::summarize(
+  dplyr::filter(
+    scale_splt_cor_df_college,
+    grepl('HngT_fac$', rhs),
+    !grepl('^b_', rhs)), 
+  min=min(est.std), max=max(est.std))
+
+scale_splt_cor_df_collegeminmaxbl <- dplyr::summarize(
+  dplyr::filter(
+    scale_splt_cor_df_college,
+    grepl('HngryThrsty_fac$', rhs),
+    !grepl('^b_', rhs)), 
+  min=min(est.std), max=max(est.std))
+```
+
+Correlations were first examined in the college sample (N = `r lavaan::nobs(all_scales_college_cor_load_splt[[1]])`) between the target SPLT parameters and the relevant subscales from the FSMI, K-SRQ, D&P, and UPPS-P quesitonnaires (adolescents were not administered the FSMI or D&P).
+All point estimates for these correlations were between r = `r sprintf('[%0.2f, %0.2f]', scale_splt_cor_df_collegeminmax$min, scale_splt_cor_df_collegeminmax$max)`, with most confidence intervals not exceding r = [-0.20, 0.20] (Figure \ref{fig:scalespltcorcollege}).
+There is also no pattern with regard to the contrast and the scale: for example, the association between FSMI Mate-seeking and either $\epsilon_\text{dating}$ or the proportion of optimal responses dating contrasts (First or Last $1/2_{\text{dating}}$) is not noticeably stronger than the relation between these contrasts and FSMI Status.
+Moreover, though the correlation between FSMI Mate-seeking and the First $1/2_{\text{dating}}$ contrast stands out, it's in the wrong direction.
+This same absence of pattern is also apparent for the Popular/Unpopular - Hungry/Thirsty contrast.
+
+```{r scalespltcorcollege, fig.width=5.875, fig.height=4, include=F}
+print(scale_splt_cor_df_college_plot)
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/scalespltcorcollege-1.pdf}
+\caption[SPLT parameter contrast correlations with latent variables, college]{SPLT parameter contrast correlations with latent variables, college sample. Subscripts for each parameter indicate the contrast condition versus baseline (Hungry/Thirsty). "First 1/2" and "Last 1/2" refer to contrasts in proportions of optimal responses in the first and last half of the run, respectively. U = Urgency, Premeditation, Perseverance, Sensation-seeking, \& Positive Urgency scale; K = Kids' Social Reward Questionnaire; - = Negative; + = Positive.}
+\label{fig:scalespltcorcollege}
+\end{figure}
+
+Latent variable correlations with baseline (Hungry/Thirsty condition) perfomance also resulted in generally small estimates (r = `r sprintf('[%0.2f, %0.2f]', scale_splt_cor_df_collegeminmaxbl$min, scale_splt_cor_df_collegeminmaxbl$max)`), though some sensible patterns emerge (Figure \ref{fig:scalespltcorbaselinecollege}).
+Specifically, overall performance in the last half of the run shows a small positive correlation with D&P Prestige, and UPPS-P Sensation Seeking and Perseverance, and small negative correlations with D&P Dominance, and UPPS-P Positive and Negative Urgency.
+Examining correlations for the learning parameters, higher performance may be due to lower $\xi$ for those higher in Sensation Seeking, higher $\rho$ for those higher in Prestige, either or both lower $\xi$ and higher $\rho$ for those higher in Perseverance.
+Lower performance may be the result of either or both lower $\rho$ and higher $\xi$ for those high in Dominance, and lower $\rho$ for those higher in Positive and Negative Urgency.
+
+```{r scalespltcorbaselinecollege, fig.width=5.875, fig.height=2, include=F}
+print(scale_splt_cor_df_baseline_college_plot)
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/scalespltcorbaselinecollege-1.pdf}
+\caption[SPLT parameter baseline correlations with latent variables, college]{SPLT parameter baseline correlations with latent variables, college sample. "First 1/2" and "Last 1/2" refer to contrasts in proportions of optimal responses in the first and last half of the run, respectively. U = Urgency, Premeditation, Perseverance, Sensation-seeking, \& Positive Urgency scale; K = Kids' Social Reward Questionnaire; - = Negative; + = Positive.}
+\label{fig:scalespltcorbaselinecollege}
+\end{figure}
+
+### Combined college and adolescent samples
+
+```{r}
+scale_splt_cor_df_combinedminmax <- dplyr::summarize(
+  dplyr::filter(
+    scale_splt_cor_df_combined,
+    grepl('HngT_fac$', rhs),
+    !grepl('^b_', rhs)), 
+  min=min(est.std), max=max(est.std))
+
+scale_splt_cor_df_combinedminmaxbl <- dplyr::summarize(
+  dplyr::filter(
+    scale_splt_cor_df_combined,
+    grepl('HngryThrsty_fac$', rhs),
+    !grepl('^b_', rhs)), 
+  min=min(est.std), max=max(est.std))
+
+scale_splt_cor_df_combinedN <- paste(c(
+  paste0('N = ', sum(lavaan::inspect(all_scales_combined_cor_load_splt[[1]], 'nobs'))),
+  paste0(sample_labels[lavaan::inspect(all_scales_combined_cor_load_splt[[1]], 'group.label')], 
+         ' = ', 
+         lavaan::inspect(all_scales_combined_cor_load_splt[[1]], 'nobs'))),
+  collapse = ', ')
+```
+
+Next, using just the questionnaires administered to all four samples (`r scale_splt_cor_df_combinedN`), correlations were estimated between the target SPLT parameters and the relevant subscales from the K-SRQ, and UPPS-P.
+The models that constrained correlations to be equal across samples fit better than those with correlations freed to differ between samples ($\Delta\text{AIC}_\text{max} = `r max(unlist(lapply(all_scales_combined_cor_load_splt[-4], AIC))-unlist(lapply(all_scales_combined_persamp_cor_load_splt[-4], AIC)))`$; models for the $b$ parameter did not converge).
+All point estimates for these correlations remained small in the combined sample (r = `r sprintf('[%0.2f, %0.2f]', scale_splt_cor_df_combinedminmax$min, scale_splt_cor_df_combinedminmax$max)`), again, with most confidence intervals not exceding r = [-0.20, 0.20] (Figure \ref{fig:scalespltcorcombined}).
+None of the expected patterns appeared between (SPLT learning rate or performance) Dating contrasts and mate-seeking-relevant self-report scales, or Popular contrasts and status-relevant self-report.
+However, there was an interesting consistecy in positive correlations between $\rho$ for both contrasts and UPPS-P Sensation Seeking, and Positive and Negative Urgency, in line with the results from the college sample, above.
+Although one might be tempted to link these constructs to reward sensitivity, it is clear in the baseline results below that this likely arises becasue of _negative_ correlation between these subscales and $\rho_{\text{baseline}}$.
+
+```{r scalespltcorcombined, fig.width=5.875, fig.height=4, include=F}
+print(scale_splt_cor_df_combined_plot)
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/scalespltcorcombined-1.pdf}
+\caption[SPLT parameter contrast correlations with latent variables, all samples]{SPLT parameter contrast correlations with latent variables, all samples. Subscripts for each parameter indicate the contrast condition versus baseline (Hungry/Thirsty). "First 1/2" and "Last 1/2" refer to contrasts in proportions of optimal responses in the first and last half of the run, respectively. U = Urgency, Premeditation, Perseverance, Sensation-seeking, \& Positive Urgency scale; K = Kids' Social Reward Questionnaire; - = Negative; + = Positive.}
+\label{fig:scalespltcorcombined}
+\end{figure}
+
+The latent variable correlations with baseline (Hungry/Thirsty condition) perfomance also resulted in generally small estimates (r = `r sprintf('[%0.2f, %0.2f]', scale_splt_cor_df_combinedminmaxbl$min, scale_splt_cor_df_combinedminmaxbl$max)`).
+Both overall performance in the last half of the baseline condition, and the reward modifier, $\rho$, show negative correlations with UPPS-P Sensation Seeking, and Positive and Negative Urgency, as was the case in the college sample (Figure \ref{fig:scalespltcorbaselinecombined}).
+The UPPS-P Perseverance variable continued to show somewhat attenuated correlations with $\xi$ (negative) and performance (positive).
+Finally, though this does not seem to result in a concomitant correlation with performance, the three highly-correlated K-SRQ variables show small negative correlations with the noise parameter, $\xi$.
+
+```{r scalespltcorbaselinecombined, fig.width=5.875, fig.height=2, include=F}
+print(scale_splt_cor_df_baseline_combined_plot)
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/scalespltcorbaselinecombined-1.pdf}
+\caption[SPLT parameter baseline correlations with latent variables, college]{SPLT parameter baseline correlations with latent variables, college sample. "First 1/2" and "Last 1/2" refer to contrasts in proportions of optimal responses in the first and last half of the run, respectively. U = Urgency, Premeditation, Perseverance, Sensation-seeking, \& Positive Urgency scale; K = Kids' Social Reward Questionnaire; - = Negative; + = Positive.}
+\label{fig:scalespltcorbaselinecombined}
+\end{figure}
+
+As a final note, it should be clear from the plots above that if were one to have set an _a priori_ equivalence-testing threshold at $|r| = 0.20, \alpha = .05$, no correlation examined would be unambiguously different from the region of equivalence, and in many cases one would accept the null hypothesis that there is no correlation of any importance [@lakens2017].
+
 ## Self report relation to outcomes
+
+In order to check the concurrent validity of self-report measures of motives (and impulsivity/sensation seeking), associations with self-report behavior (and relationship status) were assessed.
+
 
 - FSMI-MS, K-SRQ-SR, FSMI status, K-SRQ admiration, Sensation seeking
   - For each compare to model with and without sensation seeking/impulsivity
@@ -621,8 +748,26 @@ This section may be largely perfunctory if in fact the task is not sensitive to 
   - The diverging quadratic fits for males and females may be largely a result of cohort differences caused by selection on university attendance
 - SPLT task validation
   - Self report relation to SPLT
-  - SPLT relation to outcomes
+    - Baseline performance showed small but theoretically sensible correlations with a number of self-report scales. Interestingly, correlations with specific model parameters may indicate that the psychological causes of performance differences differ by self-report scale (Cite WOUTER).
+    - The primary measures of core impulsivity showed negative relations with performance, while sensation-seeking, in the college sample, was slightly positively correlated with performance, perhaps relfecting a shared effect of maturity in this sample.
+    - Although it is quite possibly spurious, if there is a true negative relation between the noise parameter, $\xi$ and the three K-SRQ scales (Sexual Relationships, Sociability, and Admiration), it may simply be an artifact of the positive manifold: people who are pay a little bit closer attention to the task also tend to be a little bit more outgoing (POSITIVE MANIFOLD CITATION).
 - Self report relation to outcomes
-  - Especially as relevant to previous literature
-  
+  - Though the SPLT task did not show any strong correlations with self-report of the constructs that were hypothesized to underly both measures, it is possible that the self report measures only capture an underlying identiy that has little relation to actual behavior.
+  - In order to acount of this possibility, we examined the association between relevant (self-reported) health-related behaviors and self-reported motives, as well as impulsivity and sensation seeking. 
+  - Although both sources of information arise from self report, the health-related questions ask primarily about easily countable, and reasonably memorable experiences.
+  - These behaviors were assessed _after_ the self-report trait questionnaires.
+  - We found that the self-report scales were, in many cases, associated with relevant behaviors.
+  - These findings, along with correlations between scales, provide some assurance of the validity of the instruments as measures of the named constructs.\
+  - In other words, we are assured that those participants who were not in long-term relationships, and who reported having more sexual partners in the last six months, also tended to have higher scores on the FSMI Mate-seeking and K-SRQ Sexual Relationships questionnaires.
+  - Similarly, because considerable literature has linked adolescent and young adult popularity and status to alcohol consumption (CITE CITE CITE), it is reassuring the find that participants who report more days having had at least one drink, or having had 5 or more drinks in a session, also tend to score higher on the FSMI Status and K-SRQ Admiration scales.
+- SPLT relation to outcomes
+  - The relevant SPLT variables are not associated significantly with any of the assessed behavioral outcomes.
+- Conclusion
+  - Overall, there is some evidence that behavior on the SPLT task may be influenced to some degree by individual differences in motives.
+  - There is also some evidence that behavioral outcomes may be related to motives as characterized by these instruments.
+  - However, there is also evidence of considerable overlap between the variance in different scales.
+  - This overlap is likely due to the various levels of description on which they opperate.
+  - For example, the FSMI Mate-seeking and Status items seem to ask about social goals (finding a romantic partner, gaining status), whereas the K-SRQ Sexual Relationships and Admiration items ask the participant to consider their enjoyment of behaviors (flirting, receiving recognition) that are clearly related to those goals but are neither necessary nor sufficient for them.
+  - The items on the UPPS-P are much more general, focusing on characterizing decision independently of the motivations behind them, and remaining agnostic about any kind of taxonomy of behavior. "I would like to go scuba diving," is just as meaningful an item for measuring Sensation Seeking as ". I like sports and games in which you have to choose your next move very quickly," or, "I quite enjoy taking risks." Even so, (IT DOES GOOD IT DOES BAD).
+
 ------
