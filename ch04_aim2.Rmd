@@ -106,7 +106,7 @@ Interpretation of the results will focus on the size and sign of the correlation
 
 First, the motive-related scales may be further evaluated for construct validity on the basis of their relation to self-reported behaviors which would be expected to result from those motives.
 For example, in general, those who are in long-term relationships should report lower levels of interest in seeking out new romantic or sexual parterns (i.e., lower scores on the FSMI Mate-Seeking scale).
-Among all participants (but perhaps especially those in long-term relationships), higher levels on the K-SRQ Sexual Relationships scale should be related to higher numbers of sexual encounters (specifically, "how many times, in the last six months, have you had sex/sexual relations," with sexual relations defines as "oral, vaginal or anal, and can be with male or female partners").
+Among all participants, higher levels on the K-SRQ Sexual Relationships scale should be related to higher numbers of sexual encounters (specifically, "how many times, in the last six months, have you had sex/sexual relations," with sexual relations defines as "oral, vaginal or anal, and can be with male or female partners").
 Among those who are not in long-term relationships, higher FSMI Mate-Seeking and K-SRQ Sexual Relationships (which is supposed to measure the enjoyment of sexual behavior) should be related to having had more, recent, sexual partners (specifically, "with how many different people in the last 6 months").
 Finally, though it is more speculative, because of the item content related to parties and social events, higher scores on the K-SRQ Sociability may be expected to relate to greater number of days having had at least one drink ("In the past 30 days, on how many days did you have at least one drink of alcohol"), at least in the college sample.
 
@@ -127,6 +127,8 @@ For both responses, very few or no participants selected 20 or more days, and on
 Bins on the high end were combined resulting in five bins for the question asking about days having any number of drinks (0, 1-2, 3-5, 6-9, 10 or more), and in four bins for the question about days having five or more drinks (0, 1-2, 3-5, 6 or more).
 The question regarding safe sex practice was analyzed continuously because the response options asked about continuous frequency, and the question about substance use prior to sex was analyzed as a binary categorical outcome.
 Analysis of categorical outcomes used ordinal regression using a diagonally weighted least squares estimator with robust standard errors and a mean and variance adjusted test statistic (corresponding to the WLSMV estimator in the lavaan package).
+This estimation method requires listwise deletion for any cases without compelete responses on the questionnaires.
+This results in lower samples sizes for analyses comparing the UPPS-P scales as described below.
 
 Gender and (if the adolescent participants could be included) age were added as covariates to all models.
 Associations between target motive variables and outcomes were estimated both with and without UPPS-P Sensation Seeking and both Urgency variables as covariates to explore sensitivity of the outcomes to variance shared between these measurements.
@@ -658,7 +660,7 @@ print(scale_splt_cor_df_baseline_combined_plot)
 
 As a final note, it should be clear from the plots above that if were one to have set an _a priori_ equivalence-testing threshold at $|r| = 0.20, \alpha = .05$, no correlation examined would be unambiguously different from the region of equivalence, and in many cases one would accept the null hypothesis that there is no correlation of any importance [@lakens2017].
 
-## Self report relation to outcomes
+## Self-report variable associations with behavioral outcomes
 
 In order to check the concurrent validity of self-report measures of motives (and impulsivity/sensation seeking), associations with self-report behavior (and relationship status) were assessed.
 Descriptive plots of reponses to the following questions can be examined in the acompanying figures:
@@ -719,7 +721,7 @@ Finally, the difference in the distibution of the FSMI Mate-seeking items for th
 The item content for the FSMI Mate-seeking scale asks primarily about intentions to find new romantic and sexual partners. 
 As such (and given social norms favoring monogamy in committed relationships), it is encouraging evidence for the validity of this measurement to see that those who are in long-term relationships report very low means on this scale, while those who are unpartnered have computed scores that span the full range.
 
-```{r ltrfsmi, fig.width=5.875, fig.height=3, include=F}
+```{r ltrfsmi, fig.width=3.25, fig.height=2, include=F}
 print(ltr_fsmi)
 ```
 
@@ -731,56 +733,20 @@ print(ltr_fsmi)
 \label{fig:ltrfsmi}
 \end{figure}
 
-### Relation to normative sexual behavior
+### Number of partners
 
-This serves to ensure that the the Fundamental Social Motives Inventory, Mate-Seeking (FSMI-MS), and Kids' Social Reward Questionnaire (K-SRQ-SR) scales are measuring what they ought to be. 
-We would expect positive relations between FSMI-MS and number of sexual partners in people who are not in a long term relationship (LTR-). 
-For those in a long term relationship (LTR+), the reported number of sexual partners is strongly modally 1, and the average score on mate-seeking is very low.
-This is the expected behavior of the scale, which is supposed to measure a persons present desire to meet new romantic or sexual partners [@neel2015].
-The K-SRQ-SR measures a person's enjoyment of socio-sexual behavior, with items asking about kissing, flirting, and having crushes.
-This is in fact a modified version of the original SRQ-SR which instead featured questions about the enjoyment more specifically of sexual activity [@foulkes2014]. 
+#### FSMI Mate-seeking
 
-_Note gender and age controls used where appropriate_
+Constraining the coefficient of the FSMI Mate-seeking latent variable to 0 in a model that regressed number of sexual partners on this variable and gender did not result in significantly worse fit for either the unpartnered ($`r print_lrt_test_stats(fsmi_num_partners_lrt)`$) or full sample ($`r print_lrt_test_stats(fsmi_num_partners_all_lrt)`$).
+The coefficient for both regressions were, as expected, positive.
 
-#### FSMI
-- Number of partners
-  - FSMI mate-seeking +related to num partners 
-    - Within LTR- group only, $N = 157, \beta = .24$
-    - _Also_ across all college participants, $N = 214, \beta = .24$
-  - Women who are not in long term relationships report fewer partners than men ($\beta = -.51$)
-  - No age control (too narrow a range)
-- Number of encounters
-  - Group analysis in partnered and unpartnered college students
-  - Close to 0 FSMI mate-seeking relation with number of encounters 
-    - $N = 203; \beta_{\text{LTR-}} = -.09; \beta_{\text{LTR+}} = -.03$
-  - Gender related just for LTR- Women LTR- have fewer encounters than men
-    - $\beta_{\text{LTR-}} = -.47; \beta_{\text{LTR+}} = .00$; gender-effect difference not tested
-  - No age control (too narrow a range)
+Next we compared a model which added the three UPPS-P variables (Sensation Seeking, Positive and Negative Urgency) to a model which excluded them from the regression ordinal regression of the number of partners variable.
+This resulted in significantly worse fit ($`r print_lrt_test_stats(uppsp_fsmi_partners_lrt, 2, 4)`$).
+Fit was not significantly reduced by constraining the Mate-seeking coefficient to 0 in this model ($`r print_lrt_test_stats(uppsp_fsmi_partners_lrt2, 2, 4)`$).
+The associations between the three UPPS-P variables and number of partners were all positive, whether or not FSMI Mate-seeking was included, which also had a positive coefficient.
 
-#### K-SRQ
+#### K-SRQ Sexual Relationships
 
-- Number of partners
-  - K-SRQ sexual relationships +related to num partners
-    - Within LTR- college sample only, $N = 140, \beta = .35$
-      - Controlling for gender, $\beta_{\text{F-M}} = -.19$
-    - _Also_ across all participants that have data, $N = 260, \beta = .34$
-      - Controlling for age and gender, $\beta_{\text{age}} = .42, \beta_{\text{F-M}} = -.03$
-- Number of encounters
-  - Group analysis in partnered and unpartnered college students (N = 203)
-    - K-SRQ sexual relations scale association in LTR- group
-      - $\beta_{\text{LTR-}} = .35; \beta_{\text{LTR+}} = .13$
-    - Gender effect not significant but expected direction
-      - Women LTR- have fewer encounters than men, $\beta_{\text{LTR-}} = -.14; \beta_{\text{LTR+}} = .08$; gender-effect difference not tested
-    - No age control (too narrow a range)
-  - Across all college and adolescent participants with data (N = 253)
-    - K-SRQ sexual relations scale $\beta=.35$
-    - Controlling for age and gender ($\beta_{\text{age}}=.49, \beta_{\text{F-M}} = .06$)
-
-#### FSMI-MS & K-SRQ-SR
-
-- Unpartnered college students (N = 132)
-- Number of partners: $\beta_{\text{FSMI-MS}}=.18,\beta_{\text{K-SRQ-SR}}=.30,\beta_{\text{F-M}}=-.18$
-- Number of encounters: $\beta_{\text{FSMI-MS}}=-.24,\beta_{\text{K-SRQ-SR}}=.39,\beta_{\text{F-M}}=-.15$
 
 
 ## SPLT relation to outcomes
