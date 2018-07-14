@@ -1,6 +1,6 @@
 ---
 documentclass: uothesisapa
-classoption: dissertation, copyright, draftcopy
+classoption: dissertation, copyright, committeedraft
 biblatex-load-options: "backend=biber,style=apa,useprefix=false,sorting=nyt"
 biblatex-print-options: "title=REFERENCES CITED,heading=bibintoc"
 title: "Adolescent Social Motive effects on Reinforcement Learning" #for pdf meta-data

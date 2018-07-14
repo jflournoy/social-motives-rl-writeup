@@ -24,9 +24,9 @@ library(probly)
 load('rda/fsmi-cfa.rda')
 print_lrt_test_stats <- function(anlrt, result_row = 2, p_sigdig = 3){
     N <- eval(parse(text = paste0('lavaan::nobs(',dimnames(anlrt)[[1]][1], ')')))
-    sprintf(paste0('N = %d, \\Delta\\chi^2[',
+    sprintf(paste0('$N = %d$, $\\Delta\\chi^2[',
                    ifelse(round(anlrt[result_row,'Df diff'],3)==1, '%0.0f', '%0.2f'),
-                   '] = %0.1f, p = %0.', p_sigdig, 'f'),
+                   '] = %0.1f$, $p = %0.', p_sigdig, 'f$'),
             N, anlrt[result_row,'Df diff'], 
             anlrt[result_row,'Chisq diff'], 
             anlrt[result_row,'Pr(>Chisq)'])
@@ -157,7 +157,9 @@ For completeness, the same analysis is repeated without regard for long-term rel
 The same behavioral outcomes are also regressed on the relevant contrasts of all SPLT variables.
 Specifically, self report sexual behavior is regressed on the Dating/Looking - Hungry/Thirsty contrast for each parameter, $\epsilon, \rho, \xi, b$, and the same contrast for the proportion of optimal decisions made during both the first and last half of the run.
 Self-report drinking is regressed on the Popular/Unpopular - Hungry/Thirsty contrasts of these variables.
-Inclusion of age and gender covariates, as well as interpretation of associations will procede as described in the previous subsection.
+An initial model is fit to a limited sample that includes just unpartnered college students (sexual behavior outcomes), or just college students (alcohol consumption outcomes), and another model is fit using both college and both adolescent samples.
+Gender and age (when the both college and adolescent samples are combined) are included as covariates.
+The test of association between the SPLT variable and the outcome is, as above, an adjusted $\Delta\chi^2$ test, with decision cut-off of $\alpha = .005$ (note, however, that this procedure was not established _a priori_).
 
 # Results
 
@@ -757,62 +759,62 @@ The sign of the coefficients between the unconstrained and constrained model wil
 
 #### FSMI Mate-seeking
 
-Constraining the coefficient of the FSMI Mate-seeking latent variable to zero in a model that regressed number of sexual partners on this variable and gender did not result in significantly worse fit when examining data from unpartnered college students ($`r print_lrt_test_stats(fsmi_num_partners_lrt, 2, 3)`$).
+Constraining the coefficient of the FSMI Mate-seeking latent variable to zero in a model that regressed number of sexual partners on this variable and gender did not result in significantly worse fit when examining data from unpartnered college students (`r print_lrt_test_stats(fsmi_num_partners_lrt, 2, 3)`).
 The coefficient for the effect of Mate-seeking on number of partneres was, however, positive.
 
 Next, we added to the above model the three UPPS-P variables (Sensation Seeking, Positive and Negative Urgency) and then compared this to a model that fixed the Mate-seeking coefficient to 0.
-This did not result in a significantly worse fit ($`r print_lrt_test_stats(uppsp_fsmi_partners_lrt2, 2, 2)`$).
+This did not result in a significantly worse fit (`r print_lrt_test_stats(uppsp_fsmi_partners_lrt2, 2, 2)`).
 The coefficient for the Mate-seeking variable, when included, was positive.
 
 #### K-SRQ Sexual Relationships
 
-In a model with the K-SRQ Sexual Relationships (SR) and gender predicting number of partners, constraining the coefficient for SR to zero resulted in significantly worse fit both in the unpartnered college student sample ($`r print_lrt_test_stats(ksrq_num_partners_null_lrt, 2, 4)`$), and in the the full (college and adolescent) sample (which also includes age as a covariate; $`r print_lrt_test_stats(ksrq_num_partners_null_all_lrt, 2, 6)`$).
+In a model with the K-SRQ Sexual Relationships (SR) and gender predicting number of partners, constraining the coefficient for SR to zero resulted in significantly worse fit both in the unpartnered college student sample (`r print_lrt_test_stats(ksrq_num_partners_null_lrt, 2, 4)`), and in the the full (college and adolescent) sample (which also includes age as a covariate; `r print_lrt_test_stats(ksrq_num_partners_null_all_lrt, 2, 6)`).
 In both cases, the coefficient for SR is positive, indicating that those participants with higher levels on SR also report more sexual partners.
 
-Comparing models with and without the K-SRQ Admiration variable included in the regression did not result in significantly worse fit in the unpartnered college sample ($`r print_lrt_test_stats(ksrq_num_partners_admrtn_lrt, 2, 2)`$), but did significantly reduce fit in the full samples ($`r print_lrt_test_stats(ksrq_num_partners_admrtn_all_lrt, 2, 5)`$).
+Comparing models with and without the K-SRQ Admiration variable included in the regression did not result in significantly worse fit in the unpartnered college sample (`r print_lrt_test_stats(ksrq_num_partners_admrtn_lrt, 2, 2)`), but did significantly reduce fit in the full samples (`r print_lrt_test_stats(ksrq_num_partners_admrtn_all_lrt, 2, 5)`).
 In both cases, the coefficient for SR was positive and for Admiration was negative.
 This indicates that for a given level on SR, a participant with a higher level of Admiration would be expected to have fewer partners.
 Models that included K-SRQ Sociability did not converge, probably because of the very high correlation with the SR factor.
 
-Removing SR from a regression that also included the three UPPS-P variables did not result in worse fit in the unpartnered college student sample ($`r print_lrt_test_stats(uppsp_ksrq_num_partners_lrt)`$), but did significantly reduce fit in the combined sample ($`r print_lrt_test_stats(uppsp_ksrq_num_partners_all_lrt, 2, 6)`$).
+Removing SR from a regression that also included the three UPPS-P variables did not result in worse fit in the unpartnered college student sample (`r print_lrt_test_stats(uppsp_ksrq_num_partners_lrt)`), but did significantly reduce fit in the combined sample (`r print_lrt_test_stats(uppsp_ksrq_num_partners_all_lrt, 2, 6)`).
 The coefficient for SR in these models was also positive.
 
 ### Number of sexual encounters
 
 #### FSMI Mate-seeking
 
-Comparing models with and without the FSMI Mate-seeking regression coefficient constrained to zero showed non-significant mis-fit in the unpartnered college sample ($`r print_lrt_test_stats(fsmi_sfreq_lrt, 2, 2)`$).
+Comparing models with and without the FSMI Mate-seeking regression coefficient constrained to zero showed non-significant mis-fit in the unpartnered college sample (`r print_lrt_test_stats(fsmi_sfreq_lrt, 2, 2)`).
 In the unconstrained model, the coefficient was negative and very close to zero.
-Adding UPPS-P covariates to the model, and again testing whether constraining the Mate-seeking coefficient to zero also resulted in non-significant reduction in fit ($`r print_lrt_test_stats(uppsp_fsmi_sfreq_lrt2, 2, 2)`$), and in the unconstrained model the Mate-seeking coefficient remained negative.
+Adding UPPS-P covariates to the model, and again testing whether constraining the Mate-seeking coefficient to zero also resulted in non-significant reduction in fit (`r print_lrt_test_stats(uppsp_fsmi_sfreq_lrt2, 2, 2)`), and in the unconstrained model the Mate-seeking coefficient remained negative.
 
 #### K-SRQ Sexual Relationships
 
-The test of K-SRQ SR showed non-significant reduction in fit when constraining its association with number of sexual encounters to zero in the unpartnered college sample ($`r print_lrt_test_stats(ksrq_sex_freq_null_lrt,2,3)`$), but significant reduction in fit in the full sample ($`r print_lrt_test_stats(ksrq_sex_freq_null_all_lrt,2,6)`$).
+The test of K-SRQ SR showed non-significant reduction in fit when constraining its association with number of sexual encounters to zero in the unpartnered college sample (`r print_lrt_test_stats(ksrq_sex_freq_null_lrt,2,3)`), but significant reduction in fit in the full sample (`r print_lrt_test_stats(ksrq_sex_freq_null_all_lrt,2,6)`).
 The coefficient for the SR variable in both cases was positive, indicating that those higher on SR tend to report having more sexual encounters (note that the coefficients for partnered and unpartnered college students were also both positive when considered separately).
 
-Considering the models with and without the Admiration covaraite showed non-significant difference in fit for the unpartnered college student sample ($`r print_lrt_test_stats(ksrq_sex_freq_admrtn_lrt,2,2)`$), as well as the full samples ($`r print_lrt_test_stats(ksrq_sex_freq_admrtn_all_lrt,2,3)`$).
+Considering the models with and without the Admiration covaraite showed non-significant difference in fit for the unpartnered college student sample (`r print_lrt_test_stats(ksrq_sex_freq_admrtn_lrt,2,2)`), as well as the full samples (`r print_lrt_test_stats(ksrq_sex_freq_admrtn_all_lrt,2,3)`).
 As was the case with number of partners, the coefficients for the Admiration variable were negative (while SR remained positive), indicating that, given the same level of SR, those higher in Admiration tended to report fewer sexual encounters.
 
-Not accounting for the association between number of sexual encounters and SR in a model that also included the three UPPS-P variables did not result in significant difference in fit in the unpartnered college sample ($`r print_lrt_test_stats(uppsp_ksrq_sex_freq_lrt,2,2)`$), but did result in a significant reduction in fit in the full sample ($`r print_lrt_test_stats(uppsp_ksrq_sex_freq_all_lrt,2,3)`$).
+Not accounting for the association between number of sexual encounters and SR in a model that also included the three UPPS-P variables did not result in significant difference in fit in the unpartnered college sample (`r print_lrt_test_stats(uppsp_ksrq_sex_freq_lrt,2,2)`), but did result in a significant reduction in fit in the full sample (`r print_lrt_test_stats(uppsp_ksrq_sex_freq_all_lrt,2,3)`).
 In both cases the coefficient for SR was positive.
 
 ### Safe sex practices
 
 #### FSMI Mate-seeking
 
-The fit difference tests for the effect of Mate-seeking on frequency of safe sex practices was not significant for either the unpartnered college sample ($`r print_lrt_test_stats(fsmi_uprot_lrt,2,2)`$) or for the full college sample ($`r print_lrt_test_stats(fsmi_uprot_all_lrt,2,2)`$).
+The fit difference tests for the effect of Mate-seeking on frequency of safe sex practices was not significant for either the unpartnered college sample (`r print_lrt_test_stats(fsmi_uprot_lrt,2,2)`) or for the full college sample (`r print_lrt_test_stats(fsmi_uprot_all_lrt,2,2)`).
 The coefficients in both cases were very close to zero.
-Including the three UPPS-P variables as covariates also resulted in no significant fit decrease when constraining the effect of Mate-seeking to be zero in the unpartnered ($`r print_lrt_test_stats(uppsp_fsmi_uprot_lrt2,2,2)`$) and combined college student sample ($`r print_lrt_test_stats(uppsp_fsmi_uprot_all_lrt2,2,2)`$).
+Including the three UPPS-P variables as covariates also resulted in no significant fit decrease when constraining the effect of Mate-seeking to be zero in the unpartnered (`r print_lrt_test_stats(uppsp_fsmi_uprot_lrt2,2,2)`) and combined college student sample (`r print_lrt_test_stats(uppsp_fsmi_uprot_all_lrt2,2,2)`).
 
 #### K-SRQ Sexual Relationships
 
-Neither the unpartnered college student sample ($`r print_lrt_test_stats(ksrq_use_protection_null_lrt,2,2)`$), nor the full sample 
-($`r print_lrt_test_stats(ksrq_use_protection_null_all_lrt,2,2)`$) showed significant decrease in fit when constraining the effect of the SR variable on frequency of safe sex practice to zero.
+Neither the unpartnered college student sample (`r print_lrt_test_stats(ksrq_use_protection_null_lrt,2,2)`), nor the full sample 
+(`r print_lrt_test_stats(ksrq_use_protection_null_all_lrt,2,2)`) showed significant decrease in fit when constraining the effect of the SR variable on frequency of safe sex practice to zero.
 The coefficient in both cases was postive, indicating that those higher on SR also tend to report more frequent practice of safe sex.
 
-In a model that also included Admiration as a covariate, removing this variable from the regression did not reduce fit significantly for ether unpartnered college students ($`r print_lrt_test_stats(ksrq_use_protection_admrtn_lrt,2,2)`$) or the full sample ($`r print_lrt_test_stats(ksrq_use_protection_admrtn_all_lrt,2,2)`$).
+In a model that also included Admiration as a covariate, removing this variable from the regression did not reduce fit significantly for ether unpartnered college students (`r print_lrt_test_stats(ksrq_use_protection_admrtn_lrt,2,2)`) or the full sample (`r print_lrt_test_stats(ksrq_use_protection_admrtn_all_lrt,2,2)`).
 The coefficients were positive for both SR and Admiration in these models, though close to zero.
-Models with the three UPPS-P variables included demonstrated the same pattern for the unpartnered college students ($`r print_lrt_test_stats(uppsp_ksrq_use_protection_lrt,2,2)`$) and combined sample ($`r print_lrt_test_stats(uppsp_ksrq_use_protection_all_lrt,2,2)`$).
+Models with the three UPPS-P variables included demonstrated the same pattern for the unpartnered college students (`r print_lrt_test_stats(uppsp_ksrq_use_protection_lrt,2,2)`) and combined sample (`r print_lrt_test_stats(uppsp_ksrq_use_protection_all_lrt,2,2)`).
 
 ### Number of drinking days
 
@@ -829,38 +831,68 @@ The coefficients between the unconstrained and constrained model will also be ex
 
 #### FSMI Status
 
-In the college sample, constraining FSMI Status to have no association with number of drinking days did not significantly reduce model fit ($`r print_lrt_test_stats(fsmi_alcdays_lrt,2,2)`$), with a coefficient for the effect, when it was freed, close to zero.
-This remained the case whether or not the UPPS-P variables were included in the model ($`r print_lrt_test_stats(uppsp_fsmi_alcdays_lrt2,2,2)`$).
+In the college sample, constraining FSMI Status to have no association with number of drinking days did not significantly reduce model fit (`r print_lrt_test_stats(fsmi_alcdays_lrt,2,2)`), with a coefficient for the effect, when it was freed, close to zero.
+This remained the case whether or not the UPPS-P variables were included in the model (`r print_lrt_test_stats(uppsp_fsmi_alcdays_lrt2,2,2)`).
 
 #### K-SRQ Admiration
 
-Constraining the Admiration variable to zero in the regression of number of drinking days in the college sample resulted in a significant reduction in fit ($`r print_lrt_test_stats(ksrq_alc_days_null_lrt,2,4)`$).
-This was also the case for the full sample ($`r print_lrt_test_stats(ksrq_alc_days_null_all_lrt,2,5)`$).
+Constraining the Admiration variable to zero in the regression of number of drinking days in the college sample resulted in a significant reduction in fit (`r print_lrt_test_stats(ksrq_alc_days_null_lrt,2,4)`).
+This was also the case for the full sample (`r print_lrt_test_stats(ksrq_alc_days_null_all_lrt,2,5)`).
 In both cases, the freed coefficient was positive, indicating that those with higher values on Admiration also reported more days where they had at least one drink (in the past 30 days).
 
-The exclusion of the Sociability variable also led to significant decreases in fit for both the college sample ($`r print_lrt_test_stats(ksrq_alc_days_admrtn_lrt,2,4)`$), as well as the full sample ($`r print_lrt_test_stats(ksrq_alc_days_admrtn_all_lrt,2,6)`$).
+The exclusion of the Sociability variable also led to significant decreases in fit for both the college sample (`r print_lrt_test_stats(ksrq_alc_days_admrtn_lrt,2,4)`), as well as the full sample (`r print_lrt_test_stats(ksrq_alc_days_admrtn_all_lrt,2,6)`).
 In both cases, the freed coefficient for Sociability was positive, while the coefficient for Admiration became negative (with increased standard error).
 This indicates that participants reporting higher sociability also tend to report more drinking days, and that for a given level of Sociability, higher Admiration may be associated with fewer drinking days.
 
-When tested in a model that included the three UPPS-P variables, constraining the Admiration effect on drinking days to zero did not reduce fit in the college sample ($`r print_lrt_test_stats(uppsp_ksrq_alc_days_lrt,2,2)`$) or the combined sample ($`r print_lrt_test_stats(uppsp_ksrq_alc_days_all_lrt,2,2)`$).
+When tested in a model that included the three UPPS-P variables, constraining the Admiration effect on drinking days to zero did not reduce fit in the college sample (`r print_lrt_test_stats(uppsp_ksrq_alc_days_lrt,2,2)`) or the combined sample (`r print_lrt_test_stats(uppsp_ksrq_alc_days_all_lrt,2,2)`).
 The coefficient for the association between Admiration and drinking days remained postive in these models.
 
 ### Number of heavy-drinking days
 
 #### FSMI Status
 
-We did not reject the null of no association between FSMI Status and number of heavy drinking days in either the initial model ($`r print_lrt_test_stats(fsmi_alc_5drnk_lrt,2,2)`$) or the model including the UPPS-P variables ($`r print_lrt_test_stats(uppsp_fsmi_alc5drk_lrt2,2,2)`$).
+We did not reject the null of no association between FSMI Status and number of heavy drinking days in either the initial model (`r print_lrt_test_stats(fsmi_alc_5drnk_lrt,2,2)`) or the model including the UPPS-P variables (`r print_lrt_test_stats(uppsp_fsmi_alc5drk_lrt2,2,2)`).
 The coefficient of the association was positive in the first case, and close to zero (very slightly negative) in the UPPS-P model.
 
 #### K-SRQ Admiration
 
 The results for the the K-SRQ Admiration association with number of _heavy_ drinking days were much the same as those for number of days having consumed any alcohol at all.
-There was a significant decrease in fit when the coefficient for Admiration was set to zero for both the college ($`r print_lrt_test_stats(ksrq_alc_5drnk_null_lrt,2,4)`$) and full ($`r print_lrt_test_stats(ksrq_alc_5drnk_null_all_lrt,2,5)`$) samples, with positive coefficients for the freed parameters.
-Including the association with Sociability resulted in significant fit differences for both the college ($`r print_lrt_test_stats(ksrq_alc_5drnk_admrtn_lrt,2,3)`$) and full sample ($`r print_lrt_test_stats(ksrq_alc_5drnk_admrtn_all_lrt,2,6)`$). In both cases, freeing the Sociability coefficient resulted in a negative Admiration coefficient with smaller magnitude than the models excluding Sociability.
-In addition, in models including the UPPS-P variables, the coefficient for Admiration could be constrained to zero without significant fit difference in the college ($`r print_lrt_test_stats(uppsp_ksrq_alc_5drnk_lrt,2,2)`$) and combined sample ($`r print_lrt_test_stats(uppsp_ksrq_alc_5drnk_all_lrt,2,2)`$).
+There was a significant decrease in fit when the coefficient for Admiration was set to zero for both the college (`r print_lrt_test_stats(ksrq_alc_5drnk_null_lrt,2,4)`) and full (`r print_lrt_test_stats(ksrq_alc_5drnk_null_all_lrt,2,5)`) samples, with positive coefficients for the freed parameters.
+Including the association with Sociability resulted in significant fit differences for both the college (`r print_lrt_test_stats(ksrq_alc_5drnk_admrtn_lrt,2,3)`) and full sample (`r print_lrt_test_stats(ksrq_alc_5drnk_admrtn_all_lrt,2,6)`). In both cases, freeing the Sociability coefficient resulted in a negative Admiration coefficient with smaller magnitude than the models excluding Sociability.
+In addition, in models including the UPPS-P variables, the coefficient for Admiration could be constrained to zero without significant fit difference in the college (`r print_lrt_test_stats(uppsp_ksrq_alc_5drnk_lrt,2,2)`) and combined sample (`r print_lrt_test_stats(uppsp_ksrq_alc_5drnk_all_lrt,2,2)`).
 
 ## SPLT relation to outcomes
 
+Some models regressing the frequency of safe sex practices on the SPLT parameter $b$ did not converge, so comparisons involving these models were not tested.
+Since this parameter was not the focus of the investigation, these convergence issues were not resolved.
+No model comparisons met the $\alpha = .005$ threshold, and the direction of coefficients were often not in the expected direction -- for example, the association between number of partners and the $\epsilon$ Dating/Looking contrast is negative (Table \ref{tab:spltbehavchisq}).
+
+\begin{table}
+\centering
+\begin{threeparttable}
+\caption{SES and YRBS behavior reports regressed on SPLT variabels} \label{tab:spltbehavchisq}
+\footnotesize
+```{r spltbehavchisq, results='asis'}
+knitr::kable(splt_sems_df_4table[,-(1:2)],
+             col.names = c('Behavior variable',
+                           'SPLT variable',
+                           'Coef sign$_{\\text{ltd}}$',
+                           '$\\Delta\\chi_{\\text{ltd}}^{2}$',
+                           '$p_{\\text{ltd}}$',
+                           'Coef sign$_{\\text{full}}$',
+                           '$\\Delta\\chi_{\\text{full}}^{2}$',
+                           '$p_{\\text{full}}$'),
+             align = c('l', 'l', 'r', 'r', 'r', 'r', 'r', 'r'),
+             booktabs = T, format = 'latex', escape = F,
+             linesep = '')
+```
+\begin{tablenotes}
+\footnotesize
+\item First and Last 1/2 $p_{\text{opt}}$ refer to the proportion of optimal responses made during the first and last half of the SPLT run, respectively. SPLT variable contrasts are between the indicated condition and the minimally social Hungry/Thirsty condition.
+\item The ``ltd'' and ``full'' subscripts refer to the samples used in model fitting. For the sexual behavior questions, the limited (ltd) sample includes just unpartnered participants from the two college samples, and for the alcohol use questions, the ltd sample includes all participants from the two college samples. The full sample includes both college and both adolescent samples. ``Coef sign'' indicates the sign of the coefficient of the association between the behavior variable and SPLT contrast variable.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
 
 
 # Discussion, aim 2
