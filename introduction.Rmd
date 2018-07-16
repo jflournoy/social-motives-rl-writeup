@@ -12,7 +12,7 @@ csl: "/home/jflournoy/Rlibs/probly/bib/apa-old-doi-prefix.csl"
 
 - Current conceptualizations in the field capture important features of adolescence, but focusing on functional aspects of behavior (which many of these acknowledge as important) will help to strengthen and unify these approaches.
   - Imperfect information, or exaggerated expectations of invincibility
-    - Teens on most questions show no particular bias toward over or underestimating probabilities, though their estimation is not perfect; it does generally correlate with prospective outcomes [@fischhoff2008;@debruin2007;@fischhoff2000].
+    - Teens on most questions show no particular bias toward over or underestimating probabilities, though their estimation is not perfect; it does generally correlate with prospective outcomes [@debruin2007;@fischhoff2000;@fischhoff2008].
       - the one thing that is aberrant is that teens overestimate their probability of dying, and it is easy to see how this would affect decisions regarding delayed rewards
   - Imbalance between reward seeking and control
     - A similar theory has been cast in several different ways
@@ -26,14 +26,14 @@ csl: "/home/jflournoy/Rlibs/probly/bib/apa-old-doi-prefix.csl"
     - but doesn't account for why those values are what they are
   - Fuzzy trace theory
     - Haven't developed clear heuristics so explore all possible options (like a rational actor) to develop more adult like heuristics, which exposes them to risk
-    - That is, taking risks, or exploring situations with known or unknown probabilistic outcomes, is an essential part of this developmental stage, perhaps allowing adolescents to build expertise and wisdom about the world they must engage with as adults [@crone2012;@blakemore2014;@romer2017].
+    - That is, taking risks, or exploring situations with known or unknown probabilistic outcomes, is an essential part of this developmental stage, perhaps allowing adolescents to build expertise and wisdom about the world they must engage with as adults [@blakemore2014;@crone2012;@romer2017].
 
 In order to more fully understand this increased propensity for exploration during adolescence, it is crucial to also understand the motives that compel and shape such exploration.
 That is, differences in sub-domains of motivation will increases or decreases the expected value of various learning opportunities, and thus alter the ways in which adolescents express this exploratory behavior.
 Examining learning processes directly may be able to provide a window into effects of motivations that influence low level computations such as perception of stimulus salience.
-A substantial body of research documents broad motivational changes in adolescence as captured by the sensation-seeking construct [@steinberg2008;@harden2011;@zuckerman1978;@ruch2001], but very little work examines adolescent motivation at a finer resolution, and none examines the impact of different motivations on stimulus salience and basic learning processes that have the potential to shape an adolescent's relation to the environment. 
+A substantial body of research documents broad motivational changes in adolescence as captured by the sensation-seeking construct [@harden2011;@steinberg2008;@ruch2001;@zuckerman1978], but very little work examines adolescent motivation at a finer resolution, and none examines the impact of different motivations on stimulus salience and basic learning processes that have the potential to shape an adolescent's relation to the environment. 
 
-Understanding adolescence as an important period for social development is also necessary for understanding these behavioral and motivational changes [@crone2012;@blakemore2014].
+Understanding adolescence as an important period for social development is also necessary for understanding these behavioral and motivational changes [@blakemore2014;@crone2012].
 In fact, many focal adolescent health risks are interpersonal in nature [risky sex, drinking and driving with friends, violence; @kann2014].
 It is unclear what relative proportions of adolescent exploration are of the social versus nonsocial environments, but it is clear that motivational changes occur in a milieu that shapes and is a target of many of the behaviors adolescent researchers care about.
 This proposal describes work that starts to lay an empirical foundation for a descriptive and mechanistic conceptualization of changes in adolescent motivated social behavior.
@@ -53,7 +53,7 @@ Although this focus is of theoretical interest, it is motivated by a practical c
 
 Two motivational domains appear often in the introductions (and occasionally also in the discussion sections) of research on adolescence: sex and status.
 With regard to sex, authors often acknowledge that the transition to sexual maturity is a defining biological feature of adolescence, though very little contemporary adolescent research investigates directly the increased motivation to explore and engage in romantic and sexual behavior [@suleiman2017].
-Status is studied more directly, with many articles focusing on popularity antecedents [@lafontana2002;@OwensTheymightnot2009;@LiChineseAmericanchildren2012;@rose2004], and consequences [@allen2005;@cillessen2014;@meuwese_friends_2017].
+Status is studied more directly, with many articles focusing on popularity antecedents [@lafontana2002;@LiChineseAmericanchildren2012;@OwensTheymightnot2009;@rose2004], and consequences [@allen2005;@cillessen2014;@meuwese_friends_2017].
 Though there is a long history of research on motivation in psychology, very little contemporary adolescent research situates mate-seeking and status in a broader motivational framework.
 
 The fundamental social motives (FSM) framework proposed by @kenrick2010 may be helpful for understanding differential effects of both domains, as it parses motives into a small set of domains.
@@ -68,7 +68,7 @@ The FSM approach organizes the measurement of motivation around these broad rela
 Indeed, the FSM framework is especially useful given how different motives plausibly map onto important relationships at different developmental stages (specifically, mate-seeking as a result of puberty, but also, e.g., kin care, later, in adulthood).
 
 The relationship-centric approach of FSM highlights that these motives hypothesized to develop and gain importance during adolescence are inherently interpersonal.
-Depending on how status is defined, it refers to either the degree to which one is liked or recognized by one's peers, or the degree to which one has the respect or esteem of one's peers [@srivastava2011;@lafontana2002].
+Depending on how status is defined, it refers to either the degree to which one is liked or recognized by one's peers, or the degree to which one has the respect or esteem of one's peers [@lafontana2002;@srivastava2011].
 Of course, in each case status is defined by the beliefs of others in one's social network, and, in both cases, accurate perception of one's own and of other people's place in the hierarchy is important.
 Similarly, in mate-selection, accurate perceptions of who is or is not a potential partner in the first place is an important basis for subsequent motivated behavior.
 Indeed, it is then within the context of these interpersonal networks that subsequent health-risking behaviors are enacted, in ways that are perhaps both driven and shaped by these motives.
@@ -82,7 +82,7 @@ There is a need for research investigating how adolescent learning and explorati
 
 # Status motive
 
-Status during adolescence has been studied from a variety of perspectives, including perceptions, structure, strategies, and outcomes [@allen2005;@SelfhoutEmergingLateAdolescent2010;@lafontana2010;@jarvinen_adolescents_1996;@underwood1996;@savin-williams1979].
+Status during adolescence has been studied from a variety of perspectives, including perceptions, structure, strategies, and outcomes [@allen2005;@jarvinen_adolescents_1996;@lafontana2010;@savin-williams1979;@SelfhoutEmergingLateAdolescent2010;@underwood1996].
 Though status motives have been addressed, self-report about status priorities are most common.
 For example, using self-report measures, @lafontana2010 found that prioritizing status over other domains (e.g., achievement, friendship) peaks in late adolescence.
 However, reliance on self-report is not optimal, especially in a domain with strong social norms about the value of attaining high status.
@@ -94,9 +94,9 @@ For this reason, the motivation to explore and master status hierarchies, and pe
 # Mate-seeking motive
 
 Puberty marks the beginning of sexual maturation of an individual, and the beginning of the adolescent developmental period [@susman_puberty_2009].
-Though there has been extensive research on the importance of romantic and sexual relationships during adolescence, peer and parent influences, risky patterns of sexual behavior, and health-relevant outcomes [@schalet2011;@suleiman2015;@capaldi_heterosexual_2002], there has been very little research on sexual development as it relates to motivation.
+Though there has been extensive research on the importance of romantic and sexual relationships during adolescence, peer and parent influences, risky patterns of sexual behavior, and health-relevant outcomes [@capaldi_heterosexual_2002;@schalet2011;@suleiman2015], there has been very little research on sexual development as it relates to motivation.
 Indeed, while the study of risky sexual behavior is clearly important, there is so little research on the normative aspects of sexual development during adolescence (for example as a developmentally appropriate motivation) that a recent review called it "the 'elephant in the room' of adolescent ... development" [@suleiman2017].
-Most work to date has focused on risk factors for unsafe sex unrelated to motivation [e.g., poverty, peer influence, parental monitoring; james2012;@santelli1992;@carlson2014].
+Most work to date has focused on risk factors for unsafe sex unrelated to motivation [e.g., poverty, peer influence, parental monitoring; @carlson2014;@james2012;@santelli1992].
 This neglects the importance of sexual motivation (i.e., desire) in the development of an empowered and responsible sexual identity, impeding efforts to reduce health-risks through sexual education [@fine2006].
 Although sexual desire is recognized rhetorically as an important component in emerging adolescent romantic and sexual behavior, its direct interrogation through either behavioral or self report measures is limited.
 Likewise, the role of mate-seeking motives in the exploratory behavior characteristic of adolescence is also under-studied.

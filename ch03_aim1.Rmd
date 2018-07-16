@@ -101,7 +101,7 @@ ethnicity_table <- tables::tabular(
 
 # Background
 
-Adolescence is a time of social reorientation during which individuals begin expressing romantic and sexual interests [for an overview, see: @collins2003; @collins2009], and spend more time with peers [at least, relative to time spent with family; @larson1991;@richards1998;@larson].
+Adolescence is a time of social reorientation during which individuals begin expressing romantic and sexual interests [for an overview, see: @collins2003; @collins2009], and spend more time with peers [at least, relative to time spent with family; @larson1991;@larson1996;@richards1998].
 The social reorientation hypothesis in developmental cognitive neuroscience proposes that these changes are the result of developing motivations that shift goals toward increasing social experiences in peer and romantic social networks [@nelson2005;@nelson2016].
 It further proposes that neurodevelopmental changes in perceptual, motivational, and executive control brain regions are the mechanisms that cause transitions through sensitive periods in development in which these systems are tuned to period-relevant social experiences (both in the sense of being receptive to, and motivated toward them).
 This identification of period-relevant social goals mirrors work in evolutionary psychology that has lead to a taxonomy of social motives which are broadly anchored by evolutionarily important social relationships [e.g., caregivers, peers, potential mates, mates, and offspring; for a thorough overview, see @neel2015].
@@ -230,7 +230,7 @@ print(reaction_time_plot)
 
 The focus of this analysis is on describing and estimating differences in learning that is proposed to be related to differences in motives that develop during adolescence.
 The goal of such estimation is to provide reliable information about the magnitude and sign of relations between observed phenomena, as well as about the uncertainty of that information.
-A Bayesian approach provides a robust framework for specifying and estimating hierarchical and nonlinear models with many parameters while constraining inferences in a way that reduces the rate of making incorrect claims with confidence [@GelmanPowerCalculationsAssessing2014;@gelman_why_2012].
+A Bayesian approach provides a robust framework for specifying and estimating hierarchical and nonlinear models with many parameters while constraining inferences in a way that reduces the rate of making incorrect claims with confidence [@gelman_why_2012;@GelmanPowerCalculationsAssessing2014].
 These are key concerns for the current work for two reasons.
 First, convergence of reinforcement learning  model can be difficult to achieve, and Bayesian estimation helps by allowing one to constrain parameter values for these models in a principled and intuitive way using parametric prior distributions.
 Second, in contrast to a confirmatory experiment, this analysis seeks to explore relations between a number of theoretically related constructs; as such, the hierarchical Bayesian approach helps constrain estimates in ways that increase their efficiency [@gelman_why_2012].
@@ -1001,7 +1001,7 @@ Overall, the data presented in this study represent the largest cross-sectional 
 
 Very few studies examine social effects on reinforcement learning; those that *do* have relied on two approaches.
 In the first approach, studies use stimuli that contain social content that is the target of learning [this is the approach taken above in the SPLT; @jones2014;@rosenblau2017].
-The second approach is to situate a standard, abstract stimulus, reinforcement learning task in a social context [@lockwood2016;@decker2015] (and U/P).
+The second approach is to situate a standard, abstract stimulus, reinforcement learning task in a social context [@decker2015;@lockwood2016] (and U/P).
 
 The two studies that use social stimuli in the reinforcement learning task do so in a way that makes straightforward interpretation of the learning results difficult.
 In one, the authors use a Pavlovian conditioning paradigm wherein the unconditioned stimulus is social in nature [@jones2014].
