@@ -99,7 +99,7 @@ ethnicity_table <- tables::tabular(
 ```
 
 
-# Introduction
+# Background
 
 Adolescence is a time of social reorientation during which individuals begin expressing romantic and sexual interests [for an overview, see: @collins2003; @collins2009], and spend more time with peers [at least, relative to time spent with family; @larson1991;@richards1998;@larson].
 The social reorientation hypothesis in developmental cognitive neuroscience proposes that these changes are the result of developing motivations that shift goals toward increasing social experiences in peer and romantic social networks [@nelson2005;@nelson2016].
@@ -159,7 +159,7 @@ The purpose of this manipulation is to examine how this motive framing alters le
 \centering
 \includegraphics[width=3.25in]{figures/trial_example} 
 \caption[Example of a trial on the SPLT]{Example of a trial on the SPLT. Image shows post-response feedback phase on an incorrect trial where the participant could have earned 5 points for a correct answer, but earned 0 points.}
-\label{trialexample}
+\label{fig:trialexample}
 \end{figure}
 
 On each trial, the participant sees one of six faces, along with two labels, and is asked to classify the face using one of the two labels.
@@ -215,7 +215,7 @@ ptab(trials_table)
 
 
 
-```{r reactiontime, fig.width=3.25, fig.height=3, include=F}
+```{r reactiontime, fig.width=3.25, fig.height=2.25, include=F}
 print(reaction_time_plot)
 ```
 
@@ -336,7 +336,7 @@ In a model that is well calibrated to this task, but that does not bias estimate
 These distributions cover the full range, with most mass around the null value of the final probability = .5 for choosing the left or right option (Figure \ref{fig:sampleprfinaldens}).
 If the data does not overwhelm the prior distribution, we can be assured that the prior is not biasing the estimate away from random responding.
 
-```{r sampleprfinaldens, fig.width=3.5, fig.height=3, include=F}
+```{r sampleprfinaldens, fig.width=3.25, fig.height=2, include=F}
 sample_pR_final_dens
 ```
 
@@ -399,6 +399,7 @@ Samples were drawn over 1534 iterations from six chains per model, with the firs
 To compare models and choose the one with the best expected out-of-sample prediction we use the R package, loo [@vehtari2018], to compute an estimate of the leave-one-individual-out cross validation information criterion [@vehtari2017a].
 
 From the winning model, I then extract model parameters, as well as the final probability of choosing the optimal descriptor for a particular cue.
+Means of the posterior densities for all parameters are used in subsequent analyses.
 In addition, I use the average number of optimal choices in the last half of the run as a more easily calculable measure of optimal performance.
 Associations between all model parameters, measures of performance, age, and pubertal development are computed using Spearman's rank order correlations and standardized coefficients from linear mixed effects models.
 Linear mixed effects (LME) models were computed using the R package lme4 [version `r packageVersion('lme4')`; @bates2015].
@@ -434,7 +435,7 @@ grid_arrange_shared_legend <- function(..., ncol = 1, widths) {
 ## Descriptive data
 
 Examination of non-parametric trends in trial-by-trial average number of optimal presses indicates that learning occurs in each sample, and condition (Figure \ref{fig:trialaverages}A). 
-There is also an indication that learning occurs more quickly and optimal presses are generally more frequent in the two social-motive conditions relative to the minimally social condition (Figure \ref{fig:trialaverages}A).
+There is also an indication that learning occurs more quickly and optimal presses are generally more frequent in the two social-motive conditions relative to the minimally social condition (Figure \ref{fig:trialaverages}B).
 
 ```{r trialaverages, fig.width=5.875, fig.height=4, include=F}
 ggplot2::theme_set(ggplot2::theme_minimal())
@@ -691,19 +692,19 @@ The magnitude of these trends is positive, though fairly small, with both age an
 In the college sample, the relation between optimal choice proportion and age is estimated to be essentially 0, while PDS shows a positive trend (with a smaller magnitude than in the adolescent sample).
 
 
-```{r poptageplot, fig.width=5.875, fig.height=4, include=F}
-p_opt_age_plot
+```{r poptageplot, fig.width=5.875, fig.height=3.25, include=F}
+p_opt_age_plot + ggplot2::labs(x = 'Age (years)', linetype = 'Condition')
 ```
 
 \begin{figure}
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/poptageplot-1.pdf}
-\caption[poptageplot]{poptageplot}
+\caption[Probability of optimal response versus age]{Probability of optimal response versus age. Optimal choice probability is calculated as the proportion of optimal choices in the last half of the run. All best-fit lines are from generalized additive models. Grey line is fit to all data.}
 \label{fig:poptageplot}
 \end{figure}
 
-```{r poptpdsplot, fig.width=5.875, fig.height=4, include=F}
+```{r poptpdsplot, fig.width=5.875, fig.height=3.25, include=F}
 p_opt_pds_plot
 ```
 
@@ -711,7 +712,7 @@ p_opt_pds_plot
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/poptpdsplot-1.pdf}
-\caption[poptpdsplot]{poptpdsplot}
+\caption[Probability of optimal response versus Puberty]{Probability of optimal response versus Puberty. Optimal choice probability is calculated as the proportion of optimal choices in the last half of the run. All best-fit lines are from generalized additive models. Grey line is fit to all data. PDS = Pubertal Development Scale.}
 \label{fig:poptpdsplot}
 \end{figure}
 
@@ -720,15 +721,15 @@ Consistent with the data plot, there is a very small but positive coefficient be
 The plots of optimal choice improvement in social conditions versus the PDS also show relatively flat trends, with much more uncertainty with regard to the relation at low ends of the PDS, where the data are extremely sparse (Figure \ref{fig:poptdiffpdsplot}).
 This is echoed in the magnitude of the standardized coefficients which are both very small (Table \ref{tab:lowfidev}).
 
-```{r poptdiffageplot, fig.width=5.875, fig.height=4, include=F}
-p_opt_diff_age_plot
+```{r poptdiffageplot, fig.width=5.875, fig.height=3.25, include=F}
+p_opt_diff_age_plot + ggplot2::labs(x = 'Age (years)')
 ```
 
 \begin{figure}
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/poptdiffageplot-1.pdf}
-\caption[poptdiffageplot]{poptdiffageplot}
+\caption[Condition differences in probability of optimal response versus age]{Condition differences in probability of optimal response versus age. Optimal choice probability is calculated as the proportion of optimal choices in the last half of the run. Difference scores are calculated versus the baseline, Hungry/Thirsty, condition. All best-fit lines are from generalized additive models. Grey line is fit to all data.}
 \label{fig:poptdiffageplot}
 \end{figure}
 
@@ -740,8 +741,7 @@ p_opt_diff_pds_plot
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/poptdiffpdsplot-1.pdf}
-\caption[poptdiffpdsplot]{poptdiffpdsplot}
-\label{fig:poptdiffpdsplot}
+\caption[Condition differences in probability of optimal response versus Puberty]{Condition differences in probability of optimal response versus Puberty. Optimal choice probability is calculated as the proportion of optimal choices in the last half of the run. Difference scores are calculated versus the baseline, Hungry/Thirsty, condition. All best-fit lines are from generalized additive models. Grey line is fit to all data. PDS = Pubertal Development Scale.}\label{fig:poptdiffpdsplot}
 \end{figure}
 
 \begin{table}
@@ -781,14 +781,14 @@ The almost negligible standardized coefficients for $\epsilon$ indicate a very s
 
 
 ```{r ageparplots, fig.width=5.875, fig.height=4, include=F}
-age_par_plot
+age_par_plot + ggplot2::labs(x = 'Age (years)')
 ```
 
 \begin{figure}
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/ageparplots-1.pdf}
-\caption[poptdiffpdsplot]{poptdiffpdsplot}
+\caption[Reinforcement learning model parameters versus age]{Reinforcement learning model parameters versus age. All best-fit lines are from generalized additive models. Grey line is fit to all data. Parameters are plotted on the unconstrained scales with possible values in $(-\infty, \infty)$.}
 \label{fig:ageparplots}
 \end{figure}
 
@@ -799,14 +799,14 @@ The standardized coefficients, nearly all very small, mirror the best fit lines,
 
 
 ```{r ageparconplots, fig.width=5.875, fig.height=4, include=F}
-age_par_con_plot
+age_par_con_plot + ggplot2::labs(x = 'Age (years)')
 ```
 
 \begin{figure}
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/ageparconplots-1.pdf}
-\caption[poptdiffpdsplot]{poptdiffpdsplot}
+\caption[Reinforcement learning model parameter condition contrasts versus age]{Reinforcement learning model parameter condition contrasts versus age. All best-fit lines are from generalized additive models. Grey line is fit to all data. Differences are culculated using paramters transformed to be on the model scale.}
 \label{fig:ageparconplots}
 \end{figure}
 
@@ -852,14 +852,14 @@ The parameter $\xi$ shows a negative association with PDS score, while $\rho$ is
 The standardized coefficients for the relation between PDS and parameter posterior means are negative for $\xi$, and otherwise consistent with the plots (Table \ref{tab:pdsbetas}).
 
 ```{r pubertyparplots, fig.width=5.875, fig.height=4, include=F}
-puberty_par_plot
+puberty_par_plot + ggplot2::labs(x = 'PDS mean score')
 ```
 
 \begin{figure}
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/pubertyparplots-1.pdf}
-\caption[poptdiffpdsplot]{poptdiffpdsplot}
+\caption[Reinforcement learning model parameters versus puberty]{Reinforcement learning model parameters versus puberty. All best-fit lines are from generalized additive models. Grey line is fit to all data. Parameters are plotted on the unconstrained scales with possible values in $(-\infty, \infty)$. PDS = Pubertal Development Scale.}
 \label{fig:pubertyparplots}
 \end{figure}
 
@@ -868,14 +868,14 @@ Standardized coefficients were all negligible or very small (Table \ref{tab:pdsb
 
 
 ```{r pubertyparconplots, fig.width=5.875, fig.height=4, include=F}
-puberty_par_con_plot
+puberty_par_con_plot + ggplot2::labs(x = 'PDS mean score')
 ```
 
 \begin{figure}
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/pubertyparconplots-1.pdf}
-\caption[poptdiffpdsplot]{poptdiffpdsplot}
+\caption[Reinforcement learning model parameter condition contrasts versus puberty]{Reinforcement learning model parameter condition contrasts versus puberty. All best-fit lines are from generalized additive models. Grey line is fit to all data. Differences are calculated using paramters transformed to be on the model scale. PDS = Pubertal Development Scale.}
 \label{fig:pubertyparconplots}
 \end{figure}
 

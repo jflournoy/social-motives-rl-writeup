@@ -90,8 +90,6 @@ ethnicity_table <- tables::tabular(
     data = splt_dev_and_demog_task_sum)
 ```
 
-# Overview of participants
-
 Data from four samples are used in this analysis. 
 The first two samples comprise foster-care-involved adolscents (FCA) and community adolescents (CA) who were recruited from the greater Eugene/Springfield area for an ongoing longitudinal study investigating decision-making related to health-risking behavior (funded by NIDA, P50 DA035763). 
 The third and forth samples consisted of college student young adults who completed the study for course credit either in person (CSYA sample), or online (CSYA-O sample). 
