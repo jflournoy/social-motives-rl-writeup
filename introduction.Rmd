@@ -4,32 +4,37 @@ bibliography: "/home/jflournoy/code_new/social-motives-rl-writeup/dissertation.b
 csl: "/home/jflournoy/Rlibs/probly/bib/apa-old-doi-prefix.csl"
 ---
 
-- Adolescents is a period marked by health risk
-  - An extensive body of literature describes dramatic changes in the rates of health risking behaviors (HRBs) during adolescence [e.g., binge drinking, risky sexual behavior; @centersfordiseasecontrolandprevention2003;@chassin2009;@patrick2011;@stevenson2007;@willoughby2013].
-  - health risking behavior and unintentional injury describes a trajectory that peaks toward late adolescence
-  - This gives rise to the paradox of adolescence: although this is a period of robust physical health and increased mental ability, both morbidity and mortality increase [@dahl2004]
-  
+Adolescents is a period of biological development between childhood and adulthood marked both by vigorous health as well as increases in risk to health.
+An extensive body of literature describes dramatic changes in the rates of health risking behaviors (HRBs) during adolescence [e.g., binge drinking, risky sexual behavior; @centersfordiseasecontrolandprevention2003;@chassin2009;@patrick2011;@stevenson2007;@willoughby2013].
+Health risking behavior and rates of unintentional injury describe a trajectory that peaks toward late adolescence.
+This gives rise to the paradox of adolescence: although this is a period of robust physical health and increased mental ability, both morbidity and mortality increase [@dahl2004].
 
-- Current conceptualizations in the field capture important features of adolescence, but focusing on functional aspects of behavior (which many of these acknowledge as important) will help to strengthen and unify these approaches.
-  - Imperfect information, or exaggerated expectations of invincibility
-    - Teens on most questions show no particular bias toward over or underestimating probabilities, though their estimation is not perfect; it does generally correlate with prospective outcomes [@debruin2007;@fischhoff2000;@fischhoff2008].
-      - the one thing that is aberrant is that teens overestimate their probability of dying, and it is easy to see how this would affect decisions regarding delayed rewards
-  - Imbalance between reward seeking and control
-    - A similar theory has been cast in several different ways
-      - reward versus control (sensation seeking)
-      - imbalance model
-      - dual systems
-    - Sensitivity to reward theory doesn't account for why adolescents find certain behaviors or activities more rewarding than others—doesn't explain what they find rewarding.
-  - Social reorientation theory
-    - Reorient from family being dominant social network to peers being the dominant social network
-    - peer group has a different set of values that shapes your behavior
-    - but doesn't account for why those values are what they are
-  - Fuzzy trace theory
+Current conceptualizations in the field capture many features of adolescence relevant to health-related decisions, but focusing on functional aspects of behavior (which many of these theories acknowledge as important) will help to strengthen and unify these approaches.
+Imperfect information, or exaggerated expectations of invincibility, were ideas proposed early on to account of health-risk behavior durign adolescents.
+However, on most questions, adolescents show no particular bias toward over or underestimating probabilities, though their estimation is not perfect; and those probabilities do generally correlate with prospective outcomes [@debruin2007;@fischhoff2000;@fischhoff2008].
+The one prediction that is aberrant is that teens overestimate their probability of dying, which may be functionally relevant to enhancing the value of immediate rewards, especially if those rewards are relevant for thriving and reproductive fitness in the near-term.
+
+Another recent approach proposes that neuroscientific evidence reveals an imbalance between sets of action-promoting, and action-inhibting processes, and that this developmental imbalance is a cause of risk-taking behavior.
+In fact, there are several similar theories that are cast in variations of this basic idea.
+The dual systems model suggest that during adolescence, the system that encodes socially and emotionally rewarding stimuli increases its sway on behavior more rapidly than cognitive control does [@shulman2016].
+The imbalance model proposes that there is not a miscalibration of the balance of power between two systems, but rather that there is a developmentally emerging optimality of balance between multiple systems [@casey_beyond_2016].
+No approach in theis vein accounts directly for why adolescents find certain behaviors, rather than others, more rewarding.
+
+Two other theories do address functional aspects of adolescent decision making.
+Social reorientation theory suggest that during adolescence, individuals shift their dominant social network from the family to peers [@nelson2016].
+This shift is in part driven by developmentally appropriate changes in the salience of interactions with peers and potential romantic partners.
+Health-risking behavior may be in part a by-product of differences in what this peer social group values, though the reasons for these value differences have not been fully explicated.
+Fuzzy trace theory also has relevance for helping to explain why 
     - Haven't developed clear heuristics so explore all possible options (like a rational actor) to develop more adult like heuristics, which exposes them to risk
     - That is, taking risks, or exploring situations with known or unknown probabilistic outcomes, is an essential part of this developmental stage, perhaps allowing adolescents to build expertise and wisdom about the world they must engage with as adults [@blakemore2014;@crone2012;@romer2017].
 
-In order to more fully understand this increased propensity for exploration during adolescence, it is crucial to also understand the motives that compel and shape such exploration.
-That is, differences in sub-domains of motivation will increases or decreases the expected value of various learning opportunities, and thus alter the ways in which adolescents express this exploratory behavior.
+Given that adolescent health risking behavior may involve either impulsive _or_ highly cognitively controlled behaviors, a more fully developed framework, borrowed from the literation in economics and neuroeconomics, helps describe the process by which certain behaviors are selected.
+This veiw goes beyond the ideas of warring systems, some of which push the adolescent to do healthy things, and some of which push the adolescent to do naughty things, describing behavior selection as a process of integration of expected value inputs from myriad sources which colminates in the (perhaps probabilisitc) selection of behaviors with high expected value [@pfeifer2018].
+These sources of value inputs may come from basic appetative processes related to the desire for food or sex, as well as from self concept, social norms, peer expecations, emotional states, \&c.
+From the vantage point of this value-based choice perspective, it becomes clear that adolescent developing motivations for fitness-relevant behaviors related to status and mate-seeking could have a significant impact on value computations.
+
+In order to understand health-risking behavior, and decisions making during adolescence more generally, it is important to begin to try to understand the motivational inputs related to evolutionarily relevant developmental tasks.
+This is crucial because differences in various motivations will increases or decreases the expected value of various exploration and exploitation behaviors.
 Examining learning processes directly may be able to provide a window into effects of motivations that influence low level computations such as perception of stimulus salience.
 A substantial body of research documents broad motivational changes in adolescence as captured by the sensation-seeking construct [@harden2011;@steinberg2008;@ruch2001;@zuckerman1978], but very little work examines adolescent motivation at a finer resolution, and none examines the impact of different motivations on stimulus salience and basic learning processes that have the potential to shape an adolescent's relation to the environment. 
 
@@ -42,10 +47,11 @@ The long-term objective of laying this foundation is to illuminate the role of a
 # Motivations from an Evolutionary Psychology Perspective
 
 Adolescents are notorious for developing normally through the transition from childhood into the adult state.
+We should take the impact of evolutionarily relevant motivations especially seriously because selection pressure is a particularly powerful force shaping biological predisposition through this phase of life [@baltes1997], and there is even some evidence that increases in individual differences during adolescence are strongly shaped by genetic influences [@mottus2018].
 The changes during this period of development include increasing propensity toward adult-like behaviors, such as in sexual activity, and establishing a place in an extra-familial social network.
 Establishing mastery of the social world, and access to material and social resources, is a key concern of this developmental stage.
 Indeed, the developmental end-point of this transition is to a bio-social state in which the chance of successful sexual reproduction and child rearing is optimized.
-Relative to other primates human childhood is extremely protracted, essentially representing a 'pause' of development [@delgiudice2009], perhaps as a way to reduce the burden of metabolic requirements on parents with multiple offspring and to reduce feeding competition with adults, but that is also associated with more rapid post-pubertal development[@gurven2006].
+Relative to other primates human childhood is extremely protracted, essentially representing a 'pause' of development [@delgiudice2009], perhaps as a way to reduce the burden of metabolic requirements on parents with multiple offspring and to reduce feeding competition with adults, but that is also associated with more rapid post-pubertal development [@gurven2006].
 From a birds-eye-view, this places the psychology and behavior of the adolescent at a transition point between a relatively quiescent period, and period of acceleration into an adult motivational frame. 
 This evolutionary developmental transition is accompanied by increasing access to (and ability to exploit) the normative cultural expectations, practices, and products of adulthood such as resource acquisition (and accompanying privileges and anxieties), familial care, courtship, social group bonding and hierarchy formation, physical mobility (e.g., public transit, automobiles), and intoxicants.
 Here, I focus on two motivations that are, first, central to ultimate reproductive success and, second, likely to be accentuated by or the result of adolescent development: mate-seeking and status.

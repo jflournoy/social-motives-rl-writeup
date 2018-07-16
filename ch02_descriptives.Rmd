@@ -94,7 +94,8 @@ Data from four samples are used in this analysis.
 The first two samples comprise foster-care-involved adolscents (FCA) and community adolescents (CA) who were recruited from the greater Eugene/Springfield area for an ongoing longitudinal study investigating decision-making related to health-risking behavior (funded by NIDA, P50 DA035763). 
 The third and forth samples consisted of college student young adults who completed the study for course credit either in person (CSYA sample), or online (CSYA-O sample). 
 The full sample consists of `r sum(!is.na(splt_dev_and_demog_task_sum$SID))` participants (`r sum(splt_dev_and_demog_task_sum$gender_num==1, na.rm=T)` male) with ages between `r round(min(splt_dev_and_demog_task_sum$age, na.rm = T), 1)` and `r round(max(splt_dev_and_demog_task_sum$age, na.rm = T), 1)` years (see Table \ref{tab:samplestats} for full details). 
-The majority of participants in all samples identified as white, though in the both college samples this majority did not exceed 60% (Table \ref{tab:ethnicitytable}).
+A single participant who was over the age of 25 years was excluded form analyses.
+The majority of participants in all samples identified as white, though in both college samples this majority did not exceed 60% (Table \ref{tab:ethnicitytable}).
 Some participants in each sample did not provide data on all focal measures (see Table \ref{tab:missingstats}), and so sample sizes for each analysis will differ to some extent.
 Examining the table, it is clear that the proportion of missing data is small.
 
@@ -148,7 +149,7 @@ ptab(missing_table)
 The CA sample was recruited through Craigslist, flyers, classroom presentations, class field trips to the University of Oregon, and word of mouth.
 Foster-care involved youth were recruited in collaboration with Oregon Department of Human Services case-workers.
 For the parent study, the target sample size for each subsample was 80 participants based on power-analyses for the primary fMRI measure at wave 1.
-The primary measures of interest for the purposes of this dissertation was collected at wave 2, approximately 18 months after wave 1.
+The primary measures of interest for the purposes of this dissertation were collected at wave 2, approximately 18 months after wave 1.
 Inclusion criteria include age at wave 1 of between 11.0-17.9 years and English fluency.
 Exclusion criteria included diagnosed psychiatric, conduct, or developmental disabilities, and MRI contraindications.
 Although describing differences between adolescents with and without a history of childhood adversity is not an aim of this dissertation, combining across the two samples is intended to improve power and provide increased variability on measures of motives as well as attitudes and outcomes.
@@ -159,8 +160,7 @@ Nesting of participants within sample is encoded in hierarchical linear models a
 The CSYA and CSYA-O samples comprise late adolescents and emerging adults age 18-25 years recruited from the UO human subjects pool using the web-based SONA scheduling system. 
 Students sign up for time slots most convenient to them without knowing study details beyond inclusion and exclusion criteria. 
 There are no exclusion criteria for this sample. 
-The target sample size for this sample was 160 for $>90\%$ power to detect a small ($\beta_{\text{std on y}} = 0.1$) interaction between motive condition, and a continuous covariate such as the self-report fundamental social motives scale (described below), assuming an intraclass-correlation $> .25$. 
-As descibed under the relevant aims, in a linear model, the parameter that captures the degree to which differnces in learning between conditions correlate with differences in self-report motives, or age, will be a coefficient on an interaction term.
+The target sample size for this sample was 160 for $>90\%$ power to detect a small ($\beta_{\text{std on y}} = 0.1$) interaction between motive condition, and a continuous covariate such as the self-report Fundamental Social Motives Inventory (described below), assuming an intraclass-correlation $> .25$. 
 
 ## Pubertal Development
 
@@ -168,7 +168,7 @@ To assess pubertal development, all participants completed the Pubertal Developm
 While the full sample includes a wide range of pubertal development, there is notable heterogeneity.
 It is not surprising that almost all participants in the college samples report that puberty is complete.
 Notably (though also unsurprisingly), females in the the adolescent samples report being further through puberty than males (Figure \ref{fig:pdsplot}A), even though the mean age of males and females in these samples is roughly equivalent (Table \ref{tab:samplestats}).
-Most participants in the college smaples have PDS scores indicating puberty is completed, or nearly completed (Figure \ref{fig:pdsplot}B).
+Most participants in the college samples have PDS scores indicating puberty is complete, or nearly completed (Figure \ref{fig:pdsplot}B).
 
 ```{r pdsplot, fig.width=6, fig.height=3.5, include = F}
 pds_plot_12$widths <- c(5.5, 3)
