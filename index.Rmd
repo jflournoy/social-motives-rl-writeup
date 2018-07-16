@@ -57,7 +57,7 @@ dissertateUO::preamble_for_title(
 \FloatBarrier
 
 <!-- Chapter 2 -->
-\chapter{Methodology and participants overview}
+\chapter{Overview of sample characteristics}
 
 ```{r child='ch02_descriptives.Rmd'}
 ```
@@ -73,13 +73,13 @@ dissertateUO::preamble_for_title(
 \FloatBarrier
 
 <!-- Chapter 4 -->
-\chapter{Aim 2: Learning differences, self-report motives, and outcomes}
+\chapter{Aim 2: Learning differences, self-report motives, and behavioral correlates}
  
 ```{r child='ch04_aim2.Rmd'}
 ```
 
 <!-- Chapter 4 -->
-\chapter{Discussion}
+\chapter{Conclusions}
 
 - This study reveals that people do not behave on the SPLT in ways that are consistent with it being sensitive to individual differences in social motives.
     - This presents an interpretive conundrum.
@@ -87,6 +87,19 @@ dissertateUO::preamble_for_title(
     - There is no relation between this salience effect and development, or self-report motives in these data.
     - One possibility is that motive differences do not result in differences in the salience of stimuli that are relevant to those motives.
       - This conclusion would be a damning falsification of theories about attention-reward contingincies set up by the interaction between a person and her environment [@mackintosh1975;@grossberg1975;@kruschke2011]. Such an attack on the hard core of these theories is unwaranted.
+      
+
+One motivation behind the present work was a dissatisfaction with the explanatory power of the construct of sensation-seeking (also cast sometimes as reward-seeking), especially it is applied to the study of adolescent behavior and decision making.
+As it is commonly construed, and as is evident in the item content of many sensation-seeking scales, this construct is thought to capture a person's tendency to act in spite of perceived risk or danger, independent of any particular specific goal or motivation.
+For example, in the UPPS-P, "I quite enjoy taking risks," "I would like to go scuba diving," or "I like sports and games in which you have to choose your next move very quickly," are all considered equally adequate indicators of this construct.
+Drinking, driving fast, and engaging in less-safe sex may all plaubily be hypothesized as behavioral correlates of sensation seeking that we care about in adolescent research.
+Often left unexamined and unspecified is why those particular risks might be selected instead of others.
+
+Taking into account more specific motivations that lead individuals to behave in ways that may be congruent with those motives may add important nuance to our understanding of decision making during adolescence and early adulthood.
+For example, the FSMI Mate-seeking and Status items seem to ask about social goals (finding a ro0mantic partner, gaining status), whereas the K-SRQ Sexual Relationships and Admiration items ask the participant to consider their enjoyment of specific behaviors (flirting, receiving recognition) that are clearly related to those goals but are neither necessary nor sufficient for them. 
+In this investigation, associations between motive variables and behavior outcomes over and above UPPS-P subscales provide some evidence for the usefulness of taking into account this level of specificity.
+However, there is still only a nebulous taxonomic structure connecting the constructs in these scales.
+A more full exploration of the relation between these constructs, and description of their hierarchy, would be desirable.
 
 # Limitations
 
@@ -123,6 +136,9 @@ Even given the above limitations, this research may still provide important insi
   - Self-report traits scales show correlations with self-report behaviors that broadly support their validity. For example, people who are in relationships don't think much about meeting new dating partners.
   - One intrigueing null result is that neither mate-seeking motive scale was associated with use of protection.
   - (MUCH MORE ABOUT STATUS AND DRINKING, AND RELATION TO SENSATION SEEKING)
+- Though this task is unlikely to be a robust measure of individual differences in motives, the technique of manipulating the framing of stimuli does show some usefulness for using group-averaged, within-person differences to study how stimulus content impacts learning on average.
+- Future work could expand on this paradigm by expanding the content to test broader stuctural hypotheses regarding what kinds of social information is most salient.
+
 
 
 # Future directions
