@@ -103,22 +103,23 @@ ethnicity_table <- tables::tabular(
 
 Adolescence is a time of social reorientation during which individuals begin expressing romantic and sexual interests [for an overview, see: @collins2003; @collins2009], and spend more time with peers [at least, relative to time spent with family; @larson1991;@larson1996;@richards1998].
 The social reorientation hypothesis in developmental cognitive neuroscience proposes that these changes are the result of developing motivations that shift goals toward increasing social experiences in peer and romantic social networks [@nelson2005;@nelson2016].
-It further proposes that neurodevelopmental changes in perceptual, motivational, and executive control brain regions are the mechanisms that cause transitions through sensitive periods in development in which these systems are tuned to period-relevant social experiences (both in the sense of being receptive to, and motivated toward them).
+It further proposes that neurodevelopmental changes in perceptual, motivational, and executive control brain regions are the mechanisms that cause transitions through sensitive periods in development in which these systems are tuned to relevant social experiences (both in the sense of being receptive to, and motivated toward them).
 This identification of period-relevant social goals mirrors work in evolutionary psychology that has lead to a taxonomy of social motives which are broadly anchored by evolutionarily important social relationships [e.g., caregivers, peers, potential mates, mates, and offspring; for a thorough overview, see @neel2015].
 This work identifies social status and mate-seeking as distinct social motives that are not merely aspects of (a perhaps earlier-developing) affiliation motive, and provides a complimentary framework for thinking about the distinct fitness challenges adolescents begin to face as they transition beyond the juvenile period.
 The development of these social motives, and their role in learning and decision making, are important to understand given their likely role in many types of decision making and, as suggested by @nelson2016, for their role in psychopathology.
 
 One implication of the reorientation thought to arise from changes in social motives is that there should be concomitant changes in the value and salience of motive-relevant stimuli.
 While it may be the case that pubertally triggered neurobiological changes begin to directly alter the salience of cues that are evolutionarily stable predictors of period-relevant rewards, it is also probably the case that environmentally constrained changes in reward contingencies also alter the value of certain cues.
-In other words, changes in stimulus-salience may arise from feedback between the congenital changes in the salience of particular stimuli, and learning that links those stimuli to particular outcomes, may affect their salience in turn.
+In other words, changes in stimulus-salience may arise from feedback between the congenital changes in the salience of particular stimuli, and learning that links those stimuli to particular outcomes.
 In adolescence, specifically, this should result in increases in the salience of stimuli relevant to the milieux of the peer group and of potential romantic partners (for example, stimuli related to social status, and dating availability, respectively). 
 
 ## Salience and learning
 
 The reciprocal relation between stimulus salience, motivation, and learning is an important foundation for the idea that developmental changes in motivational systems should be responsible, in part, for the social reorientation thought to occur during adolescence. 
-A substantial body of work on learning and attention has shown that more salient cues enhances learning effects, and that learned predictive value modifies cue salience.
-In laying out a programmatic approach to learning and attention, @mackintosh1975 states that the idea that learning rates are different depending on the stimulus as "formally equivalent to one of the main tenets of two-stage, attentional theories of learning, namely, the assumption that the probability of attending to a stimulus determines the probability of learning about that stimulus" (p. 294).
+A substantial body of work on learning and attention has shown that more salient cues enhance learning, and that learned predictive value modifies cue salience.
+In laying out a programmatic approach to learning and attention, @mackintosh1975 states learning rates are different depending on the stimulus because the "probability of attending to a stimulus determines the probability of learning about that stimulus"~(p. 294).
 @grossberg1975 summarizes a body of literature indicating that if two cues are paired with an unconditioned stimulus, the more salient cue will be conditioned more quickly, even to the extent that it may block the conditioning of the less salient cue.
+
 More recently, @denton2006 demonstrated that the blocking effect in humans can be modulated by salience. 
 In this study, using cues of colored dots and modulating salience by the density of dots, the authors showed that it is harder to block a new cue if that new cue is more salient (higher dot density) than the already conditioned cue.
 In other blocking paradigms, learning an association between a highly predictive cue and outcome blocks an organisms ability to form an association between a new cue if it is paired with the first.
@@ -127,7 +128,7 @@ In this way, salience also seems to be modified by learning, with the "blocked" 
 
 From an evolutionary perspective, the modulation of learning by salience, and salience by learning, is harmonious with both the idea that the environment is not perfectly stable, as well as with the idea that the goals, social or otherwise, of an organism change across development.
 There are at least two possibilities for why co-modulation of learning and attention may have arisen as a part of our cognitive apparatus.
-First, it may be a way to solve the problem of how to constrain perceptual capacity (though may involve trade-offs as a result of ignoring the total amount of information in the environment), and second, and more simply, it may just be the optimal strategy for navigating environments that are not perfectly stable.
+First, it may be a way to solve the problem of how to constrain perceptual capacity, and second, and more simply, it may just be the optimal strategy for navigating environments that are not perfectly stable.
 @hullinger2015 provide support for the second possibility via simulations of evolved learning systems. 
 They found that attention evolves as an optimal strategy even in environments that did not overwhelm agents' perceptual capacity, but only when there was some amount of change in the value of different stimuli across the agents' lifespans.
 This gradual change of the diagnostic value of particular cues is very roughly analogous to what a developing organism might experience as their motives toward different kinds of social experience change. 
@@ -137,14 +138,14 @@ Even though they have been tested extensively throughout the lifespan, we know o
 ## Using reinforcement learning to investigate social motives
 
 In reinforcement learning paradigms, incorporating social information that is relevant to adolescent-emerging social goals should enhance learning for cues that are associated with that information.
-Specifically, in this study adolescents and young adults try to learn the association between targets (images of faces) and both minimally social descriptors (Hungry, Thirsty), as well as descriptors relevant to romantic behavior (Dating, Looking [for someone to date]), and to social hierarchy (i.e., status; Popular, Unpopular).
+Specifically, in this study, adolescents and young adults try to learn the association between targets (images of faces) and both minimally social descriptors (Hungry, Thirsty), as well as descriptors relevant to romantic behavior (Dating, Looking [for someone to date]), and to social hierarchy (i.e., status; Popular, Unpopular).
 We expect that our participants will differ in their motivation to learn the face-descriptor associations in proportion to the relevance of those descriptors to their social goals (e.g., mate-seeking, or status).
 We presume that knowing whether someone is dating, or looking for someone to date would, generally, be relevant information for someone who wants to engage in romantic or sexual behavior. 
 We also presume that status information is relevant to people who find themselves navigating increasingly complex social hierarchies. 
 Finally, we presume that learning about another person's hunger or thirst is not especially relevant to adolescent-emerging socially motivated goals.
 Past work has shown consistently that performance on reinforcement learning tasks improves with age [we return to this in the discussion, but see, e.g., @peters2017].
 For this reason, any developmental-motivation effect of stimulus salience on learning should manifest over-and-above the increase in performance that would be expected from early adolescence to young adulthood.
-Given the above, we hypothesized that relative to younger participants, older participants would show faster learning of the mate-seeking and status descriptors relative to the minimally social descriptors, and that pubertal status would also show this relation.
+Given the above, we hypothesized that, relative to younger participants, older participants would show faster learning of the mate-seeking and status descriptors relative to the minimally-social descriptors, and that pubertal status would also show this relation.
 
 # Method
 
@@ -152,7 +153,7 @@ Given the above, we hypothesized that relative to younger participants, older pa
 
 The Social Probabilistic Learning Task (SPLT) is a standard reinforcement learning paradigm using several stimulus-word pairings that are grouped by motive relevance.
 Common probabilistic reinforcement learning paradigms focus on estimating parameters that govern learning associations between stimuli using abstract images and nonsocial categories as the conditioned stimulus [e.g., a weather prediction of 'sunny' or 'rainy'; @knowlton1996].
-In the SPLT, motive context is manipulated by pairing human faces with state or trait words related to mate-seeking and status motives.
+In the SPLT, motive context is manipulated by pairing computer-generated representations of human faces with state or trait words related to mate-seeking and status motives.
 The purpose of this manipulation is to examine how this motive framing alters learning, especially across adolescent development, as well as how individual differences in learning are related to the measures of attitudes and behavior outlined below.
 
 \begin{figure}
@@ -163,7 +164,7 @@ The purpose of this manipulation is to examine how this motive framing alters le
 \end{figure}
 
 On each trial, the participant sees one of six faces, along with two labels, and is asked to classify the face using one of the two labels.
-The labels are: *Hungry* versus *Thirsty* (control condition that is nonsocial, or only minimally social), *Dating* versus *Looking* for someone to date (mate-seeking), and *Popular* versus *Unpopular* (status).
+The labels are: *Hungry* versus *Thirsty* (baseline condition that is nonsocial, or only minimally social), *Dating* versus *Looking* for someone to date (mate-seeking), and *Popular* versus *Unpopular* (status).
 After choosing the label, the participant is given feedback that they were correct and earned either 1/1 point or 5/5 points, or that they were incorrect and earned 0/1 point or 0/5 points (Figure \ref{fig:trialexample}).
 Each face is probabilistically associated with one label with P(Correct | Choice = Label) = .80.
 That is, there is a probabilistically optimal choice response, which precludes a memorization strategy and results in more automatic reinforcement learning [@knowlton1996].
@@ -172,14 +173,14 @@ The participant is instructed that "the same word goes with the same picture mos
 To ensure engagement with the stimulus faces, 3 unambiguously male and 3 unambiguously female faces were drawn from a set of faces evaluated by @todorov2008.
 Target faces were drawn from a subset of those highest in likeability and attractiveness ratings, and were selected to have roughly equal euclidean distance from one another on the other dimensions on which they had been rated (e.g., trustworthiness).
 Essentially, the faces were selected to be similarly salient, as well as similarly distinct from one another such that one or two particularly unique face did not overwhelm the learning effect of the motives.
-On each run of the task (i.e., for each participant), one male and one female face was randomly assigned to each label within condition (control, mate-seeking, status).
+On each run of the task (i.e., for each participant), one male and one female face was randomly assigned to each label within condition (baseline, mate-seeking, status).
 On each trial, the participant had 3.5 seconds to respond, and was shown response feedback for 1 second.
 The task comprises a total of 384 trials across 8 blocks.
 
 The receipt of the reward for choosing the optimal response (that is, the response that most often generated a reward) was probabilistic.
 Across conditions and samples, the observed probability of reward receipt for an optimal choice was very close to the generative _p_ = .80 (Table \ref{tab:optpressstats}).
 Reaction times for all participants can be seen in Figure \ref{fig:reactiontime}, with an overall mean of `r round(mean(dplyr::filter(splt, rt > 0, rt<3600)$rt)/1000, 2)`s (SD = `r round(sd(dplyr::filter(splt, rt > 0, rt<3600)$rt)/1000, 2)`s).
-Most participants completed all trials with only occasional missed responses (Table \ref{tab:trialstats})).
+Most participants completed all trials with only occasional missed responses (Table \ref{tab:trialstats}).
 For a small number of participants, far fewer trials were obtained (min = `r min(dplyr::summarize(dplyr::group_by(dplyr::filter(splt, !is.na(pressed_r)), id), n = n())$n)`, with n = `r sum(dplyr::summarize(dplyr::group_by(dplyr::filter(splt, !is.na(pressed_r)), id), n = n())$n < 350)` having fewer than 350 trials) either as a result of early termination, or because of computer error during data file saving.
 
 
@@ -223,14 +224,14 @@ print(reaction_time_plot)
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/reactiontime-1.pdf}
-\caption[Distribution of reaction times for all participants.]{\label{fig:reactiontime}Distribution of reaction times for all participants. The vertical line set a 1s, which is close to the mean reaction time across all samples.}
+\caption[Distribution of reaction times for all participants.]{\label{fig:reactiontime}Distribution of reaction times for all participants. The vertical line is set at 1s, which is close to the mean reaction time across all samples.}
 \end{figure}
 
 ## Modeling approach
 
-The focus of this analysis is on describing and estimating differences in learning that is proposed to be related to differences in motives that develop during adolescence.
+The focus of this analysis is on describing and estimating differences in learning that are proposed to be related to differences in motives that develop during adolescence.
 The goal of such estimation is to provide reliable information about the magnitude and sign of relations between observed phenomena, as well as about the uncertainty of that information.
-A Bayesian approach provides a robust framework for specifying and estimating hierarchical and nonlinear models with many parameters while constraining inferences in a way that reduces the rate of making incorrect claims with confidence [@gelman_why_2012;@GelmanPowerCalculationsAssessing2014].
+A Bayesian approach provides a robust framework for specifying and estimating hierarchical, nonlinear models with many parameters while constraining inferences in a way that reduces the rate of making incorrect claims with confidence [@gelman_why_2012;@GelmanPowerCalculationsAssessing2014].
 These are key concerns for the current work for two reasons.
 First, convergence of reinforcement learning  model can be difficult to achieve, and Bayesian estimation helps by allowing one to constrain parameter values for these models in a principled and intuitive way using parametric prior distributions.
 Second, in contrast to a confirmatory experiment, this analysis seeks to explore relations between a number of theoretically related constructs; as such, the hierarchical Bayesian approach helps constrain estimates in ways that increase their efficiency [@gelman_why_2012].
@@ -240,23 +241,21 @@ Second, in contrast to a confirmatory experiment, this analysis seeks to explore
 
 In the context of this task, where the relation between the optimal response and the stimulus is constant, a simple model of the degree of learning could rely on a simple proportion of optimal responses $P_{ok}$ for each condition $k$.
 The test of the hypothesis of the effect of framing would then be the difference between conditions in $P_o$. 
-This simple model sacrifice precision for simplicity, and so I will be modeling the data using a reinforcement learning model with several parameters that can account for deviations from a strict Rescorla-Wagner (RW) process.
-This increases the number of possible comparisons I am able to make between conditions, which may generate useful information about how motive-domain framing affects the learning process (as modeled, of course), but which also increases the complexity of patterns between conditions and parameters that must be interpreted.
-It will be helpful to keep in mind that the framing can only be said to potentiate learning if, regardless of its affect on any model parameters, it does not result in higher proportions of optimal responding.
+This simple model sacrifices precision for simplicity, and so we will modeling the data using a reinforcement learning model with several parameters that can account for deviations from a strict Rescorla-Wagner (RW) process.
+This increases the number of possible comparisons we are able to make between conditions, which may generate useful information about how motive-domain framing affects the learning process (conditional on the model), but which also increases the complexity of patterns between conditions and parameters that must be interpreted.
+It will be helpful to keep in mind that the framing can only be said to potentiate learning if, regardless of its effect on any model parameters, it also results in higher proportions of optimal responding.
 
-In this section, I simulate data as expected under the Rescorla-Wagner model implemented by @ahn2017 in their go-no-go model 2. 
+The model used for these analyses is a Rescorla-Wagner model implemented by @ahn2017, which they label as their go-no-go model number 2. 
 Their original model handles binary decisions (button-press or no button-press) in response to four different cues. 
 However, the form of the learning algorithm is generalizable to other binary choices in response to cues. 
-In the case of the Social Probabilistic Learning Task (SPLT), participants are presented with a face (the cue), and must decide to press the left key or the right key. 
-They are rewarded probabilistically such that for each cue, one or the other of the response options has an 80% chance of providing reinforcement. 
 The go-no-go models used by @ahn2017 were derived from work by @guitart-masip2012. 
-Their most flexible reinforcement learning model generates the probability of an action for each trial via N parameters: the learning rate, $\epsilon$, the effective size of reinforcement, $\rho$, a static bias parameter, $b$, an irreducible noise parameter, $\xi$, and a Pavlovian learning parameter, $\pi$.
-In the SPLT, trial feedback does not vary by valence (responses result in reward, or no reward, but never punishment), so I use the model that does not include this Pavlovian component. 
+Their most flexible reinforcement learning model generates the probability of an action for each trial via five parameters: the learning rate, $\epsilon$, the effective size of reinforcement, $\rho$, a static bias parameter, $b$, an irreducible noise parameter, $\xi$, and a Pavlovian learning parameter, $\pi$.
+In the SPLT, trial feedback does not vary by valence (responses result in reward, or no reward, but never punishment), so we use the model that does not include this Pavlovian component. 
 
 ## Reinforcement learning model for the SPLT
 
-The pattern of an individual $j$'s decision to press right ($a_{\rightarrow} = 1$) versus left ($a_{\rightarrow} = 0$) is distributed Bernoulli with $a_{\rightarrow j} \sim \text{Bernoulli}(\theta_j)$. 
-Each individual's vector of $\theta_{j}$ is just the probability of pressing the right arrow key, $P(a_{\rightarrow t} | s_{t})_{t}$, for each trial $t$, conditional on whatever stimulus $s_{t}$ is present on that trial. 
+The pattern of an individual $j$'s decision to press right ($a_{\rightarrow} = 1$) versus left ($a_{\rightarrow} = 0$) is distributed Bernoulli with $a_{\rightarrow j}\sim\text{Bernoulli}(\theta_j)$. 
+Each individual's vector of $\theta$ is just the probability of pressing the right arrow key, $P(a_{\rightarrow t} | s_{t})_{t}$, for each trial $t$, conditional on whatever stimulus $s$ is present on that trial. 
 This probability is calculated using a logistic transformation of the action weight for pressing the right arrow key minus the action weight for pressing the left arrow key. 
 This probability is then adjusted by a noise parameter, $0 \leq\xi_{jk}\leq1$ for each participant $j$ during condition $k$.
 The noise parameter modulates the degree to which responses are random. 
@@ -275,7 +274,7 @@ Q_{t}(a, s) & \text{otherwise}
 \end{cases},
 $$
 where $b_{jk}$ encodes the degree of bias, for participant $j$ during condition $k$, toward pressing the right arrow key ($\rightarrow$).
-The function $Q$ encodes instrumental learning and is governed by the individual's learning rate for that condition, $\epsilon_{jk}$, and the inverse temperature parameter $\rho_{jk}$ that scales the effective size of the possible rewards $r_t \in \{0, 1, 5\}$:
+The function $Q$ encodes instrumental learning and is governed by the individual's learning rate for that condition, $\epsilon_{jk}$, and the inverse temperature parameter, $\rho_{jk}$, that scales the effective size of the possible rewards $r_t \in \{0, 1, 5\}$:
 $$
 Q_{t}(a_t, s_t) = Q_{t-1}(a_t, s_t) + \epsilon_{jk}\big(\rho_{jk}r_t - Q_{t-1}(a_t, s_t)\big).
 $$
@@ -309,10 +308,10 @@ The bias parameter $b$ does not need any transformation.
 
 ## Simulating data
 
-Before modeling the task data, I will confirm that this model can recover known parameters from simulated data.
-Using RStan [version `r packageVersion('rstan')`; @standevelopmentteam2018], I simulate 100 data sets based on the structure of the sample data, using the same number of participants per sample, as well as precisely the same task structure. 
+Before modeling the task data, we will confirm that this model can recover known parameters from simulated data.
+Using RStan [version `r packageVersion('rstan')`; @standevelopmentteam2018], we simulate 100 data sets based on the structure of the sample data, using the same number of participants per sample, as well as precisely the same task structure. 
 For this analysis, it is important to be able to recover all $\mu_{\theta k}$ for $\theta \in \{\epsilon,\rho,b,\xi\}$ and $k \in \{1,2,3\}$, where 1 = Hungry/Thirsty, 2 = Popular/Unpopular, and 3 = Dating/Looking. 
-Based on interactive simulation ([here](https://jflournoy.shinyapps.io/rw_model/)), reasonable parameter values for the control condition might be $\mu_{\epsilon^\prime} = -1.65$ and $\mu_{\rho^\prime} = -0.3$ (note that these are the _raw_ parameter values which are transformed such that $\epsilon \in [0,1]$ and $\rho \in [0,\infty)$ -- similar to logistic regression, estimating the parameters on a scale the is not restricted in range improves estimation).
+Based on interactive simulation ([here](https://jflournoy.shinyapps.io/rw_model/)), reasonable parameter values for the control condition might be $\mu_{\epsilon^\prime} = -1.65$ and $\mu_{\rho^\prime} = -0.3$ (note that these are the _raw_ parameter values on the scale on which the priors are defined, and which are transformed before being used in the learning model).
 
 One early indication that a model may not be well suited to describing the data is that when generating from the prior distribution, simulated data-sets either do not adequately cover the range of reasonable values, or cover ranges that are implausible [@gabry2017].
 The simulated data do generally cover the range of the actual data when we look just at the proportion of optimal presses over time (Figure \ref{fig:simdatcoverage}, and importantly do not show implausible behavior (e.g., most estimates around extreme values like 0, 1, or .5).
@@ -398,9 +397,9 @@ All models were fit in RStan [version `r packageVersion('rstan')`; @standevelopm
 Samples were drawn over 1534 iterations from six chains per model, with the first 1200 iterations for each chain discarded as a warm-up period (total iterations per model = 2004).
 To compare models and choose the one with the best expected out-of-sample prediction we use the R package, loo [@vehtari2018], to compute an estimate of the leave-one-individual-out cross validation information criterion [@vehtari2017a].
 
-From the winning model, I then extract model parameters, as well as the final probability of choosing the optimal descriptor for a particular cue.
+From the winning model, we then extract model parameters, as well as the final probability of choosing the optimal descriptor for a particular cue.
 Means of the posterior densities for all parameters are used in subsequent analyses.
-In addition, I use the average number of optimal choices in the last half of the run as a more easily calculable measure of optimal performance.
+In addition, we use the average number of optimal choices in the last half of the run as a more easily calculable measure of optimal performance.
 Associations between all model parameters, measures of performance, age, and pubertal development are computed using Spearman's rank order correlations and standardized coefficients from linear mixed effects models.
 Linear mixed effects (LME) models were computed using the R package lme4 [version `r packageVersion('lme4')`; @bates2015].
 These LME models were computed in order to aid descriptions of plotted data and best-fit generalized additive model (GAM) lines, and were used in place of correlations to account for non-independence of data when, for example, a parameter for all three conditions was being regressed on age.
@@ -795,7 +794,7 @@ age_par_plot + ggplot2::labs(x = 'Age (years)')
 The difference between the social conditions and minimally social reference condition across this developmental span is one of the primary observations that will inform the question about whether motive effects on learning reflect what would be expected based on the theories discussed in the introduction.
 Observations consistent with those theories would be age-increasing differences in the contrast between parameters for learning during the social versus reference conditions.
 These slopes of the contrasts with respect to age are very flat for all parameters, with a very slight increase for $\epsilon$, and decrease for $\rho$ (Figure \ref{fig:ageparconplots}).
-The standardized coefficients, nearly all very small, mirror the best fit lines, although the estimate for $\epsilon$ in the adolescent sample is small and negative (Table \ref{tab:agebetas}).
+The standardized coefficients, nearly all very small, mirror the best fit lines, although the estimate for $\epsilon$ in the adolescent sample is small and negative (Table \ref{tab:agebetascon}).
 
 
 ```{r ageparconplots, fig.width=5.875, fig.height=4, include=F}
