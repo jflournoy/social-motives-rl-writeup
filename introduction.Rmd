@@ -10,27 +10,28 @@ Health risking behavior and rates of unintentional injury describe a trajectory 
 This gives rise to the paradox of adolescence: although this is a period of robust physical health and increased mental ability, both morbidity and mortality increase [@dahl2004].
 
 Current conceptualizations in the field capture many features of adolescence relevant to health-related decisions, but focusing on functional aspects of behavior (which many of these theories acknowledge as important) will help to strengthen and unify these approaches.
-Imperfect information, or exaggerated expectations of invincibility, were ideas proposed early on to account of health-risk behavior durign adolescents.
+Imperfect information, or exaggerated expectations of invincibility, were ideas proposed early on to account of health-risk behavior during adolescents.
 However, on most questions, adolescents show no particular bias toward over or underestimating probabilities, though their estimation is not perfect; and those probabilities do generally correlate with prospective outcomes [@debruin2007;@fischhoff2000;@fischhoff2008].
 The one prediction that is aberrant is that teens overestimate their probability of dying, which may be functionally relevant to enhancing the value of immediate rewards, especially if those rewards are relevant for thriving and reproductive fitness in the near-term.
 
-Another recent approach proposes that neuroscientific evidence reveals an imbalance between sets of action-promoting, and action-inhibting processes, and that this developmental imbalance is a cause of risk-taking behavior.
+Another recent approach proposes that evidence from neuroscience reveals an imbalance between sets of action-promoting, and action-inhibiting processes, and that this developmental imbalance is a cause of risk-taking behavior.
 In fact, there are several similar theories that are cast in variations of this basic idea.
 The dual systems model suggest that during adolescence, the system that encodes socially and emotionally rewarding stimuli increases its sway on behavior more rapidly than cognitive control does [@shulman2016].
 The imbalance model proposes that there is not a miscalibration of the balance of power between two systems, but rather that there is a developmentally emerging optimality of balance between multiple systems [@casey_beyond_2016].
-No approach in theis vein accounts directly for why adolescents find certain behaviors, rather than others, more rewarding.
+No approach in this vein accounts directly for why adolescents find certain behaviors, rather than others, more rewarding.
 
 Two other theories do address functional aspects of adolescent decision making.
 Social reorientation theory suggest that during adolescence, individuals shift their dominant social network from the family to peers [@nelson2016].
 This shift is in part driven by developmentally appropriate changes in the salience of interactions with peers and potential romantic partners.
 Health-risking behavior may be in part a by-product of differences in what this peer social group values, though the reasons for these value differences have not been fully explicated.
-Fuzzy trace theory also has relevance for helping to explain why 
-    - Haven't developed clear heuristics so explore all possible options (like a rational actor) to develop more adult like heuristics, which exposes them to risk
-    - That is, taking risks, or exploring situations with known or unknown probabilistic outcomes, is an essential part of this developmental stage, perhaps allowing adolescents to build expertise and wisdom about the world they must engage with as adults [@blakemore2014;@crone2012;@romer2017].
+Fuzzy trace theory also has relevance for helping to explain the function, if they exist, of decreased sensitivity to uncertainty (i.e., risk) during adolescence.
+This theoretical framework posits that adolescents have yet to developed heuristics that tend to govern more experienced, adult decisions making, and so are more willing to explore the full problem space in order to develop more adult like heuristics [@romer2017].
+If some possible outcomes are negative with respect to health, then this puts adolescents at risk of adverse consequences.
+This exploration and learning about probabilistic outcomes is proposed to be an essential task of this developmental stage, perhaps allowing adolescents to build expertise and wisdom about the world they must engage with as adults [@blakemore2014;@crone2012;@romer2017].
 
-Given that adolescent health risking behavior may involve either impulsive _or_ highly cognitively controlled behaviors, a more fully developed framework, borrowed from the literation in economics and neuroeconomics, helps describe the process by which certain behaviors are selected.
-This veiw goes beyond the ideas of warring systems, some of which push the adolescent to do healthy things, and some of which push the adolescent to do naughty things, describing behavior selection as a process of integration of expected value inputs from myriad sources which colminates in the (perhaps probabilisitc) selection of behaviors with high expected value [@pfeifer2018].
-These sources of value inputs may come from basic appetative processes related to the desire for food or sex, as well as from self concept, social norms, peer expecations, emotional states, \&c.
+Given that adolescent health risking behavior may involve either impulsive _or_ highly cognitively controlled behaviors, a more fully developed framework, borrowed from the literature in economics and neuroeconomics, helps describe the process by which certain behaviors are selected.
+This view goes beyond the ideas of warring systems, some of which push the adolescent to do healthy things, and some of which push the adolescent to do naughty things, describing behavior selection as a process of integration of expected value inputs from myriad sources which culminates in the (perhaps probabilistic) selection of behaviors with high expected value [@pfeifer2018].
+These sources of value inputs may come from basic appetitive processes related to the desire for food or sex, as well as from self concept, social norms, peer expectations, emotional states, \&c.
 From the vantage point of this value-based choice perspective, it becomes clear that adolescent developing motivations for fitness-relevant behaviors related to status and mate-seeking could have a significant impact on value computations.
 
 In order to understand health-risking behavior, and decisions making during adolescence more generally, it is important to begin to try to understand the motivational inputs related to evolutionarily relevant developmental tasks.
@@ -68,7 +69,7 @@ The evolutionary-psychological framework is especially important for understandi
 Using the FSM framework will allow integration of findings from this work into the broader evolutionary psychology conversation that is beginning to arise in adolescent research. 
 
 Another advantage of the FSM approach is that it parses motivations by relationships.
-There are many traditions that would place status motives and mate-seeking motives within one of two broad domains, respectively, such as agency and communion (Bakan, 1966), power and intimacy [@mcadams_power_1985], and many others [@wiggins1991].
+There are many traditions that would place status motives and mate-seeking motives within one of two broad domains, respectively, such as agency and communion [@bakan1966], power and intimacy [@mcadams_power_1985], and many others [@wiggins1991].
 However, those traditions are not able to capture the distinct challenges inherent in specific subsets of social relations, and thus the distinct motivational adaptations that may plausibly arise from those challenges.
 The FSM approach organizes the measurement of motivation around these broad relationship categories, making it especially useful for thinking about adolescence, which is proposed to be marked by a restructuring of the social world [@nelson2005;@nelson2016] -- perhaps as a consequence of developing motivations.
 Indeed, the FSM framework is especially useful given how different motives plausibly map onto important relationships at different developmental stages (specifically, mate-seeking as a result of puberty, but also, e.g., kin care, later, in adulthood).

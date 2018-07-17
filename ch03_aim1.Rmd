@@ -806,7 +806,7 @@ age_par_con_plot + ggplot2::labs(x = 'Age (years)')
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/ageparconplots-1.pdf}
-\caption[Reinforcement learning model parameter condition contrasts versus age]{Reinforcement learning model parameter condition contrasts versus age. All best-fit lines are from generalized additive models. Grey line is fit to all data. Differences are culculated using paramters transformed to be on the model scale.}
+\caption[Reinforcement learning model parameter condition contrasts versus age]{Reinforcement learning model parameter condition contrasts versus age. All best-fit lines are from generalized additive models. Grey line is fit to all data. Differences are calculated using parameters transformed to be on the model scale.}
 \label{fig:ageparconplots}
 \end{figure}
 
@@ -875,7 +875,7 @@ puberty_par_con_plot + ggplot2::labs(x = 'PDS mean score')
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/pubertyparconplots-1.pdf}
-\caption[Reinforcement learning model parameter condition contrasts versus puberty]{Reinforcement learning model parameter condition contrasts versus puberty. All best-fit lines are from generalized additive models. Grey line is fit to all data. Differences are calculated using paramters transformed to be on the model scale. PDS = Pubertal Development Scale.}
+\caption[Reinforcement learning model parameter condition contrasts versus puberty]{Reinforcement learning model parameter condition contrasts versus puberty. All best-fit lines are from generalized additive models. Grey line is fit to all data. Differences are calculated using parameters transformed to be on the model scale. PDS = Pubertal Development Scale.}
 \label{fig:pubertyparconplots}
 \end{figure}
 
@@ -914,7 +914,7 @@ knitr::kable(pds_param_con_betas_table, digits = 2, escape = F,
 \end{threeparttable}
 \end{table}
 
-# Discussion
+# Discussion, Aim 1
 
 Overall, the best-fitting model for learning captures the behavior of participants on the task well.
 We see that the model simulations generate data that covers the full range of possible behavior, and that simulated data from the fitted parameters reproduce the average learning trajectory in each condition.
@@ -1069,9 +1069,6 @@ As mentioned in the limitations, above, it may also be the case that although th
 Of course, it is possible that this null effect truly does reflect an underlying, age-stable motivational orientation toward information about dating and social status that is not affected by the developmental-stage-specific neurobiological changes in motivational systems, as proposed by the social reorientation hypothesis.
 If this is the case, it would be somewhat inconsistent with the hypothesis that underlying motivational changes, rather than changes in the social milieux, are predominantly responsible for behavioral changes during adolescence.
 
-
-
------
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTIxNDM3NDY2NDldfQ==
