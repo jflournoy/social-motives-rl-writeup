@@ -61,16 +61,16 @@ This scale was only administered to the two college samples.
 The original SRQ was developed to measure individual differences in what kinds of social interactions people find rewarding [@foulkes2014].
 Understanding what is rewarding and valuable to people is directly related to what people find motivating, with greater reward derived from a particular domain indicating greater motivation in that domain.
 In the work that established this measure, validity was investigated using other existing self-report trait scales, with favorable results.
-The Sexual Relationships subscale, administered to all samples as a measure mate-seeking motive, correlated strongly with sociosexual orientation measures.
+The Sexual Relationships subscale, administered to all samples as a measure of mate-seeking motive, correlated strongly with sociosexual orientation measures.
 Admiration, administered to all samples as a measure status motive, correlated with dominance, friendliness, hostility, extraversion and narcissism.
-Two other subscales, though not focal, are reported in this investigation as well: Passivity, which measures enjoyment of giving control over decisions to others, was negatively correlated with dominance; Sociability, which measures enjoyment of group interactions, showed a pattern of correlations similar to Admiration, but with a correlation to hostility close to zero.
+Two other subscales, though not focal, are reported in this investigation as well: Passivity, which measures enjoyment of giving control to others, was negatively correlated with dominance; Sociability, which measures enjoyment of group interactions, showed a pattern of correlations similar to Admiration, but with a correlation to hostility close to zero.
 The Kids' SRQ was modified for this study to be more appropriate for adolescents by replacing questions explicitly about sex (e.g., "I enjoy having an active sex life"), with questions that are closely related to sexual and romantic experience (i.e., "I like kissing," "I like having a crush on someone," and "I like flirting").
 
 ### Dominance and Presige (D&P) Scale
 
 The Dominance and Prestige scale was developed to measure distinct and non-mutually exclusive strategies for attaining social status [@cheng2013].
 Dominance refers to the use of physical or social force to exert control over others such that social rank is increased.
-Prestige refers to the process of deploying expertise and performance to garner respect from peers.
+Prestige refers to the strategy of using expertise and performance to garner respect from peers.
 These measures were administered to the college sample in part to help reaffirm the validity of the FSMI Status scale, as well as to examine differential associations between SPLT task behavior and particular strategies.
 For example, it is plausible that those employing dominance strategies to achieve status need to attend more closely to the social rank, or popularity, of others in order to avoid attempting to exert force upon those more powerful.
 For those employing prestige strategies, where social rank is in part a by-product of excellence in other domains, peer popularity may be less important.
@@ -78,22 +78,22 @@ For those employing prestige strategies, where social rank is in part a by-produ
 ### Urgency, Premeditation, Perseverance, and Sensation Seeking (UPPS-P)
 
 The constructs of impulsiveness and sensation seeking figure prominently in research on adolescence [e.g, @collado2014;@harden2011;@mccabe2015;@roberti2004;@romer2010;@shulman2015;@shulman2016;@steinberg2008].
-These constructs are also necessarily linked to motivation -- impulsivity and sensation seeking must necessarily select behaviors from those already with some motivational weight attached.
-For this reason, the UPPS-P [@whiteside2005], a popular measure of these constructs, was included and used as control variables by which the above measures could be set against as covariates.
+These constructs are also necessarily linked to motivation -- behaviors must be selected from those already having some motivational weight.
+For this reason, the UPPS-P [@whiteside2005], a popular measure of these constructs, was included, with subscales used as covariates against which the above measures could be compared.
 This instrument contains scales for both Positive and Negative Urgency, which are supposed to measure impulsivity related to both positive and negative affective states.
 It also contains the Sensation Seeking subscale, a measure of enjoyment of activities that pose some amount danger, or uncertainty (i.e., risk).
-The Premeditation and Perseverance scales, measuring the tendency, respectively, to think before acting and perseverance in the face of difficulty or tedium, were also included.
+The Premeditation and Perseverance scales, measuring the tendency, respectively, to think before acting and to persevere in the face of difficulty or tedium, were also included.
 
 ## Behavioral outcomes
 
-Examining the relation between these constructs and sexual behavior is done primarily to help establish concurrent validity.
+Examining the relation between the above constructs and sexual behavior is done primarily to help establish concurrent validity.
 Adolescence is a time when both hormonal and social changes increase propensity to engage in sexual behavior [@udry1988].
 These outcomes are developmentally normative, and as such these analyses are not intended as investigations into the relation of mate-seeking motives to adolescent (or early adult) _risk-taking_ behavior.
 Of course, these behaviors are health-_relevant_ not just because having sex confers risk of sexually transmitted infection, or pregnancy, but also because successful navigation of romantic and sexual relationships is _developmentally healthy_ [@harden2014a].
 In short, sexual and romantic desire, and behavior, should correlate, as well as show developmentally expected increases during the transition from childhood to sexual maturity and adulthood.
 
-Questions about sexual behavior were derived from the the Sexual Experience Survey used by @smith2006, which was itself derived from questions administered by @mcapaldi2002, and include number of recent sexual partners, and sexual encounters.
-Risky sexual behavior is assessed by an item asking the participant to report on frequency of a variety of safe sex practices.
+Questions about sexual behavior were derived from the the Sexual Experience Survey used by @smith2006, which was itself derived from questions administered by @mcapaldi2002. They ask about the number of recent sexual partners, and sexual encounters.
+Risky sexual behavior is assessed by an item asking the participant to report on the frequency of a variety of safe sex practices.
 In these analyses, this is treated as a health-_risking_ behavior given that these behaviors are the primary means for adults and adolescents alike to ameliorate the risks of developmentally normative sexual behavior.
 
 Alcohol use is another common target outcome for research on adolescent motivation and decisions making, and so provides another touchstone by which we might measure the effectiveness of our instruments, as well as provide additional data on the relations between facets of adolescent motivation and health-relevant behaviors.
@@ -106,10 +106,10 @@ Given that desire for socialization as well as status may motivate attendance at
   
 # Method
 
-The primary goals of these analyses are to establish that the scales as measures of the constructs of interest, examine whether they provide any convergent evidence that individual differences in the Social Probabilistic Learning Task (SPLT) are related to motives, explore their association with adolescent health-related behavior, and, finally, to explore the associations between this behavior and learning during the SPLT.
+The primary goals of these analyses are to establish the scales as measures of the constructs of interest, examine whether they provide any convergent evidence that individual differences in the Social Probabilistic Learning Task (SPLT) are related to motives, explore their association with adolescent health-related behavior, and, finally, to explore the associations between this behavior and learning during the SPLT.
 Most interpretive decisions will be made on the basis of effect size, without thresholding based on test statistic parametric probabilities.
 The primary exception to this is during the psychometric testing phase, as described below.
-Analyses of self-report scales will all employ on latent variable models to protect against most types of differential item functioning [@gregorich2006], and to properly account for reliability of measurement [@westfall2016].
+Analyses of self-report scales will all employ latent variable models to protect against most types of differential item functioning [@gregorich2006], and to properly account for reliability of measurement [@westfall2016].
 All analyses, unless specified otherwise, were performed using the lavaan package [version `r packageVersion('lavaan')`; @rosseel2012] in R [version `r paste0(version$major, '.',version$minor)`; @rcoreteam2018].
 Data wrangling and plotting was performed with help of the tidyverse packages [version `r packageVersion('tidyverse')`; @wickham2017], and the psych package [version `r packageVersion('psych')`; @revelle2017].
 
@@ -121,16 +121,16 @@ Although comparisons between reported gender groups, or samples, are not the foc
 
 For testing metric invariance, which is required to make inferences based on latent covariance structures, we use the McDonalad Non-centrality Fit Index (MFI) because this has been shown to be robust to differences in sample size and magnitude of item loadings [@kang2016].
 In simulations performed by @kang2016, $\Delta\text{MFI} > .01$ was seen in less than 1\% of invariance tests when the null of measurement invariance between groups is true, though the authors caution against rules-of-thumb like this more generally.
-In other simulations [@johnflournoy2018], $\Delta\text{MFI} > .012$ was roughly the cut-off for the 1\% level.
+In other simulations, $\Delta\text{MFI} > .012$ was roughly the cut-off for the 1\% level [@johnflournoy2018].
 The tests below follow these guidelines roughly: when fit differences in the MFI between invariant, or partially-invariant, scales is more than .012, constraints on particular items (suggested by modification indices) are relaxed until the fit difference is no longer substantially concerning.
 However, because these items not longer contribute to the model in the same way, and because content coverage of the scales is another important concern for validity [@borsboom2006], the final partially invariant scale is not embraced credulously.
-When substantial modification is necessary, sensitivity analyses is performed to compare estimates between the fully constrained scales and the partially constrained (i.e., partially invariant) measurement models.
+When substantial modification is necessary, sensitivity analysis is performed to compare estimates between the fully constrained scales and the partially constrained (i.e., partially invariant) measurement models.
 If results are not too different, then we can be assured that in this case, neither measurement nor content differences are strongly influential on the range of inferences we might make.
 If results do appear markedly different, then it is difficult to adjudicate which is the more interpretable.
 
-The final model chosen for more extensive interpretation is selected on the basis of parsimonious model fit.
+Group equality constraints on the covariance between latent variables will be examined next, with the final model chosen for more extensive interpretation being selected on the basis of parsimonious model fit.
 Smaller values of the Akaike Information Criterion (AIC), an estimate of out-of-sample predictive accuracy that incorporates model parsimony [@akaike1998;@gelman2014], will be used to determine whether emphasis should be given to models that constrain substantive estimates across groups (e.g., samples).
-When appropriate, even if the AIC indicates the constrain may provide better predictive accuracy, we can examine differences in estimates between different groups to ensure that this is a reasonable conclusion.
+When appropriate, even if the AIC indicates the constraint may provide better predictive accuracy, we can examine differences in estimates between different groups to ensure that this is a reasonable conclusion.
 
 In order to characterize the cross-sectional age associations for each scale, the measurement models will be used to regress each latent variable on a quadratic function of age, with the gender factor interacting with age.
 These structural models are intended to provide information on how well these associations converge with expectations based on the social reorientation theory (in the case of status and mate-seeking related constructs), as well as expectations based on past research on impulsivity and sensation seeking during adolescence as described above.
@@ -146,8 +146,8 @@ Special attention will be given to the FSMI Mate-seeking and Status scales, the 
 ## Self report relation to SPLT
 
 Four parameters from the reinforcement learning model of SPLT behavior, $\epsilon, \rho, \xi, b$, and two proportions of optimal responses during the first and second half of the run, were correlated with all latent variables in the measurement models established in the step above.
-The variables for the SPLT comprise a value for every parameter, for every condition (Hungry/Thirsty, Popular/Unpopular, Dating/Looking), as well as for the contrasts between the two social conditions and the minimally social condition for a total of P = 30.
-The contrast variables for model parameters are calculated on the model scale, such that $\epsilon, \xi, \in [0,1]$ and $\rho \in [0,\infty)$, and analyzed without further transformation (differences in proportions are treated similarly).
+The variables for the SPLT comprise a value for every parameter, for every condition (Hungry/Thirsty, Popular/Unpopular, Dating/Looking), as well as for the contrasts between the two social conditions and the minimally social condition for a total of 30.
+The contrast variables for model parameters are calculated on the model scale, such that $0\le\epsilon,\xi\le1]$ and $0\le\rho$, and analyzed without further transformation (differences in proportions are treated similarly).
 The parameters from the baseline condition are transformed as they were during model estimation, such that $\epsilon^\prime=\phi^{-1}(\epsilon)$, $\xi^\prime=\phi^{-1}(\xi)$, $\rho^\prime = ln(\rho)$, where $\phi^{-1}$ is the quantile function for the unit normal density.
 The condition-specific (but not contrast) values for proportion of optimal responses were also transformed using the quantile function.
 
@@ -162,10 +162,10 @@ Interpretation of the results will focus on the size and sign of the correlation
 First, the motive-related scales may be further evaluated for construct validity on the basis of their relation to self-reported behaviors which would be expected to result from those motives.
 For example, in general, those who are in long-term relationships should report lower levels of interest in seeking out new romantic or sexual partners (i.e., lower scores on the FSMI Mate-Seeking scale).
 Among all participants, higher levels on the K-SRQ Sexual Relationships scale should be related to higher numbers of sexual encounters (specifically, "how many times, in the last six months, have you had sex/sexual relations," with sexual relations defines as "oral, vaginal or anal, and can be with male or female partners").
-Among those who are not in long-term relationships, higher FSMI Mate-Seeking and K-SRQ Sexual Relationships (which is supposed to measure the enjoyment of sexual behavior) should be related to having had more, recent, sexual partners (specifically, "with how many different people in the last 6 months").
-Finally, though it is more speculative, because of the item content related to parties and social events, higher scores on the K-SRQ Sociability may be expected to relate to greater number of days having had at least one drink ("In the past 30 days, on how many days did you have at least one drink of alcohol"), at least in the college sample.
+Among those who are not in long-term relationships, higher FSMI Mate-Seeking and K-SRQ Sexual Relationships should be related to having had more, recent, sexual partners (specifically, "with how many different people in the last 6 months").
+Based on the literature relating popularity and status to alcohol consumption, higher scores on FSMI Status and K-SRQ Admiration may be expected to relate to greater number of days having had at least one drink ("In the past 30 days, on how many days did you have at least one drink of alcohol").
 
-The more substantively interesting questions involve the relation between risky sexual behavior and alcohol use.
+The more substantively interesting questions involve the relation between trait scales and both safe-sex behavior and heavy alcohol use.
 The outcomes of interest are:
 
 - "In the last 6 months, what percentage of the time when you've had sexual relations (oral, vaginal or anal) did you USE safe sex practices to prevent sexually transmitted diseases - condoms, blood tests, dental dams, etc.)"
@@ -180,7 +180,7 @@ Responses to the number of partners in the last six months was also binned into 
 The response options for both alcohol use questions were constrained, with response options, in days, set to 0, 1-2, 3-5, 6-9, 10-19, 20-29, and "All 30".
 For both responses, very few or no participants selected 20 or more days, and only 6 participants selected 10-19 days for the question asking about having had five or more drinks in one session.
 Bins on the high end were combined resulting in five bins for the question asking about days having any number of drinks (0, 1-2, 3-5, 6-9, 10 or more), and in four bins for the question about days having five or more drinks (0, 1-2, 3-5, 6 or more).
-The question regarding safe sex practice was analyzed continuously because the response options asked about continuous frequency, and the question about substance use prior to sex was analyzed as a binary categorical outcome.
+The question regarding safe sex practice was analyzed continuously because the response options asked about continuous frequency.
 Analysis of categorical outcomes used ordinal regression using a diagonally weighted least squares estimator with robust standard errors and a mean and variance adjusted test statistic (corresponding to the WLSMV estimator in the lavaan package).
 This estimation method requires listwise deletion for any cases without complete responses on the questionnaires.
 This results in lower samples sizes for analyses comparing the UPPS-P scales as described below.
@@ -213,8 +213,8 @@ The test of association between the SPLT variable and the outcome is, as above, 
 
 Descriptive statistics including mean, standard deviation, Cronbach's $\alpha$, and Guttman's $\lambda\text{-6}$ coefficient are provided for each computed scale, for each sample.
 These statistics were computed as means of all items responded to, including cases with missing values, and with no imputation, using the alpha function in the psych package [@revelle2017].
-Though all scales will be evaluated using latent variable measurement models, but these statistics may provide a helpful starting point of reference.
-Statistics for scales administered to the college samples, only, appear in Table \ref{tab:srdesccollege}, and for the K-SRQ and the UPPS-P, administered to the adolescent samples only, can be found in Tables \ref{tab:srdescksrq} and \ref{tab:srdescuppsp}.
+Though all scales will be evaluated using latent variable measurement models, these statistics may provide a helpful starting point of reference.
+Statistics for scales administered to the college samples, only, appear in Table \ref{tab:srdesccollege}, and for the K-SRQ and the UPPS-P, administered to both adolescent and both college samples, can be found in Tables \ref{tab:srdescksrq} and \ref{tab:srdescuppsp}.
 
 \begin{table}
 \centering
@@ -282,7 +282,7 @@ knitr::kable(scale_descriptives_table_comb_uppsp,
 ### Fundamental Social Motives Inventory
 
 The Fundamental Social Motives Inventory (FSMI) was administered to the college sample only (both because the questions are not appropriate for younger adolescents, and because time did not allow for this additional inventory).
-For the specific purposes of this study, the analyses below focus on the Mate-seeking and Status factors, though an examination of the full inventory is doubtless of interest, more generally.
+For the specific purposes of this study, the analyses below focus on the Mate-seeking and Status factors.
 Invariance of loadings of items on factors (metric invariance) between participants reporting male versus female gender on the pubertal development scale (PDS) was tested and found acceptable, with a slight increase in fit after constraining factor loadings ($\Delta\text{MFI}= `r round(fsmi_matestat_cfa_fit[['delta1']][['mfi']],3)`$).
 The final confirmatory factor analysis (CFA) for mate-seeking and status factors fit well ($\text{N}_{\text{total}}$ = `r lavaan::inspect(fsmi_cfa_matestat_gender_metric, what = 'ntotal')`, RMSEA = `r round(fsmi_matestat_cfa_fit[['fsmi_cfa_matestat_gender_metric']][['rmsea']],3)`, $\text{MFI}$ = `r sprintf('%0.2f', fsmi_matestat_cfa_fit[['fsmi_cfa_matestat_gender_metric']][['mfi']])`, $\hat\gamma$ = `r round(fsmi_matestat_cfa_fit[['fsmi_cfa_matestat_gender_metric']][['gammaHat']],2)`).
 Adding equality constraints on the latent covariance structure resulted in better parsimony-adjusted model fit as measured by the differences in the Akaike information criterion (AIC; $\Delta\text{AIC}= `r round(fsmi_matestat_cfa_fit[['delta2']][['AIC']],0)`$), with the two factors showing a very small, positive, non-significant correlation ($r = `r round(fsmi_mate_stat_cor[['std.all']][[1]],2)`, Z = `r round(fsmi_mate_stat_cor[['z']][[1]],2)`$).
@@ -329,7 +329,7 @@ This pattern of correlation is similar to what was seen in the scale constructio
 
 Variation in latent factors was described by a quadratic age regression, with age effects allowed to vary by gender.
 The partial metric invariance model was used to test whether constraining regression coefficients across samples resulted in a better fitting model as assessed by the AIC.
-Constraining the regression coefficients across sample resulted in reduced AIC ($\Delta\text{AIC} = `r round(diff(ksrq_cfa_metric_agesem_fit[,'AIC']),0)`$), indicated better model fit.
+Constraining the regression coefficients across sample resulted in reduced AIC ($\Delta\text{AIC} = `r round(diff(ksrq_cfa_metric_agesem_fit[,'AIC']),0)`$), indicating better model fit.
 Standardized coefficients were extremely similar between the model with partial metric invariance and the model with all loadings constrained to equality across samples ($\Delta\beta = `r sprintf('[%0.2f, %0.2f]', min(ksrq_agesem_betadiffs), max(ksrq_agesem_betadiffs))`$), so the fully constrained model is interpreted.
 Model-expected trend lines show somewhat higher scores in late adolescent participants (Figure \ref{fig:ksrqagepredplot}), with the largest quadratic effects (averaged across gender) for Admiration, Sociability, and Sexual Relationships (Table \ref{tab:ksrqage}).
 Gender differences in the linear model coefficients were fairly small.
@@ -415,7 +415,7 @@ knitr::kable(dplyr::mutate(ksrq_std_pds_par_table,
 
 The Urgency, Premeditation, Perseverance, Sensation Seeking and Positive Urgency (UPPS-P) scale was also administered to all four samples.
 This instrument uses a large number of indicators for each latent factor.
-When doing an analysis with a separate group for each sample, this results in a number of variables that greater than the number of observations.
+When doing an analysis with a separate group for each sample, this results in a number of variables greater than the number of observations.
 For this reason, measurement is assessed between combined adolescent and combined college-student samples.
 
 A CFA for the five UPPS-P factors was tested for metric invariance across age groups by comparing a model with loadings constrained to equality to one with loadings free to vary across the four groups.
@@ -428,7 +428,7 @@ This may be the reason for relatively similar degrees of fit between the unconst
 We proceed with these analyses with the caveat that we cannot be confident latent variable covariance is not contaminated by differential item use.
 
 Models with and without constraints on the equality of latent variances and covariances between age-groups were compared, resulting in lower AIC ($\Delta\text{AIC} = `r round(uppsp_cfa_fit$delta2[['AIC']])`$).
-Absolute magnitude of correlations among all scales were between small and large (_r_ = `r sprintf('[%0.2f, %0.2f]', min(abs(uppsp_factor_cor)[abs(uppsp_factor_cor)>0]), max(abs(uppsp_factor_cor)))`), with very a very large correlation between Negative and Positive Urgency (_r_ = `r round(pos_neg_urg,2)`; see Tables \ref{tab:collegecor} and \ref{tab:allcor} for all latent variable correlations). 
+Absolute magnitude of correlations among all scales were between small and large (_r_ = `r sprintf('[%0.2f, %0.2f]', min(abs(uppsp_factor_cor)[abs(uppsp_factor_cor)>0]), max(abs(uppsp_factor_cor)))`), with a very large correlation between Negative and Positive Urgency (_r_ = `r round(pos_neg_urg,2)`; see Tables \ref{tab:collegecor} and \ref{tab:allcor} for all latent variable correlations). 
 Scales keyed in the positively valenced direction (Premeditation and Perseverance) were negatively correlated with negatively valenced scales (Negative and Positive Urgency, and Sensation Seeking).
 
 #### Age
@@ -436,7 +436,7 @@ Scales keyed in the positively valenced direction (Premeditation and Perseveranc
 As with the K-SRQ, the association between UPPS-P factors and age was examined by regressing the latent variables on the interaction between a quadratic age model and gender.
 Again, constraining the regression coefficients across sample results in reduced AIC ($\Delta\text{AIC} = `r round(diff(uppsp_cfa_metric_agesem_fit[,'AIC']),0)`$), indicating better model fit.
 The model expectations reveal that the association between age and factor score may be conditional on reported gender.
-Plots for Negative and Positive Urgency, Perseverance, and Sensation seeking show diverging quadratic trends for females and males (though note that expected correlation with age is fairly flat for both genders for Premeditation; Figure \ref{fig:uppspagepredplot}).
+Plots for Negative and Positive Urgency, Perseverance, and Sensation seeking show diverging quadratic trends for females and males (though note that the expected correlation with age is fairly flat for both genders for Premeditation; Figure \ref{fig:uppspagepredplot}).
 The standardized effects indicate that, averaged across gender, linear and quadratic associations were very small, but that for Perseverance, and Sensation seeking, the gender difference in the quadratic term is especially robust (Table \ref{tab:uppspage}).
 
 ```{r uppspagepredplot, fig.width=5.875, fig.height=3, include=F}
@@ -514,8 +514,8 @@ knitr::kable(uppsp_std_pds_par_table,
 
 All measurement models were combined in order to estimate correlations among the latent factors.
 Though each of the measurement models show acceptable fit, this combine model shows very poor fit (college samples: `r sprintf('$N = %d, \\text{RMSEA} = %0.2f, \\text{MFI} = %0.0f$', lavaan::inspect(all_scales_college, 'ntotal'), lavaan::fitmeasures(all_scales_college, 'rmsea')[[1]], lavaan::fitmeasures(all_scales_college, 'mfi')[[1]])`; combined samples: `r sprintf('$N = %d, \\text{RMSEA} = %0.2f, \\text{MFI} = %0.0f$', lavaan::inspect(all_scales_adol, 'ntotal'), lavaan::fitmeasures(all_scales_adol, 'rmsea')[[1]], lavaan::fitmeasures(all_scales_adol, 'mfi')[[1]])`), indicating that this set of latent variables does not reproduce well the observed covariance among the indicators.
-The possible reasons for this are discussed later, below, but not further explored analytically.
-Combine models are described within the full college sample for all questionnaires, with a combined model with the K-SRQ and the UPPS-P across all four samples.
+The possible reasons for this are discussed, below, but not further explored analytically.
+Correlations are described within the full college sample for all questionnaires, with a combined model with the K-SRQ and the UPPS-P across all four samples.
 
 #### College samples
 
@@ -710,7 +710,7 @@ Specifically, overall performance in the last half of the run shows a small posi
 Examining correlations for the learning parameters, higher performance may be due to lower $\xi$ for those higher in Sensation Seeking, higher $\rho$ for those higher in Prestige, either or both lower $\xi$ and higher $\rho$ for those higher in Perseverance.
 Lower performance may be the result of either or both lower $\rho$ and higher $\xi$ for those high in Dominance, and lower $\rho$ for those higher in Positive and Negative Urgency.
 
-```{r scalespltcorbaselinecollege, fig.width=5.875, fig.height=2, include=F}
+```{r scalespltcorbaselinecollege, fig.width=5.875, fig.height=2.5, include=F}
 print(scale_splt_cor_df_baseline_college_plot)
 ```
 
@@ -748,7 +748,7 @@ scale_splt_cor_df_combinedN <- paste(c(
 ```
 
 Next, using just the questionnaires administered to all four samples (`r scale_splt_cor_df_combinedN`), correlations were estimated between the target SPLT parameters and the relevant subscales from the K-SRQ, and UPPS-P.
-The models that constrained correlations to be equal across samples fit better than those with correlations freed to differ between samples ($\Delta\text{AIC}_\text{max} = `r max(unlist(lapply(all_scales_combined_cor_load_splt[-4], AIC))-unlist(lapply(all_scales_combined_persamp_cor_load_splt[-4], AIC)))`$; models for the $b$ parameter did not converge).
+The models that constrained correlations to be equal across samples fit better than those with correlations freed to differ between samples ($\Delta\text{AIC}_\text{max} = `r round(max(unlist(lapply(all_scales_combined_cor_load_splt[-4], AIC))-unlist(lapply(all_scales_combined_persamp_cor_load_splt[-4], AIC))),0)`$; models for the $b$ parameter did not converge).
 All point estimates for these correlations remained small in the combined sample (r = `r sprintf('[%0.2f, %0.2f]', scale_splt_cor_df_combinedminmax$min, scale_splt_cor_df_combinedminmax$max)`), again, with most confidence intervals not exceeding r = [-0.20, 0.20] (Figure \ref{fig:scalespltcorcombined}).
 None of the expected patterns appeared between (SPLT learning rate or performance) Dating contrasts and mate-seeking-relevant self-report scales, or Popular contrasts and status-relevant self-report.
 However, there was an interesting consistency in positive correlations between $\rho$ for both contrasts and UPPS-P Sensation Seeking, and Positive and Negative Urgency, in line with the results from the college sample, above.
@@ -783,7 +783,7 @@ print(scale_splt_cor_df_baseline_combined_plot)
 \label{fig:scalespltcorbaselinecombined}
 \end{figure}
 
-As a final note, it should be clear from the plots above that if were one to have set an _a priori_ equivalence-testing threshold at $|r| = 0.20, \alpha = .05$, no correlation examined would be unambiguously different from the region of equivalence, and in many cases one would accept the null hypothesis that there is no correlation of any importance [@lakens2017].
+As a final note, it should be clear from the plots above that if one were to have set an _a priori_ equivalence-testing threshold at $|r| = 0.20, \alpha = .05$, no correlation examined would be unambiguously different from the region of equivalence, and in many cases one would accept the null hypothesis that there is no correlation of any importance [@lakens2017].
 
 ## Self-report variable associations with behavioral outcomes
 
@@ -1038,7 +1038,7 @@ Interestingly, the association between number of recent sexual encounters and ma
 Neither the FSMI Mate-seeking nor K-SRQ Sexual Relationships scale showed a robust association with frequency of safe sex practice, regardless of the sample analyzed.
 The K-SRQ coefficients were positive, possibly indicating a slight tendency for those who seek social reward from sexual and romantic experiences to also be more well informed about best practices for reducing risk.
 The lack of association between Mate-seeking and safe sex practice seems to be inconsistent with findings during scale development that, among single individuals, Mate-seeking was positively correlated with condom use [@neel2015].
-However, this finding was also relatively weak, and was more focused on one particular aspect of safe sex practice, whereas the current investigation uses a more diffuse measure that incorporates more subjective information about a more full range of safe sex practice.
+However, this finding was also relatively weak, and was more focused on one particular aspect of safe sex practice, whereas the current investigation used a diffuse measure that incorporates more subjective information about a wider range of safe sex practice.
 
 Several other findings also support the validity of the measures of mate-seeking motive.
 Helpfully for the validation of FSMI Mate-seeking, and as was first reported by @neel2015, this measure was directly impacted by current relationship status, with those in long-term-relationships scoring much lower.
@@ -1052,13 +1052,13 @@ As mentioned above, it correlates extremely highly with both K-SRQ Admiration an
 
 The several scales measuring aspects of status motivation, FSMI Status, Prestige, and K-SRQ Admiration all showed strong correlations.
 Dominance strategy correlated strongly with FSMI Status but not with either Prestige or K-SRQ Admiration.
-Given that dominance is a distinct and strategy from prestige, the low correlation between these variables simply indicates that one might adopt either or both strategies in pursuit of achievement of social rank, consistent with the original report of @cheng2013.
-The high correlation of Prestige with K-SRQ Admiration (and high correlation of both with FSMI Status) indicates that the Admiration scale is perhaps primarily measuring individual differences in enjoyment of receipt of prestige-based status in particular.
-This is also suggested both by the scale names and overlap in item content (e.g., Prestige: "I am held in high esteem by those I know"; K-SRQ: "I like achieving recognition from others").
-The modest correlation between Admiration and UPPS-P Perseverance, which is very similar between both the college and full sample, is consistent with this interpretation that Admiration is capturing status motivation.
+Given that dominance is a distinct strategy from prestige, the low correlation between these variables simply indicates that one might adopt either or both strategies in pursuit of achievement of social rank, consistent with the original report of @cheng2013.
+The high correlation of Prestige with K-SRQ Admiration (and high correlation of both with FSMI Status) indicates that the Admiration scale is perhaps primarily measuring individual differences in enjoyment of receipt of prestige-based status, in particular.
+This is also suggested both by the scale names and overlap in item content (e.g., Prestige: "I am held in high esteem by those I know"; Admiration: "I like achieving recognition from others").
+The modest correlation between Admiration and UPPS-P Perseverance (a measure of prevailing when tasks are hard or boring) is consistent with this interpretation that Admiration is capturing prestige-based status motivation.
 
 Status motives as measured in the college student sample using the FSMI Status scale did not show significant associations with number of drinking days or number of heavy drinking days, and did not show any consistent pattern in the sign of the coefficients.
-Admiration reward sensitivity was significantly positively associated with both number of drinking days and heavy drinking days.
+Admiration was significantly positively associated with both number of drinking days and heavy drinking days.
 However, Sociability also showed a significant relation even when controlling for Admiration, which showed a _negative_ association with both drinking outcomes when Sociability was included.
 This is actually somewhat consistent with the investigation by @allen2005, which found that during adolescence, popularity was both associated with well-adjusted development but also increased exposure to peer groups where minor deviant behavior was socialized.
 Though alcohol consumption is almost certainly considered less (or not at all) deviant among the college participants, a similar principal may apply here.
@@ -1070,7 +1070,8 @@ It must also be the case that the way those motives are elicited in the task, sp
 In other words, does it make sense that someone who scores high on either the FSMI Mate-seeking or K-SRQ Sexual Relationships scale would care about whether another person was currently in a relationship or looking for someone to date?
 Would someone who is seeking social status, or who enjoys receiving recognition from others care about whether a peer is popular or unpopular?
 Of course, it is difficult to say for certain, but in the case of the mate-seeking motive questionnaires, the answer seems to be obviously yes.
-With regard to the status-motive questionnaires, the answer is less clear, and may depend on whether a person's strategy for achieving status requires knowledge of their peers status.
+
+With regard to the status-motive questionnaires, the answer is less clear, and may depend on whether a person's strategy for achieving status requires knowledge of their peers' social status.
 Just as there are at least two strategies for gaining status, there are also seemingly two sub-types of popular peers -- those who are popular but not necessarily well-liked, and those who are popular _because_ they are well-liked [@debruyn2006].
 While there is some evidence that being friends with popular peers, per se, confers status [@meuwese_friends_2017], it is not clear whether this depends on the strategies of these particular peers.
 Based on the indications of construct validity reviewed above, and a plausible case for the relevance of the task manipulations to status and mate-seeking motives, these self-report scales are likely to function as adequate criteria for the relevance of individual differences in task behavior to motivation in these domains.
@@ -1079,8 +1080,8 @@ Based on the indications of construct validity reviewed above, and a plausible c
 
 Correlations between the self-report latent variables and SPLT variables were all very low.
 While the contrasted-SPLT variable correlation estimates did not show readily interpretable patterns, there was some indication that correlations with the baseline (Hungry/Thirsty condition) variables did show a sensible pattern in their sign.
-This provides some evidence that individual differences in learning behavior, overall, is associated with self report trait differences, but that differences between learning conditions are either not related to individuals' trait differences, or that the task measurement is not sensitive enough to detect these relations.
-Though the largest associations are discussed for the sake of completeness, note well that these effects are small, to very small, and arise out of a large number of estimates.
+This provides some evidence that individual differences in learning behavior, overall, are associated with self report trait differences, but that differences between learning conditions are either not related to individuals' trait differences, or that the task measurement is not sensitive enough to detect these relations.
+Though the largest associations are discussed for the sake of completeness, note well that these effects are small, or very small, and are just a selection from a large number of estimates.
 
 In the combined sample, baseline learning behavior seemed to be weakly associated with several subscales of the UPPS-P.
 Impulsivity, as measured by the Urgency scales, showed negative relations with performance during the last half of the run, while the Perseverance scale, a measure of ability to stay focused, was positively associated with performance.
@@ -1089,22 +1090,22 @@ Specifically, poorer performance for those higher in Urgency may be due to lower
 Perseverance, on the other hand, is also weakly positively associated with lower $\xi$, indicating that greater ability to focus may reduce the amount of random (or erroneous) responding, thereby increasing performance.
 Though these effects are very weak, and possibly false-positives, their sign and association with both performance and particular model parameters is coherent enough to be suggestive. 
 
-When the college sample was isolated, we observed similar patterns with the addition of both weak negative associations between performance and Dominance strategy, and weak positive associations between performance and Prestige and sensation seeking.
+When the college sample was isolated, we observed similar patterns with the addition of both weak negative associations between performance and Dominance strategy, and weak positive associations between performance, and both Prestige and sensation seeking.
 Prestige and Dominance associations with performance seemed to be the result of opposite patterns of, respectively, higher and lower sensitivity to reward ($\rho$), and lower and higher random responding ($\xi$).
 On the other hand, the relations of Sensation Seeking to performance may be explained primarily by its negative correlation with $\xi$.
-This Prestige correlation is consistent with the view that such a strategy requires individuals to demonstrate competency, and though rather contrived, this task is an opportunity to perform well.
+The Prestige correlation is consistent with the view that such a strategy requires individuals to demonstrate competency, and though rather contrived, this task is an opportunity to perform well.
 Dominance-related popularity strategies have been associated with relational aggression and academic disengagement [@debruyn2006;@kiefer2008], which could explain this negative relation to performance, possibly through decreased focus.
 If there is a true relation between task performance and Sensation Seeking, it is much less straightforward -- while some authors have suggested that purported heightened reward sensitivity during adolescence could lead to improved learning [@davidow2016;@mccormick2017], Sensation Seeking in these data correlate more strongly with the noise parameter, $\xi$, than with reward sensitivity, $\rho$.
 Generally, these patterns of correlations with baseline task behavior highlight one of the potential strengths of this method (which would be more easily verified with higher precision), which is that it allows decomposition of behavior into distinct psychological processes that may be difficult to disentangle using other means [@vandenbos2017].
 
 Although correlations between SPLT contrast variables and self-report scales are of a similar magnitude to the baseline correlations, they have a much less straightforward interpretation.
-For example, in the combined samples, college-only samples, higher sensation seeking and impulsivity as measured by UPPS-P subscales are weakly positively correlated with the $\rho$ parameter differences between both the Dating and Popular conditions versus baseline, but much more weakly, still, with overall performance.
+For example, in the combined samples, and college-only samples, higher sensation seeking and impulsivity as measured by UPPS-P subscales are weakly positively correlated with the $\rho$ parameter differences between both the Dating and Popular conditions versus baseline, but much more weakly, still, with overall performance.
 Only when the combined sample is considered does Passivity (which measures enjoyment of being told what to do by others) correlate negatively with final performance differences in the Dating condition, while perseverance correlates positively with early performance in the dating condition.
 These results do not seem to be consistent with the expectations of this investigation or with literature about performance effects within these specific domains.
 Perhaps they may be of use to a future meta-researcher.
 
 Finally, the SPLT variables also showed no coherent associations to any of the self-reported behavioral outcomes.
-These analyses were included here primarily to further validate task behavior as a measure of social motives in the case that SPLT behavior and self-report scales showed correspondence, and to test whether SPLT behavior might be a potentially _better_ predictor of health-related behaviors than self-report trait measures.
+These analyses were included here primarily to further validate task behavior as a measure of social motives in the case that SPLT behavior and self-report scales showed correspondence, and to test whether SPLT behavior might be a _better_ predictor of health-related behaviors than self-report trait measures.
 In the context of the results discussed above, the lack of significant associations between SPLT variables and behavioral outcomes serves as another indication that the task either does not capture individual differences in relevant social motives, or does so only very imprecisely.
 
 ## Conclusions

@@ -82,7 +82,7 @@ dissertateUO::preamble_for_title(
 \chapter{Discussion}
 
 The goals of this investigation were to examine how reinforcement learning is affected by adolescent-relevant social motives, and to look for evidence that individual differences in this effect are due to individual tendencies in the strength of these motives.
-It is clear that there were salience effects of the social-motive framing of stimuli that leads to enhanced learning relative to the minimally social condition.
+It is clear that there were salience effects of the social-motive framing of stimuli that led to enhanced learning relative to the minimally social condition.
 However, it is also clear that individual differences in this effect are not strongly influenced by individual differences in social motives.
 Age, puberty, self-report trait, and health-related behaviors all showed negligibly small associations with individual differences in the social-motive effects on task performance and model parameters.
 This presents an interpretive conundrum.
@@ -92,7 +92,7 @@ The rich history of work on attention-reward contingencies elicited by the inter
 A more likely possibility, explored further below in the section on limitations, is that the stimuli and framing used in this task were not actually relevant, in the participants' perception, to the social motives we sought to explore.
 Another, perhaps equally plausible, possibility is that information about dating and popularity is too relevant to almost everyone, regardless of their personal level of motivation.
 
-Perhaps it is the case that from even early adolescence, people understand that it is important to learn as well as possible signals in the social world about dating and popularity, regardless of one's own motives in relevant domains.
+Perhaps it is the case that from even early adolescence, people understand that it is important to learn, as well as, possible signals in the social world about dating and popularity, regardless of one's own motives in relevant domains.
 In the domain of social status, this is in line with work that suggests status misperception can incur a social cost regardless of one's position [@srivastava2011].
 Learning who is popular may be such a basic skill in forming accurate-enough impressions of social hierarchies that there is not room for status motives to affect learning.
 This same sort of ceiling effect is just as applicable to the mate-seeking condition.
@@ -102,13 +102,14 @@ This same sort of ceiling effect is just as applicable to the mate-seeking condi
 The possible explanations for null results discussed above have to do with substantive relations between motives and learning.
 There are also explanations for null results that have more to do with instrumentation and procedure than with anything theoretically very meaningful.
 For example, participants may accurately perceive that learning the face-word associations on this task is actually irrelevant to fulfilling their social motives.
-Learning might be enhanced in the social conditions just because it is slightly more interesting to imagine these computer generated faces being popular, or dating, than it is to imagine that they are hungry, but the participants' own motives never enter into the picture because it is obvious that whatever is learned during the task will not be instrumental in meeting new romantic partners or gaining the admiration of their peers.
+Learning might be enhanced in the social conditions just because it is slightly more interesting to imagine these computer generated faces being popular, or dating, than it is to imagine that they are hungry.
+The participants' own motives may never enter into the equation because it is obvious that whatever is learned during the task will not be instrumental in meeting new romantic partners or gaining the admiration of their peers.
 
 The reliable variance in task behavior and model-derived variables may have been somewhat low, and thereby attenuated the observable correlation with the criteria measures.
 This is a problem more generally with measuring latent variables using only binary responses, even if accounting for task structure with the computational model does help somewhat.
 Compounding this problem is the possibility that the method itself is responsible for some proportion of the variance measured by both the task, and self-report scales.
 Correspondence between task-behavior and self-report measures of the same ostensible construct has been shown to be rather low across a wide range of commonly used adolescent risk-taking measures [@harden2017].
-Whether this is due to method variance, or problems with the construct validity, this task may be another example of this problem.
+Whether this is due to method variance, or problems with the construct validity of the tasks examined in that investigation, the SPLT task may be another example of this problem.
 
 Some measurement problems, including skewed responding, extreme latent variable covariance, and unexpectedly patterns of latent variable correlation also may limit the degree of certainty in the construct validity of the self-report measures.
 This is not to suggest that these instruments are not responsive to some true signal, as is suggested by their association to self-reported health-related behaviors.
@@ -118,21 +119,21 @@ Such refinement might both raise the ceiling on the magnitude of observable rela
 There are also potential issues with generalizing from the effect of the present experimental manipulations to the population of possible manipulations related to the motivational constructs of interest.
 The results from the SPLT can really only tell us about people's responses to the particular manipulations that were used in this experiment.
 In order to infer back to the population of all status- and mate-seeking-related manipulations, we would need to account for the variance in responding to those various manipulations, either by estimating that variance from a small sample of those possible manipulations, or by incorporating a very large number of them into the design [@westfall2017].
-Being able to generalize to this population of manipulations is also an important step in generalizing the effect of _a particular_ status- or mate-seeking-relevant stimulus to the effect of the motive-relevance of stimuli more generally.
+Being able to generalize to this population of manipulations is also an important step in generalizing the effect of _a particular_ status- or mate-seeking-relevant stimulus-manipulation to the effect of _motive-relevance_ more generally.
 Indeed, given that only one manipulation for each motive domain was used, it is not even possible to estimate whether these represent very good, or very bad manipulations of motive-relevance.
 
 # Future directions
 
 Although this task is unlikely to be a robust measure of individual differences in motives, the technique of manipulating the framing of stimuli does show promise for future work that would use it to estimate group-averaged, within-person differences in how particular stimulus characteristics affect learning.
 Future work could expand on this paradigm by expanding the content to test broader structural hypotheses regarding what kinds of social information is most salient.
-There are many ways to expand on reinforcement learning tasks like the SPLT.
-Since environmental stability is another factor that may influence the expression of these motives, one might manipulate the stability of the learning environment in different domains to examine advantageous or disadvantageous propensities to change one's mind about previously learned social information [@brumbach2009].
+There are many other ways to expand on reinforcement learning tasks like the SPLT, as well.
+Since environmental stability is another factor that may influence the expression of these motives [@brumbach2009], one might manipulate the stability of the learning environment in different domains to examine advantageous or disadvantageous propensities to change one's mind about previously learned social information.
 
 Allowing participants to have more control over the type of content that is learned by allowing both exploration and exploitation during the learning task may be a way to increase the diversity of stimuli, as well as examine how structural relationships between pieces of information influences what kinds of social information participants choose to learn about.
 At least one study, discussed in the previous chapter, took a step in this direction by allowing participants to learn about specific preferences, though there was not much attention given to how this set up could be more fully exploited [@rosenblau2017].
 One possibility would be to use information that is instrumental to goal pursuit as the reward feedback, rather than as content to be learned.
 
-Examining different models for learning may also enhance future work.   
+Examining different models for learning may also enhance future work.
 Reinforcement learning models like the one used in these analyses have a long history, and are very well understood. 
 This model does, of course, make certain simplifying assumptions about latent cognitive process.
 However, without exploring multiple different models that could possibly characterize the learning process, it is not possible to assess which model features substantive results are sensitive to.
