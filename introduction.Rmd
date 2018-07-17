@@ -33,8 +33,8 @@ The fuzzy trace perspective, and related views, hold that this exploration is an
 
 A model of decision-making borrowed from economics can help integrate functional perspectives, and doesn't require problematic neurodevelopment to explain adolescent-specific changes in risk behavior.
 One of the biggest challenges for imbalance models (but not the two, more functional approaches) is that adolescent health risking behavior may involve either impulsive _or_ highly cognitively controlled behaviors.
-The value-based choice view goes beyond the ideas of warring systems, describing decision-making process in which the integration of expected-value inputs from myriad sources culminates in the (perhaps probabilistic) selection of behaviors with large expected values [@pfeifer2018].
-The expected-value inputs may come from basic appetitive processes like desire for food or sex, as well as from self concept, social norms, peer expectations, emotional states, and many others.
+The value-based choice view goes beyond the ideas of warring systems, describing decision-making as the integration of expected-value inputs from myriad sources that culminates in the selection of behaviors with large expected values [@pfeifer2018].
+The expected-value inputs may come from basic appetitive processes like desire for food or sex, as well as from self concept, social norms, peer expectations, emotional states, and theoretically any others that have influence over decision-making.
 From the vantage point of this perspective, it becomes clear that adolescent developing motivations for fitness-relevant behaviors related to status and mate-seeking could have a significant impact on value computations.
 In other words, if the function of adolescence is to complete the development of the organism to the fully adult form, motivations related to adult social concerns like status and mate-seeking are likely to have increasing weight as inputs to a value-based choice process.
 
@@ -50,8 +50,7 @@ The impact of evolutionarily relevant motivations should be considered especiall
 Relative to other primates, human childhood is extremely protracted, essentially representing a 'pause' in development, with coincident more-rapid post-pubertal development [@delgiudice2009].
 From a birds-eye-view, this places the psychology and behavior of the adolescent phase at a transition point between a relatively quiescent period, and period of acceleration into an adult motivational frame. 
 Particularly striking changes during this period of development include increasing propensity for adult-like behaviors, such as the inception of  sexual and romantic behavior [@cavazos-rehg2009;@harden2014a], and navigation of shifting social networks and status hierarchies [@cairns1995;@steinberg2001] with possible consequences for adult success [@shi2017].
-These behavioral changes are accompanied by increasingly adult-like normative cultural expectations, and practices, related to resource acquisition (and accompanying privileges and anxieties), familial care, courtship, social group bonding and hierarchy formation, as well access to adult-like physical mobility (e.g., public transit, automobiles), and intoxicants.
-Essentially, as adolescents develop more adult-like motivations for mate-seeking and status, they also begin to gain access to adult-like means for enacting those motivations, many of which come with health-relevant risks.
+As adolescents develop more adult-like motivations for mate-seeking and status, they also begin to gain access to adult-like means for enacting those motivations, many of which come with health-relevant risks.
 
 To some extent, the impact on adolescent behavior of motivations for status and mates has been either acknowledged or studied.
 With regard to sex, authors often acknowledge that the transition to sexual maturity is a defining biological feature of adolescence,.
@@ -60,7 +59,7 @@ Status is studied more directly, with many articles focusing on the antecedents 
 Even so, though there is a long history of research on motivation in psychology, very little contemporary adolescent research situates mate-seeking and status in a broader motivational framework.
 
 The fundamental social motives (FSM) framework proposed by @kenrick2010 may be helpful for understanding differential effects of both domains, as it parses motives into a small set based on adaptive problems humans are likely to face.
-These domains might be said to be fundamental in the sense that they are, plausibly, evolved normative psychological inputs on value computations during decision making processes that have relevance for survival and reproduction.
+These domains might be said to be fundamental in the sense that they are, plausibly, evolved psychological inputs on value computations during decision making processes that have relevance for survival and reproduction.
 The evolutionary-psychological framework is especially important for understanding adolescence, a developmental period that may be considerably sensitive to selection pressure [@baltes1997;@ellis2012;@suleiman2016].
 Using the FSM framework allows integration of findings from this work into the broader evolutionary psychology conversation that is beginning to arise in adolescent research.
 
@@ -69,18 +68,12 @@ There are many traditions that would place status motives and mate-seeking motiv
 However, those traditions are not able to capture the distinct challenges inherent in various social relations, which map onto important relationships at different developmental stages (specifically, mate-seeking as a result of puberty, but also, e.g., kin care, later, in adulthood).
 The fact that the FSM approach organizes the measurement of motivation around broad relationship categories, may make it especially useful for thinking about adolescence, which is proposed to be marked by a restructuring of the adolescents place in the social world [@nelson2005;@nelson2016].
 
-The relationship-centric approach of FSM highlights that these motives hypothesized to develop and gain importance during adolescence are inherently interpersonal.
-Depending on how status is defined, it refers to either the degree to which one is liked or recognized by one's peers, or the degree to which one has the respect or esteem of one's peers [@lafontana2002;@srivastava2011].
-Of course, in each case status is defined by the beliefs of others in one's social network, and, in both cases, accurate perception of one's own and of other people's place in the hierarchy is important.
-Similarly, in mate-selection, accurate perceptions of who is or is not a potential partner in the first place is an important basis for subsequent motivated behavior.
-Indeed, it is then within the context of these interpersonal networks that subsequent health-risking behaviors are enacted, in ways that are perhaps both driven and shaped by these motives.
-
 Literature on risk-taking behavior directly implicates both mate-seeking and status motivation domains in risky sexual behaviors and a variety of potentially status-related health-risking behaviors such as substance use.
 For example, in a study which assessed perceptions of the sexual-self among adolescents, there was an association between increasing sexually-motivated self-perceptions and various forms of sexual risk-taking [@buzwell1996].
 With regard to status, there is some evidence consistent with the idea that adolescents who have high popularity as rated by peers may try to maintain their status through health-risking behaviors [@mayeux2008].
-Beyond health-risking behaviors, these motives may also be crucial ingredients in understanding a whole class of risk-taking that is less negatively valued, including but not limited to risks taken in service of extending one's social and physical environment beyond one's childhood home [@sercombe2014].
+Beyond health-risking behaviors, these motives may also be crucial ingredients in understanding a whole class of risk-taking that is more positively valued, including but not limited to risks taken in service of extending one's social and physical environment beyond one's childhood home [@sercombe2014].
 Although the above literature acknowledges motivation, and measures related constructs, mate-seeking and status _motives_ are rarely a direct target of measurement.
-There is a need for research investigating how adolescent learning and exploration is shaped in the presence of stimuli which are motivationally relevant to their developmental stage.
+There is a need for research investigating how adolescent learning ans decision-making is shaped in the presence of stimuli which are motivationally relevant to their developmental stage.
 
 ## Status motive
 
@@ -110,7 +103,7 @@ As noted above, research on status and mate-seeking motives during adolescence i
 The field would benefit greatly from a new measure that provides an alternative method to capture individual and developmental differences in the salience of these motives across the transition from childhood through adolescence and into adulthood.
 A primary focus of this work is therefore the design and validation of a new behavioral measure to do so.
 The measure, described below, uses a standard reinforcement learning paradigm and experimentally manipulates the extent to which learning targets are relevant to different motivational domains.
-The basic reinforcement learning paradigm has been well described in both humans and rodents [@collins_how_2012;@glimcher2009;@jones2011a].
+The basic reinforcement learning paradigm has been well described in both humans and rodents [@collins2012;@glimcher2009;@jones2011a].
 The salience of stimuli in such a paradigm directly impacts learning [@grossberg1975;@mackintosh1975;@cunningham2012].
 The premise of this new measure is that linking a learning target to motivationally relevant information will affect the salience of that target in proportion to the strength of the motivation.
 By measuring how learning rates are potentiated by this motivational framing, it may be possible to measure a behavioral indicator of psychologically basic status and mate-seeking motives.
@@ -124,14 +117,14 @@ For the learning strategy captured by the the proposed task to have relevance fo
 Both sociometric status and romantic relationships are fairly rank-order stable throughout adolescence.
 In a study of roughly 300 adolescents with high sociometric status, estimates of the year-to-year stability from 6th-12th grade ranged between .51 and .72, with stability across all except a single 1-year interval above .6 [@cillessen2006].
 The percent of adolescents reporting romantic relationships lasting 11 months or longer, an indicator of stability relevant for this task, increases from 20% at an age of 14 years, to roughly 60% at 16 years [@collins2003].
-Given the temporal scale of the proposed task, it is reasonable to assume that participants would not prioritize learning strategies that are especially sensitive to changing associations.
+Given the brief temporal scale of the proposed task, it is reasonable to assume that participants would not prioritize learning strategies that are especially sensitive to changing associations.
 
 # Aims
 
 Motivations have been under-studied in efforts to understand changes in decision-making during adolescence, many of which have consequences for health and well-being.
-Relevant motivations that are often either often only peripherally identified in the literature are well captured by the evolutionary-psychological approach codified in the FSM framework.
+Relevant motivations that are often only peripherally identified in the literature are well captured by the evolutionary-psychological approach codified in the FSM framework.
 Mate-seeking and status motives are especially relevant for the adolescent development period.
-Because learning and exploration are thought to be a crucial aspect of the importance of behavioral changes in adolescents, examining these motives using reinforcement learning provides the opportunity to better understand the motives themselves through a behavioral method, and also to understand the impact of motives on a mechanism related to learning and exploration.
+Because learning and exploration are thought to be a crucial aspect of the importance of behavioral changes in adolescents, examining these motives using reinforcement learning provides the opportunity to better understand the motives, themselves, through a behavioral method, and also to understand the impact of motives on a mechanism related to learning and exploration.
 Broadly speaking, the goal of this work is to investigate the appropriateness of this reinforcement learning task, as well as the ways in which these motives (measured in multiple ways) relate to attitudes and behaviors.
 
 *Aim 1a: Does framing reinforcement learning targets with (mate-seeking and status) motive-related words increase stimulis salience and potentiate learning?* Relevance of the stimuli to individuals' underlying motives should affect the salience of stimuli, and thus also the rate at which individuals learn.
@@ -140,7 +133,7 @@ On average, it is expected that information related to status and mate-seeking m
 *Aim 1b: How does motive potentiation of learning covary with development?* It is likely that both status and mate-seeking motives increase between childhood and adolescence.
 If differences in learning rates between stimuli with social and minimally-social relevance reflect underlying motives, then it is expected that learning potentiation due to motive-framing will increase from early to late adolescence.
 
-*Aim 2: Does the motive potentiation of learning relate to a constellation of self-report measures that theoretically ought to demonstrate convergence? Specifically, (i) what is the relation between motive potentiation and self-report social motives; (ii) what is the relation between self-report social motives and motive-congruent health-related outcomes; and (iii) what is the relation between motive potentiation and motive-congruent health-related outcomes.*  It is expected, broadly speaking, that there will be a positive correlation between self-report measures of motives and outcomes, and differences in learning between social-motive conditions versus the baseline condition.
+*Aim 2: Does the motive potentiation of learning relate to a constellation of self-report measures that theoretically ought to demonstrate convergence? Specifically, (i) what is the relation between motive potentiation and self-report social motives; (ii) what is the relation between self-report social motives and motive-congruent health-related outcomes; and (iii) what is the relation between motive potentiation and motive-congruent health-related outcomes.*  It is expected that there will be a positive correlation between self-report measures of motives and outcomes, and differences in learning between social-motive conditions versus the baseline condition.
 
 <!--stackedit_data:
 eyJwcm9wZXJ0aWVzIjoiZXh0ZW5zaW9uczpcbiAgcHJlc2V0Oi
