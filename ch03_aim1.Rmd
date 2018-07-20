@@ -117,7 +117,7 @@ In adolescence, specifically, this should result in increases in the salience of
 
 The reciprocal relation between stimulus salience, motivation, and learning is an important foundation for the idea that developmental changes in motivational systems should be responsible, in part, for the social reorientation thought to occur during adolescence. 
 A substantial body of work on learning and attention has shown that more salient cues enhance learning, and that learned predictive value modifies cue salience.
-In laying out a programmatic approach to learning and attention, @mackintosh1975 states learning rates are different depending on the stimulus because the "probability of attending to a stimulus determines the probability of learning about that stimulus"~(p. 294).
+In laying out a programmatic approach to learning and attention, @mackintosh1975 states learning rates are different depending on the stimulus because the "probability of attending to a stimulus determines the probability of learning about that stimulus" (p. 294).
 @grossberg1975 summarizes a body of literature indicating that if two cues are paired with an unconditioned stimulus, the more salient cue will be conditioned more quickly, even to the extent that it may block the conditioning of the less salient cue.
 
 More recently, @denton2006 demonstrated that the blocking effect in humans can be modulated by salience. 
@@ -975,14 +975,14 @@ These two robust studies both report results that are consistent with improvemen
 
 ### Performance differences across development
 
-The most consistent finding from this literature, and which is consistent with the present study, is that adults, or young adults, perform better than adolescents or children [@duijvenvoorde2008; @decker2015; @vandenbos2009a; @cohen2010; @christakou2013; @palminteri2016; @rosenblau2017; @peters2017; @mccormick2017].
+The most consistent finding from this literature, and which is consistent with the present study, is that adults, or young adults, perform better than adolescents or children [@duijvenvoorde2008; @decker2015; @bos2009; @cohen2010; @christakou2013; @palminteri2016; @rosenblau2017; @peters2017; @mccormick2017].
 In one study, adolescents performed better than adults, which was interpreted as indicating that heightened reward sensitivity may lead to better learning during adolescence [@davidow2016].
 Like many of the studies which show greatest performance during adulthood, these authors used a probabilistic reinforcement learning task.
 Notably, adults showed higher learning rate parameters than adolescents (but performed worse as a result).
 The results of their study are likely anomalous given the considerable evidence for greater adult performance on standard reinforcement learning paradigms.
 
 This consistent age finding holds across operationalization of learning.
-Both probabilistic reinforcement [@vandenbos2009a; @cohen2010; @palminteri2016; @decker2015], and deterministic reinforcement [@duijvenvoorde2008; @peters2017] show the increase in performance with age.
+Both probabilistic reinforcement [@bos2009; @cohen2010; @palminteri2016; @decker2015], and deterministic reinforcement [@duijvenvoorde2008; @peters2017] show the increase in performance with age.
 Also, tasks which are more often described as risk-taking, but which involve a reinforcement learning component like the Iowa gambling task [@christakou2013], and balloon analogue risk task [@mccormick2017], also show this age trend.
 
 Several studies did not include a measure of performance, but focus only on learning rate.

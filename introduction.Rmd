@@ -103,7 +103,7 @@ As noted above, research on status and mate-seeking motives during adolescence i
 The field would benefit greatly from a new measure that provides an alternative method to capture individual and developmental differences in the salience of these motives across the transition from childhood through adolescence and into adulthood.
 A primary focus of this work is therefore the design and validation of a new behavioral measure to do so.
 The measure, described below, uses a standard reinforcement learning paradigm and experimentally manipulates the extent to which learning targets are relevant to different motivational domains.
-The basic reinforcement learning paradigm has been well described in both humans and rodents [@collins2012;@glimcher2009;@jones2011a].
+The basic reinforcement learning paradigm has been well described in both humans and rodents [@collins2012;@glimcher2009;@jones2011].
 The salience of stimuli in such a paradigm directly impacts learning [@grossberg1975;@mackintosh1975;@cunningham2012].
 The premise of this new measure is that linking a learning target to motivationally relevant information will affect the salience of that target in proportion to the strength of the motivation.
 By measuring how learning rates are potentiated by this motivational framing, it may be possible to measure a behavioral indicator of psychologically basic status and mate-seeking motives.

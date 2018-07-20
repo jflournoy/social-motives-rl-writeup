@@ -31,7 +31,7 @@ dissertateUO::preamble_for_title(
   author = 'John C. Flournoy',
   department = 'Department of Psychology',
   narrowdepartment = 'Department of Psychology',
-  degreetype = 'Master of Philosophy',
+  degreetype = 'Doctor of Philosophy',
   degreemonth = 'August',
   degreeyear = '2018',
   chair = 'Jennifer Pfeifer',
