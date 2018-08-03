@@ -592,7 +592,7 @@ apa_lowfi_ht_pu_t <- paste0('*t*(', lowfi_ht_pu_t$parameter, ') = ', round(lowfi
 ```
 
 Overall, learning was potentiated in the Dating/Looking, and Popular/Unpopular conditions.
-Comparing the proportion of optimal choices in the last half of the run, paired sample Yuen *t*-tests, which are robust to non-normality [@yuen1974], reject the null of no difference between the two conditions of interest and the control condition (Dating/Looking: `r apa_lowfi_ht_dl_t`; Popular/Unpopular: `r apa_lowfi_ht_pu_t`).
+Comparing the proportion of optimal choices in the last half of the run, paired sample Yuen *t*-tests [computed using the PairedData package; @champely2017], which are robust to non-normality [@yuen1974], reject the null of no difference between the two conditions of interest and the control condition (Dating/Looking: `r apa_lowfi_ht_dl_t`; Popular/Unpopular: `r apa_lowfi_ht_pu_t`).
 The differences in observed behavior are also reflected in some parameter estimates.
 The 99.5% credible intervals for the difference in learning rate, $\epsilon$, between the two social conditions and the minimally social condition are both well above 0, while the difference between the two social conditions has much of its mass close to 0 (Figure \ref{fig:epsdiff}).
 This indicates that, on average, individuals' learning rates in the social conditions are larger relative to the minimally social condition, but are not very different between them (although we might infer that the Popular/Unpopular learning rate is more likely to be of the greatest magnitude).
