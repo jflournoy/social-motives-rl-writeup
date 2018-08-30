@@ -91,13 +91,13 @@ ethnicity_table <- tables::tabular(
 ```
 
 Data from four samples are used in these analyses. 
-The first two samples comprise foster-care-involved adolscents (FCA) and community adolescents (CA) who were recruited from the greater Eugene/Springfield, Oregon, area for an ongoing longitudinal study investigating decision-making related to health-risking behavior (funded by NIDA, P50 DA035763). 
-The third and forth samples consisted of college student young adults who completed the study for course credit either in person (CSYA sample), or online (CSYA-O sample). 
+The first two samples comprise foster-care-involved adolescents (FCA) and community adolescents (CA) who were recruited from the greater Eugene/Springfield, Oregon, area for an ongoing longitudinal study investigating decision-making related to health-risking behavior (funded by NIDA, P50 DA035763). 
+The third and fourth samples consisted of college student young adults who completed the study for course credit either in person (CSYA sample), or online (CSYA-O sample). 
 The full sample consists of `r sum(!is.na(splt_dev_and_demog_task_sum$SID))` participants (`r sum(splt_dev_and_demog_task_sum$gender_num==1, na.rm=T)` male) with ages between `r round(min(splt_dev_and_demog_task_sum$age, na.rm = T), 1)` and `r round(max(splt_dev_and_demog_task_sum$age, na.rm = T), 1)` years (see Table \ref{tab:samplestats} for full details). 
 A single participant who was over the age of 25 years was excluded from analyses.
 The majority of participants in all samples identified as white, though in both college samples this majority did not exceed 60% (Table \ref{tab:ethnicitytable}).
 Some participants in each sample did not provide data on all focal measures (see Table \ref{tab:missingstats}), and so sample sizes for each analysis will differ to some extent.
-Examining the table, it is clear that the proportion of missing data is small.
+Examining the Table \ref{tab:missingstats}, it is clear that the proportion of missing data is small.
 
 \begin{table}
 \centering
@@ -147,7 +147,7 @@ ptab(missing_table)
 ## Adolescent sample
 
 The CA sample was recruited through Craigslist, flyers, classroom presentations, class field trips to the University of Oregon, and word of mouth.
-Foster-care involved youth were recruited in collaboration with Oregon Department of Human Services case-workers.
+Foster-care involved youth were recruited in collaboration with Oregon Department of Human Services caseworkers.
 For the parent study, the target sample size for each subsample was 80 participants based on power-analyses for the primary fMRI measure at wave 1.
 The primary measures of interest for the purposes of this dissertation were collected at wave 2, approximately 18 months after wave 1.
 Inclusion criteria include age at wave 1 of between 11.0-17.9 years and English fluency.
