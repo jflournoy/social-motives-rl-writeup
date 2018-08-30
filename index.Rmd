@@ -35,7 +35,7 @@ dissertateUO::preamble_for_title(
   degreemonth = 'August',
   degreeyear = '2018',
   chair = 'Jennifer Pfeifer',
-  committee = 'Sanjay Srivastava    & Core Member \\\\
+  committee = 'Sanjay Srivastava    & Co-Chair \\\\
            Elliot Berkman    & Core Member \\\\
            Nicole Giuliani & Institutional Representative \\\\',
   graddean = 'Sara Hodges',

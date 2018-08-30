@@ -4,25 +4,25 @@ bibliography: "/home/jflournoy/code_new/social-motives-rl-writeup/dissertation.b
 csl: "/home/jflournoy/Rlibs/probly/bib/apa-old-doi-prefix.csl"
 ---
 
-Adolescence, the period of development between childhood and adulthood, is a time of both vigorous health and increased health risks.
+Adolescence, the period of development between childhood and adulthood, is a time of both vigorous health and increased health risk.
 An extensive body of literature describes trajectories in the rates of health-risking behaviors like binge drinking [@chassin2009;@patrick2011], and risky sexual behavior [@stevenson2007] that, along with rates of unintentional injury, peak during late adolescence and early adulthood [@centersfordiseasecontrolandprevention2003;@willoughby2013].
 A major focus of the field of adolescent developmental psychology and neuroscience is to describe what gives rise to this phenomenon.
-A variety of theories current in this field may capture many features of adolescent cognition and behavior that have relevance for health-related decisions, but most do not focus on functional aspects of behavior.
+A variety of theories current in this field may capture many features of adolescent cognition and behavior that have relevance for health-related decisions, but most do not focus on how such cognition and behavior may serve adaptive functions.
+Here, adaptivity is concptualized in the evolutionary sense, where reproductive fitness over the course of evolutionary history is the criterion.
 Taking a more explicitly functional approach will help to strengthen and unify our understanding of behavior during this transition into adulthood.
 
-
-One early attempt to explain adolescent decision making proposed that youth were making decisions based on imperfect information, or exaggerated expectations of invincibility.
+One early attempt to explain adolescent decision making proposes that youth make decisions based on imperfect information, or exaggerated expectations of invincibility [@elkind1967].
 However, on most questions, adolescents show no particular bias toward over or underestimating probabilities, though their estimation is not perfect; the probabilities they estimate also generally correlate with prospective outcomes [@debruin2007;@fischhoff2000;@fischhoff2008].
-Adolescents do, however, overestimate their probability of dying, which may be functionally important if it enhances the value of immediate rewards, especially if those rewards are relevant for thriving and reproductive fitness in short-term time frames.
+Adolescents do, however, overestimate their probability of dying [@fischhoff2010], which may be functionally important if it enhances the value of immediate rewards, especially if those rewards are relevant for thriving and reproductive fitness in short-term time frames.
 
 Some more recent approaches use evidence from neuroscience to describe an imbalance between action-promoting, and action-inhibiting processes that is thought to be a cause of risk-taking behavior.
 Two distinct theories are variations on this idea.
-The dual systems model suggest that during adolescence, the system that encodes socially and emotionally rewarding stimuli increases its sway on behavior more rapidly than cognitive control does [@shulman2016].
+The dual systems model suggests that during adolescence, the system that encodes socially and emotionally rewarding stimuli increases its sway on behavior more rapidly than cognitive control does [@shulman2016].
 The imbalance model proposes that the miscalibration is not just between two systems, but rather that an optimal balance between multiple systems is still developing [@casey_beyond_2016], and that this global imbalance leads to risky behavior.
 No approach in this vein deals directly with why certain behaviors are more likely to be selected by the psychological processes or neural systems that hold an excess of power during adolescence.
 
 Two other theories do address certain functional aspects of adolescent decision making.
-Social reorientation theory suggest that during adolescence, individuals shift their dominant social network from the family to peers [@nelson2016].
+Social reorientation theory suggests that during adolescence, individuals shift their dominant social network from the family to peers [@nelson2016].
 This shift is in part driven by developmentally appropriate changes in the salience of interactions with peers and potential romantic partners, which helps motivate adolescents to enter adulthood.
 Health-risking behavior increases are seen, in part, as a by-product of differences between what the family/caregiver network values and what the new peer group values, though the reasons for these value differences are not fully explicated.
 
@@ -31,14 +31,14 @@ This theoretical framework posits that adolescents have yet to develop heuristic
 If some possible outcomes of this exploration are negative health-consequences, then this exploration obviously constitutes health-risking behavior.
 The fuzzy trace perspective, and related views, hold that this exploration is an essential developmental task in adolescence, allowing adolescents to build expertise and wisdom about the world they must engage with as adults [@blakemore2014;@crone2012;@romer2017].
 
-A model of decision-making borrowed from economics can help integrate functional perspectives, and doesn't require problematic neurodevelopment to explain adolescent-specific changes in risk behavior.
+A model of decision-making borrowed from economics can help integrate functional perspectives, and does not require problematic neurodevelopment to explain adolescent-specific changes in risk behavior.
 One of the biggest challenges for imbalance models (but not the two, more functional approaches) is that adolescent health risking behavior may involve either impulsive _or_ highly cognitively controlled behaviors.
-The value-based choice view goes beyond the ideas of warring systems, describing decision-making as the integration of expected-value inputs from myriad sources that culminates in the selection of behaviors with large expected values [@pfeifer2018].
-The expected-value inputs may come from basic appetitive processes like desire for food or sex, as well as from self concept, social norms, peer expectations, emotional states, and theoretically any others that have influence over decision-making.
-From the vantage point of this perspective, it becomes clear that adolescent developing motivations for fitness-relevant behaviors related to status and mate-seeking could have a significant impact on value computations.
+The value-based choice view goes beyond the ideas of competing systems, describing decision-making as the integration of expected-value inputs from myriad sources that culminates in the selection of behaviors with large expected values [@pfeifer2018].
+The expected-value inputs may come from basic appetitive processes like desire for food or sex, as well as from self concept, social norms, peer expectations, emotional states, and theoretically any other sources that have influence over decision-making.
+From the vantage point of this perspective, it becomes clear that adolescent refinement of motivations for fitness-relevant behaviors related to status and mate-seeking could have a significant impact on value computations.
 In other words, if the function of adolescence is to complete the development of the organism to the fully adult form, motivations related to adult social concerns like status and mate-seeking are likely to have increasing weight as inputs to a value-based choice process.
 
-In order to understand health-risking behavior, and decisions making during adolescence more generally, it is important to begin to try to understand the motivational inputs that are related to evolutionarily relevant developmental tasks.
+In order to understand health-risking behavior, and decision making during adolescence more generally, it is important to begin to try to understand the motivational inputs that are related to evolutionarily relevant developmental tasks.
 As is described by fuzzy trace theory, adolescents do not yet have decision-making heuristics in place regarding their behavior in these motivational domains, and so they must explore, often using a decision-making approach that makes more fine-grained use of outcome probabilities [@romer2017].
 Differences in various motivations will increase or decrease the expected value of both exploration and exploitation behaviors.
 A substantial body of research documents broad motivational changes in adolescence as captured by the sensation-seeking construct [@harden2011;@steinberg2008;@ruch2001;@zuckerman1978], but very little work examines adolescent motivation at a finer resolution.
@@ -46,7 +46,7 @@ Since learning is the process by which decision-making is influenced by previous
 
 # Motivations from an Evolutionary Psychology Perspective
 
-The impact of evolutionarily relevant motivations should be considered especially well because selection pressure is likely to be a powerful force shaping biological predispositions, and individual differences, during this phase of development [@baltes1997;@mottus2018].
+The impact of evolutionarily relevant motivations should be considered especially carefully because selection pressure is likely to be a powerful force shaping biological predispositions, and individual differences, during this phase of development [@baltes1997;@mottus2018].
 Relative to other primates, human childhood is extremely protracted, essentially representing a 'pause' in development, with coincident more-rapid post-pubertal development [@delgiudice2009].
 From a birds-eye-view, this places the psychology and behavior of the adolescent phase at a transition point between a relatively quiescent period, and period of acceleration into an adult motivational frame. 
 Particularly striking changes during this period of development include increasing propensity for adult-like behaviors, such as the inception of  sexual and romantic behavior [@cavazos-rehg2009;@harden2014a], and navigation of shifting social networks and status hierarchies [@cairns1995;@steinberg2001] with possible consequences for adult success [@shi2017].
@@ -64,27 +64,28 @@ The evolutionary-psychological framework is especially important for understandi
 Using the FSM framework allows integration of findings from this work into the broader evolutionary psychology conversation that is beginning to arise in adolescent research.
 
 Another advantage of the FSM approach is that it parses motivations by the functional importance of the motivation with regard to likely adaptive problems.
-There are many traditions that would place status motives and mate-seeking motives within one of two broad domains, respectively, such as agency and communion [@bakan1966], power and intimacy [@mcadams_power_1985], and many others [@wiggins1991].
-However, those traditions are not able to capture the distinct challenges inherent in various social relations, which map onto important relationships at different developmental stages (specifically, mate-seeking as a result of puberty, but also, e.g., kin care, later, in adulthood).
-The fact that the FSM approach organizes the measurement of motivation around broad relationship categories, may make it especially useful for thinking about adolescence, which is proposed to be marked by a restructuring of the adolescents place in the social world [@nelson2005;@nelson2016].
+There are many traditions [@wiggins1991] that would place status motives and mate-seeking motives within one of two broad domains, respectively, such as agency and communion [@bakan1966], power and intimacy [@mcadams_power_1985].
+However, those traditions are not able to capture the distinct challenges inherent in various social relations, which map onto important relationships at different developmental stages (specifically, mate-seeking as a result of puberty; also, for example, kin care in later adulthood).
+The fact that the FSM approach organizes the measurement of motivation around broad relationship categories, may make it especially useful for thinking about adolescence, which is proposed to be marked by a restructuring of an adolescent's place in the social world [@nelson2005;@nelson2016].
 
 Literature on risk-taking behavior directly implicates both mate-seeking and status motivation domains in risky sexual behaviors and a variety of potentially status-related health-risking behaviors such as substance use.
 For example, in a study which assessed perceptions of the sexual-self among adolescents, there was an association between increasing sexually-motivated self-perceptions and various forms of sexual risk-taking [@buzwell1996].
 With regard to status, there is some evidence consistent with the idea that adolescents who have high popularity as rated by peers may try to maintain their status through health-risking behaviors [@mayeux2008].
 Beyond health-risking behaviors, these motives may also be crucial ingredients in understanding a whole class of risk-taking that is more positively valued, including but not limited to risks taken in service of extending one's social and physical environment beyond one's childhood home [@sercombe2014].
-Although the above literature acknowledges motivation, and measures related constructs, mate-seeking and status _motives_ are rarely a direct target of measurement.
-There is a need for research investigating how adolescent learning ans decision-making is shaped in the presence of stimuli which are motivationally relevant to their developmental stage.
+It is unfortunate that although the above literature acknowledges motivation, and measures related constructs, mate-seeking and status _motives_ are rarely a direct target of measurement.
+There is a need for research investigating how adolescent learning and decision-making is shaped in the presence of stimuli which are motivationally relevant to their developmental stage.
 
 ## Status motive
 
 Status during adolescence has been studied from a variety of perspectives, including perceptions, structure, strategies, and outcomes [@allen2005;@jarvinen_adolescents_1996;@lafontana2010;@savin-williams1979;@SelfhoutEmergingLateAdolescent2010;@underwood1996].
-Though status motives have been addressed, self-report about status priorities are most common.
+Although the motivation to gain status (as distinct from social status, per se) has been addressed, the literature on status-related social goals typically relies on self-report.
 For example, using self-report measures, @lafontana2010 found that prioritizing status over other domains (e.g., achievement, friendship) peaks in late adolescence.
-However, reliance on self-report is not optimal, especially in a domain with strong social norms about the value of attaining high status.
-Moreover, self-report may not be able to distinguish between the intrinsic motive to learn about and navigate status hierarchies, and the ability (or lack thereof) to successfully actualize that motive.
-One interesting possibility is that status motives are constant throughout early life but that during adolescent development, social cognition matures to a degree that allows increasing social status complexity (which appears as a reorientation toward peer status concerns).
-Nonetheless, as adolescents proceed developmentally toward adulthood, social status plays an increasingly important role in determining many types of opportunities.
-For this reason, the motivation to explore and master status hierarchies, and perhaps gain status, remains an important target for research.
+This kind of Work often also employs peer-nomination of popularity or sociometric methods, and has generally found that self-reported motivation to pursue popularity, or related agentic or dominance goals, is only weakly associated with social status from middle childhood [@rodkin2013] through adolescence [@caravita2012;@cillessen2014;@jarvinen_adolescents_1996;@ojanen2005].
+This highlights the important distinction between an intrinsic motivation to learn about and navigate status hierarchies, and the ability (or lack thereof) to successfully actualize that motive.
+This same literature also implicates both popularity per se, _as well as_ status-related social goals in negative behaviors like agression [@cillessen2014;@ojanen2005] and bullying [@caravita2012], indicating that it is crucial to study motives to fully understand processes and outcomes related to status in adolescence.
+However, reliance on self-report is not always optimal, especially in a domain with strong social norms about the value of having and attaining high status may plausibly contaminate these measures.
+It would be useful to be able to make use of a behavioral measure of status motives that is less susceptible to self-report biases.
+
 
 ## Mate-seeking motive
 
@@ -95,7 +96,7 @@ Most work to date has focused on risk factors for unsafe sex unrelated to motiva
 This neglects the importance of sexual motivation (i.e., desire) in the development of an empowered and responsible sexual identity, impeding efforts to reduce health-risks through sexual education [@fine2006].
 Although sexual desire is recognized rhetorically as an important component in emerging adolescent romantic and sexual behavior, its direct interrogation through either behavioral or self report measures is limited.
 Likewise, the role of mate-seeking motives in the exploratory behavior characteristic of adolescence is also under-studied.
-As with status, reliance on self-report may not be optimal given both the socially and politically sensitive nature of this topic.
+As with status, reliance on self-report may not be optimal, especially given the extremely sensitive nature of this topic both socially and politically.
 
 # Reinforcement learning
 
@@ -128,7 +129,7 @@ Because learning and exploration are thought to be a crucial aspect of the impor
 Broadly speaking, the goal of this work is to investigate the appropriateness of this reinforcement learning task, as well as the ways in which these motives (measured in multiple ways) relate to attitudes and behaviors.
 
 *Aim 1a: Does framing reinforcement learning targets with (mate-seeking and status) motive-related words increase stimulis salience and potentiate learning?* Relevance of the stimuli to individuals' underlying motives should affect the salience of stimuli, and thus also the rate at which individuals learn.
-On average, it is expected that information related to status and mate-seeking motives will be motivationally relevant, and will potentiate learning over and above minimally-social information.
+On average, it is expected that information related to status and mate-seeking motives will be motivationally relevant, and will potentiate learning over and above information in a baseline condition.
 
 *Aim 1b: How does motive potentiation of learning covary with development?* It is likely that both status and mate-seeking motives increase between childhood and adolescence.
 If differences in learning rates between stimuli with social and minimally-social relevance reflect underlying motives, then it is expected that learning potentiation due to motive-framing will increase from early to late adolescence.
