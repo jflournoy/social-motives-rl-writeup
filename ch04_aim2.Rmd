@@ -121,7 +121,7 @@ Although comparisons between reported gender groups, or samples, are not the foc
 
 For testing metric invariance, which is required to make inferences based on latent covariance structures, we use the McDonalad Non-centrality Fit Index (MFI) because this has been shown to be robust to differences in sample size and magnitude of item loadings [@kang2016].
 In simulations performed by @kang2016, $\Delta\text{MFI} > .01$ was seen in less than 1\% of invariance tests when the null of measurement invariance between groups is true, though the authors caution against rules-of-thumb like this more generally.
-In other simulations, $\Delta\text{MFI} > .012$ was roughly the cut-off for the 1\% level [@johnflournoy2018].
+In other simulations, $\Delta\text{MFI} > .012$ was roughly the cut-off for the 1\% level [@flournoy2018a].
 The tests below follow these guidelines roughly: when fit differences in the MFI between invariant, or partially-invariant, scales is more than .012, constraints on particular items (suggested by modification indices) are relaxed until the fit difference is no longer substantially concerning.
 However, because these items not longer contribute to the model in the same way, and because content coverage of the scales is another important concern for validity [@borsboom2006], the final partially invariant scale is not embraced credulously.
 When substantial modification is necessary, sensitivity analysis is performed to compare estimates between the fully constrained scales and the partially constrained (i.e., partially invariant) measurement models.
