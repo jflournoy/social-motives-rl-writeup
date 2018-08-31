@@ -124,7 +124,7 @@ In laying out a programmatic approach to learning and attention, @mackintosh1975
 Cue salience can both modulate, and be modulated by, blocking effects.
 For example, using cues of colored dots and modulating salience by the density of dots, @denton2006 showed that it is harder to block a new cue if that new cue is more salient (i.e., has higher dot density) than the already conditioned cue.
 In other blocking paradigms, learning an association between a highly predictive cue and outcome blocks an organisms ability to form an association between that outcome and a new cue that is paired with the initially learned cue [see @shanks2010 for an overview].
-This has been interpretted as indicating that the "blocked" stimulus essentially becomes less salient than the initially learned stimulus.
+This has been interpreted as indicating that the "blocked" stimulus essentially becomes less salient than the initially learned stimulus.
 Though many models have been developed to account for this phenomenon, one explanation is that the new stimulus provides no new information for predicting the outcome (which is already perfectly predicted by the prior associated stimulus).
 
 From an evolutionary perspective, the modulation of learning by salience, and salience by learning, is harmonious with both the idea that the environment is not perfectly stable, as well as with the idea that the goals, social or otherwise, of an organism change across development.
@@ -567,7 +567,7 @@ confidence_parameter_plot +
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/confidencevparameters-1.pdf}
-\caption[Confidence in learning and RW learning parameters]{Confidence in learning and RW learning parameters. Each point is the confidence rating for a single participant at the end of all trials (and because each participant has only one rating, a participant's value on the Y-axis is the same across all panels). A clear association between the reward modifier, $\rho$, and confidence, and the noise parameter, $\xi$, and confidence can be seen. The righ-arrow bias, $b$, and learning rate, $\epsilon$, do not show clear associations with confidence.}
+\caption[Confidence in learning and RW learning parameters]{Confidence in learning and RW learning parameters. Each point is the confidence rating for a single participant at the end of all trials (and because each participant has only one rating, a participant's value on the Y-axis is the same across all panels). A clear association between the reward modifier, $\rho$, and confidence, and the noise parameter, $\xi$, and confidence can be seen. The right-arrow bias, $b$, and learning rate, $\epsilon$, do not show clear associations with confidence.}
 \label{fig:confidencevparameters}
 \end{figure}
 
@@ -985,7 +985,7 @@ The most consistent finding from this literature, and which is consistent with t
 In one study, however, adolescents performed better than adults, which was interpreted as indicating that heightened reward sensitivity may lead to better learning during adolescence [@davidow2016].
 The task used was a probabilistic reinforcement learning task, just as in much of the literature indicating more optimal learning in adults compared to adolescents.
 Notably, adults showed higher learning rate parameters than adolescents, but performed worse as a result.
-These results are anomolous in the context of the considerable evidence for greater adult performance on standard reinforcement learning paradigms.
+These results are anomalous in the context of the considerable evidence for greater adult performance on standard reinforcement learning paradigms.
 
 This consistent age finding holds across different operationalizations of learning.
 Both probabilistic reinforcement [@bos2009; @cohen2010; @palminteri2016; @decker2015], and deterministic reinforcement [@duijvenvoorde2008; @peters2017] show the increase in performance with age.
