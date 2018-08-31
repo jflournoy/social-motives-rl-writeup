@@ -713,7 +713,7 @@ p_opt_pds_plot
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/poptpdsplot-1.pdf}
-\caption[Probability of optimal response versus pubertal development]{Probability of optimal response versus pubertal development. Optimal choice probability is calculated as the proportion of optimal choices in the last half of the run. All best-fit lines are from generalized additive models. Grey line is fit to all data. PDS = Pubertal Development Scale.}
+\caption[Probability of optimal response versus puberty]{Probability of optimal response versus puberty. Optimal choice probability is calculated as the proportion of optimal choices in the last half of the run. All best-fit lines are from generalized additive models. Grey line is fit to all data. PDS = Pubertal Development Scale.}
 \label{fig:poptpdsplot}
 \end{figure}
 
@@ -742,7 +742,7 @@ p_opt_diff_pds_plot
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/poptdiffpdsplot-1.pdf}
-\caption[Condition differences in probability of optimal response versus pubertal development]{Condition differences in probability of optimal response versus pubertal development. Optimal choice probability is calculated as the proportion of optimal choices in the last half of the run. Difference scores are calculated versus the baseline, Hungry/Thirsty, condition. All best-fit lines are from generalized additive models. Grey line is fit to all data. PDS = Pubertal Development Scale.}\label{fig:poptdiffpdsplot}
+\caption[Condition differences in probability of optimal response versus puberty]{Condition differences in probability of optimal response versus puberty. Optimal choice probability is calculated as the proportion of optimal choices in the last half of the run. Difference scores are calculated versus the baseline, Hungry/Thirsty, condition. All best-fit lines are from generalized additive models. Grey line is fit to all data. PDS = Pubertal Development Scale.}\label{fig:poptdiffpdsplot}
 \end{figure}
 
 \begin{table}
@@ -824,8 +824,7 @@ knitr::kable(age_param_betas_table, digits = 2, escape = F,
 ```
 \begin{tablenotes}
 \footnotesize
-\item Models were estimated using posterior mean parameters on unconstrained scales.
-\item $\epsilon$: learning rate; $\rho$: reward modifier; $\xi$: noise; $b$: right-arrow bias.
+\item Models were estimated using posterior mean parameters on unconstrained scales. $\epsilon$: learning rate; $\rho$: reward modifier; $\xi$: noise; $b$: right-arrow bias.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -842,8 +841,7 @@ knitr::kable(age_param_con_betas_table, digits = 2, escape = F,
 ```
 \begin{tablenotes}
 \footnotesize
-\item Parameter contrasts were computed by subtracting the mean posterior parameter (on the constrained scales) in the Hungry/Thirsty condition from parameter estimates in the two social conditions.
-\item $\epsilon$: learning rate; $\rho$: reward modifier; $\xi$: noise; $b$: right-arrow bias.
+\item Parameter contrasts were computed by subtracting the mean posterior parameter (on the constrained scales) in the Hungry/Thirsty condition from parameter estimates in the two social conditions. $\epsilon$: learning rate; $\rho$: reward modifier; $\xi$: noise; $b$: right-arrow bias.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -895,8 +893,7 @@ knitr::kable(pds_param_betas_table, digits = 2, escape = F,
 ```
 \begin{tablenotes}
 \footnotesize
-\item Models were estimated using posterior mean parameters on unconstrained scales.
-\item $\epsilon$: learning rate; $\rho$: reward modifier; $\xi$: noise; $b$: right-arrow bias.
+\item Models were estimated using posterior mean parameters on unconstrained scales. $\epsilon$: learning rate; $\rho$: reward modifier; $\xi$: noise; $b$: right-arrow bias.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -913,8 +910,7 @@ knitr::kable(pds_param_con_betas_table, digits = 2, escape = F,
 ```
 \begin{tablenotes}
 \footnotesize
-\item Parameter contrasts were computed by subtracting the mean posterior parameter (on the constrained scales) in the Hungry/Thirsty condition from parameter estimates in the two social conditions.
-\item $\epsilon$: learning rate; $\rho$: reward modifier; $\xi$: noise; $b$: right-arrow bias.
+\item Parameter contrasts were computed by subtracting the mean posterior parameter (on the constrained scales) in the Hungry/Thirsty condition from parameter estimates in the two social conditions. $\epsilon$: learning rate; $\rho$: reward modifier; $\xi$: noise; $b$: right-arrow bias.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
