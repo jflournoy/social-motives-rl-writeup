@@ -90,9 +90,10 @@ This presents an interpretive conundrum.
 One possibility is that individual differences in social motives do not result in differences in the salience of stimuli that are relevant to those motives.
 The rich history of work on attention-reward contingencies elicited by the interaction of a person with her environment makes this possibility seem very unlikely [@mackintosh1975;@grossberg1975;@kruschke2011]. 
 A more likely possibility, explored further below in the section on limitations, is that the stimuli and framing used in this task were not actually relevant, in the participants' perception, to the social motives we sought to explore.
-Another, perhaps equally plausible, possibility is that information about dating and popularity is too relevant to almost everyone, regardless of their personal level of motivation.
+Instead, salience differences may be the result of incidental differences in the descriptor content along dimensions that are robust to the artificial laboratory setting.
 
-Perhaps it is the case that from even early adolescence, people understand that it is important to learn, as well as, possible signals in the social world about dating and popularity, regardless of one's own motives in relevant domains.
+Another, perhaps equally plausible, possibility is that information about dating and popularity is _too_ relevant to almost everyone, regardless of their personal level of motivation.
+Perhaps it is the case that from even early adolescence, people understand that it is important to attend to and learn from possible signals in the social world about dating and popularity, regardless of one's own motives in relevant domains.
 In the domain of social status, this is in line with work that suggests status misperception can incur a social cost regardless of one's position [@srivastava2011].
 Learning who is popular may be such a basic skill in forming accurate-enough impressions of social hierarchies that there is not room for status motives to affect learning.
 This same sort of ceiling effect is just as applicable to the mate-seeking condition.
@@ -111,7 +112,7 @@ Compounding this problem is the possibility that the method itself is responsibl
 Correspondence between task-behavior and self-report measures of the same ostensible construct has been shown to be rather low across a wide range of commonly used adolescent risk-taking measures [@harden2017].
 Whether this is due to method variance, or problems with the construct validity of the tasks examined in that investigation, the SPLT task may be another example of this problem.
 
-Some measurement problems, including skewed responding, extreme latent variable covariance, and unexpectedly patterns of latent variable correlation also may limit the degree of certainty in the construct validity of the self-report measures.
+Some measurement problems, including skewed responding, extreme latent variable covariance, and unexpected patterns of latent variable correlation also may limit the degree of certainty in the construct validity of the self-report measures.
 This is not to suggest that these instruments are not responsive to some true signal, as is suggested by their association to self-reported health-related behaviors.
 Rather, these issues suggest that further work could be done to refine the conceptual space, and thereby produce more accurate instruments that measure more well-defined constructs that are structurally better situated in a more valid taxonomy.
 Such refinement might both raise the ceiling on the magnitude of observable relations, and also allow more straightforward interpretation of these relations.
