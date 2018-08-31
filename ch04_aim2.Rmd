@@ -62,7 +62,7 @@ The original SRQ was developed to measure individual differences in what kinds o
 Understanding what is rewarding and valuable to people is directly related to what people find motivating, with greater reward derived from a particular domain indicating greater motivation in that domain.
 In the work that established this measure, validity was investigated using other existing self-report trait scales, with favorable results.
 The Sexual Relationships subscale, administered to all samples as a measure of mate-seeking motive, correlated strongly with sociosexual orientation measures.
-Admiration, administered to all samples as a measure status motive, correlated with dominance, friendliness, hostility, extraversion and narcissism.
+Admiration, administered to all samples as a measure of status motive, correlated with dominance, friendliness, hostility, extraversion and narcissism.
 Two other subscales, though not focal, are reported in this investigation as well: Passivity, which measures enjoyment of giving control to others, was negatively correlated with dominance; Sociability, which measures enjoyment of group interactions, showed a pattern of correlations similar to Admiration, but with a correlation to hostility close to zero.
 The Kids' SRQ was modified for this study to be more appropriate for adolescents by replacing questions explicitly about sex (e.g., "I enjoy having an active sex life"), with questions that are closely related to sexual and romantic experience (i.e., "I like kissing," "I like having a crush on someone," and "I like flirting").
 
@@ -93,7 +93,7 @@ Of course, these behaviors are health-_relevant_ not just because having sex con
 In short, sexual and romantic desire, and behavior, should correlate, as well as show developmentally expected increases during the transition from childhood to sexual maturity and adulthood.
 
 Questions about sexual behavior were derived from the the Sexual Experience Survey used by @smith2006, which was itself derived from questions administered by @mcapaldi2002. They ask about the number of recent sexual partners, and sexual encounters.
-Risky sexual behavior is assessed by an item asking the participant to report on the frequency of a variety of safe sex practices.
+Health-protecting sexual behavior is assessed by an item asking the participant to report on the frequency of a variety of safe sex practices.
 In these analyses, this is treated as a health-_risking_ behavior given that these behaviors are the primary means for adults and adolescents alike to ameliorate the risks of developmentally normative sexual behavior.
 
 Alcohol use is another common target outcome for research on adolescent motivation and decisions making, and so provides another touchstone by which we might measure the effectiveness of our instruments, as well as provide additional data on the relations between facets of adolescent motivation and health-relevant behaviors.
@@ -230,8 +230,7 @@ knitr::kable(scale_descriptives_table_col,
 ```
 \begin{tablenotes}
 \footnotesize
-\item `r sample_abbreviation_note`
-\item SD = Standard Deviation;F = Fundamental Social Motives Inventory; D = Dominance and Prestige Scale.
+\item `r sample_abbreviation_note` SD = Standard Deviation;F = Fundamental Social Motives Inventory; D = Dominance and Prestige Scale.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -250,8 +249,7 @@ knitr::kable(scale_descriptives_table_comb_ksrq,
 ```
 \begin{tablenotes}
 \footnotesize
-\item `r sample_abbreviation_note`
-\item SD = Standard Deviation; K = Kids' Social Reward Questionnaire.
+\item `r sample_abbreviation_note` SD = Standard Deviation; K = Kids' Social Reward Questionnaire.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -270,8 +268,7 @@ knitr::kable(scale_descriptives_table_comb_uppsp,
 ```
 \begin{tablenotes}
 \footnotesize
-\item `r sample_abbreviation_note`
-\item SD = Standard Deviation; U = Urgency, Premeditation, Perseverance, Sensation Seeking Scale.
+\item `r sample_abbreviation_note` SD = Standard Deviation; U = Urgency, Premeditation, Perseverance, Sensation Seeking Scale.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -342,7 +339,7 @@ ksrq_age_pred_plot
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/ksrqagepredplot-1.pdf}
-\caption[K-SRQ model-predicted PDS associations]{K-SRQ model-predicted PDS associations. Best fit lines are expected latent variable values drawn from the model with all loadings, latent variances and covariances, and regression coefficients constrained to be the same across samples. Best fit lines are plotted separately for each sample, but because regression coefficients are identical, and the expected trajectories are otherwise very similar, they are not separately labeled. Points are individual, model predicted, latent variable values.}
+\caption[K-SRQ model-predicted age associations]{K-SRQ model-predicted age associations. Best fit lines are expected latent variable values drawn from the model with all loadings, latent variances and covariances, and regression coefficients constrained to be the same across samples. Best fit lines are plotted separately for each sample, but because regression coefficients are identical, and the expected trajectories are otherwise very similar, they are not separately labeled. Points are individual, model predicted, latent variable values.}
 \label{fig:ksrqagepredplot}
 \end{figure}
 
@@ -384,7 +381,7 @@ ksrq_pds_pred_plot
 \centering
 \captionsetup{width=5.875in}
 \includegraphics{figures/ksrqpdspredplot-1.pdf}
-\caption[K-SRQ model-predicted PDS associations]{K-SRQ model-predicted age associations. Best fit lines are expected latent variable values drawn from the model with all loadings, latent variances and covariances, and regression coefficients constrained to be the same across samples. Best fit lines are plotted separately for each sample, but because regression coefficients are identical, and the expected trajectories are otherwise very similar, they are not separately labeled. Points are individual, model predicted, latent variable values.}
+\caption[K-SRQ model-predicted PDS associations]{K-SRQ model-predicted PDS associations. Best fit lines are expected latent variable values drawn from the model with all loadings, latent variances and covariances, and regression coefficients constrained to be the same across samples. Best fit lines are plotted separately for each sample, but because regression coefficients are identical, and the expected trajectories are otherwise very similar, they are not separately labeled. Points are individual, model predicted, latent variable values.}
 \label{fig:ksrqpdspredplot}
 \end{figure}
 
@@ -1061,7 +1058,7 @@ Status motives as measured in the college student sample using the FSMI Status s
 Admiration was significantly positively associated with both number of drinking days and heavy drinking days.
 However, Sociability also showed a significant relation even when controlling for Admiration, which showed a _negative_ association with both drinking outcomes when Sociability was included.
 This is actually somewhat consistent with the investigation by @allen2005, which found that during adolescence, popularity was both associated with well-adjusted development but also increased exposure to peer groups where minor deviant behavior was socialized.
-Though alcohol consumption is almost certainly considered less (or not at all) deviant among the college participants, a similar principal may apply here.
+Though alcohol consumption is almost certainly considered less (or not at all) deviant among the college participants, a similar principle may apply here.
 It is possible that sensitivity to admiration from peers is related to alcohol use just because enjoying admiration, to some extent, requires enjoying socializing as well.
 When taking into account motivation to socialize, specifically, concerns about receiving admiration from peers seem to be associated with more cautious consumption. 
 
@@ -1100,7 +1097,7 @@ Generally, these patterns of correlations with baseline task behavior highlight 
 
 Although correlations between SPLT contrast variables and self-report scales are of a similar magnitude to the baseline correlations, they have a much less straightforward interpretation.
 For example, in the combined samples, and college-only samples, higher sensation seeking and impulsivity as measured by UPPS-P subscales are weakly positively correlated with the $\rho$ parameter differences between both the Dating and Popular conditions versus baseline, but much more weakly, still, with overall performance.
-Only when the combined sample is considered does Passivity (which measures enjoyment of being told what to do by others) correlate negatively with final performance differences in the Dating condition, while perseverance correlates positively with early performance in the dating condition.
+Only when the combined sample is considered does Passivity (which measures enjoyment of being told what to do by others) correlate negatively with final performance differences in the Dating condition, while Perseverance correlates positively with early performance in the dating condition.
 These results do not seem to be consistent with the expectations of this investigation or with literature about performance effects within these specific domains.
 Perhaps they may be of use to a future meta-researcher.
 
