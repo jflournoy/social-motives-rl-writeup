@@ -163,6 +163,15 @@ There are no exclusion criteria for this sample.
 The target sample size for this sample was 160 for $>90\%$ power to detect a small ($\beta_{\text{std on y}} = 0.1$) interaction between motive condition, and a continuous covariate such as the self-report Fundamental Social Motives Inventory (described below), assuming an intraclass-correlation $> .25$.
 Note that unlike the adolescent samples, the young adult sample provided their age as an integer (in years).
 
+For the online young adult sample only, attention check items were included in the questionnaire to help assess whether individuals were participating in good faith.
+Participants were excluded from the study and not awarded class credit if their data conformed to a pattern that strongly indicated inattentive and random responding.
+The primary criterion for making this judgment was extremely brief task duration (total time < 18 minutes) combined with scores on the task that indicated chance-level responding (roughly around 500). 
+This means that those who took a long time but showed little learning, and those who learned both well and quickly were not excluded.
+Secondary criteria used to confirm the pattern indicated by task data included erroneous scores on several attention check questions.
+These attention check items were also used to test for acquiescence bias on self-report scales that did not contain reverse-keyed items.
+A total of six individuals were excluded from the study for not participating in good faith.
+Participants were not otherwise excluded for not passing attention check items both because further inspection often showed that responding was *not* random with respect to some portions of the questionnaire, and because some authors have reported that eliminating participants based on attention check items introduces a source of demographic bias [e.g., @anduiza2016].
+
 ## Pubertal Development
 
 To assess pubertal development, all participants completed the Pubertal Development Scale [PDS; @petersen1988], with the mean of five items used to indicate progress through puberty (range [1,4]).

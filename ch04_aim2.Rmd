@@ -322,6 +322,11 @@ Correlations among the Admiration, Sociability, and  Sexual Relationships subsca
 Correlations of Passivity with these three subscales were generally small, but positive ($`r sprintf('r = [%.2f, %.2f]', min((lavaan::inspect(ksrq_cfa_metric_cov, 'cor.lv')$yads_online)[2,]), max((lavaan::inspect(ksrq_cfa_metric_cov, 'cor.lv')$yads_online - diag(4))[2,]))`$; see Tables \ref{tab:collegecor} and \ref{tab:allcor} for all latent variable correlations).
 This pattern of correlation is similar to what was seen in the scale construction sample [@foulkes2014].
 
+All items were forward-coded, so one possible explanation for the high inter-scale correlations is acquiescence bias.
+To explore this possibility, we examined the association between attention-check items and the K-SRQ subscales for those who had data for both (N = 138). 
+Spearman rank-order correlations were calculated between the computed scale scores and two attention-check items: "This is a control question, please select 'Strongly disagree' and continue," and "Most people find puppies cute."
+Correlations between these two questions and K-SRQ subscales were somewhat high for Admiration ($r_s = -.23, .34$, respectively), Sexual Relationships ($r_s = -.16, .27$), and Sociability ($r_s = -.17, .35$), but smaller for Passivity ($r_s = .07, 0$).
+
 #### Age
 
 Variation in latent factors was described by a quadratic age regression, with age effects allowed to vary by gender.
@@ -1005,6 +1010,9 @@ knitr::kable(splt_sems_df_4table[,-(1:2)],
 \end{threeparttable}
 \end{table}
 
+Differences in model performance between partnered and unpartnered college students were tested for each of the proportion of optimal response variables, as well as for each of the model parameters for the Dating/Looking - Hungry/Thirsty contrasts.
+Two-sample Yuen *t*-tests [computed using the PairedData package; @champely2017], which are robust to non-normality [@yuen1974], were used for these comparisons.
+No significant differences between these two groups were observed for any of the six tested variables.
 
 # Discussion, Aim 2
 
@@ -1019,6 +1027,7 @@ Poor fit may be due to incorrect specification of the relation of the items to l
 Factor structure was not tested as part of these analyses, but there is some evidence in the correlations between latent variables of considerable overlap that may warrant consideration of alternative structures.
 For example, Negative and Positive Urgency in the UPPS-P may not be separable factors, or may be lower-order factors of a higher-order impulsivity variable [@cyders2014].
 Poor fit and high subscale correlations for the K-SRQ scales, which only has forward keyed items, may also simply be the result of acquiescence bias.
+Some support for acquiescence bias was seen in the relatively high amount of shared variance between responses to two attention-check items and the K-SRQ subscales.
 Extreme responding driven either by social desirability or miscalibrated item content (e.g., almost no one dislikes being looked up to, or kissing) is also a concern with this scale, which shows skew in responses to almost every item.
 Indeed, two subscales were not included in these analyses because extreme responding in one direction was so pronounced.
 When measurement non-invariance was observed, sensitivity tests indicated without exception that substantive results were not sensitive to them.
@@ -1102,6 +1111,8 @@ These results do not seem to be consistent with the expectations of this investi
 Perhaps they may be of use to a future meta-researcher.
 
 Finally, the SPLT variables also showed no coherent associations to any of the self-reported behavioral outcomes.
+Tests of group differences in learning in the Dating/Looking condition between partnered and unpartnered participants were unfortunately restricted to those in the college sample.
+It is possible that differences between college students and pre-college adolescents in the quality or meaning of long-term relationships would alter how they affect mate-seeking motives; this question must be left for future research.
 These analyses were included here primarily to further validate task behavior as a measure of social motives in the case that SPLT behavior and self-report scales showed correspondence, and to test whether SPLT behavior might be a _better_ predictor of health-related behaviors than self-report trait measures.
 In the context of the results discussed above, the lack of significant associations between SPLT variables and behavioral outcomes serves as another indication that the task either does not capture individual differences in relevant social motives, or does so only very imprecisely.
 
