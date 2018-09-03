@@ -160,7 +160,8 @@ Nesting of participants within sample is encoded in hierarchical linear models a
 The CSYA and CSYA-O samples comprise late adolescents and emerging adults age 18-25 years recruited from the UO human subjects pool using the web-based SONA scheduling system. 
 Students sign up for time slots most convenient to them without knowing study details beyond inclusion and exclusion criteria. 
 There are no exclusion criteria for this sample. 
-The target sample size for this sample was 160 for $>90\%$ power to detect a small ($\beta_{\text{std on y}} = 0.1$) interaction between motive condition, and a continuous covariate such as the self-report Fundamental Social Motives Inventory (described below), assuming an intraclass-correlation $> .25$. 
+The target sample size for this sample was 160 for $>90\%$ power to detect a small ($\beta_{\text{std on y}} = 0.1$) interaction between motive condition, and a continuous covariate such as the self-report Fundamental Social Motives Inventory (described below), assuming an intraclass-correlation $> .25$.
+Note that unlike the adolescent samples, the young adult sample provided their age as an integer (in years).
 
 ## Pubertal Development
 

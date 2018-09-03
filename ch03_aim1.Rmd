@@ -397,11 +397,11 @@ gridExtra::grid.arrange(mu_unif_dens_plot, beta_unif_dens_plot, ncol = 2, widths
 
 All models were fit in RStan [version `r packageVersion('rstan')`; @standevelopmentteam2018] using R [version `r paste(version$major,version$minor, sep = '.')`; @rcoreteam2018].
 Samples were drawn over 1534 iterations from six chains per model, with the first 1200 iterations for each chain discarded as a warm-up period (total iterations per model = 2004).
-To compare models and choose the one with the best expected out-of-sample prediction we use the R package, loo [@vehtari2018], to compute an estimate of the leave-one-individual-out cross validation information criterion [@vehtari2017a].
+To compare models and choose the one with the best expected out-of-sample prediction we used the R package, loo [@vehtari2018], to compute an estimate of the leave-one-individual-out cross validation information criterion [@vehtari2017a].
 
-From the winning model, we then extract model parameters, as well as the final probability of choosing the optimal descriptor for a particular cue.
+From the winning model, we then extracted model parameters, as well as the final probability of choosing the optimal descriptor for a particular cue.
 Means of the posterior densities for all parameters are used in subsequent analyses.
-In addition, we use the average number of optimal choices in the last half of the run as a more easily calculable measure of optimal performance.
+In addition, we used the average number of optimal choices in the last half of the run as a more easily calculable measure of optimal performance.
 Associations between all model parameters, measures of performance, age, and pubertal development are computed using Spearman's rank order correlation and standardized coefficients from linear mixed effects models.
 Linear mixed effects (LME) models were computed using the R package lme4 [version `r packageVersion('lme4')`; @bates2015].
 These LME models were computed in order to aid descriptions of plotted data and best-fit generalized additive model (GAM) lines, and were used in place of correlations to account for non-independence of data when, for example, a parameter for all three conditions was regressed on age.
@@ -680,6 +680,22 @@ load('rda/age-learning-association.rda')
 
 Relations between measurements of development and both observed behavior as well as model parameters are explored below.
 The presentation of results focuses first on scatter-plots of the data and GAM trend lines, which are then interpreted with the aid of standardized coefficients form LME models.
+Note that age for the adolescent samples is calculated using the session date and the participant's birthday, while the young adult sample only provided their age, in years, as an integer.
+
+The reliability of the proportion of optimal decisions and the individual-level model-estimated parameters is important to consider when interpreting the correlations with other individual differences measures.
+Proportions of variance accounted for by participant-level random effects was calculated from a generalized linear mixed effects model implemented in the lme4 package.
+The model included population and participant-level effect terms for each condition (with Hungry/Thirsty as the reference condition), the trial number, and an interaction between trail number and condition to account, crudely, for learning.
+The proportion of variance denominator was calculated by summing the variance of all participant-level effects with the residual variance for binomial logistic regression equal to $(15/16)^2\pi^2/3$.
+The proportion of total variance accounted for by individual differences in optimal presses (averaged across the run) in the Hungry/Thirsty condition was .25. Individual differences in the difference in optimal responding to the two social conditions accounted for and additional .13 (Dating/Looking) and .14 (Popular/Unpopular).
+The proportion of variance accounted for by the linear effect of trial number in all three conditions was very small (.02 for each of the three conditions).
+
+Reliability of individual differences in the model for reinforcement learning was calculated for each parameter by dividing the variance in the means of the participant-level posterior distributions by the total variance across all the samples in the posterior distributions.
+In other words, we take the variance in the means of the individual parameters and divide it by the total uncertainty around those means (which also includes the variance of the means themselves).
+The contrasted parameters of primary interest.
+Individual-level mean posterior differences between the learning rate $\epsilon_\text{Dating/Looking}$ and $\epsilon_\text{Hungry/Thirsty}$ account for .31 of the total variance in the posterior distributions for this contrast.
+For $\epsilon_\text{Popular/Unpopular} - \epsilon_\text{Hungry/Thirsty}$, the proportion is .33.
+For the reward modifier, $\rho$, the proportions for the contrasts are Dating/Looking (DL) = .23 and Popular/Unpopular (PU) = .25; for the noise parameter, $\xi$, DL = .22, PU = .26; and for right-arrow bias, $b$, DL = .43, PU = .42.
+
 
 ### Mean optimal presses
 
@@ -955,6 +971,9 @@ The descriptors "Popular" and "Unpopular" convey information about a person's po
 That participants may have been sensitive to variation along this dimension is speculative, but this is at least one influence that is not related to specific social motivations that could result in salience differences between descriptor pairs and so explain the behavior of participants on this task.
 Another possible dimension along which the stimuli vary may be the extent to which people believe that one can tell from facial characteristics whether someone is likely to match a descriptor.
 If participants believe that there is a signal in the facial characteristics for the two social conditions, but not the minimally social condition, they may pay more attention during those trials and learn faster.
+The stimuli also vary along a trait-state dimension, with Hungry/Thirsty descriptors indicating states that fluctuate on a daily basis, and the social-motive descriptors describing individual differences that fluctuate more slowly.
+If this affected participant expectations, we would expect to see a higher learning rate in the conditions where the descriptor is more state-like, reflecting an expectation that one should update their beliefs more readily in the face of conflicting information.
+Contrary to this pattern, we estimated higher learning rates (on average) in the social motive conditions.
 
 Fifth, although these analyses compare a suite of models that build on the basic updating rule proposed by @rescorla1972, there are other learning models that may be relevant. 
 For example, although the task was designed with prediction-error updating as the guiding principle, it might be possible to examine these data using instance based learning [@gonzalez2003a;@lejarraga2012], or a model that unifies the Rescorla-Wagner, temporal difference, and Bayesian Kalman filter approaches [@gershman2015]. 
