@@ -92,7 +92,7 @@ These outcomes are developmentally normative, and as such these analyses are not
 Of course, these behaviors are health-_relevant_ not just because having sex confers risk of sexually transmitted infection, or pregnancy, but also because successful navigation of romantic and sexual relationships is _developmentally healthy_ [@harden2014a].
 In short, sexual and romantic desire, and behavior, should correlate, as well as show developmentally expected increases during the transition from childhood to sexual maturity and adulthood.
 
-Questions about sexual behavior were derived from the the Sexual Experience Survey used by @smith2006, which was itself derived from questions administered by @mcapaldi2002. They ask about the number of recent sexual partners, and sexual encounters.
+Questions about sexual behavior were derived from the the Sexual Experience Survey used by @smith2006, which was itself derived from questions administered by @capaldi_heterosexual_2002. They ask about the number of recent sexual partners, and sexual encounters.
 Health-protecting sexual behavior is assessed by an item asking the participant to report on the frequency of a variety of safe sex practices.
 In these analyses, this is treated as a health-_risking_ behavior given that these behaviors are the primary means for adults and adolescents alike to ameliorate the risks of developmentally normative sexual behavior.
 
@@ -472,6 +472,8 @@ knitr::kable(uppsp_std_par_table,
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
+
+\pagebreak
 
 #### Puberty
 

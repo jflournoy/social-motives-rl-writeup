@@ -394,9 +394,9 @@ of this document.}
      in partial fulfillment of the requirements for the
     \@degree\ degree in the \@narrowdepartment\ by:\\*[\baselineskip]
     \begin{tabular}[t]{@{}p{2.25in} p{3.25in}}
-      \@chair & Chair\\
+      \@chair & Co-Chair\\
       \if@cochair
-        \@cochair& Co-chair\\
+        \@cochair& Co-Chair\\
       \fi
       \if@lackscommittee
         % If we don't have a committee, do nothing. Otherwise, render the committee. Rather, just enter a few blank lines.
@@ -424,16 +424,16 @@ of this document.}
 % Automatically give the author and year, without an extra linebreak beneath (as you would get from using '\ifbound\else\centerline{\copyright ~\thedegreeyear ~\@author}\fi'):
 \copyright ~\thedegreeyear ~\@author \\
 
-All rights reserved.
+% All rights reserved.
 
 %%%%%%%%%%%%%%%%%%%%%%
 % Below is an example for a Creative-Commons style license, if you want to use one (if you use this, delete "All rights reserved." above). It assumes that you've downloaded the logo for the license (you'll need to change '/path/to/logo/image.png' to match where the image is on your filesystem):
 % (You would uncomment both of the lines below, and choose whatever license you wanted (not just Attribution, but maybe a more restrictive license -- see https://creativecommons.org/choose/ for help choosing).
 %%%%%%%%%%%%%%%%%%%%%%
 
-%This work, including text and images of this document but not including supplemental files (for example, not including software code and data), is licensed under a Creative Commons\\ \textbf{\href{http://creativecommons.org/licenses/by/4.0/}{Attribution 4.0 International License}.}\\
+This work, including text and images of this document but not including supplemental files (for example, not including software code and data), is licensed under a Creative Commons\\ \textbf{\href{http://creativecommons.org/licenses/by/4.0/}{Attribution 4.0 International License}.}\\
 
-%\raisebox{-.5\height}{\includegraphics[height=2em]{/path/to/logo/image.png}}
+\raisebox{-.5\height}{\includegraphics[height=2em]{/home/jflournoy/code_new/social-motives-rl-writeup/aux/cc_by_4.0.png}}
 
 %%%%%%%%%%%%%%%%%%%%%%
 % End of example

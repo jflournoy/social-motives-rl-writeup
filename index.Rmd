@@ -1,6 +1,6 @@
 ---
 documentclass: uothesisapa
-classoption: dissertation, copyright
+classoption: dissertation, copyright, approved
 biblatex-load-options: "backend=biber,style=apa,useprefix=false,sorting=nyt"
 biblatex-print-options: "title=REFERENCES CITED,heading=bibintoc"
 title: "Adolescent Social Motive effects on Reinforcement Learning" #for pdf meta-data
@@ -38,7 +38,7 @@ dissertateUO::preamble_for_title(
   committee = 'Sanjay Srivastava    & Co-Chair \\\\
            Elliot Berkman    & Core Member \\\\
            Nicole Giuliani & Institutional Representative \\\\',
-  graddean = 'Sara Hodges',
+  graddean = 'Janet Woodruff-Borden',
   abstract_tex = 'abstract.tex',
   cv_tex = 'cv.tex',
   acknowledge_tex = 'acknowledgements.tex',

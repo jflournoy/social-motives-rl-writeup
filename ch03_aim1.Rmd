@@ -243,7 +243,7 @@ Second, in contrast to a confirmatory experiment, this analysis seeks to explore
 
 In the context of this task, where the relation between the optimal response and the stimulus is constant, a simple model of the degree of learning could rely on a simple proportion of optimal responses $P_{ok}$ for each condition $k$.
 The test of the hypothesis of the effect of framing would then be the difference between conditions in $P_o$. 
-This simple model may sacrifices some precision for simplicity, and so we will also use a reinforcement learning model with several parameters that can account for deviations from a strict Rescorla-Wagner (RW) process.
+This simple model may sacrifice some precision for simplicity, and so we will also use a reinforcement learning model with several parameters that can account for deviations from a strict Rescorla-Wagner (RW) process.
 This increases the number of possible comparisons we are able to make between conditions, which may generate useful information about how motive-domain framing affects the learning process (conditional on the model), but which also increases the complexity of patterns between conditions and parameters that must be interpreted.
 It will be helpful to keep in mind that the framing can only be said to potentiate learning if, regardless of its effect on any model parameters, it also results in higher proportions of optimal responding.
 
@@ -310,8 +310,8 @@ The bias parameter $b$ does not need any transformation.
 
 ## Simulating data
 
-Before modeling the task data, we will confirm that this model can recover known parameters from simulated data.
-Using RStan [version `r packageVersion('rstan')`; @standevelopmentteam2018], we simulate 100 data sets based on the structure of the sample data, using the same number of participants per sample, as well as precisely the same task structure. 
+Before modeling the task data, we confirmed that this model can recover known parameters from simulated data.
+Using RStan [version `r packageVersion('rstan')`; @standevelopmentteam2018], we simulated 100 data sets based on the structure of the sample data, using the same number of participants per sample, as well as precisely the same task structure. 
 For this analysis, it is important to be able to recover all $\mu_{\theta k}$ for $\theta \in \{\epsilon,\rho,b,\xi\}$ and $k \in \{1,2,3\}$, where 1 = Hungry/Thirsty, 2 = Popular/Unpopular, and 3 = Dating/Looking. 
 Based on interactive simulation [online at https://jflournoy.shinyapps.io/rw_model/; @flournoy2018], reasonable parameter values for the control condition might be $\mu_{\epsilon^\prime} = -1.65$ and $\mu_{\rho^\prime} = -0.3$ (note that these are the _raw_ parameter values, on the scale the priors are defined, and which are transformed before being used in the learning model).
 
@@ -335,7 +335,7 @@ Notably, the mass of the prior distributions is distributed across the full rang
 Ultimately, draws from the prior distributions transformed into predicted behavior based on the learning model described above generate a prior distribution over an agent's hypothetical final probability (at task-end) of choosing the word on the right-hand side of the screen.
 In a model that is well calibrated to this task, but that does not bias estimates, we should observe that these prior probabilities cover the full range, [0,1], for each of the six cues.
 These distributions cover the full range, with most mass around the null value of the final probability = .5 for choosing the left or right option (Figure \ref{fig:sampleprfinaldens}).
-If the data does not overwhelm the prior distribution, we can be assured that the prior is not biasing the estimate away from random responding.
+If the data does not overwhelm the prior distribution, we can be assured that the prior is not biasing the estimate away from what would be expected under the null that assumes participants do not learn, and respond randomly.
 
 ```{r sampleprfinaldens, fig.width=3.25, fig.height=2, include=F}
 sample_pR_final_dens
@@ -352,9 +352,9 @@ sample_pR_final_dens
 ## Recovery of population parameters
 
 After generating these simulated data sets and known parameter values, the model was then fit to these simulated data to evaluate its ability to recover the parameters. 
-The mode was fit using 6 chains with 1200 warm-up iterations and 334 sampling iterations per chain (for a total of 2004 samples). 
+The model was fit using 6 chains with 1200 warm-up iterations and 334 sampling iterations per chain (for a total of 2004 samples). 
 An example from one simulation of estimated posterior densities for the final probability of a participant choosing the right-hand label shows that nearly all posterior 95% credible intervals capture the underlying generating parameter (Figure \ref{fig:pRfinalplot}).
-This is also the behavior seen for individual parameters unless the simulated data come from a prior draw where the variation between individuals is extremely low, or a particular parameter (like the noise parameter, $\xi$) overwhelms the other parameters in leading to the simulated behavior.
+This was also the behavior seen for individual parameters unless the simulated data came from a prior draw where the variation between individuals was extremely low, or a particular parameter (like the noise parameter, $\xi$) overwhelmed the other parameters in leading to the simulated behavior.
 
 ```{r pRfinalplot, fig.width=5.875, fig.height=4, include=F}
 ggplot2::theme_set(ggplot2::theme_minimal())
@@ -371,10 +371,10 @@ do.call(gridExtra::grid.arrange, pR_final_plots)
 \label{fig:pRfinalplot}
 \end{figure}
 
-While the above example provides some reassurance that the model performs adequately on simulated data, it is important to evaluate that it can perform well across a number of data sets.
+While the above example provides some reassurance that the model performs adequately on simulated data, it is important to evaluate whether it can perform well across a number of simulated data sets.
 To examine the performance of all of the simulations, after the posteriors for each simulation estimate were sampled, the empirical cumulative density function was composed for the distribution of each parameter. 
 The cumulative density _at the generating value_ (from the simulation) was then found. 
-This procedure is the same as finding the _p_-value for a test statistic using the probability density function for the relevant distribution (e.g., the student _t_ or normal).
+This procedure is the same as finding the _p_-value for a test statistic using the probability density function for the relevant distribution (e.g., Student's _t_-distribution or the normal distribution).
 If the posterior is reasonable, then the generating parameter should be a random draw from that posterior, and if the posterior consistently tends toward excluding the generating value, we would expect the generating value to fall more often on one side or the other of the posterior. 
 As such, the distribution of the _p_-value of the generating parameters (in relation to the posteriors) should be uniform (for the same reason that _p_-values are expected to be uniform if the null hypothesis is true).
 This is indeed what we find both from a visual inspection of the deviation of the cumulative density of the posterior probabilities of generating values (Figure \ref{fig:densityplots}) and from Kolmogorov-Smirnov tests, which do not reject the null hypothesis that there are no differences between the observed _p_-values and the uniform distribution on [0,1]. 
@@ -396,13 +396,13 @@ gridExtra::grid.arrange(mu_unif_dens_plot, beta_unif_dens_plot, ncol = 2, widths
 ## Target model and estimation of sample parameters
 
 All models were fit in RStan [version `r packageVersion('rstan')`; @standevelopmentteam2018] using R [version `r paste(version$major,version$minor, sep = '.')`; @rcoreteam2018].
-Samples were drawn over 1534 iterations from six chains per model, with the first 1200 iterations for each chain discarded as a warm-up period (total iterations per model = 2004).
-To compare models and choose the one with the best expected out-of-sample prediction we used the R package, loo [@vehtari2018], to compute an estimate of the leave-one-individual-out cross validation information criterion [@vehtari2017a].
+Samples were drawn (per model) over 1534 iterations from six chains, with the first 1200 iterations for each chain discarded as a warm-up period (total iterations per model = 2004).
+To compare models and choose the one with the best expected out-of-sample prediction we used the R package loo [@vehtari2018] to compute an estimate of the leave-one-individual-out cross validation information criterion [@vehtari2017a].
 
 From the winning model, we then extracted model parameters, as well as the final probability of choosing the optimal descriptor for a particular cue.
 Means of the posterior densities for all parameters are used in subsequent analyses.
-In addition, we used the average number of optimal choices in the last half of the run as a more easily calculable measure of optimal performance.
-Associations between all model parameters, measures of performance, age, and pubertal development are computed using Spearman's rank order correlation and standardized coefficients from linear mixed effects models.
+In addition, we used the average number of optimal choices in the first and last half of the run as a more easily calculable measure of optimal performance.
+Associations between all model parameters, measures of performance, age, and pubertal development were computed using Spearman's rank order correlation and standardized coefficients from linear mixed effects models.
 Linear mixed effects (LME) models were computed using the R package lme4 [version `r packageVersion('lme4')`; @bates2015].
 These LME models were computed in order to aid descriptions of plotted data and best-fit generalized additive model (GAM) lines, and were used in place of correlations to account for non-independence of data when, for example, a parameter for all three conditions was regressed on age.
 All such models have the form $y_{ij} = \gamma_{00} + \gamma_{10}\text{x}_j + u_{0j} + e_{ij}$, where $y$ is a target outcome like the learning rate $\epsilon$, and $\text{x}$ is a predictor like age or score on the pubertal development scale.
@@ -435,7 +435,7 @@ grid_arrange_shared_legend <- function(..., ncol = 1, widths) {
 
 ## Descriptive data
 
-Examination of non-parametric trends in trial-by-trial average number of optimal presses indicates that learning occurs in each sample, and condition (Figure \ref{fig:trialaverages}A). 
+Examination of GAM trends in trial-by-trial average number of optimal presses indicates that learning occurs in each sample, and condition (Figure \ref{fig:trialaverages}A). 
 There is also an indication that learning occurs more quickly and optimal presses are generally more frequent in the two social-motive conditions relative to the minimally social condition (Figure \ref{fig:trialaverages}B).
 
 ```{r trialaverages, fig.width=5.875, fig.height=4, include=F}
