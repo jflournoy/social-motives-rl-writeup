@@ -405,7 +405,7 @@ of this document.}
         \@committee\\ \\ 
       \fi
       and & \\ \\
-      \@graddean &  Dean of the Graduate School
+      \@graddean &  Vice Provost and Dean of the Graduate School
     \end{tabular}\\*[\baselineskip]
     Original approval signatures are on file with the
     University of Oregon Graduate School.\\*[\baselineskip]
@@ -523,7 +523,7 @@ This work, including text and images of this document but not including suppleme
     \ifcommitteedraft
       \begin{flushleft}\@disclaimer \end{flushleft}
     \else
-      \begin{flushleft}\@dedication \end{flushleft}
+      \begin{center}\@dedication \end{center}
       \vfill
         \iflatedraft
           \begin{flushleft}
