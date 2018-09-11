@@ -26,13 +26,13 @@ knitr::opts_chunk$set(fig.path = 'figures/',
 #This is where you set all of the information that will be printed. The title
 #and the author in the YAML above is just for PDF metadata
 dissertateUO::preamble_for_title(
-  covertitle = 'Adolescent social motives: measurement and implications',
-  abstracttitle = 'Adolescent social motives: measurement and implications',
+  covertitle = 'Adolescent Social Motives: Measurement and Implications',
+  abstracttitle = 'Adolescent Social Motives: Measurement and Implications',
   author = 'John C. Flournoy',
   department = 'Department of Psychology',
   narrowdepartment = 'Department of Psychology',
   degreetype = 'Doctor of Philosophy',
-  degreemonth = 'August',
+  degreemonth = 'September',
   degreeyear = '2018',
   chair = 'Jennifer Pfeifer',
   committee = 'Sanjay Srivastava    & Co-Chair \\\\
