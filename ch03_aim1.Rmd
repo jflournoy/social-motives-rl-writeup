@@ -266,7 +266,7 @@ In the SPLT, trial feedback does not vary by valence (responses result in reward
 
 The pattern ofmodel for an individual $j$'s decision to press right ($a_{\probability of pressing the right arrow} = 1$) versus left ($a_{\rightarrow} = 0$) is distributed Bernoulli with $a_{\rightarrow j}\sim\text{Bernoulli}(\theta_j)$. 
 Each individual's vector of $\theta$ is just the probability of pressing the right arrow key, $P(a_{\rightarrow t} | s_{t})_{t}$, for each trial $t$, conditional on whatever stimulus $s$ is present on that trial. 
-This probability is calculated using key on trial $t$ given that stimulus $s_{t}$ is presented, $P(a_{\rightarrow t} | s_{t})_{t}$, is determined by a logistic transformation of the action weight for pressing the right arrow key minus the action weight for pressing the left arrow key. 
+This probability is calculated usingprobability of pressing the right arrow key on trial $t$ given that stimulus $s_{t}$ is presented, $P(a_{\rightarrow t} | s_{t})_{t}$, is determined by a logistic transformation of the action weight for pressing the right arrow key minus the action weight for pressing the left arrow key. 
 This probability is then adjusted by a noise parameter, $0 \leq\xi_{jk}\leq 1$, for each participant $j$ during condition $k$.
 The noise parameter modulates the degree to which responses are randomnon-systematic. 
 When $\xi =$ is 1$, $P_{it} = .5$, and because each individual has a unique noise parameter for each condition, this allows the modelI am able to  account for participants who do not learn during anythe task, or in a particular condition.
@@ -613,7 +613,85 @@ confidence_parameter_plot +
 \label{fig:confidencevparameters}
 \end{figure}
 
-## Population-level parametersased on simulation where, for any given value of $\rho$ in this range, there is a sweet-spot for $\epsilon$. 
+## Population-level parametersfor the generating value (from the simulation) was then found. 
+This procedure is the same as finding the _p_-value for a test statistic using the probability density function for the relevant distribution.
+If the posterior is a reasonable estimate of the generating parameter, then the generating parameter should be a random draw from that posterior. 
+As such, the distribution of the _p_-value of the generating parameters (in relation to the posteriors) should be uniform. 
+
+PLOTS SHOWING UNIFORM DISTRIBUTION HERE
+
+## Target model and estimation of sample parameters
+
+All models were fit in RStan [version `r packageVersion('rstan')`; @standevelopmentteam2018] using R [version `r paste(version$major,version$minor, sep = '.')`; @rcoreteam2018].
+Samples were drawn over 1534 iterations from six chains per model, with the first 1200 iterations for each chain discarded as a warm-up period (total iterations per model = 2004).
+To compare models and choose the one with the best expected out-of-sample prediction we use the R package, loo [@vehtari2018], to compute an estimate of the leave-one-individual-out cross validation information criterion [@vehtari2017a].
+
+From the winning model, I then extract model parameters, as well as the final probability of choosing the optimal descriptor for a particular cue.
+In addition, I use the average number of optimal choices in the last half of the run as a more easily calculable measure of optimal performance.
+Associations between all model parameters, measures of performance, age, and pubertal development are computed using linear regression and Spearman's rank order correlations.
+
+# Results
+
+```{r}
+rm(list = ls())
+load('rda/fit-model-to-participant-data.rda')
+```
+
+```{r}
+grid_arrange_shared_legend <- function(..., ncol = 1, widths) {
+  plots <- list(...)
+  g <- ggplot2::ggplotGrob(plots[[1]] + 
+                             ggplot2::theme(legend.position="bottom")+
+                             ggplot2::guides(linetype = ggplot2::guide_legend(override.aes=list(fill=NA)),
+                                             shape = ggplot2::guide_legend(override.aes=list(alpha=.5))))$grobs
+  legend <- g[[which(sapply(g, function(x) x$name) == "guide-box")]]
+  lheight <- sum(legend$height)
+  gridExtra::grid.arrange(
+    do.call(gridExtra::arrangeGrob, c(lapply(plots, function(x)
+      x + ggplot2::theme(legend.position="none")), list(ncol = ncol, widths = widths))),
+    legend,
+    nrow = 2,
+    heights = grid::unit.c(ggplot2::unit(1, "npc") - lheight, lheight))
+}
+```
+
+## Descriptive data
+
+- Describe behavior across the run in each condition based on non-parameteric plots based on trial-by-trial means
+
+```{r trialaverages, fig.width=5.875, fig.height=4, include=F}
+ggplot2::theme_set(ggplot2::theme_minimal())
+avg_per_sample_plot2 <- avg_per_sample_plot + 
+  ggplot2::facet_wrap(~sample, nrow = 2, 
+                      labeller = ggplot2::label_wrap_gen(width = 20))
+
+grid_arrange_shared_legend(avg_per_sample_plot2, avg_across_samples, ncol = 2, widths = c(1.3,1))
+```
+
+\begin{figure}
+\centering
+\captionsetup{width=5.875in}
+\includegraphics{figures/trialaverages-1.pdf}
+\caption[Average optimal behaviour over trial]{Average optimal behaviour over trial. Each point is the average across participants for that trial for the indicated condition. Best fit lines and confidence bands are estimated using generalized additive models and are for illustrative purposes only.}
+\label{fig:trialaverages}
+\end{figure}
+
+- Define mean final probability of making optimal press, $P_{O}$, as the mean probability of optimal press from the last half of the run.
+- This is correlated at _r_ = .96 with a simple logistic regression model and _r_ = ?? with reward learning model.
+
+## Model estimated parameters
+
+### Model comparisons
+
+- Label of information criteria, plot of $\epsilon$ and $\xi$ parameter correlations across models.
+- LOO-CV estimates show that there is very little or no improvement gained by adding a level to the hierarchy accounting for differences due to sample.
+- Best fitting model uses all four parameters, the learning rate, $\epsilon$, the inverse temperature, $\rho$, irreducible noise, $\xi$, and bias for the right side, $b$.
+
+### Validation of parameters
+
+- Comparison to observed optimal presses $P_{O}$
+  - Figure \ref{fig:parametersvbehavior}
+  - The relations illustrated in this figure demonstrate that the models relation to the observed behavior is in line with expected relations based on simulation where, for any given value of $\rho$ in this range, there is a sweet-spot for $\epsilon$. 
   - This is due to learning that is too slow (low $\epsilon$, across all $\rho$), over-weighting early, but "wrong" evidence (high $\rho$, lower $\epsilon$), or over-weighting contradictory evidence at any point in the trial (high $\epsilon$, across all $\rho$).
   - The high noise parameter accounts for the behavior of participants who learn less during the task than would be expected by their learning rate parameters alone.
   
@@ -1378,6 +1456,6 @@ If this is the case, it would be somewhat inconsistent with the hypothesis that 
 eyJoaXN0b3J5IjpbLTIxNDM3NDY2NDldfQ==
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODcwMTIxNjQ1LDQzMjU3NzAyMCwxOTc5OD
-IzMDUxLDQzMjU3NzAyMF19
+eyJoaXN0b3J5IjpbLTIwOTg1MTE3NTIsODcwMTIxNjQ1LDQzMj
+U3NzAyMCwxOTc5ODIzMDUxLDQzMjU3NzAyMF19
 -->
